@@ -1,0 +1,177 @@
+@charset "utf-8";
+/* CSS 초기화 */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&display=swap'); */
+
+@font-face {
+    font-family: 'NotoSansKR';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Regular.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Regular.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Regular.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Regular.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'NotoSansKR';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'NotoSansKR';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Bold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Bold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Bold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Bold.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'NotoSansKR';
+    font-weight: 900;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Black.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Black.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Black.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Black.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Black.ttf') format("truetype");
+    font-display: swap;
+} 
+
+body *{
+    font-family: 'NotoSansKR';
+}
+
+input{
+    outline:none;
+}
+
+ /* IE의 경우 */
+ input::-ms-clear,
+ input::-ms-reveal{
+     display:none;
+ }
+ /* 크롬의 경우 */
+ input::-webkit-search-decoration,
+ input::-webkit-search-cancel-button,
+ input::-webkit-search-results-button,
+ input::-webkit-search-results-decoration{
+     display:none;
+ }
+ input[type=text], select, textarea, button{
+    appearance: none;
+    border-radius:0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+  }
+input, select, textarea, button, a, label, li {
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+/* select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+} */
+select:focus{
+    outline: none;
+}
+ /* select::-ms-expand{
+    display:none;
+ } */
+
+/* ------------------------------------------------------------------------ */
+
+html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn,em, img, ins, kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+ol, ul, li{
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+address{font-style:normal;}

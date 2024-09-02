@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>HANGUM_NOTICE</title>
+  <!-- css 초기화 -->
+  <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="/js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="/js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="/js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    a{
+      -webkit-tap-highlight-color: #E9EDF8;
+    }
+    #notice_con{
+      width:100%;
+      max-width: 640px;
+      margin:0px auto;
+    }
+    #notice_con > h2{
+      display:none;
+    }
+    #notice_con article{
+      width:100%;
+    }
+    .n-top_box{
+      padding:31px 20px 19px 20px;
+      box-sizing: border-box;
+    }
+    .n-top_box > h3{
+      display:block;
+      font-size:1rem;
+      font-family: 'S-CoreDream-6Bold';
+      margin-bottom:10px;
+      letter-spacing: -0.04em;
+    }
+    .n-top_box > p{
+      font-size:0.750rem;
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      display: flex;
+      justify-content: space-between;
+    }
+    .n-top_box .blue_txt{
+      color:#276CF1;
+    }
+    .n-top_box > p > a{
+      display:block;
+      color:#276CF1;
+      letter-spacing: -0.01em;
+      font-size:0.688rem;
+      border:1px solid #276CF1;
+      box-shadow: 0px 4px 8px rgba(188, 197, 229, 0.15);
+      border-radius: 4px;
+      line-height:25px;
+      padding:0px 12px;
+      transform: translateY(-0.54rem);
+    }
+    .notice_box{
+      background: #FFFFFF;
+      box-shadow: 0px -4px 14px rgba(169, 180, 221, 0.2);
+      border-radius: 30px;
+      padding:20px 33px 26px 20px;
+      box-sizing: border-box;
+      font-family: 'S-CoreDream-6Bold';
+    }
+    .notice > li{
+      border-bottom:1px solid  #EAF0F8;
+    }
+    .notice > li > a:active{
+      background-color:#F8F9FC;
+    }
+    .notice > li > a{
+      display:block;
+      height:66px;
+      padding:21px 0px 21px 55px;
+      box-sizing: border-box;
+    }
+    .notice > li > a > span{
+      letter-spacing: -0.04em;
+    }
+    .notice > li > a > span:first-child{
+      display:block;
+      font-size:0.813rem;
+      letter-spacing: -0.04em;
+      color: #505873;
+      position:relative;
+      font-family: 'S-CoreDream-6Bold';
+    }
+    .notice > li > a > span:nth-child(2){
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size:0.688rem;
+      line-height:24px;
+    }
+    .notice > li > a > span:last-child{
+      float: right;
+      padding-right:10px;
+      transform:translateY(-2px);
+    }
+    .notice > li > a > span:first-child::after{
+      content:"공지";
+      display:inline-block;
+      font-size:0.688rem;
+      width:2.7rem;
+      height:17px;
+      background-color: #C6DDFF;
+      text-align: center;
+      line-height:20px;
+      border-radius: 22px;
+      color:#5070E9;
+      position:absolute;
+      left:-50px;
+      top:-3px;
+      font-family: 'S-CoreDream-6Bold';
+    }
+
+    .notice > li > a > span:last-of-type > i.fa-angle-right{
+      display:block;
+      width:1.5rem;
+      height:24px;
+      line-height:24px;
+      border:1px solid #D2E6FF;
+      box-shadow: 0px 4px 4px rgba(169, 180, 221, 0.15);
+      border-radius: 50%;
+      text-align: center;
+      color:#8C9FC5;
+      transform:translateY(-0.688rem);
+    }
+    .pagenation_btn{
+      display:flex;
+      justify-content: center;
+      margin-top:32px;
+      line-height: 22px;
+    }
+    .pagenation_btn > li{
+      margin:0px 5px;
+    }
+    .pagenation_btn > li:nth-child(2) a{
+      display:block;
+      border: 1px solid #D4DFEE;
+      box-sizing: border-box;
+      border-radius: 4px;
+      width:22px;
+      height:22px;
+      text-align: center;
+      color:#276CF1;
+      font-family: 'S-CoreDream-6Bold';
+    }
+    .pagenation_btn > li > a{
+      display:block;
+      font-size: 0.688em;
+      letter-spacing: -0.06em;
+      color: #929BBB;
+    }
+    .pagenation_btn > li > a > i.fas{
+      margin:0px 4px;
+      color:#929BBB;
+    }
+    .banner_box{
+      width:100%;
+      background-color: #E9F2FF;
+      text-align: center;
+    }
+    .banner_box > a{
+      display:block;
+      line-height:69px;
+      box-sizing: border-box;
+      
+    }
+    .banner_box > a > span{
+      letter-spacing: -0.04em;
+      font-family: 'S-CoreDream-6Bold';
+    }
+    .banner_box > a > span:first-child{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.938rem;
+    }
+    .banner_box > a > span:last-child{
+      background: #FFFFFF;
+      border: 1px solid #ABCFFF;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(169, 180, 221, 0.15);
+      border-radius: 22px;
+      letter-spacing: -0.04em;
+      color: #276CF1;
+      font-size:0.813rem;
+      padding:7px 10px;
+      margin-left:12px;
+    }
+    .banner_box > a > span:last-child img{
+      width:15px;
+      height:15px;
+      transform: rotate(8.68deg) translateY(3px);
+    }
+
+    footer{
+      margin:0px auto !important;
+    }
+    .top_nav{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section id="notice_con">
+      <h2>공지사항 페이지</h2>
+      <article class="n-top_box">
+        <h3>공지사항</h3>
+        <p>
+          <span>총 <span class="blue_txt">6건</span>의 공지사항이 있습니다.</span> 
+          <a href="procedure.html" title="학습지원센터">학습지원센터 <i class="fas fa-angle-right"></i></a>
+        </p>
+      </article>
+      <article class="notice_box">
+
+        <ul class="notice">
+
+          <li>
+            <a href="" title="수강방법및유의사항" android:stateListAnimator="@null">
+              <span>수강 방법 및 유의사항 -필독-</span>
+              <span>2018.12.05</span>
+              <span><i class="fas fa-angle-right"></i></span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="#" title="최우수 교육브랜드 대상 수상!">
+              <span>최우수 교육브랜드 대상 수상!</span>
+              <span>2018.12.05</span>
+              <span><i class="fas fa-angle-right"></i></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" title="교육재능기부 무료수강 이벤트">
+              <span>교육재능기부 무료수강 이벤트</span>
+              <span>2018.12.05</span>
+              <span><i class="fas fa-angle-right"></i></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" title="자격증별 활용 유형 및 기관">
+              <span>자격증별 활용 유형 및 기관</span>
+              <span>2018.12.05</span>
+              <span><i class="fas fa-angle-right"></i></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" title="자주묻는 질문들 FAQ">
+              <span>자주묻는 질문들 FAQ</span>
+              <span>2018.12.05</span>
+              <span><i class="fas fa-angle-right"></i></span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" title="본 교육원 전문협회 등록번호">
+              <span>본 교육원 전문협회 등록번호</span>
+              <span>2018.12.05</span>
+              <span><i class="fas fa-angle-right"></i></span>
+            </a>
+          </li>
+
+        </ul>
+
+        <ul class="pagenation_btn">
+          <li><a href="#" title="이전"><i class="fas fa-angle-left"></i>이전 </a></li>
+          <li><a href="#" title="1">1</a></li>
+          <li><a href="#" title="이전"> 다음<i class="fas fa-angle-right"></i></a></li>
+        </ul>
+      </article>
+      <article class="banner_box">
+        <a href="tel:1670-6237" title="전화걸기">
+          <span>학습지원 및 기술지원</span>
+          <span><img src="./img/phone.png" alt="전화기">1670-6237</span>
+        </a>
+      </article>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <? include "f_common.php" ?>
+</body>
+</html>

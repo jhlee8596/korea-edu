@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시험보기</title>
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    form{
+      padding: 0;
+      margin: 0;
+    }
+    .exam_wrap{
+      width:100%;
+      padding-top:81px;
+      background-color: #F7F7F7;
+    }
+    header{
+      width:100%;
+      height: 79px;
+      padding:32px 21px 16px 27px;
+      background-color:#F8FAFC;
+      border-bottom: 1px solid #E6ECF1;
+      box-sizing: border-box;
+      position: fixed;
+      left:0px;
+      top:0px;
+      z-index: 9999;
+    }
+    header > .h_inner{
+      width:100%;
+    }
+    header > .h_inner > ul{
+      display:flex;
+      justify-content: space-between;
+    }
+    header > .h_inner > ul > li{
+      display:flex;
+    }
+    header > .h_inner > ul > li > img{
+      width:32px;
+      height: 32px;
+    }
+    header > .h_inner > ul > li > .h_txt-box{
+      margin-left:5px;
+      line-height: 16px;
+    }
+    header > .h_inner > ul > li > .h_txt-box > strong{
+      display:block;
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-weight: bold;
+      font-size:16px;
+    }
+    header > .h_inner > ul > li > .h_txt-box > span{
+      display:block;
+      letter-spacing: -0.04em;
+      color: #888888;
+      font-size:0.750rem;
+      font-weight: normal;
+    }
+    .exam_name{
+      position: relative;
+      padding-right: 4px;
+    }
+    .exam_date{
+      padding-left: 4px;
+    }
+    .exam_name::after{
+      content: "";
+      width: 1px;
+      height: 8px;
+      display: inline-block;
+      background-color: #E6ECF1;
+      position: absolute;
+      right: 0px;
+      top: 51%;
+      transform: translateY(-50%);
+    }
+    header > .h_inner > ul > li > .test_time{
+      background: #EDEFF3;
+      border-radius: 19.2px;
+      width:71px;
+      height: 26px;
+      box-sizing: border-box;
+      line-height: 22px;
+      text-align: center;
+    }
+    header > .h_inner > ul > li > .test_time > img{
+      width: 14px;
+      height: 14px;
+      transform: translateY(2px);
+    }
+    header > .h_inner > ul > li > .test_time > span{
+      letter-spacing: -0.03em;
+      color: #555555;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .questions_wrap > .questions{
+      display: block;
+      /* padding: 46px 20px 34px 20px; */
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #DDDDDD;
+    }
+    .questions_wrap > .questions > h3{
+      padding:43px 12px 29px 20px;
+      display:flex;
+    }
+    .questions_wrap > .questions > h3 > span{
+      display:inline-block;
+      font-size: 4vw;
+      line-height: normal;
+    }
+    .questions_wrap > .questions > h3 > span:first-of-type{
+      display:inline-block;
+      width:23px;
+      letter-spacing: -0.06em;
+      color: #666666;
+      font-weight: normal;
+    }
+    .questions_wrap > .questions > h3 > span:last-of-type{
+      letter-spacing: -0.03em;
+      color: #333333;
+      font-weight: bold;
+      width:100%;
+    }
+    .img_box{
+      width:100%;
+      padding:0px 20px 10px;
+      box-sizing: border-box;
+    }
+    .img_box > li > img{
+      width:100%;
+    }
+    .questions_wrap > .questions > .q_select{
+      padding:0px 20px 43px 20px;
+    }
+    .questions_wrap > .questions > .q_select > li{
+      margin-bottom:2px;
+    }
+    .questions_wrap > .questions > .q_select > li > input[type="radio"]{
+      display:none;
+    }
+    .questions_wrap > .questions > .q_select > li > label{
+      line-height: 24px;
+      font-size:3.5vw;
+      color:#555;
+      width:93%;
+      display:block;
+      word-break:break-all;
+      position: relative;
+      transform: translateX(25px);
+    }
+    .questions_wrap > .questions > .q_select > li > label::before{
+      content: '';
+      background: #f4f4f4;
+      border-radius: 100%;
+      border: 1px solid #b4b4b4;
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      position: absolute;
+      left:-25px;
+      top: 5px;
+      -webkit-transition: all 250ms ease;
+      transition: all 250ms ease;
+    }
+    .q_select > li > input[type="radio"]:checked + label::before{
+      background-color: #2196f3;
+      box-shadow: inset 0 0 0 4px #f4f4f4;
+    }
+    .q_select > li > input[type="radio"]:checked + label{
+      color:#4F8EF7;
+    }
+
+    .clear_wrap{
+      background-color: #fff;
+      padding:28px 0px 40px;
+    }
+    .clear_wrap > p{
+      letter-spacing: -0.04em;
+      font-size:0.813rem;
+      line-height: 21px;
+      text-align: center;
+      padding-bottom:24px;
+    }
+    .clear_wrap > p > span{
+      display:block;
+      font-weight: normal;
+    }
+    .clear_wrap > p > strong{
+      display:block;
+    }
+    .clear_wrap > a{
+      display:block;
+      width:calc(100% - 40px);
+      text-align: center;
+      line-height: 55px;
+      margin:0px auto;
+      background: #4F8EF7;
+      border-radius: 4.26667px;
+      color:#fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    
+  </script>
+</head>
+<body>
+  <form name="frmTest" id="frmTest" method="post" action="exam_marking.php">
+    <div class="exam_wrap">
+      <header>
+        <h1 class="h_inner">
+          <ul>
+            <li>
+              <img src="./img/logo_small.png" alt="로고">
+              <div class="h_txt-box">
+                <strong>퍼스널컬러컨설턴트 1급</strong>
+                <span><span class="exam_name">임길순</span><span class="exam_date">2022-08-16</span></span>
+              </div>
+            </li>
+            <li>
+              <div class="test_time">
+                <img src="./img/Clock.svg" alt="시험시간">
+                <span>59:55</span>
+              </div>
+            </li>
+          </ul>
+        </h1>
+      </header>
+
+      <main>
+        <section class="questions_wrap">
+          <article class="questions">
+            <h3>
+              <span>01.</span>
+              <span>다음 중 공연예술 치료자의 행동으로 옳지 않은 것은?</span>
+            </h3>
+            <ul class="q_select">
+
+              <li>
+                <input type="radio" id="1" name="select1">
+                <label for="1" class="q_txt">
+                  표현력 증가
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="2" name="select1">
+                <label for="2" class="q_txt">
+                  정서표현 및 사회성
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="3" name="select1">
+                <label for="3" class="q_txt">
+                  사회 심리 행동
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="4" name="select1">
+                <label for="4" class="q_txt">
+                  비행 청소년의 자아
+                </label>
+              </li>
+            </ul>
+          </article>
+
+          <article class="questions">
+            <h3>
+              <span>02.</span>
+              <span>다음 중 연극치료의 접근 방식의 구분법이 아닌 것은?</span>
+            </h3>
+            <ul class="q_select">
+
+              <li>
+                <input type="radio" id="5" name="select2">
+                <label for="5" class="q_txt">
+                  개별학적 관점
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="6" name="select2">
+                <label for="6" class="q_txt">
+                  정신역동적인 전통
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="7" name="select2">
+                <label for="7" class="q_txt">
+                  접근법과 절충
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="8" name="select2">
+                <label for="8" class="q_txt">
+                  임상적 맥락
+                </label>
+              </li>
+            </ul>
+          </article>
+
+          <article class="questions">
+            <h3>
+              <span>03.</span>
+              <span>다음 중 연극치료의 투사연기적 접근방법이 아닌 것은?</span>
+            </h3>
+            <ul class="q_select">
+
+              <li>
+                <input type="radio" id="9" name="select3">
+                <label for="9" class="q_txt">
+                  내담자의 사실적 재연이 필요하다.
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="10" name="select3">
+                <label for="10" class="q_txt">
+                  내담자의 갈등요소를 창조적으로 풀어낸다.
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="11" name="select3">
+                <label for="11" class="q_txt">
+                  내담자의 속마음 말하기를 통해 외상적 치료로 접근한다.
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="12" name="select3">
+                <label for="12" class="q_txt">
+                  내담자의 연기적 접근을 통해 움직임과 대사를 반복한다.
+                </label>
+              </li>
+            </ul>
+          </article>
+
+          <article class="questions">
+            <h3>
+              <span>04.</span>
+              <span>다음 중 게슈탈트(Gestalt)의 상담기법이 아닌 것은?</span>
+            </h3>
+            <ul class="q_select">
+
+              <li>
+                <input type="radio" id="13" name="select4">
+                <label for="13" class="q_txt">
+                  환경자각
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="14" name="select4">
+                <label for="14" class="q_txt">
+                  언어자각
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="15" name="select4">
+                <label for="15" class="q_txt">
+                  과장하기
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="16" name="select4">
+                <label for="16" class="q_txt">
+                  경계적 방어
+                </label>
+              </li>
+            </ul>
+          </article>
+
+          <article class="questions">
+            <h3>
+              <span>05.</span>
+              <span>다음 중 게슈탈트(Gestalt)의 심리학 원리 중에 하나로 사진과 같은 &#x003C;이것&#x003E;의 원리는 무엇인가?</span>
+            </h3>
+            <ul class="img_box">
+              <li>
+                <img src="./img/exam01.jpg" alt="시험문제사진">
+              </li>
+            </ul>
+            <ul class="q_select">
+
+              <li>
+                <input type="radio" id="17" name="select5">
+                <label for="17" class="q_txt">
+                  표현력 증가
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="18" name="select5">
+                <label for="18" class="q_txt">
+                  정서표현 및 사회성
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="19" name="select5">
+                <label for="19" class="q_txt">
+                  사회 심리 행동
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="20" name="select5">
+                <label for="20" class="q_txt">
+                  비행 청소년의 자아
+                </label>
+              </li>
+            </ul>
+          </article>
+
+          <article class="questions">
+            <h3>
+              <span>05.</span>
+              <span>다음 중 게슈탈트(Gestalt)의 심리법 중 주요개념으로 옳지 않은 것은?</span>
+            </h3>
+            <ul class="q_select">
+
+              <li>
+                <input type="radio" id="21" name="select6">
+                <label for="21" class="q_txt">
+                  환경접촉을 통해 게슈탈트(Gestalt)를 완성하지 못하면 문제가 된다.
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="22" name="select6">
+                <label for="22" class="q_txt">
+                  미래와 현재를 즉시적인 상황에서 자각하는 학습을 강조한다.
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="23" name="select6">
+                <label for="23" class="q_txt">
+                  밀접한 관계에 있는 두 사람이 발생하는 지나친 의존관계를 접촉 경계 장애 중에서 융합해 해당된다.
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" id="24" name="select6">
+                <label for="24" class="q_txt">
+                  주요개념 중 자각과 책임은 경험하고 행동하는 것에 책임을 지도록 강조한다.
+                </label>
+              </li>
+            </ul>
+          </article>
+
+          <article class="clear_wrap">
+            <p>
+              <span>답안 제출을 누르시면 시험이 종료됩니다.</span>
+              <strong>수고 많으셨습니다.</strong>
+            </p>
+            
+            <a href="#" title="답안 제출" id="submission_btn" onclick="submission()">답안 제출</a>
+          </article>
+        </section>
+      </main>
+    </div>
+    <aside>
+      <div class="pass_modal">
+        
+      </div>
+    </aside>
+  </form>
+
+  <script>
+
+    function submission() {
+
+      var result = confirm("시험을 제출 하시겠습니까?");
+
+      if(result == true) {
+        document.location.href="exam_pass.html"
+      }else {
+        alert("답안 제출이 취소되었습니다.");
+      }
+    }
+  </script>
+</body>
+</html>

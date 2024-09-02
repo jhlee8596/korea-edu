@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- css 초기화 -->
+  <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="/js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="/js/jquery-ui.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <main>
+    <nav class="top_nav">
+      <ul class="m_lnb">
+        <li>
+          <a href="./index.html" title="홈">홈</a>
+        </li>
+        <li>
+          <a href="./join.html" title="회원가입">회원가입</a>
+        </li>
+        <li>
+          <a href="./enrolment.html" title="수강신청">수강신청</a>
+        </li>
+        <li>
+          <a href="./certificate3.html" title="발급신청">발급신청</a>
+        </li>
+        <li>
+          <a href="./review/review_m.html" title="합격후기" class="color_on">합격후기</a>
+        </li>
+        <li>
+          <a href="./procedure.html" title="고객센터">고객센터</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="review_wrap">
+      <article class="review_top">
+        <h2>합격자를 위한 프리패스 이벤트</h2>
+        <ul class="review_banner">
+          <li>
+            <span>한검평을 이용하는 누구나!</span>
+            <strong>합격후기 작성시</strong>
+            <strong>프리패스 1년 이용권</strong>
+          </li>
+          <li>
+            <!-- <img src="./img/" alt=""> -->
+            <div class="none">img</div>
+          </li>
+        </ul>
+      </article>
+
+      <h2>합격 후기 <span>(4632)</span></h2>
+
+      <ul class="tab">
+        <li class="on" data-tab="menu1"><a href="#" onclick="return false;">BEST</a></li>
+        <li data-tab="menu2"><a href="#" onclick="return false;">최신순</a></li>
+        <li data-tab="menu3"><a href="#" onclick="return false;">오래된순</a></li>
+      </ul>
+
+      <article id="menu1" class="tabcont on">
+        <div class="review">
+          <ul class="user_info">
+            <li>
+              <img src="./img/img_profile_02.png" alt="profile">
+            </li>
+            <li>
+              <strong></strong>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

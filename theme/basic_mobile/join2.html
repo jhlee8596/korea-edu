@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>HANGUM_JOIN2</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+  
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/41aee1aaae.js" crossorigin="anonymous"></script>
+  
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    article{
+      width:100%;
+      max-width: 640px;
+      margin:0px auto;
+      border-top:1px solid #ECECEC !important;
+    }
+    article > h3{
+      display:none;
+    }
+    article fieldset{
+      padding:31px 39px;
+      box-sizing: border-box;
+    }
+    article legend{
+      font-size: 16px;
+      line-height: 19px;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.04em;
+      color: #000000;
+      position:relative;
+      width:100%;
+      top:31px;
+      font-weight: bolder;
+    }
+    article legend > span{
+      position:absolute;
+      right:0px;
+      color:#A4ABC0;
+      font-size:0.813rem;
+      font-weight:400;
+    }
+    .add_box{
+      margin:78px 0px;
+    }
+    #postcode_btn, #sample6_extraAddress{
+      display:none;
+    }
+    .add_box label{
+      display:none;
+    }
+
+    /* text, date 공통 서식 */
+    input[type=text]{
+      width:99%;
+      height:54px;
+      box-sizing: border-box;
+      border:none;
+      border-bottom:1px solid #D4DFEE;
+      height:35px;
+      font-size:0.813rem;
+      border-radius: 0%;
+      margin-bottom:36px;
+    }
+    input[type=text]::placeholder{
+      color:#A4ABC0;
+    }
+    input[type=text]:focus{
+      outline:none;
+      border-bottom:2px solid #333;
+    }
+    input[type=text]:focus::placeholder{
+      opacity: 0;
+    }
+
+    /* 동의 서식 */
+    .ch_box{
+      position: relative;
+    }
+    .ch_box input[type="checkbox"]{
+      width:1px; 
+      height:1px; 
+      padding:0; 
+      border:0 none; 
+      margin:0; 
+      position:absolute; 
+      left:0; 
+      top:0; 
+      overflow:hidden;
+      clip:rect(0 0 0 0);
+    }
+    .ch_box label{
+      text-indent: 10px;
+      height:37px; 
+      line-height:37px; 
+      padding-left:26px; 
+      display:inline-block;
+      background-size:22px;
+      cursor:pointer;
+    }
+
+
+
+
+    .round {
+      position: relative;
+      right: 18px;
+      top: -22px;
+      width: 6px;
+      height: 10px;
+      border-right: 2px solid #a0d5ee;
+      border-bottom: 2px solid #a0d5ee;
+      -webkit-transform: rotate(45deg) scale(0);
+          -ms-transform: rotate(45deg) scale(0);
+              transform: rotate(45deg) scale(0);
+      opacity: 0;
+    }
+
+    .round:before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      bottom: -2px;
+      border: 1px solid #a0d5ee;;
+      border-radius: 50%;
+    }
+
+    .round:after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: -1px;
+      border: 1px solid #a0d5ee;;
+      border-radius: 50%;
+    }
+
+    input[type="checkbox"]:checked + label .round {
+      opacity: 1;
+      -webkit-transform: rotate(45deg) scale(1);
+          -ms-transform: rotate(45deg) scale(1);
+              transform: rotate(45deg) scale(1);
+    }
+    .checks input[type="checkbox"]:checked + .label::after{
+      position:absolute;
+      content: "";
+      width:21px;
+      height:21px;
+      left: 0.625rem;
+      top: 9px;
+      border: 1px solid #a0d5ee;
+      border-radius : 3px;
+      opacity:1;
+    }
+    .checks input[type="checkbox"] ~ label:before {
+      content: ' ';
+      display: inline-block;
+      width: 21px; 
+      height: 21px; 
+      line-height: 21px; 
+      margin: -2px 8px 0 0;
+      text-align: center; 
+      vertical-align: middle;
+      border: 1px solid #cacece;
+      border-radius : 3px;
+    }
+
+    .checks input[type="checkbox"] ~ label:before {
+      position: absolute;
+      left: 0.625rem;
+      top: 0.438rem;
+      margin-top: 0;
+      opacity: .6;
+      box-shadow: none;
+      border-color: #6cc0e5;
+    }
+
+    .checks input[type="checkbox"]:checked ~ .round::after{
+      position:absolute;
+      content: "";
+      width:21px;
+      height:21px;
+      left: 0.625rem;
+      top: 9px;
+      border: 1px solid #a0d5ee;
+      border-radius : 3px;
+      opacity:1;
+    }
+
+
+    .agree label{
+      display:inline-block;
+      width:90%;
+    }
+    .agree > div{
+      width:100%;
+      height:37px;
+      line-height:37px;
+      padding-left:9px;
+      box-sizing:border-box;
+      color: #6F7792;
+      font-size:0.750rem;
+      position:relative;
+    }
+    .box_color{
+      background-color:#EFF4FB;
+    }
+
+    /* 아이콘 폰트 서식 */
+    .agree label > a > span{
+      display:none;
+    }
+    .agree label > a > i.fas{
+      font-size:16px;
+      color:#A4ABC0;
+      position:absolute;
+      right:10px;
+      top:50%;
+      transform:translateY(-50%);
+    }
+    input[type=submit]{
+      width:100%;
+      margin-top:97px;
+    }
+    .bg_btn{
+      margin-top:40px;
+    }
+    .bg_btn > a{
+      display: block;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <main>
+    <article>
+      <h3>회원가입 페이지 2/2</h3>
+      <form name="" method="" action="">
+        <fieldset>
+          <legend>배송지 입력 <span>2/2</span></legend>
+  
+          <div class="add_box">
+            <input type="text" onclick="sample6_execDaumPostcode()" id="sample6_postcode" placeholder="우편번호">
+            <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="postcode_btn"><br>
+            <input type="text" id="sample6_address" placeholder="주소"><br>
+            <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+            <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+          </div>
+  
+          <div class="agree etrans checks">
+            <div class="ch_box box_color">
+              <input type="checkbox" name="selectall" id="checkbox_agree1" value="1" onclick='selectAll(this)'>
+              <label for="checkbox_agree1">전체동의
+                <div class="round"></div>
+              </label>
+            </div>
+            
+            <div class="ch_box etrans checks">
+              <input type="checkbox" name="chk" id="checkbox_agree2" value="1" onclick='checkSelectAll()'>
+              
+              <label for="checkbox_agree2">[필수] 서비스 약관 동의
+                <div class="round"></div>
+                <a target="_blank" href="service.html" title="자세히보기">
+                  <span>자세히 보기</span>
+                  <i class="fas fa-angle-right"></i>
+                </a>
+              </label>
+            </div>
+
+            <div class="ch_box etrans checks">
+              <input type="checkbox" name="chk" id="checkbox_agree3" value="1" onclick='checkSelectAll()'>
+              <label for="checkbox_agree3">[필수] 개인정보 수집 및 이용 동의
+                <div class="round"></div>
+                <a target="_blank" href="privacy.html" title="자세히보기">
+                  <span>자세히 보기</span>
+                  <i class="fas fa-angle-right"></i>
+                </a>
+              </label>
+            </div>
+  
+            <button type="submit" title="다음" class="bg_btn" style="width:100%">
+              <a href="join_complete.html">가입완료</a> 
+            </button>
+          </div>
+          
+        </fieldset>
+      </form>
+    </article>
+  </main>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    // 전체동의 버튼 클릭시 모든 체크박스 체크, 전체동의 아래 체크박스중 체크 해제시 전체동의 체크해제, 아래 체크박스 모두 체크시 전체동의 체크박스 체크
+    function checkSelectAll()  {
+      // 전체 체크박스
+      const checkboxes 
+        = document.querySelectorAll('input[name="chk"]');
+      // 선택된 체크박스
+      const checked 
+        = document.querySelectorAll('input[name="chk"]:checked');
+      // select all 체크박스
+      const selectAll 
+        = document.querySelector('input[name="selectall"]');
+      
+      if(checkboxes.length === checked.length)  {
+        selectAll.checked = true;
+      }else {
+        selectAll.checked = false;
+      }
+
+    }
+
+    function selectAll(selectAll)  {
+      const checkboxes 
+        = document.getElementsByName('chk');
+      
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = selectAll.checked
+      })
+    }
+
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    document.getElementById("sample6_extraAddress").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample6_postcode').value = data.zonecode;
+                document.getElementById("sample6_address").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("sample6_detailAddress").focus();
+            }
+        }).open();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>HANGUM -주소 변경-</title>
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+  
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/41aee1aaae.js" crossorigin="anonymous"></script>
+  
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+  <style>
+    /* 정보수정 공통서식 */
+    body{
+      background-color:#fff;
+    }
+    header{
+      width: 100%;
+      padding: 26px 0px 47px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+    }
+    header > h1 > a{
+      display: block;
+      width: 29px;
+      height: 25px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+    .edit_wrap fieldset{
+      position:relative;
+    }
+    .edit_wrap{
+      padding:0px 20px 34px;
+      box-sizing: border-box;
+      width:100%;
+      max-width: 640px;
+      margin:0px auto;
+    }
+    .edit_wrap > h2{
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size:1.5rem;
+      margin-bottom:23px;
+    }
+    .edit_wrap fieldset > legend{
+      display:none;
+    }
+    .edit_wrap fieldset input[type=submit]{
+      background: #4F8EF7;
+      border-radius: 4px;
+      display:block;
+      width:100%;
+      border:none;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size: 1rem;
+      line-height:56px;
+      position: absolute;
+      top:405px;
+      font-weight: 600;
+    }
+
+    /* 주소변경 서식 */
+    .add_box{
+      border:none !important;
+      padding:9px 0px;
+    }
+    #postcode_btn, #sample6_extraAddress{
+      display:none;
+    }
+    .add_box label{
+      display:none;
+    }
+
+    /* text, date 공통 서식 */
+    input[type=text]{
+      display:block;
+      width:100%;
+      background: #F8F9FC;
+      border: 1px solid #E6ECF1;
+      border-radius: 3px;
+      line-height:52px;
+      padding:0px 13px;
+      box-sizing: border-box;
+      font-size:0.875rem;
+      margin-bottom: 14px;
+    }
+    input[type=text]::placeholder{
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+    }
+    input[type=text]:focus{
+      outline:none;
+    }
+    input[type=text]:focus::placeholder{
+      opacity: 0;
+    }
+
+    .top_nav{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+    </h1>
+  </header>
+  
+  <main>
+    <section class="edit_wrap">
+      <h2>주소 변경</h2>
+      <form name="" method="" action="">
+        <fieldset>
+          <legend>주소 변경</legend>
+          <div class="add_box">
+            <input type="hidden" id="postcode_kakao" name="txtZip1" onkeydown="onlyNumber(this)">
+            <input type="text" id="address_kakao" name="txtAddr1" readonly="" placeholder="주소">
+            <input type="text" id="address_desc_kakao" name="txtAddr2" placeholder="상세주소">
+          </div>
+
+          <input type="submit" value="변경 완료">
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    window.onload = function(){
+		document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+			//카카오 지도 발생
+			new daum.Postcode({
+				oncomplete: function(data) { //선택시 입력값 세팅
+					document.getElementById("postcode_kakao").value = data.zonecode; // 주소 넣기
+					document.getElementById("address_kakao").value = data.address; // 주소 넣기
+					document.getElementById("address_desc_kakao").focus(); //상세입력 포커싱
+				}
+			}).open();
+		});
+	}
+  </script>
+</body>
+</html>

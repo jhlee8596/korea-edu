@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>회원정보 수정</title>
+  
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+  
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/41aee1aaae.js" crossorigin="anonymous"></script>
+  
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <style>
+    header{
+      width: 100%;
+      padding: 26px 0px 43px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+    }
+    header > h1 > a{
+      display: block;
+      width: 29px;
+      height: 25px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+
+    .info-edit_wrap{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .info_title{
+      position: relative;
+      overflow: hidden;
+    }
+    .info_title > strong{
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size: 2.125rem;
+      margin-bottom: 17px;
+      padding-left:22px;
+      position: relative;
+      bottom: -100%;
+      opacity: 0;
+    }
+    .info_title > strong > span{
+      color: #4F8EF7;
+    }
+    .info_title > strong::after{
+      content: "";
+      display: block;
+      width: 72px;
+      height: 1px;
+      background-color: #D9D9D9;
+      margin: 17px 0px 17px 22px;
+    }
+
+    .info-edit_wrap > p{
+      padding-left:22px;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.03em;
+      color: #888888;
+    }
+    .info-edit_wrap > .info_con1{
+      width: 100%;
+      padding:30px 20px 20px;
+      box-sizing: border-box;
+    }
+    .info_con1 > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size: 1.063rem;
+      font-weight: 400;
+    }
+    .info_con1 > ul{
+      width: 100%;
+      padding:0px 20px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      box-shadow: 0px 4px 16px rgba(223, 223, 239, 0.4);
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .info_con1 > ul > li{
+      width: 100%;
+      line-height: 64px;
+      height: 64px;
+      border-bottom: 1px solid #F1F4F9;
+      box-sizing: border-box;
+    }
+    .info_con1 > ul > li:last-child{
+      border:none;
+    }
+    .info_con1 > ul > li > a{
+      display: block;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .info_con1 > ul > li > a > .info_txt{
+
+    }
+    .info_txt > span{
+      display: inline-block;
+      letter-spacing: -0.04em;
+    }
+    .info_txt > span:first-child{
+      color: #99A1BB;
+      width: 60px;
+      font-size: 0.875rem;
+    }
+    .info_txt > span:last-child{
+      color: #444444;
+      font-size: 0.938rem
+    }
+    .info_con1 > ul > li > a > span{
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      font-size: 0.875rem;
+      padding-right: 6px;
+    }
+    .info-edit_wrap ul > li > a > span > i.fas{
+      color: #8C9FC5;
+      padding-left: 5px;
+    }
+    .info_con2{
+      width: 100%;
+      padding:0px 20px 49px;
+      box-sizing: border-box;
+    }
+    .info_con2 > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size: 1.063rem;
+      font-weight: 400;
+    }
+    .info_con2 > ul{
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0px 20px;
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      box-shadow: 0px 4px 16px rgba(223, 223, 239, 0.4);
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    .info_con2 > ul > li{
+      width: 100%;
+      border-bottom: 1px solid #F1F4F9;
+      box-sizing: border-box;
+      padding: 24px 0px;
+    }
+    .info_con2 > ul > li:last-child{
+      border: none;
+    }
+    .info_con2 > ul > li > a{
+      display: block;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+    }
+    .info_con2 > ul > li > a > .info_txt{
+      display: flex;
+    }
+    .info_txt > .address_edit > span{
+      font-size: 0.875rem;
+      letter-spacing: -0.04em;
+      color: #444444;
+    }
+    .info_txt > .address_edit > span:first-child{
+      display: block;
+      margin-bottom: 17px;
+    }
+    .info_txt > .address_edit > span:last-child{
+      display: block;
+    }
+    .info_con2 > ul > li > a > span:last-child{
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      font-size: 0.875rem;
+      padding-right: 6px;
+    }
+    .info_con2 > ul > li:last-child > a > span:last-child{
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+    }
+    .banner_box{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .banner_box > a{
+      display: block;
+    }
+    .banner_box > a > img{
+      width: 100%;
+    }
+    .info-btn_box{
+      margin: 21.8px 0px 53px;
+      width: 100%;
+      text-align: center;
+    }
+    .info-btn_box > a{
+      line-height: 16px;
+      letter-spacing: -0.04em;
+      color: #C2C6D6;
+      font-size: 0.875rem;
+    }
+    .info-btn_box > a:first-child::after{
+      content: "";
+      display: inline-block;
+      width: 1.5px;
+      height: 10px;
+      background-color: #C2C6D6;
+      margin: 0px 5px;
+    }
+  </style>
+  <script>
+    $(function(){
+      $('.info_title > strong').stop().animate({
+        'bottom':'0px',
+        'opacity':'1'
+      },1000)
+    });
+  </script>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+    </h1>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <form name="" method="" action="">
+      <section class="info-edit_wrap">
+        <h3>
+          <div class="info_title">
+            <strong>회원정보 수정<span>.</span></strong> 
+          </div>
+        </h3>
+        <p>
+          개명하신 학우님은 <br>
+          오른쪽에 변경문의 이용 부탁드립니다.
+        </p>
+
+        <article class="info_con1">
+          <h3>계정 정보</h3>
+          <ul>
+            <li>
+              <a href="procedure.html" title="정보수정">
+                <div class="info_txt">
+                  <span>이름</span>
+                  <span>임길순</span>
+                </div>
+
+                <span>변경문의</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" onclick="return false;" class="edit_impossible" title="아이디 변경 불가">
+                <div class="info_txt">
+                  <span>아이디</span>
+                  <span>testing**</span>
+                </div>
+                <span>&nbsp;</span>
+              </a>
+            </li>
+            <li>
+              <a href="pw_edit.html" title="비밀번호 변경">
+                <div class="info_txt">
+                  <span>비밀번호</span>
+                  <span>********</span>
+                </div>
+                <span>변경</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="date_edit.html" title="비밀번호 변경">
+                <div class="info_txt">
+                  <span>생년월일</span>
+                  <span>19850103</span>
+                </div>
+                <span>변경</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </article>
+        
+
+        <article class="info_con2">
+          <h3>배송지 정보</h3>
+          <ul>
+            <li>
+              <a href="num_edit.html" title="휴대번호 변경">
+                <div class="info_txt">
+                  <span>휴대번호</span>
+                  <span>010-5198-6555</span>
+                </div>
+                <span>변경</span>
+              </a>
+            </li>
+            <li>
+              <a href="address_edit.html" title="주소지 변경">
+                <div class="info_txt">
+                  <span>배송지</span>
+                  <div class="address_edit">
+                    <span>서울시 강동구 녹산산단382로14번가길</span> <!-- 주소지 -->
+                    <span>화남아파트 104동 1604호</span> <!-- 상세주소 -->
+                  </div>
+                </div>
+                <span>변경</span>
+              </a>
+            </li>
+          </ul>
+        </article>
+        <div class="banner_box">
+          <a href="curriculum.html" title="교육과정 바로가기">
+            <img src="./img/korea-edu_banner05.png" alt="교육과정 바로가기">
+          </a>
+        </div>
+        <div class="info-btn_box">
+          <a href="index.html" title="로그아웃">로그아웃</a><a href="withdrawal1.html" title="회원탈퇴">회원탈퇴</a>
+        </div>
+      </section>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포인트정책</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .wrap{
+      border-top: none;
+      width:100%;
+    }
+    header{
+      width: 100%;
+      padding: 26px 0px 43px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+    }
+    header > h1 > a{
+      display: block;
+      width: 29px;
+      height: 25px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+    .info_title{
+      position: relative;
+      overflow: hidden;
+    }
+    .info_title > strong{
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size: 2.125rem;
+      margin-bottom: 17px;
+      padding-left:22px;
+    }
+    .info_title > strong > span{
+      color: #4F8EF7;
+    }
+    .info_title > strong::after{
+      content: "";
+      display: block;
+      width: 72px;
+      height: 1px;
+      background-color: #D9D9D9;
+      margin: 17px 0px 17px 22px;
+    }
+    
+    .point_cont{
+      width:100%;
+      padding:0 20px 180px;
+      box-sizing:border-box;
+    }
+    .cont_tit{
+      font-weight: 600;
+      font-size: 0.938rem;
+      line-height: 18px;
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+    }
+    .point_cont > .explanation{
+      font-weight: 500;
+      font-size: 0.813rem;
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #666666;
+      padding:3px 0 34px;
+    }
+    .point_cont > .explanation > .bold{
+      color: #222;
+      font-weight: 600;
+    }
+    .cont_wrap .explanation > .bold > a{
+      color:#222;
+    }
+    .tab{
+      width:100%;
+      border-top:1px solid #333;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .tab > li{
+      width:25%;
+      height:38px;
+      text-align:center;
+      border-bottom:1px solid #E6E6E8;
+    }
+    .tab > li > a{
+      display:block;
+      font-weight: 700;
+      font-size: 0.938rem;
+      height:38px;
+      line-height:38px;
+      letter-spacing: -0.03em;
+      color: #777777;
+      box-sizing:border-box;
+    }
+    .tab > li.on > a{
+      color: #4F8EF7;
+      border-bottom:3px solid #4F8EF7;
+    }
+
+    .tabcont{
+      display:none;
+    }
+    .tabcont.on{
+      display:block;
+    }
+    .point_info1{
+      width:100%;
+      padding:20px 0 30px;
+    }
+    .point_info1 > li{
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      box-shadow: 0px 4px 14px rgba(176, 176, 196, 0.2);
+      border-radius: 6px;
+      margin-bottom:8px;
+      padding:18px 0 23px 17px;
+      display:flex;
+      justify-content:flex-start;
+      align-items:center;
+    }
+    .point_info1 > li:last-child{
+      margin-bottom:0;
+    }
+    .point_info1 > li > .info_tit{
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      margin-right:50px;
+      width:54px;
+    }
+    .point_info1 > li > .info > span{
+      font-size:0.813rem;
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #666666;
+      display:block;
+    }
+    .point_info1 > li > .info > .txt1{
+      font-weight: 500;
+      padding-bottom:2px;
+    }
+    .point_info1 > li > .info > .txt1::before, .point_info2 > li::before{
+      content:'';
+      display:inline-block;
+      width: 4px;
+      height: 4px;
+      background: #4F8EF7;
+      border-radius: 50%;
+      transform: translateY(-3px);
+      margin-right: 5px;
+    }
+    .point_info1 > li > .info > .txt2{
+      font-weight: 400;
+      text-indent: 9px;
+    }
+
+    .point_info2{
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      box-shadow: 0px 4px 14px rgba(176, 176, 196, 0.2);
+      border-radius: 6px;
+      width:100%;
+      padding:20px 22px 20px;
+      box-sizing: border-box;
+      margin:20px 0 30px;
+    }
+    .point_info2 > li{
+      font-weight: 500;
+      font-size: 0.813rem;
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #666666;
+    }
+    
+    .point_notice{
+      padding-top:10px;
+    }
+    .point_notice > li{
+      font-weight: 550;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #666666;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+    </h1>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section class="wrap">
+      <h2>
+        <div class="info_title">
+          <strong>포인트정책<span>.</span></strong> 
+        </div>
+      </h2>
+      <article class="point_cont">
+        <h3 class="cont_tit">포인트란?</h3>
+        <p class="explanation">
+          자격증 결제에 대한 일정 포인트가 지급됩니다. <span class="bold">한국자격검정평가진흥원(<a href="index.html" title="한국자격검정평가진흥원">http://www.korea-edu.net</a>)</span>내에서 결제 시 사용하실 수 있습니다.
+        </p>
+
+        <ul class="tab">
+          <li data-tab="menu1" class="on">
+            <a href="#" title="적립">적립</a>
+          </li>
+          <li data-tab="menu2">
+            <a href="#" title="사용/기간">시용/기간</a>
+          </li>
+          <li data-tab="menu3">
+            <a href="#" title="소멸">소멸</a>
+          </li>
+          <li data-tab="menu4">
+            <a href="#" title="환불">환불</a>
+          </li>
+        </ul>
+
+        <div id="menu1" class="tabcont on">
+          <ul class="point_info1">
+            <li>
+              <h4 class="info_tit">발급시<br>적립</h4>
+              <div class="info">
+                <span class="txt1">자격증 발급 신청으로 결제시</span>
+                <span class="txt2">900원 적립</span>
+              </div>
+            </li>
+            <li>
+              <h4 class="info_tit">발급시<br>적립</h4>
+              <div class="info">
+                <span class="txt1">친구 추천 이벤트 참여시</span>
+                <span class="txt2">5000포인트 적립 (최대 1명)</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="menu2" class="tabcont">
+          <ul class="point_info1">
+            <li>
+              <h4 class="info_tit">자격증<br>발급</h4>
+              <div class="info">
+                <span class="txt1">자격증 발급 신청으로 결제시</span>
+                <span class="txt2">보유포인트로 결제금액 차감 가능</span>
+              </div>
+            </li>
+            <li>
+              <h4 class="info_tit">포인트<br>유효기간</h4>
+              <div class="info">
+                <span class="txt1">발생일로부터 12개월</span>
+                <span class="txt2">유효기간이 지나면 자동 소멸</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="menu3" class="tabcont">
+          <ul class="point_info1">
+            <li>
+              <h4 class="info_tit">유효기간<br>만료</h4>
+              <div class="info">
+                <span class="txt1">포인트 유효기간(24개월)만료 시</span>
+                <span class="txt2">지급된 포인트만 자동소멸</span>
+              </div>
+            </li>
+            <li>
+              <h4 class="info_tit">회원<br>탈퇴시</h4>
+              <div class="info">
+                <span class="txt1">가입된 계정 탈퇴 시</span>
+                <span class="txt2">전액 포인트 소멸</span>
+              </div>
+            </li>
+            <li>
+              <h4 class="info_tit">탈퇴 후<br>재가입</h4>
+              <div class="info">
+                <span class="txt1">탈퇴 후 새로운 계정으로 가입 시</span>
+                <span class="txt2">이전 가입 시 주어진 포인트 복원 불가</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="menu4" class="tabcont">
+          <ul class="point_info2">
+            <li>포인트는 현금화하여 환불불가</li>
+            <li>전액 포인트 결제 시, 포인트로 환불</li>
+            <li>유효기간이 지나 소멸된 포인트는 다시 지급 불가</li>
+            <li>자격증 발급 취소 시 사용한 포인트 및 현금환불</li>
+          </ul>
+        </div>
+
+        <div class="notice_wrap">
+          <h4 class="cont_tit">포인트 사용시 유의사항</h3>
+          <ul class="point_notice">
+            <li>· 포인트 최소 사용 금액은 5000포인트</li>
+            <li>· 포인트는 현금화 되지 않으며, 현금으로 환불불가</li>
+            <li>· 발급된 포인트는 누적되며 추후 합산하여 사용가능</li>
+            <li>· 회원 탈퇴 시 포인트는 전액 소멸</li>
+            <li>· 탈퇴 후, 재가입 하는 경우에도 기존 포인트 복원 불가</li>
+            <li>· 결제 시 포인트 이용한 경우에는 포인트 적립 불가</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    $('ul.tab li').click(function() {
+      var activeTab = $(this).attr('data-tab');
+      $('ul.tab li').removeClass('on');
+      $('.tabcont').removeClass('on');
+      $(this).addClass('on');
+      $('#' + activeTab).addClass('on');
+      
+      return false;
+    });
+  </script>
+</body>
+</html>

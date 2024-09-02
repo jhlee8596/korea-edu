@@ -1,0 +1,180 @@
+@charset "utf-8";
+
+/* CSS 초기화 */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+@font-face {
+  font-family: 'yg-jalnan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body *{
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.main_con01 > .main_banner *{
+  font-family: 'yg-jalnan' !important;
+}
+
+.fa-regular, .fa-solid, .far, .fas {
+  font-family: "Font Awesome 6 Free" !important;
+}
+
+input{
+  outline:none;
+}
+section{
+  border-top:1px solid #ECECEC;
+}
+/* IE의 경우 */
+input::-ms-clear,
+input::-ms-reveal{
+   display:none;
+}
+/* 크롬의 경우 */
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+   display:none;
+}
+input[type=text], input[type=search], input[type=number], input[type=password], textarea, button{
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+input, select, textarea, button, a, label, li {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+select {
+  -webkit-appearance:none; /* for chrome */
+  -moz-appearance:none; /*for firefox*/
+  appearance:none;
+}
+select:focus{
+  outline: none;
+}
+select::-ms-expand{
+  display:none;/*for IE10,11*/
+}
+
+/* ------------------------------------------------------------------------ */
+
+html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,abbr, address, cite, code,del, dfn,em, img, ins, kbd, q, samp,small, strong, sub, sup, var,b, i,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section { 
+  display:block;
+}
+
+ol, ul, li{
+  list-style:none;
+}
+blockquote, q {
+  quotes:none;
+}
+
+blockquote:before, blockquote:after,q:before, q:after {
+  content:'';
+  content:none;
+}
+
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color:#ff9;
+  color:#000;
+  text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color:#ff9;
+  color:#000; 
+  font-style:italic;
+  font-weight:bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom:1px dotted;
+  cursor:help;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display:block;
+  height:1px;
+  border:0;   
+  border-top:1px solid #cccccc;
+  margin:1em 0;
+  padding:0;
+}
+
+input, select {
+  vertical-align:middle;
+}
+
+
+address{font-style:normal;}
+
+a{
+  text-decoration: none;
+  /* font-size:12px; */
+  color:#333;
+}
+.bg_btn{
+  -moz-border-radius:4px;
+  -webkit-border-radius:5px;
+  display:block;
+  border-radius: 4px;
+  margin:12px auto;
+  line-height:54px;
+  font-weight: bold;
+  background: #4F8EF7;
+  color:#fff;
+  border:none;
+  text-align: center;
+  font-size:1.063rem;
+  letter-spacing: -0.04rem; 
+}
+.bd_btn{
+  height: 54px;
+  display:block;
+  border-radius: 4px;
+  margin:12px auto;
+  line-height:54px;
+  font-size:1.063rem;
+  font-weight: bold;
+  color:#757E9E;
+  background: #FFFFFF;
+  border: 1px solid #D4DFEE;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+}

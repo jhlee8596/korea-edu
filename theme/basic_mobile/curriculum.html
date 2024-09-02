@@ -1,0 +1,2421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <script src="../../js/examples.js"></script>
+  <script src="../../js/handlebars.js"></script>
+  <script src="../../js/typeahead.bundle.js"></script>
+  
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- 스와이퍼 슬라이드 css -->
+  <link href="../../css/swiper.css" rel="stylesheet" type="text/css">
+
+  <!-- 스와이퍼 슬라이드 제이쿼리 -->
+  <script src="../../js/swiper.js"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .curriculum_wrap{
+      width:100%;
+      max-width: 640px;
+      margin: 0px auto;
+      box-sizing: border-box;
+    }
+    .curriculum_con01{
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .swiper-slide img{
+      width: 100%;
+    }
+    .swiper-pagination-fraction{
+      left: unset;
+      right: 21px;
+      bottom: 14px;
+      width: 52px;
+      height: 31px;
+      line-height: 31px;
+      background: rgba(90, 90, 90, 0.5);
+      border-radius: 15.5px;
+      color: #fff;
+      font-weight: 400;
+      font-size: 0.875rem;
+    }
+    .curriculum_con02{
+      padding:15px 20px 0px;
+    }
+    .key_search_box {
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .key_search_box > input[type=search] {
+      width: 100%;
+      height:45px;
+      padding-left: 36px;
+      box-sizing: border-box;
+      outline:none;
+      font-size:0.938rem;
+      -webkit-appearance:none;
+      vertical-align:middle;
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      box-shadow: 0px 4px 4px rgba(205, 211, 224, 0.25);
+      border-radius: 7px;
+    }
+    .key_search_box > input[type=search]::placeholder{
+        color: #A4ABC0;
+    }
+    .key_search_box > label.search_icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 10px;
+      color: #4F8EF7;
+      width: 24px;
+      height: 24px;
+    }
+    .key_search_box > label.search_icon > img{
+      width:100%;
+    }
+    
+    .typeahead, .tt-query, .tt-hint {
+      width: 100%;
+      height:45px;
+      padding-left: 36px;
+      box-sizing: border-box;
+      outline:none;
+      font-size:0.938rem;
+      -webkit-appearance:none;
+      vertical-align:middle;
+      background: #FFFFFF;
+      border: 1.06667px solid #4F8EF7;
+      border-radius: 7px;
+      outline: none;
+    }
+    .typeahead::-ms-clear,
+    .typeahead::-ms-reveal{
+      display:none;
+    }
+    /* 크롬의 경우 */
+    .typeahead::-webkit-search-decoration,
+    .typeahead::-webkit-search-cancel-button,
+    .typeahead::-webkit-search-results-button,
+    .typeahead::-webkit-search-results-decoration{
+      display:none;
+    }
+    .typeahead {
+      background-color: #fff;
+    }
+
+    .typeahead:focus {
+      outline: none;
+    }
+
+    .tt-query {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+
+    .tt-hint {
+      color: #999
+    }
+
+    .tt-menu {
+      width: 99.4%;
+      transform: translateY(-6px);
+      padding: 8px 0;
+      background: #FFFFFF;
+      border: 1px solid #4F8EF7;
+      border-top: 1px solid  #EAF0F8;
+      box-shadow: 0px 4px 4px rgba(205, 211, 224, 0.25);
+      border-radius: 0px 0px 7px 7px;
+    }
+    input:focus { 
+      outline: none;
+    }
+    .tt-highlight{
+      color:#2E68FF;
+      font-weight: normal;
+    }
+    .tt-suggestion {
+      padding: 3px 20px;
+      font-size: 15px;
+      line-height: 24px;
+      color: #333;
+      background: url('./img/angle_right.svg') right 10px center no-repeat;
+      background-size:7%;
+    }
+
+    .tt-suggestion:hover {
+      cursor: pointer;
+      color: #fff;
+      background-color: #0097cf;
+    }
+
+    .tt-suggestion.tt-cursor {
+      color: #fff;
+      background-color: #0097cf;
+
+    }
+
+    .tt-suggestion p {
+      margin: 0;
+    }
+
+    .tab {
+      display:flex;
+      justify-content: flex-start;
+      padding:23px 20px 10px;
+    }
+    .tab li {
+      text-align: center;
+      background-color:#F7F8FA;
+      margin-right: 12px;
+      border-radius: 18.1333px;
+      height: 30px;
+      line-height: 30px;
+    }
+    .tab li a {
+      letter-spacing: -0.07em;
+      color: #333;
+      display:block;
+      padding: 0px 18px;
+    }
+    ul.tab li.on{
+      background-color: #2E68FF;
+    }
+    ul.tab li.on a{
+      color:#fff;
+    }
+    .tabcont.on {
+      display: block;
+    }
+    .tabcont{
+      display:none;
+      padding:0px 20px;
+    }
+    /* 탭메뉴 2 */
+    
+    
+    ul.tab2.on{
+      display:none;
+    }
+    ul.tab2 li.on a{
+    }
+    .tabcont2.on {
+      display: block;
+    }
+    .tabcont2{
+      display:none;
+    }
+    
+    .tabcont > .cer_list{
+      display:flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .tabcont > .cer_list > li{
+      width:calc(50% - 10px);
+      margin-bottom:15px;
+      background: #FFFFFF;
+    }
+    .tabcont > .cer_list > li > a{
+      display:block;
+      letter-spacing: -0.04em;
+      font-size:0.875rem;
+      color: #333333;
+      border: 1.06667px solid #E8EFF9;
+      box-shadow: 0px 4px 14px rgba(190, 197, 215, 0.25);
+      border-radius: 30px;
+      text-align: center;
+      line-height:41px;
+      font-weight: 600;
+    }
+    .tabcont2{
+      width:100%;
+      box-sizing: border-box;
+      max-width: 640px;
+      margin: 0px auto;
+    }
+    .tabcont2 > h4{
+      letter-spacing: -0.04em;
+      color: #333333;
+      font-size:1rem;
+      font-weight: bold;
+    }
+    .tabcont2 > .class_sub{
+      padding-top:6px;
+    }
+    .tabcont2 > .class_sub > li{
+      border-bottom:1px solid #EAF0F8;
+    }
+    .tabcont2 > .class_sub > li > a{
+      display:flex;
+      justify-content: space-between;
+      line-height: 44px;
+    }
+    .tabcont2 > .class_sub > li > a > div > span{
+      letter-spacing: -0.04em;
+    }
+    .tabcont2 > .class_sub > li > a > div > span:first-child{
+      color: #276CF1;
+      font-size:0.813rem;
+      font-weight: 600;
+      margin-right:12px;
+    }
+    .tabcont2 > .class_sub > li > a > div > span:last-child{
+      color: #333333;
+      font-size:0.875rem;
+    }
+    .tabcont2 > .class_sub > li > a > i.fa-angle-right{
+      line-height: 44px;
+      color: #8C9FC5;
+    }
+
+    .call_box{
+      /* background: linear-gradient(91.64deg, #E9F2FF 0.6%, #CBE0FF 99.32%); */
+      border-radius: 2px;
+      margin-top:56px;
+    }
+    .call_box > a{
+      display: block;
+    }
+    .call_box > a > img{
+      width: 100%;
+    }
+    /* .call_box > a{
+      display:flex;
+      justify-content: center;
+      padding:30px 39px;
+      margin-top:10px;
+    } */
+    /* .call_box > a > .left_txt{
+      letter-spacing: -0.04em;
+    }
+    .call_box > a > .left_txt > strong{
+      color: #213061;
+      font-size:1rem;
+      display:block;
+      margin-bottom:4px;
+      font-weight: bold;
+    }
+    .call_box > a > .left_txt > span{
+      color: #6C779C;
+      font-size:0.875rem;
+      display: block;
+    }
+    .call_box > a > .right_txt{
+      background: #FFFFFF;
+      border: 1.06667px solid #ABCFFF;
+      box-shadow: 0px 4.26667px 4.26667px rgba(169, 180, 221, 0.15);
+      border-radius: 23.4667px;
+      margin-left:10px;
+      width:114px;
+    }
+    .call_box > a > .right_txt > span{
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      display:flex;
+      justify-content: center;
+      padding:9px 15px 8px 10px;
+      line-height: 16px;
+      font-size:0.875rem;
+      font-weight: 600;
+    }
+    .call_box > a > .right_txt > span > img{
+      width:17px;
+      height:17px;
+    } */
+
+    /* 검색창 */
+    .hide {
+      display: none !important;	/* 사용자가 아무것도 입력하지 않았을 때 검색창을 숨기는 용도*/
+    }
+
+    .rel_search {
+      display:flex;
+      flex-direction:column;
+      justify-content : space-around;
+      border: 1px solid red;
+      border-radius: 12px;
+    
+    }
+
+    .pop_rel_keywords {
+      list-style: none;
+      margin-right: 30%;
+
+    }
+
+    .pop_rel_keywords > li {	/* JS에서 동적으로 li를 생성할 때 적용될 스타일*/
+      line-height : 250%
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <section class="curriculum_wrap">
+    <article class="curriculum_con01">
+      <div class="swiper banner_slide">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./img/korea-edu_banner02.png" alt="배너">
+          </div>
+          <div class="swiper-slide popularity" data-tab="menu2">
+            <img src="./img/korea-edu_banner03.png" alt="배너">
+          </div>
+        </div>
+        <div class="swiper-pagination dot"></div>
+      </div>
+    </article>
+
+    <article class="curriculum_con02">
+      <div class="key_search_box" id="the-basics">
+        <input type="text" id="searchInput" placeholder="과목명을 검색해주세요." class=" typeahead">
+        <!-- <button class="btnClear" onClick="clearInput(this)">✖</button> -->
+        <label for="searchInput" class="search_icon">
+          <img src="./img/search.png" alt="검색">
+        </label>
+      </div>
+    </article>
+
+    <ul class="tab">
+      <li class="on" data-tab="menu1"><a href="#">전체과정</a></li>
+      <li data-tab="menu2"><a href="#">인기과정</a></li>
+    </ul>
+
+    <article class="tabcont on" id="menu1">
+      <ul class="cer_list tab2">
+        
+        <li data-tab="sub_menu1">
+          <a href="#" title="과목명"># 강사과정</a>
+        </li>
+
+        <li data-tab="sub_menu2">
+          <a href="#" title="과목명"># 병원과정</a>
+        </li>
+        
+        <li data-tab="sub_menu3">
+          <a href="#" title="과목명"># 커피과정</a>
+        </li>
+
+        <li data-tab="sub_menu4">
+          <a href="#" title="과목명"># 심리과정</a>
+        </li>
+
+        <li data-tab="sub_menu5">
+          <a href="#" title="과목명"># 전문가과정</a>
+        </li>
+
+        <li data-tab="sub_menu6">
+          <a href="#" title="과목명"># 실버과정</a>
+        </li>
+
+        <li data-tab="sub_menu7">
+          <a href="#" title="과목명"># 방과후과정</a>
+        </li>
+
+        <li data-tab="sub_menu8">
+          <a href="#" title="과목명"># 안전과정</a>
+        </li>
+
+        <li data-tab="sub_menu9">
+          <a href="#" title="과목명"># 반려과정</a>
+        </li>
+
+        <li data-tab="sub_menu10">
+          <a href="#" title="과목명"># 아동과정</a>
+        </li>
+
+        <li data-tab="sub_menu11">
+          <a href="#" title="과목명"># 공부과정</a>
+        </li>
+
+        <li data-tab="sub_menu12">
+          <a href="#" title="과목명"># 인문과정</a>
+        </li>
+
+        <li data-tab="sub_menu13">
+          <a href="#" title="과목명"># 부동산과정</a>
+        </li>
+
+        <li data-tab="sub_menu14">
+          <a href="#" title="과목명"># 산업과정</a>
+        </li>
+
+        <li data-tab="sub_menu15">
+          <a href="#" title="과목명"># IT과정</a>
+        </li>
+
+        <li data-tab="sub_menu16">
+          <a href="#" title="과목명"># 취업과정</a>
+        </li>
+
+        <li data-tab="sub_menu17">
+          <a href="#" title="과목명"># 항공과정</a>
+        </li>
+
+        <li data-tab="sub_menu18">
+          <a href="#" title="과목명"># 공예과정</a>
+        </li>
+
+        <li data-tab="sub_menu19">
+          <a href="#" title="과목명"># 운동과정</a>
+        </li>
+      </ul>
+
+      <div class="tabcont2" id="sub_menu1">
+        <h4>강사과정</h4>
+        <ul class="class_sub">
+
+          
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB001.html?num=390"  title="커피바리스타">
+              <div>
+                <span>01</span>
+                <span>예절교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA001.html?num=398" title="심리상담사">
+              <div>
+                <span>02</span>
+                <span>심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB008.html?num=393" title="병원코디네이터">
+              <div>
+                <span>03</span>
+                <span>병원코디네이터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB042.html?num=449" title="정리수납전문가">
+              <div>
+                <span>04</span>
+                <span>정리수납전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB038.html?num=501" title="반려동물관리사">
+              <div>
+                <span>05</span>
+                <span>반려동물관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB031.html?num=428" title="베이비시터">
+              <div>
+                <span>06</span>
+                <span>베이비시터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB168.html?num=648" title="간병사">
+              <div>
+                <span>07</span>
+                <span>간병사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB169.html?num=649" title="산후관리사">
+              <div>
+                <span>08</span>
+                <span>산후관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB099.html?num=558" title="운동처방사">
+              <div>
+                <span>09</span>
+                <span>운동처방사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA002.html?num=385" title="노인심리상담사">
+              <div>
+                <span>10</span>
+                <span>노인심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB023.html?num=418" title="아동심리상담사">
+              <div>
+                <span>11</span>
+                <span>아동심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB108.html?num=568" title="6시그마(GB)">
+              <div>
+                <span>12</span>
+                <span>6시그마(GB) 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu2">
+        <h4>병원과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB130.html?num=602"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>병원원무행정사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB114.html?num=575"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>보험심사평가사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB064.html?num=498"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>실버병원코디네이터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB008.html?num=393"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>병원코디네이터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB007.html?num=392"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>병원행정관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB036.html?num=448"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>병원진료접수매니저 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB053.html?num=471"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>병원서비스매니저 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB087.html?num=546"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>요양병원관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu3">
+        <h4>커피과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB001.html?num=390"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>커피바리스타전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB050.html?num=464"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>커피핸드드립전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB049.html?num=463"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>커피품질평가사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB051.html?num=465"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>와인소믈리에 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB061.html?num=494"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>티소믈리에 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB071.html?num=519"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>커피로스팅마스터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu4">
+        <h4>심리과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB148.html?num=625"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>군심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB146.html?num=622"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>푸드아트심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB145.html?num=621"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>애니어그램심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB144.html?num=620"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>도형심리상담사</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB139.html?num=611"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>독서심리상담사</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB140.html?num=612"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>인지행동심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB138.html?num=610"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>문학심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB131.html?num=603"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>스포츠심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB129.html?num=601"  title="교육과정">
+              <div>
+                <span>09</span>
+                <span>가족심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB126.html?num=598"  title="교육과정">
+              <div>
+                <span>10</span>
+                <span>색채심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB124.html?num=596"  title="교육과정">
+              <div>
+                <span>11</span>
+                <span>놀이심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB052.html?num=450"  title="교육과정">
+              <div>
+                <span>12</span>
+                <span>노인음악심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA002.html?num=385"  title="교육과정">
+              <div>
+                <span>13</span>
+                <span>노인심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB122.html?num=593"  title="교육과정">
+              <div>
+                <span>14</span>
+                <span>노인미술심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB028.html?num=423"  title="교육과정">
+              <div>
+                <span>15</span>
+                <span>청소년미술심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA005.html?num=399"  title="교육과정">
+              <div>
+                <span>16</span>
+                <span>아동미술심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB022.html?num=417"  title="교육과정">
+              <div>
+                <span>17</span>
+                <span>아동학대예방상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB018.html?num=407"  title="교육과정">
+              <div>
+                <span>18</span>
+                <span>학교폭력예방상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB025.html?num=420"  title="교육과정">
+              <div>
+                <span>19</span>
+                <span>다문화심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB086.html?num=545"  title="교육과정">
+              <div>
+                <span>20</span>
+                <span>부부심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA003.html?num=389"  title="교육과정">
+              <div>
+                <span>21</span>
+                <span>미술심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA004.html?num=402"  title="교육과정">
+              <div>
+                <span>22</span>
+                <span>음악심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB074.html?num=525"  title="교육과정">
+              <div>
+                <span>23</span>
+                <span>원예심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB023.html?num=418"  title="교육과정">
+              <div>
+                <span>24</span>
+                <span>아동심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB009.html?num=394"  title="교육과정">
+              <div>
+                <span>25</span>
+                <span>부모교육상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB059.html?num=493"  title="교육과정">
+              <div>
+                <span>26</span>
+                <span>분노조절상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA006.html?num=397"  title="교육과정">
+              <div>
+                <span>27</span>
+                <span>심리분석사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexA001.html?num=398"  title="교육과정">
+              <div>
+                <span>28</span>
+                <span>심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB170.html?num=650"  title="교육과정">
+              <div>
+                <span>29</span>
+                <span>심리복지상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB164.html?num=643"  title="교육과정">
+              <div>
+                <span>30</span>
+                <span>DISC심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB172.html?num=652"  title="교육과정">
+              <div>
+                <span>31</span>
+                <span>모래놀이심리상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu5">
+        <h4>전문가과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB153.html?num=630"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>고객상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB152.html?num=629"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>광고기획전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB150.html?num=627"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>주차관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB149.html?num=626"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>검색광고마케터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB142.html?num=616"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>창업상권분석지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB125.html?num=597"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>4대보험관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB119.html?num=580"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>콜센터전문상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB116.html?num=577"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>감정노동관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB099.html?num=558"  title="교육과정">
+              <div>
+                <span>09</span>
+                <span>운동처방사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB112.html?num=572"  title="교육과정">
+              <div>
+                <span>10</span>
+                <span>개인정보관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB111.html?num=571"  title="교육과정">
+              <div>
+                <span>11</span>
+                <span>인사총무관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB044.html?num=469"  title="교육과정">
+              <div>
+                <span>12</span>
+                <span>이미지메이킹지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB035.html?num=437"  title="교육과정">
+              <div>
+                <span>13</span>
+                <span>프리젠테이션전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB054.html?num=472"  title="교육과정">
+              <div>
+                <span>14</span>
+                <span>스피치지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB088.html?num=547"  title="교육과정">
+              <div>
+                <span>15</span>
+                <span>골프전문케디 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB084.html?num=543"  title="교육과정">
+              <div>
+                <span>16</span>
+                <span>결혼상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB034.html?num=429"  title="교육과정">
+              <div>
+                <span>17</span>
+                <span>CS강사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB156.html?num=635"  title="교육과정">
+              <div>
+                <span>18</span>
+                <span>직무스트레스관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB168.html?num=648"  title="교육과정">
+              <div>
+                <span>19</span>
+                <span>간병사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB169.html?num=649"  title="교육과정">
+              <div>
+                <span>20</span>
+                <span>산후관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu6">
+        <h4>실버과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB123.html?num=595"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>노인두뇌훈련지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB057.html?num=490"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>실버건강지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB058.html?num=491"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>실버레크레이션지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB085.html?num=544"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>노후설계지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB065.html?num=497"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>노인교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu7">
+        <h4>방과후과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB135.html?num=607"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>스토리텔링그림책지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB080.html?num=534"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>영어독서지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB076.html?num=530"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>영재놀이지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB075.html?num=529"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>레크리에이션지도자 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB020.html?num=509"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>방과후영어교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB062.html?num=496"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>보드게임지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB006.html?num=391"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>방과후학교지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB030.html?num=427"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>클레이아트 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB127.html?num=599"  title="교육과정">
+              <div>
+                <span>09</span>
+                <span>책놀이지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB011.html?num=396"  title="교육과정">
+              <div>
+                <span>10</span>
+                <span>스토리텔링수학지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB037.html?num=434"  title="교육과정">
+              <div>
+                <span>11</span>
+                <span>색종이접기지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB032.html?num=430"  title="교육과정">
+              <div>
+                <span>12</span>
+                <span>자원봉사지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB021.html?num=416"  title="교육과정">
+              <div>
+                <span>13</span>
+                <span>창의과학교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB026.html?num=421"  title="교육과정">
+              <div>
+                <span>14</span>
+                <span>아동청소년스피치지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB005.html?num=388"  title="교육과정">
+              <div>
+                <span>15</span>
+                <span>마술교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB081.html?num=536"  title="교육과정">
+              <div>
+                <span>16</span>
+                <span>방과후돌봄교실지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB132.html?num=604"  title="교육과정">
+              <div>
+                <span>17</span>
+                <span>하브루타지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu8">
+        <h4>안전과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB024.html?num=419"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>학교보안안전지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB013.html?num=401"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>안전교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB055.html?num=495"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>재난안전지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu9">
+        <h4>반려과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB060.html?num=502"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>반려동물행동교정사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB098.html?num=557"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>반려동물장례지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB038.html?num=501"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>반려동물관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu10">
+        <h4>아동과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB106.html?num=566"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>특수아동지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB107.html?num=567"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>아동발달전문지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB096.html?num=555"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>아동복지상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB093.html?num=552"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>아동미술지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB012.html?num=400"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>아동요리지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB033.html?num=433"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>놀이교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB016.html?num=405"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>아동교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB004.html?num=387"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>동화구연지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB082.html?num=538"  title="교육과정">
+              <div>
+                <span>09</span>
+                <span>아동독서지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB010.html?num=395"  title="교육과정">
+              <div>
+                <span>10</span>
+                <span>손유희지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB158.html?num=637"  title="교육과정">
+              <div>
+                <span>11</span>
+                <span>오감놀이지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB031.html?num=428"  title="교육과정">
+              <div>
+                <span>12</span>
+                <span>베이비시터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB163.html?num=642"  title="교육과정">
+              <div>
+                <span>13</span>
+                <span>전래놀이지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB166.html?num=645"  title="교육과정">
+              <div>
+                <span>14</span>
+                <span>언어발달지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu11">
+        <h4>공부과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB105.html?num=565"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>진로직업상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB094.html?num=553"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>독서논술지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB015.html?num=404"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>자기주도학습지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB017.html?num=406"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>진로적성상담사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB002.html?num=384"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span> 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB068.html?num=513"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>독서토론지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB067.html?num=514"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>공부방지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB003.html?num=386"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>독서지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu12">
+        <h4>인문과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB091.html?num=550"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>한국어지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB056.html?num=475"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>한국사지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB078.html?num=532"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>인문학지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB083.html?num=539"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>한자지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu13">
+        <h4>부동산과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB151.html?num=628"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>건물관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB117.html?num=576"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>부동산권리분석사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB097.html?num=556"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>부동산분양상담전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB048.html?num=466"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>빌딩관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB066.html?num=507"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>부동산자산관리지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB157.html?num=636"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>부동산토지전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu14">
+        <h4>산업과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB147.html?num=623"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>품질검사마스터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB110.html?num=570"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>코딩지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB108.html?num=568"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>6시그마(GB) 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB109.html?num=569"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>기업생산관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB077.html?num=531"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>3D프린팅지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu15">
+        <h4>IT과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB143.html?num=619"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>네트워크전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB136.html?num=608"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>컴퓨터사무정보처리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB133.html?num=605"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>정보보안전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB134.html?num=606"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>해킹보안전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB118.html?num=578"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>소프트웨어교육지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB073.html?num=524"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>스마트IT컴퓨터지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB100.html?num=560"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>빅데이터전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB102.html?num=562"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>컴퓨터OA마스터 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu16">
+        <h4>취업과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB115.html?num=573"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>전문비서 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB092.html?num=551"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>HRD전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB095.html?num=554"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>전산회계 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB104.html?num=564"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>스마트폰활용지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu17">
+        <h4>항공과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB137.html?num=609"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>DCS 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB121.html?num=592"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>항공서비스전문가 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu18">
+        <h4>공예과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB154.html?num=633"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>캔들공예지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB155.html?num=634"  title="교육과정">
+              <div>
+                <span>02</span>
+                <span>풍선아트지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB159.html?num=638"  title="교육과정">
+              <div>
+                <span>03</span>
+                <span>냅킨아트지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB161.html?num=640"  title="교육과정">
+              <div>
+                <span>04</span>
+                <span>조향사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB167.html?num=647"  title="교육과정">
+              <div>
+                <span>05</span>
+                <span>레전아트지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB174.html?num=654"  title="교육과정">
+              <div>
+                <span>06</span>
+                <span>북아트지도사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB053.html?num=471"  title="교육과정">
+              <div>
+                <span>07</span>
+                <span>병원서비스매니저 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB087.html?num=546"  title="교육과정">
+              <div>
+                <span>08</span>
+                <span>요양병원관리사 1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+          
+
+        </ul>
+      </div>
+
+      <div class="tabcont2" id="sub_menu19">
+        <h4>운동과정</h4>
+        <ul class="class_sub">
+
+          <li>
+            <a href="https://www.korea-edu.net/m/view/indexB154.html?num=633"  title="교육과정">
+              <div>
+                <span>01</span>
+                <span>헬스트레이너지도사1급</span>
+              </div>
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </article>
+
+    <article class="tabcont" id="menu2">
+      <ul class="cer_list">
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB001.html?num=390" title="과목명"># 커피바리스타 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexA001.html?num=398" title="과목명"># 심리상담사 1급</a>
+        </li>
+        
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB008.html?num=393" title="과목명"># 병원코디네이터 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB042.html?num=449" title="과목명"># 정리수납전문가 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB038.html?num=501" title="과목명"># 반려동물관리사 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB031.html?num=428" title="과목명"># 베이비시터</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB168.html?num=648" title="과목명"># 간병사</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB169.html?num=649" title="과목명"># 산후관리사 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB099.html?num=558" title="과목명"># 운동처방사 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexA002.html?num=385" title="과목명"># 노인심리상담사 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB023.html?num=418" title="과목명"># 아동심리상담사 1급</a>
+        </li>
+
+        <li>
+          <a href="https://www.korea-edu.net/m/view/indexB108.html?num=568" title="과목명"># 6시그마(GB)</a>
+        </li>
+
+      </ul>
+    </article>
+
+    <article class="call_box">
+      <a href="tel:1670-6237" title="전화걸기">
+        <!-- <div class="left_txt">
+          <strong>학습 &#x00B7; 기술 지원 문의</strong>
+          <span>친절하게 답변드리겠습니다.</span>
+        </div>
+        <div class="right_txt">
+          <span><img src="./img/phone.png" alt="전화기">1670-6237</span>
+        </div> -->
+        <img src="./img/korea-edu_banner04.png" alt="전화기">
+      </a>
+    </article>
+
+  </section>
+
+  </main>
+
+  <script>
+    $(function() {
+
+      $('ul.tab li:first-child').click(function(){
+        $('.tabcont > .tabcont2').removeClass('on');
+        $('ul.tab2 li').parent('ul.tab2').css({'display':'flex'});
+      });
+
+      $('ul.tab li').click(function() {
+        var activeTab = $(this).attr('data-tab');
+        $('ul.tab li').removeClass('on');
+        $('.tabcont').removeClass('on');
+        $(this).addClass('on');
+        $('#' + activeTab).addClass('on');
+        return false;
+      });
+
+      $('ul.tab2 li').click(function() {
+        $('ul.tab2 li').parent('ul.tab2').css({'display':'none'});
+        var activeTab = $(this).attr('data-tab');
+        $('ul.tab2 li').removeClass('on');
+        $('.tabcont2').removeClass('on');
+        $(this).addClass('on');
+        $('#' + activeTab).addClass('on');
+        return false;
+      });
+    });
+
+    var swiper = new Swiper(".banner_slide", {
+      speed: 500,
+      loop: true,
+      spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+    });
+
+    $('.popularity').click(function(){
+      var activeTab = $(this).attr('data-tab');
+      $('ul.tab li').removeClass('on');
+      $('.tabcont').removeClass('on');
+      $('ul.tab li:last-child').addClass('on');
+      $('#' + activeTab).addClass('on');
+      return false;
+    });
+  </script>
+
+  <style>
+    /* 검색창 서식 */
+    .ui-menu .ui-menu-item{
+      padding:12px 35px;
+      position: relative;
+      background: url('./img/angle_right.svg') right 10px center no-repeat;
+      background-size:7%;
+    }
+    
+  </style>
+</body>
+</html>

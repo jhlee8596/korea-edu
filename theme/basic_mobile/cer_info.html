@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자격증 발급 페이지 -2-</title>
+  <!-- css 초기화 -->
+  <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="/js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="/js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="/js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .bg_color{
+      border:none !important;
+      background: #2E68FF !important;
+      box-shadow: 0px 0px 4.26667px rgba(20, 100, 255, 0.6) !important;
+    }
+    .color01{
+      color: #2E68FF !important;
+    }
+
+    .cer-info_wrap{
+      width:100%;
+      padding:35px 21px 70px;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+
+    .cer-info_con{}
+    .cer-info_con > ul{
+      display:flex;
+      justify-content: center;
+      position: relative;
+      padding:27px 114px;
+      z-index: 10;
+    }
+    .cer-info_con > ul::after{
+      content: "";
+      width:150px;
+      height:1px;
+      background-color: #A4ABC0;
+      position: absolute;
+      left: 50%;
+      top:32%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+    .cer-info_con > ul > li{
+      margin: 0px 25px;
+      width:110%;
+      position: relative;
+      z-index: 10;
+    }
+    .cer-info_con > ul > li > span{
+      letter-spacing: -0.04em;
+      color: #423B5E;
+      font-size:0.750rem;
+      display:block;
+      width:inherit;
+      margin-top:7px;
+    }
+
+    .icon_round-box{
+      width:31px;
+      height:31px;
+      background: #FFFFFF;
+      border: 1.06667px solid #A4ABC0;
+      border-radius: 50%;
+      padding:6px;
+    }
+    .bg_color{
+      border:none !important;
+      background: #2E68FF !important;
+      box-shadow: 0px 0px 4.26667px rgba(20, 100, 255, 0.6) !important;
+    }
+    .icon_round-box > img{
+      width:100%;
+    }
+    .certificate{
+      width:100% !important;
+      height:210px !important;
+      position:relative;
+      border-radius: 16px;
+      padding:17px 0px 10px 68px;
+      box-sizing: border-box;
+      background: url('/theme/basic/m/img/certificate01.png') no-repeat right 10px center #FFFCE4;
+      background-size: 85px;
+      margin-right:10%;
+      filter: drop-shadow(0px 8px 16px rgba(169, 180, 221, 0.4));
+    }
+    .left_box{
+      position:absolute;
+      left:0px;
+      top:0px;
+      height:210px;
+      background-color: #3E81F0;
+      width:42px;
+      border-top-left-radius: 16px;
+      border-bottom-left-radius: 16px;
+    }
+    .main_text{
+      border-bottom:1px solid #002A86;
+    }
+    .main_text > h4{
+      font-size:0.813rem;
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-family: 'S-CoreDream-6Bold';
+      padding-bottom:14px;
+    }
+    .main_text > dl{
+      /* display:flex; */
+      color:#475259;
+      font-size:0.750rem;
+      display:flex;
+      flex-wrap: wrap;
+      line-height:18px;
+    }
+    .main_text dt{
+      font-family: 'S-CoreDream-5Medium';
+      width:70px;
+    }
+    .main_text dl:first-of-type dt{
+      word-spacing: 19px;
+    }
+    .main_text dl:first-of-type dt span{
+      margin-left:4px;
+    }
+    .main_text dd{
+      font-family: 'S-CoreDream-5Medium';
+      text-transform: uppercase;
+    }
+    .main_text p{
+      font-size:0.625rem;
+      color:#000000;
+      margin:13px 0px 7px 2px;
+    }
+    .organization{
+      text-align: center;
+      position: relative;
+    }
+    .organization img{
+      width:136px;
+      height:27px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, 30%);
+    }
+
+    .example_txt{
+      display:flex;
+      justify-content: right;
+      padding:6px 0px 15px;
+    }
+    .example_txt > img{
+      width:20px;
+      vertical-align: middle;
+    }
+    .example_txt > span{
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size:0.813rem;
+      line-height: 29px;
+    }
+
+    .cer-info_privacy{
+      background: rgba(255, 255, 255, 0.5);
+      border: 1.06667px solid #D4DFEE;
+      border-radius: 12.8px;
+      padding:24px 22px 0px;
+    }
+    .cer-info_privacy > h3{
+      letter-spacing: -0.04em;
+      color: #2E68FF;
+      font-size:0.875rem;
+    }
+    .cer-info_privacy > ul{
+      padding:10px 0px 8px;
+      border-bottom: 1px solid #D4DFEE;
+    }
+    .cer-info_privacy > ul > li{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom:10px;
+    }
+    .cer-info_privacy > ul > li > span{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.875rem;
+    }
+    .cer-info_privacy > ul > li > strong{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.875rem;
+      font-weight: 600;
+    }
+
+    .cer-info_check{
+      display:flex;
+      justify-content: center;
+      padding:11px 0px 17px;
+    }
+    .mail-choice {
+      display: none;
+    }
+    .mail-choice + label:before {
+      content: "";
+      margin-right:5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 20px;
+      height: 20px;
+      background: #D4DFEE;
+      border: 1.06667px solid #B6C8DF;
+      border-radius: 50%;
+      -webkit-transition: 0.2s;
+      transition: 0.2s;
+      background-image: url("/theme/basic/m/img/check.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size:80%;
+      cursor: pointer;
+      outline: none;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    .mail-choice:checked + label:before {
+      background-color: #4d76fd;
+      border-color: #4d76fd;
+      background-image: url("/theme/basic/m/img/check.svg");
+      outline: none;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    .issued-txt_wrap > strong{
+      letter-spacing: -0.04em;
+      color: #333333;
+      font-size:0.875rem;
+      font-weight: bold;
+    }
+
+    .issued_notice{
+      background: #FFFFFF;
+      border: 1.06667px solid #2E68FF;
+      border-radius: 12.8px;
+      padding:24px 21px 33px;
+      margin:17px 0px;
+    }
+    .issued_notice > h3{
+      letter-spacing: -0.04em;
+      color: #2E68FF;
+      font-size:0.875rem;
+      padding-bottom:10px;
+    }
+    .issued_notice > pre{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.875rem;
+      font-style: normal;
+      font-family: 'Noto Sans KR', sans-serif;
+      line-height:28px;
+    }
+
+    .issued_bottom-btn{
+      position: fixed;
+      left:0px;
+      bottom:0px;
+      background: #4F8EF7;
+      width:100%;
+    }
+    .issued_bottom-btn > a{
+      display: block;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size:1.125rem;
+      text-align: center;
+      line-height:58px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+  <script>
+    $(document).ready(function(){
+      $('.m_lnb > li:first-child').removeClass('nav_on');
+      $('.m_lnb > li:nth-child(4)').addClass('nav_on');
+      $('.m_lnb > li:first-child > a').removeClass('color_on');
+      $('.m_lnb > li:nth-child(4) > a').addClass('color_on');
+    });
+  </script>
+
+  <section class="cer-info_wrap">
+    <article class="cer-info_con">
+      <ul>
+        <li>
+          <div class="icon_round-box bg_color">
+            <img src="/theme/basic/m/img/issued_select.png" alt="과목선택">
+          </div>
+          <span class="color01">과목선택</span>
+        </li>
+        <li>
+          <div class="icon_round-box bg_color">
+            <img src="/theme/basic/m/img/issued_user_on.png" alt="정보확인">
+          </div>
+          <span class="color01">정보확인</span>
+        </li>
+        <li>
+          <div class="icon_round-box">
+            <img src="/theme/basic/m/img/issued_payment.png" alt="결제진행">
+          </div>
+          <span>결제진행</span>
+        </li>
+      </ul>
+
+      <div class="certificate">
+        <div class="left_box">&nbsp;</div>
+          <div class="main_text">
+            <h4>커피바리스타전문가 1급</h4>
+            <dl>
+              <dt>성 명<span>:</span></dt>
+              <dd>이 민 아</dd>
+            </dl>
+
+            <dl>
+              <dt>생년월일 : </dt>
+              <dd>1990년 08월 17일</dd>
+            </dl>
+
+            <dl>
+              <dt>자격등급 : </dt>
+              <dd>1급</dd>
+            </dl>
+
+            <dl>
+              <dt>등록번호 : </dt>
+              <dd>krivet-2015-004838</dd>
+            </dl>
+
+            <dl>
+              <dt>취득일자 : </dt>
+              <dd>2018년 06월 12일</dd>
+            </dl>
+            <p>위와같이 자격을 취득하였음을 증명함</p>
+          </div>
+        <div class="organization">
+          <img src="/theme/basic/m/img/certificate.png" alt="한국자격검정평가진흥원">
+        </div>
+      </div>
+
+      <div class="example_txt">
+        <img src="/theme/basic/m/img/warning.svg" alt="경고">
+        <span>자격증 예시 이미지</span>
+      </div>
+    </article>
+
+    <article class="cer-info_privacy">
+      <h3>개인정보</h3>
+      <ul>
+        <li>
+          <span>이름</span>
+          <strong>임길순</strong>
+        </li>
+        <li>
+          <span>생년월일</span>
+          <strong>19840515</strong>
+        </li>
+        <li>
+          <span>이메일</span>
+          <strong>abc1357@naver.com</strong>
+        </li>
+      </ul>
+      <div class="cer-info_check">
+        <div class="msg selected-bg anim-y">
+          <input type="checkbox" id="issued_ch03" class="mail-choice">
+          <label for="issued_ch03"></label>
+        </div>
+        <div class="issued-txt_wrap">
+          <strong>개인정보 내용을 확인하였습니다.</strong>
+        </div>
+      </div>
+      
+    </article>
+
+    <article class="issued_notice">
+      <h3>유의사항</h3>
+<pre>
+기본정보 오기재, 분실로 인한 재발급 시 발급 비용이 다시
+부담됩니다. 정확하게 입력해주시기 바랍니다.
+자격증에 협회 자격 일련번호가 기재되기 때문에 사진이
+들어가지 않습니다.
+</pre>
+    </article>
+  </section>
+
+  <aside class="issued_bottom-btn">
+    <a href="payment.html" title="결제진행">결제진행</a>
+  </aside>
+</body>
+</html>

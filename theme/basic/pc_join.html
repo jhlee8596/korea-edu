@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="./js/jquery-ui.js"></script>
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+  <link href="./css/layout/header.css" rel="stylesheet" type="text/css">
+  <link href="./css/layout/footer.css" rel="stylesheet" type="text/css">
+  <script>
+    // 전체동의 버튼 클릭시 모든 체크박스 체크, 전체동의 아래 체크박스중 체크 해제시 전체동의 체크해제, 아래 체크박스 모두 체크시 전체동의 체크박스 체크
+    function checkSelectAll() {
+      // 전체 체크박스
+      const checkboxes
+        = document.querySelectorAll('.checkbox');
+      // 선택된 체크박스
+      const checked
+        = document.querySelectorAll('.checkbox:checked');
+      // select all 체크박스
+      const selectAll
+        = document.querySelector('input[name="selectall"]');
+
+      if (checkboxes.length === checked.length) {
+        selectAll.checked = true;
+      } else {
+        selectAll.checked = false;
+      }
+
+    }
+
+    function selectAll(selectAll) {
+      const checkboxes
+        = document.querySelectorAll('.checkbox');
+
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = selectAll.checked
+      })
+    }
+  </script>
+  <style>
+    .hide_tit,
+    legend,
+    .field_box label {
+      display: none;
+    }
+
+    .wrap {
+      background-color: #F2F4F7;
+      width: 100%;
+      min-width: 1250px;
+      padding: 80px 0 186px;
+    }
+
+    .input_field {
+      width: 502px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid #EAEAEA;
+      border-radius: 4px;
+      padding: 50px 31px;
+      box-sizing: border-box;
+    }
+
+    .input_field>.main_tit {
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 22px;
+      letter-spacing: -0.04em;
+      color: #222222;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .input_field>.sub_tit {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.04em;
+      color: #888888;
+      margin-bottom: 47px;
+      text-align: center;
+    }
+
+    .field_wrap {
+      margin-bottom: 30px;
+    }
+
+    .field_wrap>.field_box {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .field_wrap>.field_box:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* 입력폼, 입력 삭제버튼 (공통) */
+    .field_box>input.join_field {
+      width: 440px;
+      height: 56px;
+      line-height: 56px;
+      background: #F8F9FC;
+      border: 1.06667px solid #E6ECF1;
+      border-radius: 3px;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: -0.04em;
+      color: #555;
+      text-indent: 22px;
+      box-sizing: border-box;
+      display: block;
+    }
+
+    .field_box>input.join_field::placeholder {
+      color: #A4ABC0;
+    }
+
+    .field_box>input.num_field {
+      width: 328px;
+    }
+
+    .field_box>.adress_field {
+      margin-bottom: 10px;
+    }
+
+    .btnClear {
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: transparent;
+    }
+
+    .btnClear::before {
+      content: "✖";
+      font-size: 1rem;
+      color: #929DAD;
+    }
+
+    .tip_txt {
+      padding-top: 4px;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 14px;
+      letter-spacing: -0.04em;
+      color: #929DAD;
+    }
+
+    .certi_btn1 {
+      width: 100px;
+      height: 32px;
+      background: #4F8EF7;
+      border-radius: 50px;
+      color: #fff;
+      text-align: center;
+      padding: 0;
+      margin: 12px 0px 12px 9px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.04em;
+      display: inline-block;
+      border: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .certi_btn2 {
+      width: 103px;
+      height: 56px;
+      background: #1F5EC7;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      line-height: 56px;
+      display: inline-block;
+      border: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .count-down {
+      padding-top: 4px;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 16px;
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+    }
+
+    .input_true,
+    .input_false {
+      padding-top: 4px;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 14px;
+      letter-spacing: -0.04em;
+      display: none;
+    }
+
+    .input_ture {
+      color: blue;
+    }
+
+    .input_false {
+      color: red;
+    }
+
+    /* 약관동의 */
+    .agree-check {
+      margin-top: 50px;
+    }
+
+    .agree-check>h4 {
+      font-weight: 600;
+      font-size: 19px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #222222;
+      padding-bottom: 13px;
+      border-bottom: 1px solid #6D7793;
+      margin-bottom: 42px;
+    }
+
+    .checkbox+label {
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: -0.04em;
+      color: #222222;
+    }
+
+    .agree-check .allcheck-txt {
+      font-weight: 400;
+      font-size: 15px;
+      letter-spacing: -0.04em;
+      color: #888888;
+      padding-left: 36px;
+      margin: 9px 0px 36px 0px;
+    }
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      vertical-align: -2px;
+      position: absolute;
+      visibility: hidden;
+    }
+
+    .checkbox+label {
+      position: relative;
+      padding-left: 37px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .checkbox+label:before,
+    .checkbox+label:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      border: Solid 1px #cacaca;
+      margin-top: -10px;
+      border-radius: 100%;
+    }
+
+    .checkbox+label:after {
+      width: 6px;
+      height: 9px;
+      left: 7px;
+      margin-top: -6px;
+      border-width: 2px;
+      border-left: 0;
+      border-top: 0;
+      transform: rotate(45deg);
+      border-color: #fff;
+      border-radius: 0;
+    }
+
+    .checkbox:checked+label:before {
+      border-color: #4F8EF7;
+      background: #4F8EF7;
+    }
+
+    .checkbox.only+label {
+      height: 28px;
+      overflow: hidden;
+      text-indent: -999em;
+    }
+
+    .checkbox.only+label:before {
+      border: 0;
+    }
+
+    .checkbox.only+label:after {
+      border-color: #c9c9c9;
+      margin-top: -8px;
+    }
+
+    .checkbox.only:checked+label:after {
+      border-color: #4F8EF7;
+    }
+
+    .checkbox.only:checked+label:before {
+      background: #fff;
+    }
+
+    .checkbox.only2+label {
+      width: 22px;
+      height: 24px;
+      overflow: hidden;
+      text-indent: -999em;
+      padding: 0;
+    }
+
+    .fPointC02 {
+      color: #4F8EF7 !important;
+      padding-right: 15px;
+      font-style: normal;
+    }
+
+    .agree-checklist li a:after {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border: solid 1px #292929;
+      border-top: 0;
+      border-left: 0;
+      transform: rotate(-45deg);
+      margin-left: 9px;
+      vertical-align: 2px;
+    }
+
+    .agree-checklist>li>.checkbox+label {
+      padding-left: 25px !important;
+    }
+
+    .agree_btn {
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.04em;
+      color: #444444;
+    }
+
+    .comple_btn {
+      background: #4F8EF7;
+      border-radius: 3px;
+      width: 100%;
+      height: 56px;
+      margin-top: 17px;
+    }
+
+    .comple_btn>a {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 56px;
+      display: block;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header_top">
+      <div class="header_inner">
+        <ul class="inner_left">
+          <li>
+            <a href="#" title="교육과정" class="modal_btn">교육과정<i class="fas fa-angle-down"></i></a>
+          </li>
+          <li>
+            <a href="pc_license_request.html" title="자격증발급">자격증 발급 <i class="fas fa-angle-right"></i></a>
+          </li>
+        </ul>
+
+        <ul class="inner_right">
+          <!-- <li>
+              <a href="#" title="blog" class="blog">blog</a>
+            </li> -->
+          <li>
+            <a href="#" title="펼치기" class="user_nav-btn">
+              <strong>한검평</strong> 님 <img src="./img/arrow_down_small.svg" alt="펼치기">
+            </a>
+            <ul class="user_nav">
+              <li>
+                <a href="" title="발급내역">발급내역</a>
+              </li>
+              <li>
+                <a href="" title="로그아웃">로그아웃</a>
+              </li>
+              <li>
+                <a href="pc_info_edit.html" title="회원정보수정">회원정보수정</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="index.html" title="로그아웃">로그아웃</a>
+          </li>
+          <li>
+            <a href="pc_info_edit.html" title="정보수정">정보수정</a>
+          </li>
+          <li class="h_search_btn">
+            <!-- <a href="#" title="검색" class="search_img">
+                <span>검색</span>
+              </a> -->
+            <input type="checkbox" id="search" class="search_ch">
+            <label for="search" class="search_img">검색</label>
+          </li>
+        </ul>
+        <div class="search_box">
+          <input type="search" id="search_form" placeholder="찾으시는 과정을 검색해주세요.">
+          <a href="#" title="검색">
+            <img src="./img/pc_header_search.svg" alt="검색">
+          </a>
+          <h6>인기과정</h6>
+          <ul class="search_keyword">
+            <li>
+              <a href="https://www.korea-edu.net/SubLIC/indexB001.html?num=390" title="인기과정">#커피바리스타1급</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/SubLIC/indexA001.html?num=398" title="인기과정">#심리상담사1급</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/SubLIC/indexB008.html?num=393" title="인기과정">#병원코디네이터1급</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="header_main">
+      <h1>
+        <div class="brand_box">
+          <div class="brand_img">
+            <img src="./img/header_top_brand.png" alt="브랜드대상">
+          </div>
+          <div class="brand_txt">
+            <span>(주관)한경business</span>
+            <strong>대한민국 교육부문 우수 브랜드 대상</strong>
+          </div>
+        </div>
+        <a href="index.html" title="상단로고" class="logo">
+          <img src="./img/pc_header_logo.svg" alt="상단로고">
+          <span>한국자격검정평가진흥원</span>
+        </a>
+      </h1>
+    </div>
+
+    <nav class="gnb_box">
+      <ul class="gnb">
+        <li>
+          <a href="https://www.korea-edu.net/site/ps_license/index.html" title="교육원소개">교육원소개</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="https://www.korea-edu.net/site/ps_license/index.html" title="서브메뉴">교육원 소개</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/site/ps_license//index02.html" title="서브메뉴">조직도</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/site/ps_license//index03.html" title="서브메뉴">찾아오시는 길</a>
+            </li>
+          </ul>
+        </li>
+        <li class="aft_on1">
+          <a href="pc_enrolment.html" title="수강신청">수강신청</a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="고객센터">고객센터</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">공지사항</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">수강관련문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">자격증배송문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">입금/결제문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">단체수강문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">이벤트게시판</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">자주묻는질문</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="나의강의실">나의강의실</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="pc_progress_lecture.html" title="서브메뉴">수강중인 과정</a>
+            </li>
+            <li>
+              <a href="pc_progress_lecture.html" title="서브메뉴">진도율</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/class/enrollment.html" title="서브메뉴">수강신청내역</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/class/private_info.html" title="서브메뉴">개인정보취급방침</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="pc_license_request.html" title="발급신청">발급신청</a>
+        </li>
+        <li class="aft_on2">
+          <a href="https://www.korea-edu.net/StreamLine/index/board/experience_list.php" title="합격후기">합격후기</a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="수강이벤트">수강이벤트</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="https://www.korea-edu.net/StreamLine/index/board/experience_list.php" title="서브메뉴">합격후기</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">친구추천</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+  <aside class="q_mnu">
+    <div class="quickRight">
+      <h3>QUICK<br>MENU</h3>
+      <ul>
+        <li>
+          <a href="pc_join.html" title="나의강의실">
+            <img src="./img/q_mnu01.png" alt="퀵메뉴">
+            <span>회원가입</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_enrolment.html" title="수강신청">
+            <img src="./img/q_mnu02.png" alt="퀵메뉴">
+            <span>수강신청</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지사항">
+            <img src="./img/q_mnu03.png" alt="퀵메뉴">
+            <span>합격후기</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="합격후기" title="합격후기">
+            <img src="./img/q_mnu04.png" alt="퀵메뉴">
+            <span>공지사항</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="카톡상담">
+            <img src="./img/q_mnu05.png" alt="퀵메뉴">
+            <span>나의강의실</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="top_scroll-btn">
+      <a href="#" title="상단으로이동" onclick="return false;"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </aside>
+
+  <script>
+    $(document).ready(function () {
+      $('.gnb > li').mouseover(function () {
+        $(this).find('.sub_mnu').stop().show();
+      }).mouseout(function () {
+        $(this).find('.sub_mnu').stop().hide();
+      });
+
+      $(window).scroll(function () {
+        let scrollY = $(this).scrollTop();
+
+        if (scrollY >= 50) {
+          $('.top_scroll-btn').fadeIn();
+
+        } else {
+          $('.top_scroll-btn').fadeOut();
+        }
+      });
+
+      $('.top_scroll-btn').bind('click', function () {
+        $('html, body').animate({ scrollTop: '0' }, 500);
+      });
+
+      $(".h_search_btn").change(function () {
+        $(this).parent().next('.search_box').toggleClass('search_show');
+
+        if ($(this).children('.search_img').text() == '검색') {
+          $('.search_img').text('닫기');
+        } else {
+          $('.search_img').text('검색');
+        }
+      });
+
+      $('.modal_btn').click(function () {
+        let modal = ` 
+        <div class='modal'>
+          <div class="curri_list">
+            <ul class="curriculum">
+              <li>
+                <h4>강사과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB141.html?num=615">예절교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB063.html?num=473">퍼스널컬러컨설턴트 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB019.html?num=414">캘리그라피지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB072.html?num=522">쇼핑몰관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB043.html?num=468">리더십지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB042.html?num=449">정리수납전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB070.html?num=518">SNS마케팅전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB079.html?num=533">플로리스트전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB090.html?num=549">영어요리지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB101.html?num=561">가정관리사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB128.html?num=600">장애인인식개선지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>병원과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB130.html?num=602">병원원무행정사 1급</a></li> 
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB008.html?num=393">병원코디네이터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB007.html?num=392">병원행정관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB036.html?num=448">병원진료접수매니저 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB053.html?num=471">병원서비스매니저 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB064.html?num=498">실버병원코디네이터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB114.html?num=575">보험심사평가사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB087.html?num=546">요양병원관리사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>커피과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB071.html?num=519">커피로스팅마스터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB061.html?num=494">티소믈리에 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB049.html?num=463">커피품질평가사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB001.html?num=390">커피바리스타전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB050.html?num=464">커피핸드드립전문가 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB051.html?num=465">와인소믈리에 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>심리과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB148.html?num=625">군심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB074.html?num=525">원예심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA001.html?num=398">심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA003.html?num=389">미술심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB023.html?num=418">아동심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexA005.html?num=399">아동미술심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA006.html?num=397">심리분석사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA004.html?num=402">음악심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB025.html?num=420">다문화심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB018.html?num=407">학교폭력예방상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB009.html?num=394">부모교육상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB022.html?num=417">아동학대예방상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB028.html?num=423">청소년미술심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB059.html?num=493">분노조절상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB122.html?num=593">노인미술심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB052.html?num=450">노인음악심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA002.html?num=385">노인심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB086.html?num=545">부부심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB124.html?num=596">놀이심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB126.html?num=598">색채심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB129.html?num=601">가족심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB131.html?num=603">스포츠심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB138.html?num=610">문학심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB139.html?num=611">독서심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB140.html?num=612">인지행동심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB145.html?num=621">애니어그램심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB146.html?num=622">푸드아트심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB144.html?num=620">도형심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB170.html?num=650">심리복지상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB164.html?num=643">DISC심리상담사1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>전문가과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB150.html?num=627">주차관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB111.html?num=571">인사총무관리자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB034.html?num=429">CS강사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB035.html?num=437">프리젠테이션전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB044.html?num=469">이미지메이킹지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB084.html?num=543">결혼상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB088.html?num=547">골프전문캐디 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB054.html?num=472">스피치지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB112.html?num=572">개인정보관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB116.html?num=577">감정노동관리사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB119.html?num=580">콜센터전문상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB125.html?num=597">4대보험관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB142.html?num=616">창업상권분석지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB149.html?num=626">검색광고마케터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB152.html?num=629">광고기획전문가 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB153.html?num=630">고객상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB099.html?num=558">운동처방사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB156.html?num=635">직무스트레스관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB168.html?num=648">간병사</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB169.html?num=649">산후관리사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>실버과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB123.html?num=595">노인두뇌훈련지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB057.html?num=490">실버건강지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB058.html?num=491">실버레크레이션지도자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB085.html?num=544">노후설계지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB065.html?num=497">노인교육지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>방과후과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB135.html?num=607">스토리텔링그림책지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB080.html?num=534">영어독서지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB076.html?num=530">영재놀이지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB075.html?num=529">레크리에이션지도자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB020.html?num=509">방과후영어교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB062.html?num=496">보드게임지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB006.html?num=391">방과후학교지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB030.html?num=427">클레이아트 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB127.html?num=599">책놀이지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB011.html?num=396">스토리텔링수학지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB037.html?num=434">색종이접기지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB032.html?num=430">자원봉사지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB021.html?num=416">창의과학교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB026.html?num=421">아동청소년스피치지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB005.html?num=388">마술교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB081.html?num=536">방과후돌봄교실지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB132.html?num=604">하브루타지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>안전과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB055.html?num=495">재난안전지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB013.html?num=401">안전교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB024.html?num=419">학교보안안전지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>반려과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB038.html?num=501">반려동물관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB060.html?num=502">반려동물행동교정사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB098.html?num=557">반려동물장례지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>아동과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB107.html?num=567">아동발달전문지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB106.html?num=566">특수아동지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB004.html?num=387">동화구연지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB033.html?num=433">놀이교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB016.html?num=405">아동교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB010.html?num=395">손유희지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB082.html?num=538">아동독서지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB093.html?num=552">아동미술지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB096.html?num=555">아동복지상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB012.html?num=400">아동요리지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB158.html?num=637">오감놀이지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB031.html?num=428">베이비시터</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>공부과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB105.html?num=565">진로직업상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB068.html?num=513">독서토론지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB003.html?num=386">독서지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB017.html?num=406">진로적성상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB015.html?num=404">자기주도학습지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB002.html?num=384">공부습관지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB067.html?num=514">공부방지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB094.html?num=553">독서논술지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>인문과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB091.html?num=550">한국어지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB083.html?num=539">한자지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB078.html?num=532">인문학지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB056.html?num=475">한국사지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>부동산과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB151.html?num=628">건물관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB066.html?num=507">부동산자산관리지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB048.html?num=466">빌딩관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB097.html?num=556">부동산분양상담전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB117.html?num=576">부동산권리분석사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB157.html?num=636">부동산토지전문가 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>산업과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB147.html?num=623">품질검사마스터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB108.html?num=568">6시그마(GB)</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB077.html?num=531">3D프린팅지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB109.html?num=569">기업생산관리자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB110.html?num=570">코딩지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>IT과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB143.html?num=619">네트워크전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB073.html?num=524">스마트IT컴퓨터지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB100.html?num=560">빅데이터전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB102.html?num=562">컴퓨터OA마스터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB118.html?num=578">소프트웨어교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB134.html?num=606">해킹보안전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB133.html?num=605">정보보안전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB136.html?num=608">컴퓨터사무정보처리사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>취업과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB115.html?num=573">전문비서 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB092.html?num=551">HRD전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB095.html?num=554">전산회계 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB104.html?num=564">스마트폰활용지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>항공과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB137.html?num=609">DCS 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB121.html?num=592">항공서비스전문가 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>공예과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB154.html?num=633">캔들공예지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB155.html?num=634">풍선아트지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB159.html?num=638">냅킨아트지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB161.html?num=640">조향사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB167.html?num=647">레진아트지도사 1급</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="btn_box2">
+              <a href="#" title="닫기" onclick="return false;" class="close_btn01"><i class='fas fa-times'></i></a>
+            </div>
+          </div>
+        </div>`
+
+        $('body').append(modal).fadeIn(); // body 태그 안 뒤쪽에 내용을 추가
+
+        $('.close_btn01').click(function () {
+          $('.modal').fadeOut();
+        });
+      });
+    })
+
+    $(function () {
+      $('.user_nav-btn').click(function () {
+        if ($('.user_nav').hasClass('nav_show')) {
+          $('.user_nav').removeClass('nav_show');
+          $(this).find('img').removeClass('icon_act');
+        } else {
+          $('.user_nav').addClass('nav_show');
+          $(this).find('img').addClass('icon_act');
+        }
+      });
+    });
+
+    $(document).ready(function () {
+      $('.top_scroll-btn').bind('click', function () {
+        $('html, body').animate({ scrollTop: '0' }, 500);
+      });
+      // 애니메이션 효과로 자연스럽게 이동됨, 0.68초
+    });
+  </script>
+
+  <!-- 메인콘텐츠 -->
+  <main>
+    <section class="wrap">
+      <h2 class="hide_tit">회원가입 페이지</h2>
+      <article class="input_field">
+        <h3 class="main_tit">회원가입</h3>
+        <p class="sub_tit">다양한 수강혜택 및 서비스를 이용하실 수 있습니다.</p>
+
+        <form name="" method="post" action="">
+          <fieldset class="field_wrap">
+            <legend>이름, 생년월일</legend>
+            <div class="field_box">
+              <label for="join_name">이름</label>
+              <input type="text" class="join_field" id="join_name" placeholder="이름" required autocomplete="off"
+                onblur="checkName()">
+              <button class="btnClear"></button>
+            </div>
+
+            <div class="field_box">
+              <label for="join_birth">생년월일</label>
+              <input type="text" class="join_field" id="join_birth" placeholder="생년월일"
+                placeholder="생년월일 ( 예 : 19810508 )" maxlength="8" onkeyup="characterCheck(this)"
+                onkeydown="characterCheck(this)"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required
+                autocomplete="off" onblur="checkBirth()">
+              <button class="btnClear"></button>
+              <p id="birth_checkerror" class="input_true">
+                * 사용 가능한 생일입니다.
+              </p>
+              <p id="birth_checkerror1" class="input_false">
+                * 정확한 생일을 입력해주세요.
+              </p>
+              <p class="tip_txt"> 예 ) 19810508</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="field_wrap">
+            <legend>아이디, 비밀번호</legend>
+            <div class="field_box">
+              <label for="join_id">아이디</label>
+              <input type="text" class="join_field" id="join_id" name="txtId" placeholder="아이디" maxlength="16" required
+                autocomplete="off" onblur="checkID()">
+              <button class="btnClear"></button>
+              <p id="id_checkerror" class="input_true">
+                * 사용 가능한 아이디입니다.
+              </p>
+              <p id="id_checkerror1" class="input_false">
+                * 아이디를 입력해주세요.
+              </p>
+              <p id="id_checkerror2" class="input_false">
+                * 영문으로 시작하는 6~12자를 입력해주세요.
+              </p>
+              <p id="id_checkerror3" class="input_false">
+                * 이미 사용중인 아이디 입니다.
+              </p>
+              <p class="tip_txt">* 영문으로 시작하는 6~12자 ( 특수문자 사용불가 )</p>
+            </div>
+
+            <div class="field_box">
+              <label for="join_pw1">비밀번호</label>
+              <input type="password" class="join_field" id="join_pw1" name="txtPwd1" placeholder="비밀번호" required
+                autocomplete="off" value="" onkeypress="specialObj_pwd(event);"
+                onblur="specialObj_pwd(this);checkPass();checkRepass();">
+              <button class="btnClear"></button>
+              <!--한검평, 장학진흥원 제외-->
+              <p id="pw_checkerror" class="input_true">
+                * 사용가능한 비밀번호 입니다.
+              </p>
+              <p id="pw_checkerror1" class="input_false">
+                * 4자~12자를 입력해주세요 ( 대문자 사용불가 )
+              </p>
+              <p class="tip_txt">4~12자 입력 ( 대문자 사용불가 )</p>
+            </div>
+
+            <div class="field_box">
+              <label for="join_pw2">비밀번호 확인</label>
+              <input type="password" class="join_field" id="join_pw2" name="txtPwd2" required autocomplete="username"
+                placeholder="비밀번호 확인" onblur="checkRepass()">
+              <button class="btnClear"></button>
+              <p id="pw_compareerror" class="input_true">
+                비밀번호가 일치합니다.
+              </p>
+              <p id="pw_compareerror1" class="input_false">
+                비밀번호가 일치하지 않습니다.
+              </p>
+            </div>
+          </fieldset>
+
+          <fieldset class="field_wrap">
+            <legend>주소지</legend>
+
+            <div class="field_box">
+              <input type="hidden" id="postcode_kakao" name="txtZip1" onkeydown="onlyNumber(this)">
+              <input type="text" class="join_field adress_field" id="address_kakao" name="txtAddr1" readonly
+                placeholder="주소 검색" />
+              <input type="text" class="join_field" id="address_desc_kakao" name="txtAddr2" placeholder="상세주소" />
+            </div>
+
+          </fieldset>
+
+          <fieldset class="field_wrap">
+            <legend>휴대번호인증</legend>
+            <div class="field_box">
+              <label for="join_num">휴대번호</label>
+              <input type="text" class="join_field num_field" id="num_text" class="num_txt" name="txtHp"
+                placeholder="휴대번호" maxlength="11" onkeyup="characterCheck(this)" onkeydown="characterCheck(this)"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required
+                autocomplete="off">
+              <input type="button" onclick="cert_request(1);" value="인증번호 전송" class="certi_btn1">
+              <p id="mobile_cert" class="input_false" style="display:none;">휴대폰번호를 확인해 주세요</p>
+            </div>
+            <div class="field_box" id="cert_timer" style="display:none;">
+              <input type="text" class="join_field num_field" id="certno" placeholder="인증 번호 입력">
+              <button class="btnClear"></button>
+              <p class="count-down">남은시간 <span id="count-down">1:59</span></p>
+              <label for="certification">인증</label>
+              <!--<span class="text-center" id="count-down"></span>	-->
+              <input type="button" value="확인" onclick="cert_send();" class="certi_btn2">
+            </div>
+          </fieldset>
+
+          <div class="agree-check">
+            <h4>서비스 전체 약관</h4>
+            <p class="allcheck">
+              <input type="checkbox" class="checkbox" id="allcheck" name="selectall" onclick='selectAll(this)'><label
+                for="allcheck">회원가입 약관에 모두 동의합니다</label>
+            </p>
+            <p class="allcheck-txt">
+              서비스 약관, 개인정보 수집 및 이용에 모두 동의합니다.
+            </p>
+
+            <ul class="agree-checklist">
+              <li>
+                <input type="checkbox" class="checkbox only" name="chk1" id="chkItem1" value="1" required
+                  onclick='checkSelectAll()' /><label for="chkItem1">필수이용약관 동의</label>
+                <a target="_blank" href="https://www.korea-edu.net/main/terms.html" class="agree_btn"><em
+                    class="fPointC02">[필수]</em> 서비스 약관 동의</a>
+              </li>
+              <li>
+                <input type="checkbox" class="checkbox only" name="chk2" id="chkItem2" value="1" required
+                  onclick='checkSelectAll()' /><label for="chkItem2">개인정보 필수항목에 대한 처리 및 이용 동의</label>
+                <a target="_blank" href="https://www.korea-edu.net/class/private_info.html" class="agree_btn"><em
+                    class="fPointC02">[필수]</em> 개인정보 수집 및 이용 동의</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="comple_btn">
+            <a href="javascript:void(0);" onclick="join_ok();" title="가입하기">가입하기</a>
+          </div>
+        </form>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- 하단푸터 -->
+  <footer include-html="./pc_footer.html"></footer>
+  <script src="./script/include.js"></script>
+  <script>
+    includeHTML();
+  </script>
+
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script>
+    window.onload = function () {
+      document.getElementById("address_kakao").addEventListener("click", function () { //주소입력칸을 클릭하면
+        //카카오 지도 발생
+        new daum.Postcode({
+          oncomplete: function (data) { //선택시 입력값 세팅
+            document.getElementById("postcode_kakao").value = data.zonecode; // 주소 넣기
+            document.getElementById("address_kakao").value = data.address; // 주소 넣기
+            document.getElementById("address_desc_kakao").focus(); //상세입력 포커싱
+          }
+        }).open();
+      });
+    }
+    // 특수문자 입력 방지
+    function characterCheck(obj) {
+      var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi;
+      // 허용할 특수문자는 여기서 삭제하면 됨
+      // 지금은 띄어쓰기도 특수문자 처리됨
+      if (regExp.test(obj.value)) {
+        obj.value = obj.value.substring(0, obj.value.length - 1); // 입력한 특수문자 한자리 지움
+      }
+    }
+
+    var btnClear = document.querySelectorAll('.btnClear');
+    btnClear.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btn.parentNode.querySelector('input').value = "";
+      });
+    })
+
+    function directInputEmail() {
+      var frm = document.frmJoin;
+      var strEmail = frm.slctEmail.options[frm.slctEmail.selectedIndex].value;
+
+      frm.txtEmail2.value = strEmail;
+      if (strEmail == "") {
+        frm.txtEmail2.style.display = "inline";
+      } else {
+        frm.txtEmail2.style.display = "none";
+      }
+    }
+
+    $(function () {
+      $('.certi_btn1').click(function () {
+        let val = $(this).parent().find('#num_text').val();
+
+        if (val.length < 11) {
+          $('#mobile_cert').show();
+        } else if (val.length == 11) {
+          $('.certi_btn1').attr('value', '재전송');
+          $('#mobile_cert').hide();
+          alert('인증번호가 발송되었습니다.');
+          $('#cert_timer').show();
+        }
+      });
+
+      $('.certi_btn2').click(function () {
+        let val2 = $(this).parent().find('#certno').val();
+
+        if (val2.length < 5) {
+          alert('인증번호를 입력해주세요.');
+        } else if (val2.length == 5) {
+          alert('인증이 완료되었습니다.');
+          $('.certi_btn1').attr("disabled", true);
+          $('.num_field').attr("readonly", true);
+          $('.certi_btn1').attr('style', function (i, s) { return (s || '') + 'background: #A4ABC0 !important;' });
+          $('#cert_timer').hide();
+        }
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>

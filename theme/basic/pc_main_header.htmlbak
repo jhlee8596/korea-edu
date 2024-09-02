@@ -1,0 +1,497 @@
+  <!-- css리셋 -->
+  <link rel="stylesheet" href="../../css/reset.css" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
+    header{
+      width: 100%;
+      min-width:1530px;
+      white-space: nowrap;
+      height: 70px;
+      line-height: 70px;
+      position: relative;
+      border-bottom:1px solid #ededed;
+      z-index:10000
+    }
+    header > .gnb{
+      display: flex;
+      position:absolute;
+      left:30px;
+    }
+    header > .gnb > li{
+      margin: 0px 15px;
+      position:relative;
+    }
+    header > .gnb > li:first-child{
+      margin-left: 0;
+    }
+    header > .gnb > li:last-child{
+      margin-right: 0;
+    }
+    header > .gnb > li > a{
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 28px;
+      letter-spacing: -0.06em;
+      color: #444;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      position: relative;
+    }
+    .nav_on::after{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #2275FF;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+    }
+    header > .gnb > li:nth-child(2) > a::after{
+      content: "event";
+      display: inline-block;
+      position: absolute;
+      top: -18px;
+      left: 25px;
+      width: 49px;
+      height: 18px;
+      line-height: 18px;
+      background: #2275FF;
+      border-radius: 33px;
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      align-items: center;
+      color: #FFFFFF;
+      text-transform: capitalize;
+    }
+    .gnb_depth{
+      position:absolute;
+      left:0;
+      top:102%; 
+      width: 100%;
+      background:#fff;
+      z-index:101;
+      display:none;
+    }
+    .gnb_depth > .gnb_depwr{
+      /* max-width: 1285px; */
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul{
+      display: table;
+      width: 100%;
+      position:relative;
+      height: 70px;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li{
+      display: none;
+      position:absolute;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li01{
+      left:15px;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li02{
+      left:473px;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li03{
+      right:122px;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li > .dep02{
+      display: table;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li > .dep02 > li{
+      margin: 0;
+      display: table-cell;
+      vertical-align: top;
+      padding: 0 15px;
+      position: relative;
+    }
+    .gnb_depth > .gnb_depwr > .menu_ul > .menu-li > .dep02 > li > a{}
+    
+
+    header > h1{
+      margin:0px auto;
+      width:225px;
+    }
+    header > h1 > a{
+      width:253px;
+      display:block;
+    }
+    header > h1 > a > img{
+      width: 100%;
+      vertical-align: middle;
+    }
+    header > h1 > a > span{
+      font-weight: bold;
+      font-size: 21px;
+      letter-spacing: -0.04em;
+      color: #454545;
+      font-stretch: 100;
+    }
+    header > .user_nav_box{
+      display: flex;
+      position: absolute;
+      top: 0px;
+      right: 36px;
+    }
+    .user_nav{
+      display: flex;
+    }
+    .user_nav > li{
+      position:relative;
+      padding: 0px 12px;
+    }
+    .user_nav > li:last-child{
+      padding-right:0 
+    }
+    .login_btn, .join_btn, .curri_btn, .request_btn{
+      text-align: center;
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+      color:#444;
+    }
+    .user_nav > li > .join_btn::after{
+      content: "혜택받기";
+      width: 63.22px;
+      height: 18.33px;
+      border-radius: 9px;
+      background-color:#fd2f17;
+      position: absolute;
+      right:31%;
+      transform: translateX(50%);
+      top:7px;
+      font-weight: 500;
+      font-size: 12.2222px;
+      line-height:18.33px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+    }
+    /* .user_nav > li > .request_btn{
+      display: block;
+      width: 210px;
+      height: 70px;
+      background: #0C1776;
+      text-align: left;
+      box-sizing: border-box;
+      padding: 0px 53px 0px 28px;
+    }
+    .user_nav > li > .request_btn > img{
+      width: 39px;
+      vertical-align: middle;
+    }
+    .user_nav > li > .request_btn > span{
+      font-weight: 500;
+      font-size: 17px;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+    } */
+
+      .q_mnu {
+        position: fixed;
+        left: 50%;
+        margin-left: 835px;
+        top: 193px;
+        height: calc(100% - 475px);
+        z-index: 9999;
+      }
+      .quickRight {
+        width: 94px;
+        height: 435px;
+      }
+      .quickRight > h3{
+        font-family: 'Outfit' !important;
+        width: 94px;
+        height: 62px;
+        padding: 13px 0;
+        text-align: center;
+        background: #0C1776;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: -0.06em;
+        color: #FFFFFF;
+        border-radius: 9px 9px 0px 0px;
+        box-sizing: border-box;
+      }
+      .quickRight ul {
+        padding: 0;
+        margin: 0;
+        background: #FFFFFF;
+        border-radius: 0px 0px 9px 9px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .quickRight li{
+        width: 94px;
+        height: 74px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .quickRight li::after{
+        content: "";
+        width: 52px;
+        height: 1px;
+        display: block;
+        background-color: #EAEAEA;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .quickRight li:last-child::after{
+        content: none;
+      }
+      .quickRight li > a{
+        display: block;
+        padding: 9px 0 13px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .quickRight li > a > img{
+        width: 30px;
+        display: block;
+        margin: 0px auto;
+      }
+      .quickRight li > a > span{
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: -0.06em;
+        color: #333333;
+        padding-top: 4px;
+      }
+      .top_scroll-btn{
+        width:56px;
+        height:56px;
+        background: #FFFFFF;
+        border: 1px solid #4F8EF7;
+        box-shadow: 0px 2.13333px 4.26667px rgba(188, 197, 229, 0.25);
+        border-radius: 50%;
+        margin: 18px auto;
+      }
+      .top_scroll-btn > a{
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        line-height: 54px;
+        color: #2E68FF;
+      }
+
+      @media screen and (max-width:1600px){
+        body{
+          overflow-X:hidden;
+        }
+        header > .gnb > li > a{
+          font-size:15px;
+        }
+        .login_btn, .join_btn, .curri_btn, .request_btn{
+          font-size:15px;
+        }
+        header > h1 > a{
+          width:unset;
+        }
+        .q_mnu{
+          margin-left:637px;
+        }
+      }
+  </style>
+
+  <header>
+    <ul class="gnb">
+      <li>
+        <a href="pc_company_info.html" title="교육원소개">교육원소개</a>
+      </li>
+      <li class="not-li">
+        <a href="pc_enrolment.html" title="수강신청">수강신청</a>
+      </li>
+      <li class="not-li">
+        <a href="pc_curriculum.html" title="교육과정">교육과정</a>
+      </li>
+      <li class="not-li">
+        <a href="pc_review.html" title="합격후기">합격후기</a>
+      </li>
+      <li class="not-li">
+        <a href="pc_center.html" title="상담문의">상담문의</a>
+      </li>
+      <li>
+        <a href="pc_notice.html" title="고객센터">고객센터</a>
+      </li>
+    </ul>
+    <div class="gnb_depth">
+      <nav class="gnb_depwr">
+        <ul class="menu_ul">
+          <li class="menu-li menu-li01">
+            <ul class="dep02">
+              <li>
+                <a href="pc_company_info.html">교육원소개</a>
+              </li>
+              <li>
+                <a href="pc_company_info.html">조직도</a>
+              </li>
+              <li>
+                <a href="pc_company_info.html">찾아오시는길</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-li menu-li02">
+            <ul class="dep02">
+              <li>
+                <a href="pc_notice.html">공지사항</a>
+              </li>
+              <li>
+                <a href="pc_notice.html">수강관련문의</a>
+              </li>
+              <li>
+                <a href="pc_notice.html">자격증배송문의</a>
+              </li>
+              <li>
+                <a href="pc_notice.html">입금/결제문의</a>
+              </li>
+              <li>
+                <a href="pc_notice.html">단체수강문의</a>
+              </li>
+              <li>
+                <a href="pc_notice.html">이벤트게시판</a>
+              </li>
+              <li>
+                <a href="pc_notice.html">자주묻는질문</a>
+              </li>
+            </ul>
+          </li>
+          <li class="menu-li menu-li03">
+            <ul class="dep02">
+              <li>
+                <a href="pc_progress_lecture.html">학습하기</a>
+              </li>
+              <li>
+                <a href="pc_exam_test.html">시험관리</a>
+              </li>
+              <li>
+                <a href="pc_license_request.html">발급신청</a>
+              </li>
+              <li>
+                <a href="pc_license_request.html">발급내역</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  
+    <h1>
+      <a href="index.html" title="상단로고" class="logo">
+        <img src="./img/main_header_logo.png" alt="상단로고">
+      </a>
+    </h1>
+  
+    <div class="user_nav_box">
+      <ul class="user_nav">
+        <li>
+          <a href="pc_join.html" title="회원가입" class="join_btn">무료회원가입</a>
+        </li>
+        <li>
+          <a href="#" title="로그인" class="login_btn">로그인</a>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="나의강의실" class="curri_btn">나의강의실</a>
+        </li>
+        <li>
+          <a href="pc_license_request.html" title="자격증 발급" class="request_btn">
+            자격증발급
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <aside class="q_mnu">
+    <div class="quickRight">
+      <h3>QUICK<br>MENU</h3>
+      <ul>
+        <li>
+          <a href="pc_join.html" title="나의강의실">
+            <img src="./img/q_mnu01.png" alt="퀵메뉴">
+            <span>회원가입</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_enrolment.html" title="수강신청">
+            <img src="./img/q_mnu02.png" alt="퀵메뉴">
+            <span>수강신청</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지사항">
+            <img src="./img/q_mnu03.png" alt="퀵메뉴">
+            <span>합격후기</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="합격후기" title="합격후기">
+            <img src="./img/q_mnu04.png" alt="퀵메뉴">
+            <span>공지사항</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="카톡상담">
+            <img src="./img/q_mnu05.png" alt="퀵메뉴">
+            <span>나의강의실</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="top_scroll-btn">
+      <a href="#" title="상단으로이동" onclick="return false;"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </aside>
+
+  <script>
+    $(function(){
+      // $(".gnb > li").not(".not-li").each(function(){
+      //   $('.gnb > li').mouseenter(function(){
+      //     $('.gnb_depth').show().find('.menu-li01').show();
+      //     $('.menu-li02').hide();
+      //     $('.menu-li03').hide();
+      //     $(".gnb > li").removeClass('nav_on');
+      //     $(this).addClass('nav_on');
+      //   });
+      //   $('.gnb_depth').mouseleave(function(){
+      //     $('.gnb_depth').hide();
+      //     $(".gnb > li").removeClass('nav_on');
+      //   });
+      // });
+
+      // $('.user_nav > li:nth-child(3)').mouseenter(function(){
+      //   $('.gnb_depth').show().find('.menu-li03').show();
+      //   $('.menu-li01').hide();
+      //   $('.menu-li02').hide();
+      //   $(".gnb > li").removeClass('nav_on');
+      //   $(this).addClass('nav_on');
+      // });
+
+      $(window).scroll(function(){
+        let scrollY = $(this).scrollTop();
+
+        if(scrollY >=50){
+          $('.top_scroll-btn').fadeIn();
+
+        }else{
+          $('.top_scroll-btn').fadeOut();
+        }
+      });
+
+      $('.top_scroll-btn').bind('click', function() {
+        $('html, body').animate({scrollTop: '0'}, 500);
+      });
+    });
+  </script>

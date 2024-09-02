@@ -1,0 +1,4205 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인페이지</title>
+  <!-- css리셋 -->
+  <link rel="stylesheet" href="../../css/reset.css" type="text/css">
+  <link href="./css/layout/header.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../css/index.css" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="./script/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="./script/jquery-ui.js"></script>
+
+  <!-- 스와이퍼 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+  <!-- 스와이퍼 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="header_top">
+      <div class="header_inner">
+        <ul class="inner_left">
+          <li>
+            <a href="#" title="교육과정" class="modal_btn">교육과정<i class="fas fa-angle-down"></i></a>
+          </li>
+          <li>
+            <a href="pc_license_request.html" title="자격증발급">자격증 발급 <i class="fas fa-angle-right"></i></a>
+          </li>
+        </ul>
+
+        <ul class="inner_right">
+          <!-- <li>
+              <a href="#" title="blog" class="blog">blog</a>
+            </li> -->
+          <li>
+            <a href="#" title="펼치기" class="user_nav-btn">
+              <strong>한검평</strong> 님 <img src="./img/arrow_down_small.svg" alt="펼치기">
+            </a>
+            <ul class="user_nav">
+              <li>
+                <a href="" title="발급내역">발급내역</a>
+              </li>
+              <li>
+                <a href="" title="로그아웃">로그아웃</a>
+              </li>
+              <li>
+                <a href="pc_info_edit.html" title="회원정보수정">회원정보수정</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="index.html" title="로그아웃">로그아웃</a>
+          </li>
+          <li>
+            <a href="pc_info_edit.html" title="정보수정">정보수정</a>
+          </li>
+          <li class="h_search_btn">
+            <!-- <a href="#" title="검색" class="search_img">
+                <span>검색</span>
+              </a> -->
+            <input type="checkbox" id="search" class="search_ch">
+            <label for="search" class="search_img">검색</label>
+          </li>
+        </ul>
+        <div class="search_box">
+          <input type="search" id="search_form" placeholder="찾으시는 과정을 검색해주세요.">
+          <a href="#" title="검색">
+            <img src="./img/pc_header_search.svg" alt="검색">
+          </a>
+          <h6>인기과정</h6>
+          <ul class="search_keyword">
+            <li>
+              <a href="https://www.korea-edu.net/SubLIC/indexB001.html?num=390" title="인기과정">#커피바리스타1급</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/SubLIC/indexA001.html?num=398" title="인기과정">#심리상담사1급</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/SubLIC/indexB008.html?num=393" title="인기과정">#병원코디네이터1급</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="header_main">
+      <h1>
+        <div class="brand_box">
+          <div class="brand_img">
+            <img src="./img/header_top_brand.png" alt="브랜드대상">
+          </div>
+          <div class="brand_txt">
+            <span>(주관)한경business</span>
+            <strong>대한민국 교육부문 우수 브랜드 대상</strong>
+          </div>
+        </div>
+        <a href="index.html" title="상단로고" class="logo">
+          <img src="./img/pc_header_logo.svg" alt="상단로고">
+          <span>한국자격검정평가진흥원</span>
+        </a>
+      </h1>
+    </div>
+
+    <nav class="gnb_box">
+      <ul class="gnb">
+        <li>
+          <a href="https://www.korea-edu.net/site/ps_license/index.html" title="교육원소개">교육원소개</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="https://www.korea-edu.net/site/ps_license/index.html" title="서브메뉴">교육원 소개</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/site/ps_license//index02.html" title="서브메뉴">조직도</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/site/ps_license//index03.html" title="서브메뉴">찾아오시는 길</a>
+            </li>
+          </ul>
+        </li>
+        <li class="aft_on1">
+          <a href="pc_enrolment.html" title="수강신청">수강신청</a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="고객센터">고객센터</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">공지사항</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">수강관련문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">자격증배송문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">입금/결제문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">단체수강문의</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">이벤트게시판</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">자주묻는질문</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="나의강의실">나의강의실</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="pc_progress_lecture.html" title="서브메뉴">수강중인 과정</a>
+            </li>
+            <li>
+              <a href="pc_progress_lecture.html" title="서브메뉴">진도율</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/class/enrollment.html" title="서브메뉴">수강신청내역</a>
+            </li>
+            <li>
+              <a href="https://www.korea-edu.net/class/private_info.html" title="서브메뉴">개인정보취급방침</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="pc_license_request.html" title="발급신청">발급신청</a>
+        </li>
+        <li class="aft_on2">
+          <a href="https://www.korea-edu.net/StreamLine/index/board/experience_list.php" title="합격후기">합격후기</a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="수강이벤트">수강이벤트</a>
+          <ul class="sub_mnu">
+            <li>
+              <a href="https://www.korea-edu.net/StreamLine/index/board/experience_list.php" title="서브메뉴">합격후기</a>
+            </li>
+            <li>
+              <a href="pc_notice.html" title="서브메뉴">친구추천</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+  </header>
+  <aside class="q_mnu">
+    <div class="quickRight">
+      <h3>QUICK<br>MENU</h3>
+      <ul>
+        <li>
+          <a href="pc_join.html" title="나의강의실">
+            <img src="./img/q_mnu01.png" alt="퀵메뉴">
+            <span>회원가입</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_enrolment.html" title="수강신청">
+            <img src="./img/q_mnu02.png" alt="퀵메뉴">
+            <span>수강신청</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지사항">
+            <img src="./img/q_mnu03.png" alt="퀵메뉴">
+            <span>합격후기</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="합격후기" title="합격후기">
+            <img src="./img/q_mnu04.png" alt="퀵메뉴">
+            <span>공지사항</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="카톡상담">
+            <img src="./img/q_mnu05.png" alt="퀵메뉴">
+            <span>나의강의실</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="top_scroll-btn">
+      <a href="#" title="상단으로이동" onclick="return false;"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </aside>
+
+  <script>
+    $(document).ready(function () {
+      $('.gnb > li').mouseover(function () {
+        $(this).find('.sub_mnu').stop().show();
+      }).mouseout(function () {
+        $(this).find('.sub_mnu').stop().hide();
+      });
+
+      $(window).scroll(function () {
+        let scrollY = $(this).scrollTop();
+
+        if (scrollY >= 50) {
+          $('.top_scroll-btn').fadeIn();
+
+        } else {
+          $('.top_scroll-btn').fadeOut();
+        }
+      });
+
+      $('.top_scroll-btn').bind('click', function () {
+        $('html, body').animate({ scrollTop: '0' }, 500);
+      });
+
+      $(".h_search_btn").change(function () {
+        $(this).parent().next('.search_box').toggleClass('search_show');
+
+        if ($(this).children('.search_img').text() == '검색') {
+          $('.search_img').text('닫기');
+        } else {
+          $('.search_img').text('검색');
+        }
+      });
+
+      $('.modal_btn').click(function () {
+        let modal = ` 
+        <div class='modal'>
+          <div class="curri_list">
+            <ul class="curriculum">
+              <li>
+                <h4>강사과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB141.html?num=615">예절교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB063.html?num=473">퍼스널컬러컨설턴트 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB019.html?num=414">캘리그라피지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB072.html?num=522">쇼핑몰관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB043.html?num=468">리더십지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB042.html?num=449">정리수납전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB070.html?num=518">SNS마케팅전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB079.html?num=533">플로리스트전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB090.html?num=549">영어요리지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB101.html?num=561">가정관리사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB128.html?num=600">장애인인식개선지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>병원과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB130.html?num=602">병원원무행정사 1급</a></li> 
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB008.html?num=393">병원코디네이터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB007.html?num=392">병원행정관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB036.html?num=448">병원진료접수매니저 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB053.html?num=471">병원서비스매니저 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB064.html?num=498">실버병원코디네이터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB114.html?num=575">보험심사평가사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB087.html?num=546">요양병원관리사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>커피과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB071.html?num=519">커피로스팅마스터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB061.html?num=494">티소믈리에 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB049.html?num=463">커피품질평가사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB001.html?num=390">커피바리스타전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB050.html?num=464">커피핸드드립전문가 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB051.html?num=465">와인소믈리에 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>심리과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB148.html?num=625">군심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB074.html?num=525">원예심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA001.html?num=398">심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA003.html?num=389">미술심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB023.html?num=418">아동심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexA005.html?num=399">아동미술심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA006.html?num=397">심리분석사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA004.html?num=402">음악심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB025.html?num=420">다문화심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB018.html?num=407">학교폭력예방상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB009.html?num=394">부모교육상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB022.html?num=417">아동학대예방상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB028.html?num=423">청소년미술심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB059.html?num=493">분노조절상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB122.html?num=593">노인미술심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB052.html?num=450">노인음악심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexA002.html?num=385">노인심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB086.html?num=545">부부심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB124.html?num=596">놀이심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB126.html?num=598">색채심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB129.html?num=601">가족심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB131.html?num=603">스포츠심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB138.html?num=610">문학심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB139.html?num=611">독서심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB140.html?num=612">인지행동심리상담사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB145.html?num=621">애니어그램심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB146.html?num=622">푸드아트심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB144.html?num=620">도형심리상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB170.html?num=650">심리복지상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB164.html?num=643">DISC심리상담사1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>전문가과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB150.html?num=627">주차관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB111.html?num=571">인사총무관리자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB034.html?num=429">CS강사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB035.html?num=437">프리젠테이션전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB044.html?num=469">이미지메이킹지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB084.html?num=543">결혼상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB088.html?num=547">골프전문캐디 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB054.html?num=472">스피치지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB112.html?num=572">개인정보관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB116.html?num=577">감정노동관리사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB119.html?num=580">콜센터전문상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB125.html?num=597">4대보험관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB142.html?num=616">창업상권분석지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB149.html?num=626">검색광고마케터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB152.html?num=629">광고기획전문가 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB153.html?num=630">고객상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB099.html?num=558">운동처방사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB156.html?num=635">직무스트레스관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB168.html?num=648">간병사</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB169.html?num=649">산후관리사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>실버과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB123.html?num=595">노인두뇌훈련지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB057.html?num=490">실버건강지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB058.html?num=491">실버레크레이션지도자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB085.html?num=544">노후설계지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB065.html?num=497">노인교육지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>방과후과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB135.html?num=607">스토리텔링그림책지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB080.html?num=534">영어독서지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB076.html?num=530">영재놀이지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB075.html?num=529">레크리에이션지도자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB020.html?num=509">방과후영어교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB062.html?num=496">보드게임지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB006.html?num=391">방과후학교지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB030.html?num=427">클레이아트 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB127.html?num=599">책놀이지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB011.html?num=396">스토리텔링수학지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB037.html?num=434">색종이접기지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB032.html?num=430">자원봉사지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB021.html?num=416">창의과학교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB026.html?num=421">아동청소년스피치지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB005.html?num=388">마술교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB081.html?num=536">방과후돌봄교실지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB132.html?num=604">하브루타지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>안전과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB055.html?num=495">재난안전지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB013.html?num=401">안전교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB024.html?num=419">학교보안안전지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>반려과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB038.html?num=501">반려동물관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB060.html?num=502">반려동물행동교정사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB098.html?num=557">반려동물장례지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>아동과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB107.html?num=567">아동발달전문지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB106.html?num=566">특수아동지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB004.html?num=387">동화구연지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB033.html?num=433">놀이교육지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB016.html?num=405">아동교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB010.html?num=395">손유희지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB082.html?num=538">아동독서지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB093.html?num=552">아동미술지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB096.html?num=555">아동복지상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB012.html?num=400">아동요리지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB158.html?num=637">오감놀이지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB031.html?num=428">베이비시터</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>공부과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB105.html?num=565">진로직업상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB068.html?num=513">독서토론지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB003.html?num=386">독서지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB017.html?num=406">진로적성상담사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB015.html?num=404">자기주도학습지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB002.html?num=384">공부습관지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB067.html?num=514">공부방지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB094.html?num=553">독서논술지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>인문과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB091.html?num=550">한국어지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB083.html?num=539">한자지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB078.html?num=532">인문학지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB056.html?num=475">한국사지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>부동산과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB151.html?num=628">건물관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB066.html?num=507">부동산자산관리지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB048.html?num=466">빌딩관리사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB097.html?num=556">부동산분양상담전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB117.html?num=576">부동산권리분석사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB157.html?num=636">부동산토지전문가 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>산업과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB147.html?num=623">품질검사마스터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB108.html?num=568">6시그마(GB)</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB077.html?num=531">3D프린팅지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB109.html?num=569">기업생산관리자 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB110.html?num=570">코딩지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>IT과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB143.html?num=619">네트워크전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB073.html?num=524">스마트IT컴퓨터지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB100.html?num=560">빅데이터전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB102.html?num=562">컴퓨터OA마스터 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB118.html?num=578">소프트웨어교육지도사 1급</a></li>
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB134.html?num=606">해킹보안전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB133.html?num=605">정보보안전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB136.html?num=608">컴퓨터사무정보처리사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>취업과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB115.html?num=573">전문비서 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB092.html?num=551">HRD전문가 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB095.html?num=554">전산회계 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB104.html?num=564">스마트폰활용지도사 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>항공과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB137.html?num=609">DCS 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB121.html?num=592">항공서비스전문가 1급</a></li>
+                </ul>
+              </li>
+              <li>
+                <h4>공예과정</h4>
+                <ul class="curriculum_sub">
+                  <li class="border_none"><a href="https://www.korea-edu.net/SubLIC/indexB154.html?num=633">캔들공예지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB155.html?num=634">풍선아트지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB159.html?num=638">냅킨아트지도사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB161.html?num=640">조향사 1급</a></li>
+                  <li><a href="https://www.korea-edu.net/SubLIC/indexB167.html?num=647">레진아트지도사 1급</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div class="btn_box2">
+              <a href="#" title="닫기" onclick="return false;" class="close_btn01"><i class='fas fa-times'></i></a>
+            </div>
+          </div>
+        </div>`
+
+        $('body').append(modal).fadeIn(); // body 태그 안 뒤쪽에 내용을 추가
+
+        $('.close_btn01').click(function () {
+          $('.modal').fadeOut();
+        });
+      });
+    })
+
+    $(function () {
+      $('.user_nav-btn').click(function () {
+        if ($('.user_nav').hasClass('nav_show')) {
+          $('.user_nav').removeClass('nav_show');
+          $(this).find('img').removeClass('icon_act');
+        } else {
+          $('.user_nav').addClass('nav_show');
+          $(this).find('img').addClass('icon_act');
+        }
+      });
+    });
+
+    $(document).ready(function () {
+      $('.top_scroll-btn').bind('click', function () {
+        $('html, body').animate({ scrollTop: '0' }, 500);
+      });
+      // 애니메이션 효과로 자연스럽게 이동됨, 0.68초
+    });
+  </script>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section class="main_wrap">
+      <article class="main_intro">
+        <div class="main_top_wrap">
+          <div class="main_bg"></div>
+
+          <div class="page-hero">
+            <div class="banner_text_wrap">
+              <span>2022년도(교육 컨텐츠 부문)</span>
+              <strong>
+                대한민국<br>
+                교육브랜드<br>
+                대상수상
+              </strong>
+              <a href="#" title="자세히알아보기">자세히 알아보기</a>
+            </div>
+            <div class="fadBox">
+              <span class="total">전체 회원수</span>
+              <h1 class="counter timer count-title count-number" data-to="733606" data-speed="1500">733606</h1>
+              <span class="per">명</span>
+              <span class="btxt">꿈을 현실로 만드는 교육기업</span>
+            </div>
+          </div>
+
+          <div class="scroll">
+            <span class="blind">스크롤해서 내용 더보기</span>
+          </div>
+
+          <div class="key_search_box" id="the-basics">
+            <div class="search_wraper">
+              <input type="search" id="searchInput" placeholder="찾으시는 자격증 과정을 검색하세요!" class=" typeahead">
+              <label for="searchInput" class="search_btn">검 색</label>
+            </div>
+          </div>
+
+          <!-- 무료상담신청 -->
+          <div class="cscenter">
+            <h3>무료상담 신청</h3>
+            <form name="frmConsult" method="POST" enctype="multipart/form-data" action="/main/consult_ok.html">
+              <input type="hidden" name="organ_type" value="">
+              <input type="hidden" name="mem_id" value="">
+              <ul>
+                <li>
+                  <input class="input_txt" type="text" name="txtName" validate="null,성명" placeholder="이름">
+                </li>
+                <li>
+                  <input type="text" id="phone_form" class="input_txt" onKeyPress="return onlyNumInput();"
+                    name="txtTel3" maxlength="11" validate="null,핸드폰 번호" placeholder="휴대번호"
+                    onkeydown="characterCheck(this)"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+                </li>
+                <li>
+                  <select name="grade" id="grade" class="input_txt select_txt">
+                    <option value="">관심분야 선택</option>
+                    <option value="강사과정">강사과정</option>
+                    <option value="병원과정">병원과정</option>
+                    <option value="커피과정">커피과정</option>
+                    <option value="심리과정">심리과정</option>
+                    <option value="전문가과정">전문가과정</option>
+                    <option value="실버과정">실버과정</option>
+                    <option value="방과후과정">방과후과정</option>
+                    <option value="안전과정">안전과정</option>
+                    <option value="반려과정">반려과정</option>
+                    <option value="아동과정">아동과정</option>
+                    <option value="공부과정">공부과정</option>
+                    <option value="인문과정">인문과정</option>
+                    <option value="부동산과정">부동산과정</option>
+                    <option value="산업과정">산업과정</option>
+                    <option value="IT과정">IT과정</option>
+                    <option value="취업과정">취업과정</option>
+                    <option value="항공과정">항공과정</option>
+                    <option value="공예과정">공예과정</option>
+                    <option value="운동과정">운동과정</option>
+                    <option value="국가자격증">국가자격증</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="chkTime" id="chkTime" class="input_txt select_txt">
+                    <option value="">상담시간 선택</option>
+                    <option value="오전09시~10시사이">오전 09시 ~ 10시 사이</option>
+                    <option value="오전10시~11시사이">오전 10시 ~ 11시 사이</option>
+                    <option value="오전11시~12시사이">오전 11시 ~ 12시 사이</option>
+                    <option value="오후12시~13시사이">오후 12시 ~ 13시 사이</option>
+                    <option value="오후13시~14시사이">오후 13시 ~ 14시 사이</option>
+                    <option value="오후14시~15시사이">오후 14시 ~ 15시 사이</option>
+                    <option value="오후15시~16시사이">오후 15시 ~ 16시 사이</option>
+                    <option value="오후16시~17시사이">오후 16시 ~ 17시 사이</option>
+                    <option value="오후17시~18시사이">오후 17시 ~ 18시 사이</option>
+                  </select>
+                </li>
+                <li>
+                  <div class="dropdown">
+                    <input type="checkbox" name="chkAgree" id="chkAgree" class="choice">
+                    <label class="dropbtn" for="chkAgree">개인정보취급방침에 동의</label>
+                    <div class="dropdown-content">
+                      <span>
+                        · 개인정보수집에 대한 동의<br>
+                        · 개인정보의 수집 및 이용 목적<br>
+                        · 개인정보의 보유 및 파기<br>
+                      </span>
+                      <a href="https://www.korea-edu.net/class/private_info.html" target="_blank">자세히보기</a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="botton_cs">
+                <a href="#" class="btn_cs">무료상담 신청하기</a>
+              </div>
+            </form>
+            <div class="cscenter_tell">
+              <span>고객지원센터</span>
+              <strong>1670 - 6237</strong>
+              <span><strong>평일</strong> : 9시~18시 / <strong>휴무</strong> : 토,일,공휴일</span>
+            </div>
+          </div>
+
+
+        </div>
+
+      </article>
+
+      <article class="main_content01">
+        <h2>
+          <strong>업계유일 자격과정 최다인증</strong>
+          <span>250과목 개설</span>
+          <img src="./img/main_con01_title.png" alt="title">
+        </h2>
+
+        <ul class="tab">
+          <li data-tab="menu1" class="on">
+            <a href="#">
+              <span>인기과정</span>
+            </a>
+          </li>
+          <li data-tab="menu2">
+            <a href="#">
+              <span>강사과정</span>
+            </a>
+          </li>
+          <li data-tab="menu3">
+            <a href="#">
+              <span>병원과정</span>
+            </a>
+          </li>
+          <li data-tab="menu4">
+            <a href="#">
+              <span>커피과정</span>
+            </a>
+          </li>
+          <li data-tab="menu5">
+            <a href="#">
+              <span>심리과정</span>
+            </a>
+          </li>
+          <li data-tab="menu6">
+            <a href="#">
+              <span>전문가과정</span>
+            </a>
+          </li>
+          <li data-tab="menu7">
+            <a href="#">
+              <span>실버과정</span>
+            </a>
+          </li>
+          <li data-tab="menu8">
+            <a href="#">
+              <span>방과후과정</span>
+            </a>
+          </li>
+          <li data-tab="menu9">
+            <a href="#">
+              <span>안전과정</span>
+            </a>
+          </li>
+          <li data-tab="menu10">
+            <a href="#">
+              <span>반려과정</span>
+            </a>
+          </li>
+          <li data-tab="menu11">
+            <a href="#">
+              <span>아동과정</span>
+            </a>
+          </li>
+          <li data-tab="menu12">
+            <a href="#">
+              <span>공부과정</span>
+            </a>
+          </li>
+          <li data-tab="menu13">
+            <a href="#">
+              <span>인문과정</span>
+            </a>
+          </li>
+          <li data-tab="menu14">
+            <a href="#">
+              <span>부동산과정</span>
+            </a>
+          </li>
+          <li data-tab="menu15">
+            <a href="#">
+              <span>산업과정</span>
+            </a>
+          </li>
+          <li data-tab="menu16">
+            <a href="#">
+              <span>IT과정</span>
+            </a>
+          </li>
+          <li data-tab="menu17">
+            <a href="#">
+              <span>취업과정</span>
+            </a>
+          </li>
+          <li data-tab="menu18">
+            <a href="#">
+              <span>항공과정</span>
+            </a>
+          </li>
+          <li data-tab="menu19">
+            <a href="#">
+              <span>공예과정</span>
+            </a>
+          </li>
+          <li data-tab="menu20">
+            <a href="#">
+              <span>운동과정</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- 인기과정 -->
+        <div id="menu1" class="tabcont on">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원코디네이터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리수납전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Carer</span>
+                  <strong>반려동물관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비시터</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동처방사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마(GB)</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 강사과정 -->
+        <div id="menu2" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Teacher of Manners</span>
+                  <strong>예절교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Personal Color Consultant</span>
+                  <strong>퍼스널컬러컨설턴트 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Calligraphy Instructor</span>
+                  <strong>캘리그라피지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Shopping Manager</span>
+                  <strong>쇼핑몰관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Leadership Instructor</span>
+                  <strong>리더십지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img04 -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리수납전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>SNS Marketing Expert</span>
+                  <strong>SNS마케팅전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Florist Expert</span>
+                  <strong>플로리스트전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>English Cooking Instructor</span>
+                  <strong>영어요리지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Family Manager</span>
+                  <strong>가정관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum02_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Instructor For Disability<br>Awareness</span>
+                  <strong>장애인인식개선지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 병원과정 -->
+        <div id="menu3" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Office Administrator</span>
+                  <strong>병원원무행정사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img03.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원코디네이터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Administrator</span>
+                  <strong>병원행정관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Care Reception<br>Manager</span>
+                  <strong>병원진료접수매니저 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Service Manager</span>
+                  <strong>병원서비스매니저 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Silver Hospital Coordinator</span>
+                  <strong>실버병원코디네이터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Insurance Review and<br>Assessment Service</span>
+                  <strong>보험심사평가사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum03_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Convalescent Hospital Manager</span>
+                  <strong>요양병원관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 커피과정 -->
+        <div id="menu4" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum04_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Roasting Master</span>
+                  <strong>커피로스팅마스터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum04_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Tea Sommelier</span>
+                  <strong>티소믈리에 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum04_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Quality Appraiser</span>
+                  <strong>커피품질평가사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img01.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Care Reception<br>Manager</span>
+                  <strong>커피바리스타전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum04_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Hand Drip Expert</span>
+                  <strong>커피핸드드립전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum04_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Wine Sommelier</span>
+                  <strong>와인소믈리에 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+
+        </div>
+
+        <!-- 심리과정 -->
+        <div id="menu5" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Military Counselor</span>
+                  <strong>군심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Horticultural Therapist</span>
+                  <strong>원예심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img02.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Art Psychological Counselor</span>
+                  <strong>미술심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <!-- curriculum01_img11.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동미술심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Analyst</span>
+                  <strong>심리분석사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Music Psychological Counselor</span>
+                  <strong>음악심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Multicultural<br>Psychological Counselor</span>
+                  <strong>다문화심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Art Psychological Counselor<br>for The elderly</span>
+                  <strong>노인미술심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>School Violence Prevention<br>Counselor</span>
+                  <strong>학교폭력예방상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Parent Coaching Counselor</span>
+                  <strong>부모교육상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Child Abuse Prevention<br>Counselor</span>
+                  <strong>아동학대예방상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Art Psychological Counselor<br>for adolescent</span>
+                  <strong>청소년미술심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img13.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Anger Control Counselor</span>
+                  <strong>분노조절상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img14.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Music Psychological Counselor<br>For The Elderly</span>
+                  <strong>노인음악심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <!-- curriculum01_img10.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img15.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Couples Counseling<br>Therapist</span>
+                  <strong>부부심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img16.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Play Therapist</span>
+                  <strong>놀이심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img17.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Color Psychological Counselor</span>
+                  <strong>색채심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img18.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Family Psychological Counselor</span>
+                  <strong>가족심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img19.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Psychological Counselor</span>
+                  <strong>스포츠심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img20.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Literary Psychological Counselor</span>
+                  <strong>문학심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img21.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Reading Psychological Counselor</span>
+                  <strong>독서심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img22.png" alt="">
+                <div class="lecture_title_box">
+                  <span>cognitive behavior Psychological<br>Counselor</span>
+                  <strong>인지행동상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img23.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Enneagram Psychological<br>Counselor</span>
+                  <strong>애니어그램심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img24.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Food Art Psychological<br>Counselor</span>
+                  <strong>푸드아트심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img25.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Figure Psychological Counselor</span>
+                  <strong>도형심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img26.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Welfare Counselor</span>
+                  <strong>심리복지상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img27.png" alt="">
+                <div class="lecture_title_box">
+                  <span>DISC Psychological Counselor</span>
+                  <strong>DISC심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img28.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sand Game Psychological<br>Counselor</span>
+                  <strong>모래놀이심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img29.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Act Psychological Counselor</span>
+                  <strong>연극심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img30.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Movie Psychological Counselor</span>
+                  <strong>영화심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img31.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Transactional Analysis<br>Psychological Counselor</span>
+                  <strong>교류분석심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img32.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Language Psychological<br>Counselor</span>
+                  <strong>언어심리상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum05_img33.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Laughter Health Instructor</span>
+                  <strong>웃음건강지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 전문가과정 -->
+        <div id="menu6" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Parking Manager</span>
+                  <strong>주차관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>HR Manager</span>
+                  <strong>인사총무관리자 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>CS Instructor</span>
+                  <strong>CS강사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Presentation Expert</span>
+                  <strong>프리젠테이션전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Image Making Instructor</span>
+                  <strong>이미지메이킹지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Marriage Counselor</span>
+                  <strong>결혼상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Golf Caddie</span>
+                  <strong>골프전문캐디 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Speech Instructor</span>
+                  <strong>스피치지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Certified Privacy Protection<br>General</span>
+                  <strong>개인정보관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Emotional Labor Administrator</span>
+                  <strong>감정노동관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Call Center Counselor</span>
+                  <strong>콜센터전문상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Social Insurance Administrator</span>
+                  <strong>4대보험관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img13.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Start-up Business District Analysis<br>Instructor</span>
+                  <strong>창업상권분석지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img14.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Search AD Marketer</span>
+                  <strong>검색광고마케터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img15.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Advertising Planning Expert</span>
+                  <strong>광고기획전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img16.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Customer Counselor</span>
+                  <strong>고객상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img17.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Job Stress Manager</span>
+                  <strong>직무스트레스관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img07.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img08.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img18.png" alt="">
+                <div class="lecture_title_box">
+                  <span>YouTube Creator Expert</span>
+                  <strong>유튜브크리에이터전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum06_img19.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Medicinal Plant Manager</span>
+                  <strong>약용식물관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 실버과정 -->
+        <div id="menu7" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum07_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Mental Training Instructor<br>For The elderly</span>
+                  <strong>노인두뇌훈련지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum07_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Silver Health Instructor</span>
+                  <strong>실버건강지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum07_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Silver Recreation Instructor</span>
+                  <strong>실버레크레이션지도자 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum07_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Design Instructor<br>For The elderly</span>
+                  <strong>노후설계지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum07_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Educational Instructor<br>For The elderly</span>
+                  <strong>노인교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum07_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Senior Care Supporter</span>
+                  <strong>노인돌봄생활지원사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 방과후과정 -->
+        <div id="menu8" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Storytelling Picture Book<br>Instructor</span>
+                  <strong>스토리텔링그림책지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>English Reading Instructor</span>
+                  <strong>영어독서지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Playing With Gifted Person<br>Instructor</span>
+                  <strong>영재놀이지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Recreation Instructor</span>
+                  <strong>레크리에이션지도자 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>After-School English Education<br>Instructor</span>
+                  <strong>방과후영어교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Board Game Instructor</span>
+                  <strong>보드게임지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>After-School Instructor</span>
+                  <strong>방과후학교지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clay Art</span>
+                  <strong>클레이아트 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Book Game Instructor</span>
+                  <strong>책놀이지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Storytelling Mathematics<br>Instructor</span>
+                  <strong>스토리텔링수학지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Folding Colored Paper<br>Instructor</span>
+                  <strong>색종이접기지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Volunteer Work Instructor</span>
+                  <strong>자원봉사지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img13.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Creative Science Education<br>Instructor</span>
+                  <strong>창의과학교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img14.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Speech Instructor<br>For Children and Adolescents</span>
+                  <strong>아동청소년스피치지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img15.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Magic Education Instructor</span>
+                  <strong>마술교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img16.png" alt="">
+                <div class="lecture_title_box">
+                  <span>After-School Care Class<br>Instructor</span>
+                  <strong>방과후돌봄교실지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum08_img17.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Havruta Instructor</span>
+                  <strong>하브루타지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 안전과정 -->
+        <div id="menu9" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum09_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Disaster Safety Instructor</span>
+                  <strong>재난안전전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum09_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Safety Education Instructor</span>
+                  <strong>안전교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum09_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>School Security Safety<br>Instructor</span>
+                  <strong>학교보안안전지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 반려과정 -->
+        <div id="menu10" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <!-- curriculum01_img05.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Carer</span>
+                  <strong>반려동물관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum10_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Behavior Corrector</span>
+                  <strong>반려동물행동교정사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum10_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Funeral Instructor</span>
+                  <strong>반려동물장례지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum10_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Aroma Instructor</span>
+                  <strong>반려동물아로마지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 아동과정 -->
+        <div id="menu11" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Child Development Instructor</span>
+                  <strong>아동발달전문지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Exceptional Child Instructor</span>
+                  <strong>특수아동지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Fairy Tale Story Instructor</span>
+                  <strong>동화구연지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Game Education Instructor</span>
+                  <strong>놀이교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Education Instructor<br>For Children</span>
+                  <strong>아동교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Finger Game Instructor</span>
+                  <strong>손유희지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Reading Instructor For Children</span>
+                  <strong>아동독서지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Art Instructor For Children</span>
+                  <strong>아동미술지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Welfare Counselor For Children</span>
+                  <strong>아동복지상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Cooking Instructor For Children</span>
+                  <strong>아동요리지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Five Senses Game Instructor</span>
+                  <strong>오감놀이지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img06.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비시터</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Traditional Game Instructor</span>
+                  <strong>전래놀이지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img13.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Language Development<br>Instructor</span>
+                  <strong>언어발달지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum11_img14.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Game Instructor For Baby</span>
+                  <strong>베이비놀이지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 공부과정 -->
+        <div id="menu12" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Career Job Counselor</span>
+                  <strong>진로직업상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Reading Discussion Instructor</span>
+                  <strong>독서토론지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Reading Instructor</span>
+                  <strong>독서지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Career Aptitude Counselor</span>
+                  <strong>진로적성상담사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Ownwork Instructor</span>
+                  <strong>자기주도학습지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Study Habits Instructor</span>
+                  <strong>공부습관지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Study Room Instructor</span>
+                  <strong>공부방지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum12_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Reading Essay Instructor</span>
+                  <strong>독서논술지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 인문과정 -->
+        <div id="menu13" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum13_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Korean Language Instructor</span>
+                  <strong>한국어지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum13_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Chinese Character Instructor</span>
+                  <strong>한자지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum13_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>The Humanities Instructor</span>
+                  <strong>인문학지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum13_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Korean History Instructor</span>
+                  <strong>한국사지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 부동산과정 -->
+        <div id="menu14" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum14_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Structure Administrator</span>
+                  <strong>건물관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum14_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Real Estate Assets Management<br>Instructor</span>
+                  <strong>부동산자산관리지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum14_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Building Administrator</span>
+                  <strong>빌딩관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum14_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>The Sale Of Real Estate Counsellor</span>
+                  <strong>부동산분양상담전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum14_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Real Estate Rights Analyst</span>
+                  <strong>부동산권리분석사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum14_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Real Estate Expert</span>
+                  <strong>부동산토지전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 산업과정 -->
+        <div id="menu15" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum15_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Quality Test Master</span>
+                  <strong>품질검사마스터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!-- curriculum01_img12.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마(GB)</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum15_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>3D Printing Instructor</span>
+                  <strong>3D프린팅지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum15_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Corporate Production manager</span>
+                  <strong>기업생산관리자 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum15_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coding Instructor</span>
+                  <strong>코딩지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum15_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Industrial Settings Manager</span>
+                  <strong>산업현장관리자 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- IT과정 -->
+        <div id="menu16" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Network Expert</span>
+                  <strong>네트워크전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Smart IT Computer Instructor</span>
+                  <strong>스마트IT컴퓨터지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Big Data Expert</span>
+                  <strong>빅데이터전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Computer OA Master</span>
+                  <strong>컴퓨터OA마스터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Software Education Instructor</span>
+                  <strong>소프트웨어교육지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hacking Security Expert</span>
+                  <strong>해킹보안전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Information Security Professional</span>
+                  <strong>정보보안전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum16_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>computer work data processorr</span>
+                  <strong>컴퓨터사무정보처리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 취업과정 -->
+        <div id="menu17" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum17_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Personal Assistant</span>
+                  <strong>전문비서 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum17_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>HRD Expert</span>
+                  <strong>HRD전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum17_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Computerized Accounting</span>
+                  <strong>전산회계 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum17_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Smartphone Utilization Instructor</span>
+                  <strong>스마트폰활용지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 항공과정 -->
+        <div id="menu18" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum18_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Departure Control System</span>
+                  <strong>DCS 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum18_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Air Service Expert</span>
+                  <strong>항공서비스전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 공예과정 -->
+        <div id="menu19" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Candle Crafts Instructor</span>
+                  <strong>캔들공예지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Balloon Art Instructor</span>
+                  <strong>풍선아트지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Napkin Art Instructor</span>
+                  <strong>냅킨아트지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Perfumer</span>
+                  <strong>조향사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Resin Art Instructor</span>
+                  <strong>레진아트지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Book Art Instructor</span>
+                  <strong>북아트지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>POP Design</span>
+                  <strong>POP디자인 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hand-Knitting Instructor</span>
+                  <strong>손뜨개전문가 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Plaster Master</span>
+                  <strong>플라스터마스터 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sand Art Instructor</span>
+                  <strong>샌드아트지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum19_img11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Soap Crafts Instructor</span>
+                  <strong>비누공예지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 운동과정 -->
+        <div id="menu20" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <!-- curriculum01_img09.png -->
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum01_img09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동처방사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum20_img01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Health Trainer Instructor</span>
+                  <strong>헬스트레이너지도사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="lecture_link_wrap">
+                <img src="./img/main_lecture/curriculum20_img02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Body Type Manager</span>
+                  <strong>체형관리사 1급</strong>
+                </div>
+                <div class="lecture_link_box">
+                  <a href="#" title="취득과정" class="sample_btn">강의샘플보기</a>
+                  <a href="indexB129.html" title="취득과정" class="detail_btn">취득과정보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+      </article>
+
+      <article class="main_content02">
+        <h2>
+          <i>2</i>
+          <span>한검평에서는 누구나</span>
+          <strong>쉽고, 빠르게 합격 가능!</strong>
+        </h2>
+        <div class="live_graph">
+          <h3>한검평 합격생 10명 중 9명 1년 내 합격!</h3>
+          <ul class="graph">
+            <li class="graph-large">
+              <span class="graph_date">1년 미만</span>
+              <span class="bar"></span>
+              <strong class="text">91%</strong>
+            </li>
+            <li class="graph-middle">
+              <span class="bar"></span>
+              <strong class="text">1년 이상 7%</strong>
+            </li>
+            <li class="graph-small">
+              <span class="bar"></span>
+              <strong class="text">2년 이상 2%</strong>
+            </li>
+          </ul>
+        </div>
+
+        <div class="live_review">
+          <div class="review_num">
+            <div class="live_info">
+              <h3>
+                <span>응시자 수</span>
+                <div class="update-bar_wrap">
+                  <span class="update-bar"></span>
+                  <strong class="update-text">UPDATE</strong>
+                </div>
+              </h3>
+              <strong>829,182</strong>
+            </div>
+            <div class="live_info">
+              <h3>
+                <span>합격자 수</span>
+                <div class="update-bar_wrap">
+                  <span class="update-bar"></span>
+                  <strong class="update-text">UPDATE</strong>
+                </div>
+              </h3>
+              <strong>810,527</strong>
+            </div>
+          </div>
+
+          <a href="pc_review.html" class="review_location">
+            <span>실시간 합격후기 바로가기</span>
+          </a>
+
+          <div class="swiper real_review">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="review_top swiper1">
+                  <span>교육기관 선택부터</span>
+                  <span>합격까지</span>
+                  <a href="#" title="플레이">
+                    <img src="./img/play_btn_white.png" alt="재생">
+                  </a>
+                </div>
+                <div class="review_bottom">
+                  <span>심리상담사 자격증, 장학지원 혜택으로 한검평에서 공부했습니다.</span>
+                  <span>한검평 합격생 하O형</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="review_top swiper2">
+                  <span>2개월만에</span>
+                  <span>초스피드 취득</span>
+                  <a href="#" title="플레이">
+                    <img src="./img/play_btn_white.png" alt="재생">
+                  </a>
+                </div>
+                <div class="review_bottom">
+                  <span>병원코디네이터 자격증으로 취업까지 수월하게 할 수 있었습니다.</span>
+                  <span>한검평 합격생 엄O연</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="review_top swiper3">
+                  <span>스펙올리고</span>
+                  <span>취업까지 성공</span>
+                  <a href="#" title="플레이">
+                    <img src="./img/play_btn_white.png" alt="재생">
+                  </a>
+                </div>
+                <div class="review_bottom">
+                  <span>나에게 힘이 되는 커피바리스타 자격증!<br>수료 후 일상이 달라졌습니다.</span>
+                  <span>한검평 합격생 이O지</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div> -->
+        </div>
+      </article>
+
+      <article class="main_content03">
+        <h2>
+          <i>3</i>
+          <span>친구추천 이벤트</span>
+          <strong>1년 프리패스 이용권 받기</strong>
+        </h2>
+        <div class="free-pass_box">
+          <img src="./img/main_freepass.png" alt="프리패스">
+          <a href="pc_notice.html" title="친구추천이벤트">
+            <span>기간한정</span>
+            <strong>친구추천 이벤트 바로가기</strong>
+            <i class="fas fa-angle-right"></i>
+            <img src="./img/pointer.png" alt="포인터" class="pointer">
+          </a>
+        </div>
+      </article>
+      <article class="main_content04">
+        <h2>
+          <i>4</i>
+          <span>AI 합격 시스템</span>
+          <strong>10명 중 9명 99% 합격</strong>
+        </h2>
+        <div class="credit_cont">
+          <div class="credits_txt">
+            <h3>
+              <strong>수강생 합격률</strong>
+              <strong>1위</strong>
+              <span>*2022년 한검평 자격증 발급 합격자 명단</span>
+            </h3>
+          </div>
+          <div class="credits_wrap">
+            <div class="crawl">
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+              <div class="credits">
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+                <span>24회 합격생 이*영</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="main_content05">
+        <h2>
+          <i>5</i>
+          <strong>합격자 수 1위를 만든</strong>
+          <span>명품 교수진</span>
+        </h2>
+        <div class="professor_img_box">
+          <p>석 · 박사급 250명의 전문 교수진이 퀄리티 높은 최고의 강의를 제공합니다.</p>
+          <img src="./img/main_con05_professor.png" alt="교수님">
+        </div>
+      </article>
+
+      <article class="main_content06">
+        <h2>
+          <i>6</i>
+          <strong>한검평의 교육원 소식</strong>
+          <span>대한민국 교육브랜드 대상</span>
+        </h2>
+        <div class="news">
+          <img src="./img/main_con05_event.png" alt="뉴스">
+        </div>
+      </article>
+
+      <article class="main_content07">
+        <h2>
+          <i>7</i>
+          <strong>보수교육 실습 세미나</strong>
+          <span>체계적인 교육 및 실습 경험</span>
+        </h2>
+        <div class="seminar">
+          <img src="./img/main_con06_event.png" alt="뉴스">
+        </div>
+      </article>
+
+      <article class="main_content08">
+        <h3>학우지향</h3>
+        <p>“<strong>학우여러분들의 소리</strong>에 귀를 기울이겠습니다.”</p>
+
+        <div class="bottom_center_wrap">
+          <div class="center-left">
+            <div class="link-btn_wrap">
+              <a href="pc_notice.html" title="FAQ">FAQ <i class="fas fa-angle-right"></i></a>
+              <a href="#" title="원격지원서비스"
+                onclick="alert('학우님! 원격지원 신청전에 반드시 교육원으로 연락 부탁드립니다. 1670-6237');return false;">원격지원서비스 <i
+                  class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="center-num_wrap">
+              <div class="center_title">
+                <strong>고객상담</strong>
+                <strong>및 기술지원</strong>
+              </div>
+              <div class="center_num">
+                <strong>1670 - 6237</strong>
+              </div>
+            </div>
+            <div class="operating_wrap">
+              <div class="operating_time">
+                <strong>운영시간</strong>
+                <span>09:00~18:00</span>
+              </div>
+              <div class="operating_date">
+                <strong>주말/공휴일</strong>
+                <span>휴무</span>
+              </div>
+            </div>
+          </div>
+          <ul class="center-right">
+            <li>
+              <h5>학우님 의견</h5>
+              <div class="center-right_bottom">
+                <span>칭찬, 불편, 아이디어 제안을 남겨주세요</span>
+                <a href="pc_notice.html" title="의견 남기기">바로가기 <i class="fas fa-angle-right"></i></a>
+              </div>
+            </li>
+            <li>
+              <h5>단체수강문의</h5>
+              <div class="center-right_bottom">
+                <span>20명이상 단체수강시 할인프로모션</span>
+                <a href="pc_notice.html" title="단체수강하기">바로가기 <i class="fas fa-angle-right"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer data-include="pc_footer.html"></footer>
+
+  <script defer>
+    function getFileName() {
+      var url = this.location.href;
+      var pos = url.lastIndexOf("/");
+      if (pos == -1)
+        pos = url.lastIndexOf("\\");
+      var filename = url.substr(pos + 1);
+      return filename;
+    }
+
+    function fnLoad() {
+      with (window.document.body) {
+        addBehavior("body");    //   body      userdate
+        load("scrollState" + getFileName());    //        userdate    
+        if (sFirstEnter == "0") {
+          scrollLeft = getAttribute("scrollLeft");    //       
+          scrollTop = getAttribute("scrollTop");
+        }
+      }
+    }
+    function fnUnload() {
+      with (window.document.body) {
+        setAttribute("scrollLeft", scrollLeft);
+        setAttribute("scrollTop", scrollTop);
+        save("scrollState" + getFileName());
+      }
+    }
+    window.onload = fnLoad;
+    window.onunload = fnUnload;
+
+    $(function () {
+      $('.banner_text_wrap').animate({
+        'opacity': '1',
+        'margin-top': '153px'
+      }, 1200);
+      $('.fadBox').animate({
+        'opacity': '1',
+        'margin-top': '380px'
+      }, 1200);
+      $('.main_bg').addClass('zoom');
+
+      $('ul.tab li').click(function () {
+        var activeTab = $(this).attr('data-tab');
+        $('ul.tab li').removeClass('on');
+        $('.tabcont').removeClass('on');
+        $(this).addClass('on');
+        $('#' + activeTab).addClass('on');
+        return false;
+      });
+
+      $(window).scroll(function () { // 스크롤을 동작하면 아래 내용을 실행
+
+        let sPos = $(this).scrollTop(); //현재 세로 스크롤 값을 변수에 담는다
+        console.log(sPos); // 813
+
+        // 합격률 프로그래스바
+        if (sPos >= 3300) {
+          $('.graph > li').eq(0).find('.bar').animate({ 'width': '100%' }, 1500, 'easeOutQuint');
+          $('.graph > li').eq(1).find('.bar').animate({ 'width': '7%' }, 1500);
+          $('.graph > li').eq(2).find('.bar').animate({ 'width': '2%' }, 1500);
+          $('.graph li').find('.text').delay(1000).animate({ 'opacity': '1' })
+          $('.graph_date').delay(1000).animate({ 'opacity': '1' })
+
+        }
+        if (sPos >= 3800) {
+          $('.update-bar_wrap').find('.update-bar').animate({ 'width': '100%' }, 1500, 'easeOutQuint');
+          $('.update-text').delay(1000).animate({ 'opacity': '1' });
+          $('.live_info').find('strong').delay(1000).fadeIn();
+        }
+        // if(sPos >= 6900){
+        //   $('.professor_img_box').find('img').css({
+        //     'display':'block'
+        //   });
+        // }
+      });
+    });
+
+    var swiper = new Swiper(".real_review", {
+      slidesPerView: 3,
+      spaceBetween: 22,
+      slidesPerGroup: 1,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      on: {
+        init: function () {
+          $('.real_review .swiper-slide-next').addClass('opacity_1');
+        },
+        slideChangeTransitionStart: function () {
+          $('.real_review .swiper-slide').removeClass('opacity_1');
+          $('.real_review .swiper-slide-next').addClass('opacity_1');
+        },
+        slideChangeTransitionEnd: function () {
+          $('.real_review .swiper-slide').removeClass('opacity_1');
+          $('.real_review .swiper-slide-next').addClass('opacity_1');
+        }
+      },
+    });
+
+    $('.search_btn').click(function () {
+      if ($('#searchInput').val() === "") {
+        alert('자격증명을 입력해주세요.');
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,351 @@
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap');
+    header{
+      width: 100%;
+      min-width:1530px;
+      white-space: nowrap;
+      height: 70px;
+      line-height: 70px;
+      position: relative;
+    }
+    header > .gnb{
+      display: flex;
+      position:absolute;
+      left:30px;
+    }
+    header > .gnb > li{
+      margin: 0px 15px;
+      position: relative;
+    }
+    header > .gnb > li:first-child{
+      margin-left: 0;
+    }
+    header > .gnb > li:nth-child(2)::after{
+      content: "event";
+      display: inline-block;
+      position: absolute;
+      top: 7px;
+      left: 25px;
+      width: 49px;
+      height: 18px;
+      line-height: 18px;
+      background: #2275FF;
+      border-radius: 33px;
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      align-items: center;
+      color: #FFFFFF;
+      text-transform: capitalize;
+    }
+    header > .gnb > li:last-child{
+      margin-right: 0;
+    }
+    header > .gnb > li > a{
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 28px;
+      letter-spacing: -0.06em;
+      color: #444;
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+  
+    header > h1{
+      margin:0px auto;
+      width:225px;
+    }
+    header > h1 > a{
+      width:253px;
+      display:block;
+    }
+    header > h1 > a > img{
+      width: 100%;
+      vertical-align: middle;
+      transform: translateY(-3px);
+    }
+    header > h1 > a > span{
+      font-weight: bold;
+      font-size: 21px;
+      letter-spacing: -0.04em;
+      color: #454545;
+      font-stretch: 100;
+    }
+  
+    header > .user_nav_box{
+      display: flex;
+      position: absolute;
+      top: 0px;
+      right: 36px;
+    }
+    .user_nav{
+    display: flex;
+  }
+  .user_nav > li{
+    position:relative;
+    padding: 0px 12px;
+  }
+  .user_nav > li:last-child{
+    padding-right:0 
+  }
+  .user_mnu-btn, .logout_btn, .lecture_btn, .request_btn{
+    text-align: center;
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: #666666;
+  }
+  .user_mnu{
+    background-color: #fff;
+    border: 1px solid #D2D6DB;
+    box-shadow: 0px 4px 10px rgb(169 180 221 / 25%);
+    border-radius: 4px;
+    position: absolute;
+    bottom: -113px;
+    left: -20px;
+    width: 115px;
+    z-index: 10000;
+    display:none;
+  }
+  .user_mnu > li{
+    padding:0px 15px;
+    border-bottom:1px solid #EDEDED;
+    line-height:41px;
+    text-align:center;
+  }
+  .user_mnu > li > a{
+    display:block;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.04em;
+    color: #5A5A6F;
+  }
+  .user_mnu-btn > img {
+    position: relative;
+    bottom: 3px;
+    left: 3px;
+  }
+  .nav_show{
+    display:block !important;
+  }
+  .icon_act{
+    transform: rotate(180deg);
+  }
+
+      .q_mnu {
+        position: fixed;
+        left: 50%;
+        margin-left: 835px;
+        top: 193px;
+        height: calc(100% - 475px);
+        z-index: 9999;
+      }
+      .quickRight {
+        width: 94px;
+        height: 435px;
+      }
+      .quickRight > h3{
+        font-family: 'Outfit' !important;
+        width: 94px;
+        height: 62px;
+        padding: 13px 0;
+        text-align: center;
+        background: #0C1776;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: -0.06em;
+        color: #FFFFFF;
+        border-radius: 9px 9px 0px 0px;
+        box-sizing: border-box;
+      }
+      .quickRight ul {
+        padding: 0;
+        margin: 0;
+        background: #FFFFFF;
+        border-radius: 0px 0px 9px 9px;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .quickRight li{
+        width: 94px;
+        height: 74px;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .quickRight li::after{
+        content: "";
+        width: 52px;
+        height: 1px;
+        display: block;
+        background-color: #EAEAEA;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .quickRight li:last-child::after{
+        content: none;
+      }
+      .quickRight li > a{
+        display: block;
+        padding: 9px 0 13px;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      .quickRight li > a > img{
+        width: 30px;
+        display: block;
+        margin: 0px auto;
+      }
+      .quickRight li > a > span{
+        font-weight: 400;
+        font-size: 15px;
+        letter-spacing: -0.06em;
+        color: #333333;
+        padding-top: 4px;
+      }
+      .top_scroll-btn{
+        width:56px;
+        height:56px;
+        background: #FFFFFF;
+        border: 1px solid #4F8EF7;
+        box-shadow: 0px 2.13333px 4.26667px rgba(188, 197, 229, 0.25);
+        border-radius: 50%;
+        margin: 18px auto;
+      }
+      .top_scroll-btn > a{
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        line-height: 54px;
+        color: #2E68FF;
+      }
+
+      @media screen and (max-width:1600px){
+        body{
+          overflow-X:hidden;
+        }
+        header > .gnb > li > a{
+          font-size:15px;
+        }
+        .login_btn, .join_btn, .lecture_btn, .request_btn{
+          font-size:15px;
+        }
+        header > h1 > a{
+          width:unset;
+        }
+        .q_mnu{
+          margin-left:637px;
+        }
+      }
+  </style>
+  <header>
+    <ul class="gnb">
+      <li><a href="#" title="교육원소개">교육원소개</a></li>
+      <li><a href="pc_enrolment.html" title="교육원소개">수강신청</a></li>
+      <li><a href="#" title="교육원소개">교육과정</a></li>
+      <li><a href="#" title="교육원소개">합격후기</a></li>
+      <li><a href="#" title="교육원소개">보수교육</a></li>
+      <li><a href="#" title="교육원소개">상담문의</a></li>
+      <li><a href="pc_notice.html" title="교육원소개">고객센터</a></li>
+    </ul>
+  
+    <h1>
+      <a href="index.html" title="상단로고" class="logo">
+        <img src="./img/main_header_logo.png" alt="상단로고">
+      </a>
+    </h1>
+  
+    <div class="user_nav_box">
+      <ul class="user_nav">
+        <li>
+          <a href="#" title="로그아웃" class="logout_btn">로그아웃</a>
+        </li>
+        <li>
+          <a href="#" title="펼치기" class="user_mnu-btn">
+            <strong>한검평</strong> 님 <img src="./img/arrow_down_small.svg" alt="펼치기">
+          </a>
+          <ul class="user_mnu">
+            <li>
+              <a href="" title="발급내역">발급내역</a>
+            </li>
+            <li>
+              <a href="" title="로그아웃">로그아웃</a>
+            </li>
+            <li>
+              <a href="" title="회원정보수정">회원정보수정</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="나의강의실" class="lecture_btn">나의강의실</a>
+        </li>
+        <li>
+          <a href="pc_license_request.html" title="자격증 발급" class="request_btn">
+            자격증발급
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <aside class="q_mnu">
+    <div class="quickRight">
+      <h3>QUICK<br>MENU</h3>
+      <ul>
+        <li>
+          <a href="pc_join.html" title="나의강의실">
+            <img src="./img/q_mnu01.png" alt="퀵메뉴">
+            <span>회원가입</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_enrolment.html" title="수강신청">
+            <img src="./img/q_mnu02.png" alt="퀵메뉴">
+            <span>수강신청</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지사항">
+            <img src="./img/q_mnu03.png" alt="퀵메뉴">
+            <span>합격후기</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_notice.html" title="합격후기" title="합격후기">
+            <img src="./img/q_mnu04.png" alt="퀵메뉴">
+            <span>공지사항</span>
+          </a>
+        </li>
+        <li>
+          <a href="pc_progress_lecture.html" title="카톡상담">
+            <img src="./img/q_mnu05.png" alt="퀵메뉴">
+            <span>나의강의실</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="top_scroll-btn">
+      <a href="#" title="상단으로이동" onclick="return false;"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </aside>
+
+  <script>
+    $(function(){
+      $(window).scroll(function(){
+        let scrollY = $(this).scrollTop();
+
+        if(scrollY >=50){
+          $('.top_scroll-btn').fadeIn();
+
+        }else{
+          $('.top_scroll-btn').fadeOut();
+        }
+      });
+
+      $('.top_scroll-btn').bind('click', function() {
+        $('html, body').animate({scrollTop: '0'}, 500);
+      });
+    });
+  </script>

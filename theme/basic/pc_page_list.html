@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>한검평리뉴얼_페이지목차</title>
+  
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 제이쿼리 cdn링크 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    /* 기본 서식 */
+    a{
+      text-decoration:none;
+    }
+
+    .pb_o{
+      color: #00f;
+      font-weight: bold;
+    }
+    .pb_x{
+      color: #f00;
+    }
+    h4{
+      font-size: 30px;
+      text-transform:capitalize;
+      color:#1B557C;
+      padding:20px 0px;
+    }
+    h1, h2, h3, h4, h5{
+      font-family: Sunflower, Arial, sans-serif;
+    }
+    h5{
+      font-size:18px;
+    }
+
+    #wrap{
+      width:100%;
+    }
+    header{
+      background:#000;
+      height:94vh;
+    }
+    .header_inner{
+      width:1240px;
+      height:100%;
+      margin:0px auto;
+      position:relative;
+    }
+    .header_inner .title{
+      width:1000px;
+      height:190px;
+      position:absolute;
+      left:11%;
+      top:37%;
+      transform: translate(-50%,-50%);
+      margin:0px auto;
+      text-align: center;
+      color:#fff;
+      animation: title 8s infinite;
+      font-family: 'Sunflower', arial, sans-serif;
+    }
+    @keyframes title{
+      0%{transform:translateY(0px);}
+      50%{transform:translateY(-25px);}
+      100%{transform:translateY(0px);}
+    }
+    .title > h1 img{
+      width:120px;
+      display:block;
+      margin:0px auto;
+    }
+    .title > h1{
+      font-size:120px;
+      font-weight:bold;
+      text-shadow:0px 3px 1px #333;
+      text-transform: uppercase;
+      position:relative;
+    }
+    .header_inner .title p{
+      font-size:30px;
+      line-height:50px;
+      position:relative;
+    }
+    .wheel{
+      position:absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translate(-50%);
+      width: 1.5rem;
+      height: 2.5rem;
+      border: 2px solid #fff;
+      font-size: 0;
+      border-radius: 0.7rem;
+      z-index: 899;
+    }
+    .wheel span{
+      position: absolute;
+      top: 0.3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0.2rem;
+      height: 0.5rem;
+      background: #fff;
+      border-radius: 0.1rem;
+      animation: wheel 0.7s infinite;
+      z-index: 900;
+    }
+
+    @keyframes wheel {
+      to {top: 0.6rem;}
+    }
+    /* gnb 서식 */
+    .gnb{
+      width:100%;
+      height:50px;
+      background-color:#4F8EF7;
+      position:fixed;
+      top:0px;
+      left:0px;
+      z-index:5000;
+    }
+    .gnb ul{
+      width: 1050px;
+      margin: 0px auto;
+      display:flex;
+      height:50px;
+      justify-content:center;
+      align-items: center;
+    }
+    .gnb li{
+      width: 20%;
+    }
+    .gnb ul > li > a{
+      color:#fff;
+      line-height: 50px;
+      padding:0px 20px;
+      display:block;
+      text-transform:uppercase;
+      text-align: center;
+    }
+    .gnb ul > li > a:hover{
+      background-color:#1B557C;
+      color:#fff;
+    }
+
+    /* 해당하는 콘텐츠가 보이는 구간에 적용되는 서식 */
+    .on{
+      /* background-color:rgb(123, 185, 254) !important; */
+      animation: gnb_ani infinite 1.5s;
+      /* color:#333 !important; */
+    }
+
+    @keyframes gnb_ani{
+      0%{background-color: rgb(123, 185, 254); color:#333;}
+      50%{background-color: #1B557C; color:#fff;}
+      100%{background-color: rgb(123, 185, 254); color:#333;}
+    }
+    /* 제이쿼리에 적용할 내비게이션 서식 */
+    .act{
+      position:fixed;
+      top:0px;
+      left:0px;
+      z-index:5000;
+    }
+
+    /* 메인 서식 */
+    main{
+      overflow-X:hidden;
+      background-image: url('../images/pngegg9.png');
+      background-attachment: fixed;
+      background-size: 25%;
+      background-position-X:178vh;
+      background-repeat: no-repeat;
+      font-family: 'Noto Sans KR',arial, sans-serif;
+    }
+    /* content 서식 */
+    section{
+      width:1240px;
+      margin:20px auto;
+    }
+    article{
+      
+    }
+    article > h3{
+      width: 100%;
+      text-align: center;
+      font-size: 25px;
+      font-weight: bold;
+      background-color: #146FF8;
+      color: #fff;
+      padding: 30px 0px;
+      margin-top: 30px;
+    }
+    article > ul{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    article > ul > li{
+      line-height: 70px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+    article > ul > li > a{
+      font-size: 18px;
+      font-weight: 500;
+      color: #78899F;
+      display: block;
+    }
+    /* profile 서식 */
+    #profile{
+      position:relative;
+      padding-top:100px;
+      box-sizing: border-box;
+    }
+    #profile > div{
+      /* border:1px solid #000; */
+      width:560px;
+      height:340px;
+      position:absolute;
+      opacity: 0;
+    }
+
+    /* 원래 위치보다 약간씩 아래에 배치한다. */
+    .photo01{
+      top:250px;
+      text-align: center;
+    }
+    .photo01 img{
+      width:45%;
+      border-radius: 30px;
+      overflow: hidden;
+      /* max-height: 350px; */
+    }
+    .info01{
+      top:250px;
+      right:0px;
+    }
+    .interset{
+      display:flex;
+      justify-content:flex-start;
+      margin-bottom:30px;
+    }
+    .interset > li{
+      display: inline-block;
+      width:80px;
+      height:80px;
+      text-align: center;
+      padding:0px 20px;
+    }
+    .interset i{
+      border:1px solid #1B557C;
+      border-radius: 50%;
+      margin: 0px 5px;
+      font-size: 40px;
+      color: #333;
+      transition:0.7s;
+    }
+    .interset i:hover{
+      background-color: #1B557C;
+      color:#fff;
+    }
+    i.fa-video{
+      padding:15px 12px;
+    }
+    i.fa-music{
+      padding:15px;
+    }
+    i.fa-html5{
+      padding:15px 20px;
+    }
+    i.fa-utensils{
+      padding:15px 17px;
+    }
+    .interset span{
+      padding-top:10px;
+      display: block;
+      font-size: 16px;
+      margin: 0px auto;
+    }
+    .edu{
+      margin-bottom: 20px;
+    }
+    .edu > li{
+      line-height: 32px;
+    }
+    .edu > li::before{
+      content: "▶ ";
+    }
+    .edu > li > p{
+      padding-left:20px;
+    }
+
+    .info02{
+      top:580px;
+      left:30px;
+      padding-top:60px;
+      padding-left:10px;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 30px;
+    }
+    .info02 h4{
+
+    }
+    .info02 p{
+      font-size:16px;
+    }
+    .info02 span{
+      margin-top: 20px;
+      color:#333;
+      border:1px solid #1B557C;
+      display:inline-block;
+      padding:5px;
+      font-size:20px;
+      border-radius: 20px;
+      cursor:default;
+      transition: 0.7s;
+    }
+    .info02 span:hover{
+      color:#fff;
+      background-color:#1B557C;
+    }
+    .info03{
+      top:580px;
+      right:0px;
+      margin-top:30px;
+    }
+    .skill{
+      width:400px;
+    }
+    .skill > li{
+      background-color: #ac6c5e;
+      height:25px;
+      margin-bottom:10px;
+      position:relative;
+    }
+    .skill .bar{
+      width:0.2%;
+      height:25px;
+      background-color:#1B557C;
+      position:absolute;
+      top:0px;
+    }
+    .skill > li > span:first-child{
+      position:absolute;
+      z-index:1000;
+      color:#fff;
+      line-height: 20px;
+    }
+    .skill > li > .per_txt{
+      position:absolute;
+      right:5px;
+      color:#fff;
+      line-height: 20px;
+    }
+    /* .photo01{top:220px;}
+    .info01{right:0px;top:220px;}
+    .info02{top:550px;left:30px;}
+    .info03{top:550px;right:0px;} */
+
+    /* project 서식 */
+    #tab_con{
+      width:1180px;height:625px;
+      margin:60px auto;
+      position:relative;
+      border-bottom:3px solid #333;
+      box-shadow: 2px 2px 6px 4px #ccc;
+    }
+    #tab_con .pro_img{
+      width:50%;
+    }
+    .pro_img{
+      margin-top:30px;
+      box-sizing: border-box;
+    }
+    #tab_con img{
+      width:100%;
+      transition:0.7s;
+    }
+    #tab_con img:hover{
+      transform:scale(1.1);
+      overflow: hidden;
+    }
+    #tab_con > h3{
+      text-align:center;
+      padding:40px 0px;
+    }
+    #tab_con ul{
+      display:flex;
+    }
+    #tab_con ul > li{
+      width:25%;height:40px;
+      text-align:center;
+    }
+    #tab_con ul > li > a{
+      display:block;
+      line-height:60px;
+      font-size:18px;
+      border-radius: 10px;
+      color:#000;
+      border-bottom:3px solid #333;
+      border-right:1px solid #333;
+    }
+
+    .t_on{
+      background:#1B557C !important;
+      color:#fff !important;
+    }
+    #tab_con ul .con{
+      height:524px;
+      position:absolute;
+      width:100%;
+      bottom:0px;left:0px;
+      display:none;
+    }
+    .pro_site{
+      position:absolute;
+      top:40px;
+      right:30px;
+      text-align: center;
+      width:420px;
+      box-shadow: -9px 10px 8px -4px #ccc;
+      height:450px;
+      padding-top:30px;
+      box-sizing: border-box;
+    }
+    .pro_site::before{
+      content:"";
+      position:absolute;
+      top:-0px;
+      right:-0px;
+      border-width: 0px 80px 80px 0px;
+      border-style: solid;
+      border-color: #fff #fff #1B557C #1B557C;
+      display: block;
+      width:0;
+      box-shadow: -7px 7px 7px 2px rgba(0,0,0,0.3);
+    }
+    .pro_site p{
+      margin:30px 0px;
+      font-size:16px;
+    }
+    .pro_site a, .pub_site a{
+      border-radius: 20px;
+      line-height: 40px;
+      color:#333;
+      font-size:20px;
+      padding:5px 15px;
+      border:1px solid #1B557C;
+      text-transform: capitalize;
+      margin-right:10px;
+      transition:0.7s;
+    }
+    .pro_site a:hover{
+      background:#1B557C;
+      color:#fff;
+    }
+
+    /* publishing 서식 */
+    .pub_slide{
+      height:700px;
+      margin:0px auto;
+      overflow: hidden;
+      position:relative;
+    }
+    .swiper-wrapper{
+    }
+    .swiper-slide{
+      width:1180px;
+      height:585px;
+      margin:0px auto;
+      padding:100px 15px;
+      box-sizing:border-box;
+    }
+
+    .swiper-slide img{
+      float:left;
+      padding-right:15px;
+      width:50%;
+      height:385px;
+    }
+    .swiper-slide dl{
+      float:left;
+      width:45%;
+      line-height: 30px;
+    }
+
+    .swiper-slide dt{
+      color:#fff;
+      background-color:#1B557C;
+      width:150px;
+      float:left;
+      clear:left; /* 다음 줄에 제목, 내용이 내려가도록 한다. */
+      text-indent:4px;
+      margin-right:6px;
+      margin-bottom:6px;
+    }
+    .swiper-slide dd{
+      float:left;
+      margin-bottom:6px;
+    }
+    .upper_text{
+      text-transform: uppercase;
+    }
+    .swiper-slide dd:last-child{
+      padding-left: 155px;
+      transform: translateY(-35px);
+    }
+    .swiper-slide i.fas{
+      font-size:25px;
+    }
+    .swiper-slide a{
+      color:#333;
+      font-weight: bold;
+      border:1px solid #333;
+      border-radius: 5px;
+      display: block;
+      padding:0px 5px;
+      transition: 0.7s;
+    }
+    .swiper-slide a:hover{
+      background-color: #1B557C;
+      color:#fff;
+    }
+
+    .color01{
+      color:#75d0f4;
+    }
+    .color02{
+      color:#cbebfb;
+    }
+    .color03{
+      color:#fff;
+      border:1px solid #333;
+    }
+    .color04{
+      color:#ffc02e;
+    }
+    .color05{
+      color:#f16c7c;
+    }
+    .color06{
+      color:#ffe19b;
+    }
+
+    /* contact 서식 */
+    #contact{
+      background:rgba(255,255,255,.0);
+      box-shadow: none;
+    }
+    #contact h3{
+      margin-top: 50px;
+      font-size:90px;
+      color:#fff;
+      text-shadow: 2px 2px 0px rgb(127, 127, 127);
+    }
+    .con_box{
+      display:flex;
+      justify-content: center;
+      width:1200px;
+      margin:250px auto;
+    }
+    .con_box > li{
+      width:300px;
+      height:300px;
+      text-align: center;
+      background-color: rgba(255,255,255,.3);
+      margin:0px 30px;
+      border-radius: 50px;
+      transition: 0.7s;
+      box-shadow: 1px 1px 11px 5px #ccc;
+      animation:box_move 8000ms infinite;
+    }
+    @keyframes box_move{
+      0%{transform: scale(1);}
+      50%{transform: scale(1.1);}
+      100%{transform: scale(1);}
+    }
+    .con_box > li > a{}
+    .con_box > li > a > i{
+      display:block;
+      font-size:80px;
+      color:#333;
+      margin:60px 0px;
+      transition:0.7s;
+    }
+    .con_box > li > a > span{
+      font-size:20px;
+      color:#fff;
+    }
+    .left_img{
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+      left:-110%;
+      width:100%;
+    }
+
+    /* work 서식 */
+    #work{
+      /* background:rgba(255,255,255,.0); */
+      background-image: url('../images/work.jpg');
+      background-size: 100%;
+    }
+    #work h3{
+      color:#fff;
+    }
+    #book {
+      width: 600px;
+      /* height: 200px; */
+      margin: 80px;
+    }
+
+    #pageSection {
+      position: relative;
+      width: 500px;
+      height: 600px;
+      left:50%;
+      transform:translateX(33%);
+      perspective: 1000px;
+      transition: 0.9s;
+    }
+
+    .page_trans{
+      left:90% !important;
+    }
+
+    .page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-left: 32px;
+      background-color: #fff;
+      background-image: url('../images/paper4.png');
+      background-size: 100%;
+      box-shadow: 4px 4px 11px 0px #303b2c;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    .content {
+      width: 100%;
+      height: 100%;
+      transition-duration: 1s;
+    }
+
+    #content1 img{
+      position: absolute;
+      top:15px;
+      left:50%;
+      transform: translateX(-50%);
+      width:200px;
+    }
+    #page1 {
+      z-index: 1;
+      transform-origin: left center;
+      transition-duration: 1s;
+      transition-timing-function: ease-in;
+    }
+
+    .page_on {
+      transform: rotateY(-180deg);
+    }
+
+
+    #page2 {
+      z-index: 0;
+      background-color: #fff;
+    }
+
+    .chainSection {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      z-index: 10;
+      display:inline;
+    }
+
+    .chain {
+      display: flex;
+      align-items: center;
+      margin: 18px 0;
+    }
+
+    .chainFrame {
+      width: 20px;
+      height: 8px;
+      background-color: #333;
+      display: inline-block;
+      z-index: 1;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .chainCircle {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #ccc;
+      display: inline-block;
+      transform: translateX(-8px);
+      box-shadow: -1px -1px 3px rgba(0, 0, 0, 0.4) inset;
+    }
+
+    #page1 h2 {
+      font-size:30px;
+      position:absolute;
+      top:27%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      padding: 12px 0;
+      color:#333;
+    }
+    #page1 span{
+      display: block;
+      width: 394px;
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      line-height: 20px;
+      color:#333;
+      line-height: 23px;
+    }
+    #page1 strong{
+      display:block;
+    }
+    #page2 h2{
+      text-align: center;
+    }
+    #page2 h2 img{
+      padding:15px 0px 10px 0px;
+      width:67%;
+      position: absolute;
+      left:88px;
+    }
+    #page2 dt{
+      display:block;
+      text-align: center;
+      font-weight: bold;
+      font-size:18px;
+    }
+    #page2 dl{
+      display: block;
+      width: 70%;
+      position: absolute;
+      left: 70px;
+      top: 50%;
+      border-radius: 20px;
+      padding: 10px;
+      color:#333;
+    }
+    #page2 dd{
+      line-height: 18px;
+    }
+    #page2 dd::before{
+      width: 10px;
+      height: 10px;
+      margin: 0 auto;
+      display: block;
+      content: "";
+      clear: both;
+      transform:translate(-196px,15px);
+      background-color:#333;
+    }
+    .click_btn{
+      position:absolute;
+      bottom:10px;
+      right:10px;
+      padding:10px 15px;
+      background-color: #ac6c5e;
+      border-radius: 20px;
+      display: block;
+      color:#fff;
+      box-shadow: 2px 3px 0px 2px #333;
+    }
+    .next_page{
+      z-index: 1000;
+    }
+    .prev_page{
+      z-index: 100;
+    }
+    .click_btn:hover{
+      background-color: #75483e;
+    }
+    .click_btn:active{
+      bottom:8px;
+    }
+
+    aside{
+      width:20px;
+      height:20px;
+    }
+    .t_btn{
+      background-color: #fff;
+      color:#1B557C;
+      border-radius:100%;
+      font-size:16px;
+      padding:11px 5px;
+      text-decoration: none;
+      text-transform:uppercase;
+      position: fixed;
+      right:20px;
+      bottom:100px;
+      display:none;
+      transition: 0.5s;
+      z-index: 9999;
+    }
+    .t_btn:hover{
+      background-color: #1B557C;
+      color:#fff;
+    }
+
+    /* footer 서식 */
+    footer{
+      width:100%;
+      background-color: #333;
+      color:#fff;
+    }
+    footer > address{
+      text-align:center;
+      line-height:50px;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+
+  
+      // 인트로 화면 스크립트
+      $('.title > h1').css({
+        'opacity':'0',
+        'left':'-100%'
+      }).animate({
+        'opacity':'1',
+        'left':'0px'
+      },1500,'easeInOutBack');
+
+      $('.title p').css('opacity','0').delay(1000).animate({'opacity':'1'},2000);
+
+      $(window).scroll(function(){
+        let sPos = $(this).scrollTop();
+
+        $('.status').text(sPos);
+
+        if(sPos >=800){
+          $('.t_btn').fadeIn();
+        }else{
+          $('.t_btn').fadeOut();
+        }
+
+      });
+      $('.t_btn').click(function(e){
+        e.preventDefault();
+        $('html, body').animate({scrollTop:'0px'},500);
+        return false;
+      });
+
+
+      // -------------------------------------------------------
+
+      // 내비게이션 스크립트
+
+      // 1. 내비게이션이 상단으로 떨어진 값을 변수에 저장한다.
+      const nav_Offset = $('.gnb').offset().top;
+      console.log(nav_Offset);
+
+      // 스크롤값 300 ~ 1182 / 1183 ~ 2038 / 2039 ~ 2980  / 2981 ~ 3984 / 3985 ~ 4883 / 4884 ~ 5398
+      $(window).scroll(function(){ // 스크롤을 동작하면 아래 내용을 실행
+
+        let sPos = $(this).scrollTop(); //현재 세로 스크롤 값을 변수에 담는다
+        console.log(sPos); // 813
+
+        // 스크롤 값이 880 이상일때 프로필 페이지 4개 박스가 서서히 올라옴
+        if(sPos>=700){
+          $('.photo01').delay(500).animate({'top':'180px','opacity':'1'},500);
+          $('.info01').delay(500).animate({'top':'180px','opacity':'1'},500);
+          $('.info02').delay(300).animate({'top':'500px','opacity':'1'},500);
+          $('.info03').delay(300).animate({'top':'500px','opacity':'1'},500);
+          $('.skill > li').eq(0).find('.bar').delay(800).animate({'width':'90%'},1500,'linear');
+          $('.skill > li').eq(1).find('.bar').delay(800).animate({'width':'90%'},1500,'easeOutQuint');
+          $('.skill > li').eq(2).find('.bar').delay(800).animate({'width':'60%'},1500,'easeInOutElastic');
+          $('.skill > li').eq(3).find('.bar').delay(800).animate({'width':'50%'},1500,'linear');
+          $('.skill > li').eq(4).find('.bar').delay(800).animate({'width':'70%'},1500,'easeOutQuint');
+          $('.skill > li').eq(5).find('.bar').delay(800).animate({'width':'70%'},1500,'easeInOutElastic');
+          $('.skill > li').eq(6).find('.bar').delay(800).animate({'width':'75%'},1500,'easeInOutElastic');
+
+          if(sPos>=3232){
+            $('.swiper-slide img').fadeIn();
+            $('.swiper-slide dl').fadeIn();
+          }else{
+            $('.swiper-slide img').fadeOut();
+            $('.swiper-slide dl').fadeOut();
+          };
+        }
+
+        if(nav_Offset<=sPos){ // 만약에 내비게이션 높이가 스크롤 값과 같거나 작으면
+          $('.gnb').addClass('act'); // gnb에 act서식을 적용하고
+        }else{ // 그렇지 않으면
+          $('.gnb').removeClass('act'); // gnb에 act2 서식을 제거한다.
+        };
+
+        // 스크롤 동작시 각각 해당 아티클이 보일때 메뉴에 on서식 적용
+        $('.gnb li a').removeClass('on');
+        // 2. 아티클의 높이값을 세로 스크롤값 영역과 비교하여 해당 메뉴에 서식 적용
+        $('section article').each(function(i){ // each = 각각의 기능을 넣는다
+          let top = $(this).offset().top-400; //내가 선택한 article의 위치를 각각 변수에 대입한다
+
+          if(sPos>=top){
+            $('.gnb li a').removeClass('on'); // 모든 메뉴에 서식을 제거하고
+            $('.gnb li').eq(i).find('a').stop().addClass('on'); // 해당하는 메뉴에 서식 적용
+          };
+        });
+      });
+
+      // 내비게이션 클릭시 해당 콘텐츠 위로 올라오게 하기
+      const gnb = $('.gnb ul > li');
+
+      gnb.click(function(){
+        let n = $(this).index();
+        console.log(n);
+
+        $('html, body').stop().animate({scrollTop:$('section article').eq(n).offset().top},500,'easeOutQuint');
+
+        return false;
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <article>
+      <nav class="gnb">
+        <div class="n_inner">
+          <ul>
+            <li><a href="#" title="">메인 / 강의 페이지</a></li>
+            <li><a href="#" title="">자격증 / 결제 페이지</a></li>
+            <li><a href="#" title="">수강 후기 페이지</a></li>
+            <li><a href="#" title="">계정 관련 페이지</a></li>
+            <li><a href="#" title="">게시판 페이지</a></li>
+          </ul>
+        </div>
+      </nav>
+    </article>
+    <main>
+      <section class="site-map">
+        <h1>한검평 PC 리뉴얼 페이지 목차</h1>
+        <article id="main-lecture">
+          <h3>메인 / 강의 페이지</h3>
+          <ul>
+            <li>
+              <a href="index.html">메인페이지 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_progress_lecture.html">나의 강의실 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_lecture.html">강의 영상 <span class="pb_o">라이브 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">시험보기 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+            <li>
+              <a href="pc_exam_test.html">시험관리 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">교육과정 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+            <li>
+              <a href="pc_enrolment.html">수강신청 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_enro_complete.html">수강신청 완료 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">수강상담 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+          </ul>
+        </article>
+  
+        <article id="certificate-payment">
+          <h3>자격증 / 결제 페이지</h3>
+          <ul>
+            <li>
+              <a href="pc_license_request.html">자격증 발급신청 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_payment.html">결제 정보 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_payment_complete.html">결제 완료 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">자격증 발급내역 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+          </ul>
+        </article>
+  
+        <article id="reivew">
+          <h3>수강 후기 페이지</h3>
+          <ul>
+            <li>
+              <a href="pc_review.html">합격후기 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">후기작성 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+          </ul>
+        </article>
+  
+        <article id="account">
+          <h3>계정 관련 페이지</h3>
+          <ul>
+            <li>
+              <a href="pc_join.html">회원가입 <span class="pb_o">라이브 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">회원가입 완료 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+            <li>
+              <a href="pc_account_find.html">계정 찾기 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_info_edit.html">정보수정 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_pw_edit.html">비밀번호 수정 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">개인정보 동의 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">서비스 동의 <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+          </ul>
+        </article>
+
+        <article id="notice">
+          <h3>게시판 페이지</h3>
+          <ul>
+            <li>
+              <a href="pc_notice.html">고객센터 (학습지원센터) <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="pc_inquiry.html">문의 글 작성 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+            <li>
+              <a href="javascript:alert('퍼블리싱이 완료되지 않은 페이지입니다.');" onfocus="this.blur()">문의 글 (게시물) <span class="pb_x">퍼블리싱 X</span></a>
+            </li>
+            <li>
+              <a href="pc_company_info.html">교육원 소개 <span class="pb_o">퍼블리싱 O</span></a>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <!-- 푸터영역 -->
+  <footer>
+    <address>Copyright&copy; 2022 JaeHyeon Lee Allright Reserved.</address>
+  </footer>
+</body>
+</html>

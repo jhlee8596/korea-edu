@@ -1,0 +1,4242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인페이지</title>
+  <!-- css리셋 -->
+  <link rel="stylesheet" href="../../css/reset.css" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <!-- 스와이퍼 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+
+  <!-- 스와이퍼 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <!-- 검색창 스크립트 -->
+  <script src="../../js/examples.js"></script>
+  <script src="../../js/handlebars.js"></script>
+  <script src="../../js/typeahead.bundle.js"></script>
+
+  <style>
+    main{
+      width: 100%;
+      min-width: 1100px;
+    }
+    article > h2{
+      width: 1359px;
+      margin: 0px auto;
+      text-align: center;
+    }
+    article > h2 > img{
+      width: 100%;
+      display: block;
+    }
+    .main_intro{
+      position: relative;
+      overflow: hidden;
+    }
+    .main_intro .cscenter{
+      display: none;
+    }
+    @media all and (min-width:1560px){
+      .main_intro .cscenter{
+        display: block;
+        position: absolute;
+        width: 265px;
+        z-index: 12;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
+    .cscenter form{
+      background: #0C1776;
+      border-radius: 2px;
+      padding: 44px 36px 22px;
+    }
+    .cscenter .logo2{
+      margin:20px;
+    }
+    .cscenter h3{
+      width: 153px;
+      height: 42px;
+      line-height: 42px;
+      background: #0F00BE;
+      border: 1.06667px solid #0037C5;
+      border-radius: 41px;
+      font-weight: 600;
+      font-size: 22px;
+      color: #fff;
+      border-top: 1px solid rgba(255,255,255,.1);
+      letter-spacing: -1px;
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .cscenter ul{
+      text-align:left;
+    }
+    .cscenter ul li{
+      line-height:32px;
+    }
+    .cscenter .input_txt{
+      width: 100%;
+      height: 38px;
+      background: #1D4CD9;
+      border: 1.06667px solid #3265E8;
+      box-shadow: 0px 0px 12px rgba(12, 61, 231, 0.8);
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.04em;
+      color: #DCE4FF;
+      padding-left: 13px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+    .cscenter .select_txt{
+      padding-left: 10px;
+    }
+    .input_txt::placeholder{
+      color: #daeaff;
+    }
+    .cscenter .check_a{
+      font-size:13px; color:#a3c0ff;
+    }
+    .cscenter .btn_cs{
+      display: block;
+      width: 100%;
+      height: 46px;
+      background: #FFF608;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 16px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #313131;
+      line-height: 46px;
+    }
+    .cscenter_tell{
+      width: 100%;
+      background: #2B4CF8;
+      border-radius: 2px;
+      text-align:center; 
+      margin-top: 3px;
+      padding:16px 0 24px; 
+      border-top:1px solid rgba(255,255,255,.1);
+      box-sizing: border-box;
+    }
+    .cscenter_tell > p{
+      text-align: center;
+    }
+    .cscenter_tell > p > span{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: -0.04em;
+      color: #DCE4FF;
+    }
+    .cscenter_tell > p > strong{
+      font-weight: 900;
+      font-size: 31px;
+      line-height: 27px;
+      letter-spacing: -0.04em;
+
+      color: #E9E010;
+    }
+    .cscenter_tell > p > span > strong{
+      font-weight: 700;
+    }
+    input#chkAgree{
+      display: none;
+    }
+    .dropbtn{
+      color:#c8d9f9;
+    }
+
+    .dropdown{
+      position:relative; 
+      display: block;
+      margin: 3px 0px 8px;
+    }
+    .dropdown-content{
+      display:none;
+      position:absolute;
+      background:rgba(0,0,0,0.7);
+      left:142px;
+      top:-45px;
+      z-index:1;
+      font-size: 15px;
+      padding: 15px 20px;
+      border:1px solid #999;
+    }
+    .dropdown-content span{
+      color:#fff;
+      text-decoration:none;
+      display:block;
+      text-align:left;
+    }
+    .dropdown-content span a{
+      color:#000;
+      text-decoration:none;
+      display:inline-block;
+      font-weight: bold;
+      padding:3px 0;
+      background:#fff608;
+      margin-top:10px;
+      width:170px;
+      text-align: center;
+    }
+    .check_a:hover .dropdown-content{
+      display:block;
+    }
+    .choice + label{
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 14px;
+      letter-spacing: -0.04em;
+      color: #DCE4FF;
+      position: relative;
+      z-index: 100;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .choice + label:before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background-color: #FFFFFF;
+      border: 1.06667px solid #BCC3D9;
+      margin-right: 9px;
+      border-radius: 50%;
+      background-image: url("./img/Check.png");
+      background-repeat: no-repeat;
+      background-position: left 1px top 1px;
+      background-size:80%;
+      cursor: pointer;
+      outline: none;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              transform: translateY(6px);
+    }
+
+    .choice:checked + label:before {
+      background-color: #2E68FF;
+      border-color: #2E68FF;
+      background-image: url("./img/Check2.png");
+      background-position: left 1px top 2px;
+      outline: none;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+    
+
+    .main_bg {
+      width: 100%;
+      min-width: 1120px;
+      height: 770px;
+      background: #090d33 url('./img/main_visual.jpg') no-repeat center -50px;
+      background-size: 1500px auto;
+      -webkit-transition: all 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      -moz-transition: all 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      -o-transition: all 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .zoom {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+
+
+    .banner_text_wrap{
+      position: absolute;
+      width: 482px;
+      bottom: 139px;
+      left: 346px;
+      box-sizing: border-box;
+      background-image: url('./img/pc_main_banner_filter.png');
+      background-repeat: no-repeat;
+      background-size: 482px 482px;
+      background-position: center;
+      opacity: 0;
+      -webkit-transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .banner_text_wrap > span{
+      display: block;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      margin-bottom: 13px;
+    }
+    .banner_text_wrap > strong{
+      font-weight: 600;
+      font-size: 76px;
+      line-height: 93px;
+      display: flex;
+      align-items: center;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+      text-shadow: 0px 0px 50px #000000;
+    }
+    .banner_text_wrap > a{
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 22px;
+      align-items: center;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      padding-bottom: 3px;
+      border-bottom: 2px solid #fff;
+    }
+    .page-hero{
+      position:absolute; 
+      left:0;
+      top: 0; 
+      width: 100%;
+      height:680px; 
+    }
+    .page-hero .fadBox{
+      width: 100%;
+      position:absolute;
+      bottom: 100px;
+      text-align: center;
+      color:#fff; 
+      opacity:0; 
+      -webkit-transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1); transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .page-hero .VisualTit{
+      line-height: 1.2; 
+      font-size: 60px; 
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: -4.1px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px#000; 
+      word-spacing: -1.9px;
+    }
+    .page-hero .VisualTit > span{
+      color: #fee300;
+      vertical-align: top;
+    }
+    .page-hero .fadBox h1{
+      font-weight:300;
+      font-size: 70px; 
+      line-height: 1; 
+      margin:0; 
+      padding:0; 
+      display:inline; 
+      letter-spacing:-3px; 
+      margin-left:-5px; 
+      color:#fee300; 
+      text-shadow:2px 2px #000;
+    }
+    .page-hero .fadBox span.total{
+      display: block; 
+      font-size: 23px; 
+      padding-right: 15px;
+    }
+    .page-hero .fadBox span.per{
+      font-size: 45px;
+    }
+    .page-hero .fadBox span.btxt{
+      display: block;
+      font-size: 45px; 
+      line-height: 1.2; 
+      letter-spacing:-2px; 
+      text-shadow:2px 2px #000;
+      margin-bottom: 30px;
+      word-spacing: 2px;
+    }
+    .page-hero .fadBox span.stxt{
+      display: block;
+      font-size: 15px; 
+      line-height: 1.3; 
+      font-weight: 100;
+      margin-bottom: 50px; 
+      opacity:.8;
+      letter-spacing: 0.7px;
+      word-spacing: 1px;
+    }
+
+    .main_content01{
+      width: 100%;
+      position: relative;
+      background-color: #F2F2F2;
+      padding-top: 42px;
+    }
+
+    /* 검색창 서식 */
+    .typeahead,
+    .tt-query,
+    .tt-hint {
+      width: 600px;
+      height: 66px;
+      background: #FFFFFF;
+      border: 4px solid #B8B8B8;
+      border-radius: 48px !important;
+      margin: 0px auto;
+      font-weight: 400;
+      font-size: 19px;
+      letter-spacing: -0.04em;
+      color: #222222;
+      padding-left: 38px;
+    }
+    .typeahead::-ms-clear,
+    .typeahead::-ms-reveal{
+      display:none;
+    }
+    /* 크롬의 경우 */
+    .typeahead::-webkit-search-decoration,
+    .typeahead::-webkit-search-cancel-button,
+    .typeahead::-webkit-search-results-button,
+    .typeahead::-webkit-search-results-decoration{
+      display:none;
+    }
+    .typeahead {
+      background-color: #fff;
+    }
+    .typeahead:focus {
+      outline: none;
+    }
+    .tt-query {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+              box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    }
+    .tt-hint {
+      color: #999
+    }
+    .tt-menu {
+      width: 100%;
+      padding: 9px 0px;
+      background: #FFFFFF;
+      border: 2px solid #5695FF;
+      box-shadow: 0px 4px 14px rgba(169, 180, 221, 0.25);
+      border-radius: 7px;
+      transform: translateY(8px);
+    }
+    input:focus { 
+      outline: none;
+    }
+    .tt-highlight{
+      color:#2E68FF;
+      font-weight: normal;
+    }
+    .tt-suggestion {
+      padding: 0px 52px;
+      font-size: 15px;
+      line-height: 40px;
+      color: #333;
+      background: url('./img/search_light_blue.png') left 23px top 10px no-repeat;
+      background-size:24px 24px;
+    }
+    .tt-suggestion:hover {
+      cursor: pointer;
+      color: #333333;
+      background-color: #F3F6FB;
+    }
+    .tt-suggestion.tt-cursor {
+      color: #333333;
+      background-color: #F3F6FB;
+    }
+    .tt-suggestion p {
+      margin: 0;
+    }
+    .key_search_box {
+      width: 100%;
+      height: 112px;
+      box-sizing: border-box;
+      background: #DCDCDC;
+      justify-content: center;
+      padding-top: 27px;
+    }
+    .search_wraper{
+      position: relative;
+      width: 600px;
+      height: 66px;
+      margin: 0px auto;
+    }
+    .search_btn{
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 99px;
+      height: 46.2px;
+      background: #363636;
+      border-radius: 48px;
+      font-weight: 700;
+      font-size: 19px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      line-height: 46.2px;
+    }
+
+    ul.tab{
+      padding: 47px 0 65px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 1100px;
+      margin: 0px auto;
+      gap: 13px;
+    }
+    ul.tab > li{
+      width: 196px;
+      height: 44px;
+    }
+    ul.tab > li > a{
+      background: #F5F5F5;
+      border: 1px solid #DCDCDC;
+      border-radius: 26px;
+      display: block;
+      text-align: center;
+      line-height: 44px;
+      color: #BFBFBF;
+    }
+    ul.tab > li > a > span{
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 28px;
+      text-align: center;
+      letter-spacing: -0.04em;
+    }
+    ul.tab li.on a{
+      background-color: #094EE6;
+      color: #FFFFFF;
+    }
+
+    .tabcont{
+      width: 1200px;
+      margin: 0px auto;
+      display: none;
+    }
+    .tabcont.on {
+      display: block;
+    }
+    .lecture_list{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 80px;
+    }
+    .lecture_list:last-child{
+      padding-bottom: 114px;
+    }
+    .lecture_list > li{
+      width: 291px;
+      position: relative;
+      top: 0px;
+      transition: 0.3s;
+      
+    }
+    .lecture_list > li > a{
+      display: block;
+      position: relative;
+    }
+    .lecture_list > li > a > img{
+      width: 100%;
+      display: block;
+    }
+    .lecture_list > li:hover{
+      top: -20px;
+      box-shadow: 0 5px 13px 2px rgb(172 172 172);
+    }
+    .lecture_list > li > a > .lecture_title_box{
+      position: absolute;
+      top: 332px;
+      left: 30px;
+    }
+    .lecture_list > li > a > .lecture_title_box > span{
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      display: block;
+      margin-bottom: 17px;
+    }
+    .lecture_list > li > a > .lecture_title_box > strong{
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      display: block;
+    }
+
+    .main_content02{
+      padding-top: 130px;
+      position: relative;
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    
+    .edu_graph{
+      width: 1020px;
+      margin: 93px auto 0px;
+      background-color: #eee;
+      padding: 0px 50px;
+    }
+    .edu_graph > h3{
+      padding-top: 62px;
+      font-weight: 700;
+      font-size: 41px;
+      line-height: 56px;
+      letter-spacing: -0.04em;
+      color: #333333;
+      text-align: center;
+    }
+
+    /* progress바 서식 */
+    .live_graph {
+      width: 1021px;
+      height: 448px;
+      margin: 87px auto 0;
+      background: #EEEEEE;
+      border-radius: 9px;
+      padding: 46px 60px 35px 98px;
+      box-sizing: border-box;
+    }
+    .live_graph > h3{
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 54px;
+      letter-spacing: -0.05em;
+      color: #222222;
+      text-align: center;
+    }
+    .live_graph .graph{
+      width: 100%;
+    }
+    .live_graph .graph .graph-large {
+      position: relative;
+      margin-top: 48px;
+    }
+    .live_graph .graph .graph-large .bar {
+      width: 0;
+      height: 95px;
+      background: linear-gradient(270deg, #4389FF 0%, #47C8FF 100%);
+      box-shadow: 5px 14px 39px rgba(0, 0, 0, 0.38), inset 0px -6px 6px rgba(0, 18, 181, 0.25), inset 0px 6px 6px rgba(255, 255, 255, 0.25);
+      border-radius: 0px 10px 10px 0px;
+    }
+    .live_graph .graph .graph-large .text {
+      position: absolute;
+      right: 20px;
+      top: 18px;
+      color: #000;
+      font-size: 30px;
+      font-weight: 900;
+    }
+    .live_graph .graph > li {
+      margin-top: 20px;
+      vertical-align: middle;
+    }
+    .live_graph .graph .bar {
+      width: 0;
+      height: 54px;
+      display: inline-block;
+      vertical-align: middle;
+      background: #C9C9C9;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.38), inset 0px -6px 6px rgba(103, 103, 103, 0.25), inset 0px 6px 6px rgba(255, 255, 255, 0.25);
+      border-radius: 0px 10px 10px 0px;
+    }
+    .live_graph .graph .text {
+      opacity: 0;
+      display: inline-block;
+      color: #838383;
+      font-size: 20px;
+      font-weight: 400;
+      height: 25px;
+      line-height: 55px;
+      padding-left: 19px;
+    }
+    .graph_date{
+      position: absolute;
+      left: 57px;
+      font-weight: 832;
+      font-size: 39px;
+      line-height: 95px;
+      letter-spacing: -0.04em;
+      color: #222222;
+      opacity: 0;
+    }
+
+    .live_review{
+      margin-top: 100px;
+      width: 100%;
+    }
+    .review_num{
+      width: 1100px;
+      margin: 0px auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .live_info{
+      position: relative;
+      width: 50%;
+      height: 140px;
+      padding: 0 50px;
+    }
+    .live_info:first-child::after{
+      content: "";
+      display: block;
+      width: 5px;
+      height: 160px;
+      background: #E8E8E8;
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .live_info > h3{
+      display: flex;
+      justify-content: space-between;
+    }
+    .live_info > h3 > span{
+      font-weight: 700;
+      font-size: 31px;
+      line-height: 42px;
+      letter-spacing: -0.04em;
+      color: #000000;
+    }
+    .live_info > strong{
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 68px;
+      letter-spacing: -0.03em;
+      color: #000000;
+      display: none;
+    }
+    .review_location{
+      display: block;
+      width: 454px;
+      height: 58px;
+      margin: 57px auto 0px;
+      background: #FFD200;
+      border-radius: 44px;
+      text-align: center;
+      line-height: 58px;
+    }
+    .review_location > span{
+      display: block;
+      font-weight: bold;
+      font-size: 27px;
+      letter-spacing: -0.04em;
+      color: #222222;
+      position: relative;
+      text-indent: -22px;
+    }
+    .review_location > span::after{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      margin-left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-bottom: 12px solid transparent;
+      border-top: 12px solid transparent;
+      border-left: 23px solid #222;
+      border-right: 0px solid transparent;
+    }
+    .update-bar_wrap{
+      position: relative;
+      display: inline-block;
+      background-color: #ffffff;
+      border: 1px solid #d3d3d3;
+      border-radius: 30px;
+      padding: 5px 5px 5px 5px;
+      width: 202px;
+      text-align: right;
+      height: 32px;
+      box-sizing: border-box;
+    }
+    .update-bar{
+      display: block;
+      background-color: #ffd200;
+      border-radius: 30px;
+      width: 0;
+      height: 20px;
+    }
+    .update-text{
+      position: absolute;
+      right: 16px;
+      top: 48%;
+      transform: translateY(-50%);
+      font-size: 13px;
+      color: #000;
+      font-weight: 700;
+      opacity: 0;
+    }
+    
+    .real_review{
+      position: relative;
+      width: 1200px;
+      margin: 0px auto;
+      padding: 127px 0px 123px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .real_review .swiper-slide {
+      background: #FFFFFF;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 30px;
+      opacity: 0.3;
+    }
+    .opacity_1{
+      opacity: 1 !important;
+    }
+    .real_review .swiper-slide > .review_top{
+      border-radius: 30px 30px 0px 21px;
+      padding: 40px 0px 20px 40px;
+      position: relative;
+      background: linear-gradient(180deg, #3480FF 0%, #4F8EF7 100%);
+      /* background-repeat: no-repeat;
+      background-size: 283px 225px;
+      background-position: right; */
+    }
+    .real_review .swiper1::after{
+      content: "";
+      width: 386px;
+      height: 226px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      background-image: url(./img/review_slide_01.png);
+      background-repeat: no-repeat;
+      background-size: 285px 230px;
+      background-position: right -2px bottom 0px;
+    }
+    .real_review .swiper2::after{
+      content: "";
+      width: 386px;
+      height: 226px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      background-image: url(./img/review_slide_02.png);
+      background-repeat: no-repeat;
+      background-size: 285px 230px;
+      background-position: right -2px bottom 0px;
+    }
+    .real_review .swiper3::after{
+      content: "";
+      width: 386px;
+      height: 226px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      background-image: url(./img/review_slide_03.png);
+      background-repeat: no-repeat;
+      background-size: 285px 230px;
+      background-position: right -2px bottom 0px;
+    }
+
+    .real_review .swiper-slide > .review_top > span{
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      letter-spacing: -0.04em;
+      color: #000000;
+    }
+    .real_review .swiper-slide > .review_top > span:first-of-type{
+      display: block;
+    }
+    .real_review .swiper-slide > .review_top > span:last-of-type{
+      display: block;
+      margin-bottom: 54px;
+    }
+    .real_review .swiper-slide > .review_top > a{
+      display: block;
+      position: relative;
+      z-index: 1000;
+      width: 55px;
+      height: 55px;
+    }
+    .real_review .swiper-slide > .review_top > a > img{
+      width: 100%;
+    }
+    .real_review .swiper-slide > .review_bottom{
+      padding: 30px 40px;
+    }
+    .real_review .swiper-slide > .review_bottom > span{
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.06em;
+      color: #838383;
+    }
+    .real_review .swiper-slide > .review_bottom > span:first-child{
+      display: block;
+      padding-bottom: 28px;
+    }
+    .real_review .swiper-slide > .review_bottom > span:last-child{
+      display: block;
+    }
+    
+    .freepass_banner{
+      width: 100%;
+    }
+    .freepass_banner > a{
+      display: block;
+    }
+    .freepass_banner > a > img{
+      width: 100%;
+      display: block;
+    }
+    
+    .main_content03{
+      width: 100%;
+      overflow: hidden;
+    }
+    .main_content03 > .wrap{
+      width: 100%;
+      height: 400px;
+      position: relative;
+      background: #F5F5F5;
+      padding-top: 50px;
+      box-sizing: border-box;
+    }
+    .roller{
+      position: absolute;
+      height: 100%;
+    }
+    .roller > ul{
+      margin: 0;
+      list-style: none;
+      padding: 9px 0;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+    .roller > ul > li {
+      width: 480px;
+      height: 120px;
+      padding: 20px 0px 12px;
+      box-shadow: 0px 6px 26px rgba(0, 0, 0, 0.05);
+      border-radius: 20px;
+      background: #fff;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      text-align: center;
+      letter-spacing: -0.04em;
+      line-height: 28px;
+      margin-right: 34px;
+    }
+    .roller > ul > li > h5{
+      font-weight: 600;
+      font-size: 18px;
+      color: #4F8EF7;
+    }
+    .roller > ul > li > strong{
+      font-weight: 600;
+      font-size: 18px;
+      color: #222222;
+      display: block;
+      position: relative;
+      width: 394px;
+      margin: 0px auto;
+    }
+    .roller > ul > li > strong::before{
+      content: '❝';
+      position: absolute;
+      left: -8px;
+      font-size: 29px;
+      color: #888888;
+      transform: translateY(-6px);
+    }
+    .roller > ul > li > strong::after{
+      content: '❞';
+      position: absolute;
+      right: -8px;
+      font-size: 29px;
+      color: #888888;
+      transform: translateY(12px);
+    }
+    .roller > ul > li > span{
+      font-weight: 400;
+      font-size: 13px;
+      color: #888888;
+
+    }
+    .slide2{
+      margin-top: 31px !important;
+      transform: translateX(12.5%);
+    }
+
+    /* 애니메이션 */
+    .roller.original{
+        animation: 33s linear 0s infinite normal forwards running rollingleft1;
+    }
+    .roller.clone{
+        animation: 33s linear 0s infinite normal none running rollingleft2;
+    }
+    @keyframes rollingleft1 { /* 원본용 */
+        0% {
+            transform: translateX(0);
+        }
+        50% {
+            transform: translateX(-100%);
+        }
+        50.01%{
+            transform: translateX(100%);
+        }
+        100%{
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes rollingleft2 { /* 클론용 */
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-200%);
+        }
+    }
+
+    .main_content04{
+      width: 100%;
+      margin-bottom: 80px;
+    }
+    .professor_slide{
+      width: 1230px;
+      margin: 67px auto 0;
+    }
+    .professor_slide .swiper-slide{
+
+    }
+    .professor_slide .swiper-slide > img{
+      width: 100%;
+    }
+
+    .main_content05{
+      width: 100%;
+      margin-bottom: 65px;
+    }
+    .main_content05 > .news{
+      width: 1120px;
+      margin: 0px auto;
+    }
+    .main_content05 > .news > img{
+      width: 100%;
+    }
+
+    .main_content06{
+      width: 100%;
+    }
+    .main_content06 > .seminar{
+      width: 1136px;
+      margin: 0px auto;
+    }
+    .main_content06 > .seminar > img{
+      width: 100%;
+      transform: translateX(-12px);
+    }
+
+    .main_content07{
+      width: 100%;
+      background: #EEEEEE;
+      padding: 44px 0 89px;
+      box-sizing: border-box;
+      margin-top: 71px;
+    }
+    .main_content07 > h3{
+      font-weight: 500;
+      font-size: 51px;
+      line-height: 62px;
+      color: #252525;
+      text-align: center;
+    }
+    .main_content07 > p{
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 39px;
+      letter-spacing: -0.01em;
+      color: #242424;
+      text-align: center;
+      margin-bottom: 37px;
+    }
+    .main_content07 > p > strong{
+      font-weight: 600;
+    }
+    .bottom_center_wrap{
+      width: 1100px;
+      margin: 0px auto;
+      display: flex;
+      justify-content: center;
+    }
+    .bottom_center_wrap > .center-left{
+      width: 683px;
+      margin-right: 42px;
+    }
+    .center-left > .link-btn_wrap{
+      display: flex;
+      justify-content: space-between;
+    }
+    .center-left > .link-btn_wrap > a{
+      display: block;
+      width: 335px;
+      height: 65px;
+      line-height: 65px !important;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 23px;
+      text-align: center;
+    }
+    .center-left > .link-btn_wrap > a:first-child{
+      background: #969696;
+      color: #FFFFFF;
+      margin-right: 15px;
+    }
+    .center-left > .link-btn_wrap > a:last-child{
+      background: #FCDA20;
+      color: #3F3504;
+    }
+    .center-left > .center-num_wrap{
+      margin-top: 46px;
+      border-bottom: 1px solid #CBCBCB;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 12px;
+    }
+    .center-left > .center-num_wrap > .center_title{
+      margin-right: 25px;
+    }
+    .center_title > strong{
+      font-weight: 700;
+      color: #4B4B4B;
+    }
+    .center_title > strong:first-child{
+      font-size: 51px;
+      line-height: 62px;
+      display: block;
+    }
+    .center_title > strong:last-child{
+      font-size: 39px;
+      line-height: 47px;
+    }
+    .center_num{}
+    .center_num > strong{
+      font-weight: 400;
+      font-size: 89px;
+      line-height: 108px;
+      letter-spacing: -0.08em;
+      color: #4B4B4B;
+    }
+
+    .operating_wrap{
+      display: flex;
+      padding-top: 10px;
+      padding-left: 37px;
+    }
+    .operating_wrap > .operating_time{
+      margin-right: 37px;
+    }
+    .operating_wrap strong{
+      font-weight: 700;
+      font-size: 21px;
+      line-height: 25px;
+      letter-spacing: -0.1em;
+      color: #4B4B4B;
+      padding-right: 8px;
+    }
+    .operating_wrap span{
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      letter-spacing: -0.04em;
+      color: #4B4B4B;
+    }
+
+    .center-right{
+      
+    }
+    .center-right > li{
+      width: 394px;
+      height: 119px;
+      background: #FFFFFF;
+      border: 1px solid #DDDDDD;
+      padding: 31px 21px 29px 25px;
+      box-sizing: border-box;
+      margin-bottom: 25px;
+    }
+    .center-right > li:last-child{
+      margin-bottom: 0;
+    }
+    .center-right > li > h5{
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 30px;
+      letter-spacing: -0.02em;
+      color: #4B4B4B;
+      padding-bottom: 3px;
+    }
+    .center-right > li > .center-right_bottom{
+      display: flex;
+      justify-content: space-between;
+    }
+    .center-right > li > .center-right_bottom > span{
+      font-weight: 537;
+      font-size: 15px;
+      line-height: 24px;
+      letter-spacing: -0.02em;
+      color: #979797;
+    }
+    .center-right > li > .center-right_bottom > a{
+      display: block;
+      width: 77px;
+      height: 22px;
+      background: #FFFFFF;
+      border: 1px solid #D9D9D9;
+      border-radius: 32px;
+      font-weight: 537;
+      font-size: 12px;
+      line-height: 22px;
+      color: #979797;
+      text-align: center;
+    }
+    .center-right > li > .center-right_bottom > a > i.fas{
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "pc_header_login.php" ?>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section class="main_wrap">
+      <article class="main_intro">
+        <div class="main_top_wrap">
+          <div class="main_bg"></div>
+
+          <div class="page-hero">
+            <div class="banner_text_wrap">
+              <span>2022년도(교육 컨텐츠 부문)</span>
+              <strong>
+                대한민국<br>
+                교육브랜드<br>
+                대상수상
+              </strong>
+              <a href="#" title="자세히알아보기">자세히 알아보기</a>
+            </div>
+            <div class="fadBox">
+              <span class="total">전체 회원수</span>
+              <h1 class="counter timer count-title count-number" data-to="733606" data-speed="1500">733606</h1>
+              <span class="per">명</span>
+              <span class="btxt">꿈을 현실로 만드는 교육기업</span>
+            </div>						
+            <script src="../../js/score.js"></script>
+          </div>
+
+          <!-- 무료상담신청 -->
+          <div class="cscenter">
+            <h3>무료상담신청</h3>
+            <form name="frmConsult" method="POST" enctype="multipart/form-data" action="/main/consult_ok.html">
+              <input type="hidden" name="organ_type" value="">
+              <input type="hidden" name="mem_id" value="">
+              <ul>
+                <li>
+                  <input class="input_txt" type="text" name="txtName" validate="null,성명" placeholder="이름">
+                </li>
+                <li>
+                  <input type="text" class="input_txt" onKeyPress="return onlyNumInput();" name="txtTel3" maxlength="11" validate="null,핸드폰 번호" placeholder="휴대번호">
+                </li>
+                <li>
+                  <select name="grade" id="grade" class="input_txt select_txt">
+                    <option value="">관심분야 선택</option>
+                    <option value="강사과정">강사과정</option>
+                    <option value="병원과정">병원과정</option>
+                    <option value="커피과정">커피과정</option>
+                    <option value="심리과정">심리과정</option>
+                    <option value="전문가과정">전문가과정</option>
+                    <option value="실버과정">실버과정</option>
+                    <option value="방과후과정">방과후과정</option>
+                    <option value="안전과정">안전과정</option>
+                    <option value="반려과정">반려과정</option>
+                    <option value="아동과정">아동과정</option>
+                    <option value="공부과정">공부과정</option>
+                    <option value="인문과정">인문과정</option>
+                    <option value="부동산과정">부동산과정</option>
+                    <option value="산업과정">산업과정</option>
+                    <option value="IT과정">IT과정</option>
+                    <option value="취업과정">취업과정</option>
+                    <option value="항공과정">항공과정</option>
+                    <option value="공예과정">공예과정</option>
+                    <option value="운동과정">운동과정</option>
+                    <option value="국가자격증">국가자격증</option>
+                  </select>
+                </li>
+                <li>
+                  <select name="chkTime" id="chkTime" class="input_txt select_txt">
+                    <option value="">상담시간 선택</option>
+                    <option value="오전09시~10시사이">오전 09시 ~ 10시 사이</option>
+                    <option value="오전10시~11시사이">오전 10시 ~ 11시 사이</option>
+                    <option value="오전11시~12시사이">오전 11시 ~ 12시 사이</option>
+                    <option value="오후12시~13시사이">오후 12시 ~ 13시 사이</option>
+                    <option value="오후13시~14시사이">오후 13시 ~ 14시 사이</option>
+                    <option value="오후14시~15시사이">오후 14시 ~ 15시 사이</option>
+                    <option value="오후15시~16시사이">오후 15시 ~ 16시 사이</option>
+                    <option value="오후16시~17시사이">오후 16시 ~ 17시 사이</option>
+                    <option value="오후17시~18시사이">오후 17시 ~ 18시 사이</option>
+                  </select>
+                </li>
+                <li>
+                  <div class="dropdown">
+                    <input type="checkbox" name="chkAgree" id="chkAgree" class="choice">
+                    <label class="dropbtn" for="chkAgree">개인정보취급방침에 동의</label>
+                    <div class="dropdown-content">
+                      <span>· 개인정보수집에 대한 동의<br>
+                        · 개인정보의 수집 및 이용 목적<br>
+                        · 개인정보의 보유 및 파기<br>
+                        <a href="/class/private_info.html" target="_blank">자세히보기</a>
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="botton_cs">
+                <a href="javascript:sbmit()" class="btn_cs">무료상담신청하기</a>
+              </div>
+            </form>
+            <div class="cscenter_tell">
+              <p>
+                <span>고객지원센터</span><br>
+                <strong>1670-6237</strong><br>
+                <span><strong>평일</strong> : 9시~18시 / <strong>휴무</strong> : 토,일,공휴일</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <article class="main_content01">
+        <h2>
+          <img src="./img/main_con01_title.png" alt="메인타이틀">
+        </h2>
+        <div class="key_search_box" id="the-basics">
+          <div class="search_wraper">
+            <input type="search" id="searchInput" placeholder="찾으시는 자격증 과정을 검색하세요!" class=" typeahead">
+            <label for="searchInput" class="search_btn">검색</label>
+          </div>
+        </div>
+        <ul class="tab">
+          <li data-tab="menu1" class="on">
+            <a href="#">
+              <span>인기과정</span>
+            </a>
+          </li>
+          <li data-tab="menu2">
+            <a href="#">
+              <span>강사과정</span>
+            </a>
+          </li>
+          <li data-tab="menu3">
+            <a href="#">
+              <span>커피과정</span>
+            </a>
+          </li>
+          <li data-tab="menu4">
+            <a href="#">
+              <span>전문가과정</span>
+            </a>
+          </li>
+          <li data-tab="menu5">
+            <a href="#">
+              <span>안전과정</span>
+            </a>
+          </li>
+          <li data-tab="menu6">
+            <a href="#">
+              <span>반려과정</span>
+            </a>
+          </li>
+          <li data-tab="menu7">
+            <a href="#">
+              <span>공부과정</span>
+            </a>
+          </li>
+          <li data-tab="menu8">
+            <a href="#">
+              <span>부동산과정</span>
+            </a>
+          </li>
+          <li data-tab="menu9">
+            <a href="#">
+              <span>IT과정</span>
+            </a>
+          </li>
+          <li data-tab="menu10">
+            <a href="#">
+              <span>항공과정</span>
+            </a>
+          </li>
+          <li data-tab="menu11">
+            <a href="#">
+              <span>병원과정</span>
+            </a>
+          </li>
+          <li data-tab="menu12">
+            <a href="#">
+              <span>심리과정</span>
+            </a>
+          </li>
+          <li data-tab="menu13">
+            <a href="#">
+              <span>실버과정</span>
+            </a>
+          </li>
+          <li data-tab="menu14">
+            <a href="#">
+              <span>방과후과정</span>
+            </a>
+          </li>
+          <li data-tab="menu15">
+            <a href="#">
+              <span>아동과정</span>
+            </a>
+          </li>
+          <li data-tab="menu16">
+            <a href="#">
+              <span>인문과정</span>
+            </a>
+          </li>
+          <li data-tab="menu17">
+            <a href="#">
+              <span>산업과정</span>
+            </a>
+          </li>
+          <li data-tab="menu18">
+            <a href="#">
+              <span>취업과정</span>
+            </a>
+          </li>
+          <li data-tab="menu19">
+            <a href="#">
+              <span>공예과정</span>
+            </a>
+          </li>
+
+          <li data-tab="menu20">
+            <a href="#">
+              <span>운동과정</span>
+            </a>
+          </li>
+        </ul>
+
+        <!-- 인기과정 -->
+        <div id="menu1" class="tabcont on">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 강사과정 -->
+        <div id="menu2" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 병원과정 -->
+        <div id="menu3" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 커피과정 -->
+        <div id="menu4" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 심리과정 -->
+        <div id="menu5" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 전문가과정 -->
+        <div id="menu6" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 실버과정 -->
+        <div id="menu7" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 방과후과정 -->
+        <div id="menu8" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 안전과정 -->
+        <div id="menu9" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 반려과정 -->
+        <div id="menu10" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 아동과정 -->
+        <div id="menu11" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 공부과정 -->
+        <div id="menu12" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 인문과정 -->
+        <div id="menu13" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 부동산과정 -->
+        <div id="menu14" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 산업과정 -->
+        <div id="menu15" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- IT과정 -->
+        <div id="menu16" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 취업과정 -->
+        <div id="menu17" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 항공과정 -->
+        <div id="menu18" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 공예과정 -->
+        <div id="menu19" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- 운동과정 -->
+        <div id="menu20" class="tabcont">
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture01.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Coffee Barista</span>
+                  <strong>커피바리스타<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture02.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor</span>
+                  <strong>심리<br>상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture03.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Hospital Coordinator</span>
+                  <strong>병원<br>코디네이터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture04.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Clean-up Storage Consultant</span>
+                  <strong>정리<br>전문가</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture05.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Pet Manager</span>
+                  <strong>반려동물<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture06.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Babysitter</span>
+                  <strong>베이비<br>시터</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture07.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Care Worker</span>
+                  <strong>간병사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture08.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Postpartum Carer</span>
+                  <strong>산후<br>관리사</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="lecture_list">
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture09.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Sports Curer</span>
+                  <strong>운동<br>처방사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture10.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for the elderly</span>
+                  <strong>노인<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture11.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Psychological Counselor<br>for children</span>
+                  <strong>아동<br>심리상담사</strong>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="자격증">
+                <img src="./img/main_lecture/main_con01_lecture12.png" alt="">
+                <div class="lecture_title_box">
+                  <span>Six Sigma (GB)</span>
+                  <strong>6시그마<br>(GB)</strong>
+                </div>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        
+      </article>
+      
+      <article class="main_content02">
+        <h2>
+          <img src="./img/main_con02_title.png" alt="메인타이틀">
+        </h2>
+        <div class="live_graph">
+          <h3>한검평 합격생 10명 중 9명 1년 내 합격!</h3>
+          <ul class="graph">
+              <li class="graph-large">
+                <span class="graph_date">1년 미만</span>
+                <span class="bar"></span>
+                <strong class="text">91%</strong>
+              </li>
+              <li class="graph-middle">
+                <span class="bar"></span>
+                <strong class="text">1년 이상 7%</strong>
+              </li>
+              <li class="graph-small">
+                <span class="bar"></span>
+                <strong class="text">2년 이상 2%</strong>
+              </li>
+          </ul>
+        </div>
+
+        <div class="live_review">
+          <div class="review_num">
+            <div class="live_info">
+              <h3>
+                <span>응시자 수</span>
+                <div class="update-bar_wrap">
+                  <span class="update-bar"></span>
+                  <strong class="update-text">UPDATE</strong>
+                </div>
+              </h3>
+              <strong>829,182</strong>
+            </div>
+            <div class="live_info">
+              <h3>
+                <span>합격자 수</span>
+                <div class="update-bar_wrap">
+                  <span class="update-bar"></span>
+                  <strong class="update-text">UPDATE</strong>
+                </div>
+              </h3>
+              <strong>810,527</strong>
+            </div>
+          </div>
+
+          <a href="" class="review_location">
+            <span>실시간 합격후기 바로가기</span>
+            
+          </a>
+
+          <div class="swiper real_review">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="review_top swiper1">
+                  <span>교육기관 선택부터</span>
+                  <span>합격까지</span>
+                  <a href="#" title="플레이">
+                    <img src="./img/play_btn_white.png" alt="재생">
+                  </a>
+                </div>
+                <div class="review_bottom">
+                  <span>심리상담사 자격증, 장학지원 혜택으로 한검평에서 공부했습니다.</span>
+                  <span>한검평 합격생 하○형</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="review_top swiper2">
+                  <span>2개월만에</span>
+                  <span>초스피드 취득</span>
+                  <a href="#" title="플레이">
+                    <img src="./img/play_btn_white.png" alt="재생">
+                  </a>
+                </div>
+                <div class="review_bottom">
+                  <span>병원코디네이터 자격증으로 취업까지 수월하게 할 수 있었습니다.</span>
+                  <span>한검평 합격생 엄○연</span>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="review_top swiper3">
+                  <span>스펙올리고</span>
+                  <span>취업까지 성공</span>
+                  <a href="#" title="플레이">
+                    <img src="./img/play_btn_white.png" alt="재생">
+                  </a>
+                </div>
+                <div class="review_bottom">
+                  <span>나에게 힘이 되는 커피바리스타 자격증!<br>수료 후 일상이 달라졌습니다.</span>
+                  <span>한검평 합격생 엄○연</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="freepass_banner">
+          <a href="#" title="프리패스">
+            <img src="./img/freepass_banner.png" alt="프리패스">
+          </a>
+        </div>
+      </article>
+
+      <article class="main_content03">
+        <h2>
+          <img src="./img/main_con03_title.png" alt="메인타이틀">
+        </h2>
+        
+        <div class="wrap">
+          <div class="roller">
+            <ul class="slide1">
+              <li>
+                <h5>어렵지 않은 강의!</h5>
+                <strong>취득하고 싶었던 자격증을 쉽게 취득할 수 있었어요.</strong>
+                <span>합격자 김*레 학우님</span>
+              </li>
+              <li>
+                <h5>시간 절약!</h5>
+                <strong>경제적인 부담도 덜고 시간도 아낄 수 있어 좋았어요!</strong>
+                <span>합격자 양*연 학우님</span>
+              </li>
+              <li>
+                <h5>무료 강의!</h5>
+                <strong>좋은강의를 무료로 잘 들었습니다.</strong>
+                <span>합격자 항상웃자 학우님</span>
+              </li>
+              <li>
+                <h5>시공간 제약 NO!</h5>
+                <strong>누구든 언제 어디서나 강의 시청이 가능하다는 점!</strong>
+                <span>합격자 박*슬 학우님</span>
+              </li>
+            </ul>
+            <ul class="slide2">
+              <li>
+                <h5>어렵지 않은 강의!</h5>
+                <strong>취득하고 싶었던 자격증을 쉽게 취득할 수 있었어요.</strong>
+                <span>합격자 김*레 학우님</span>
+              </li>
+              <li>
+                <h5>시간 절약!</h5>
+                <strong>경제적인 부담도 덜고 시간도 아낄 수 있어 좋았어요!</strong>
+                <span>합격자 양*연 학우님</span>
+              </li>
+              <li>
+                <h5>무료 강의!</h5>
+                <strong>좋은강의를 무료로 잘 들었습니다.</strong>
+                <span>합격자 항상웃자 학우님</span>
+              </li>
+              <li>
+                <h5>시공간 제약 NO!</h5>
+                <strong>누구든 언제 어디서나 강의 시청이 가능하다는 점!</strong>
+                <span>합격자 박*슬 학우님</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="main_content04">
+        <h2>
+          <img src="./img/main_con04_title.png" alt="메인타이틀">
+        </h2>
+
+        <div class="swiper professor_slide">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="./img/main_con04_professor01.png" alt="">
+            </div>
+            <div class="swiper-slide">
+              <img src="./img/main_con04_professor02.png" alt="">
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="main_content05">
+        <h2>
+          <img src="./img/main_con05_title.png" alt="메인타이틀">
+        </h2>
+        <div class="news">
+          <img src="./img/main_con05_event.png" alt="뉴스">
+        </div>
+
+      </article>
+
+      <article class="main_content06">
+        <h2>
+          <img src="./img/main_con06_title.png" alt="메인타이틀">
+        </h2>
+
+        <div class="seminar">
+          <img src="./img/main_con06_event.png" alt="뉴스">
+        </div>
+      </article>
+
+      <article class="main_content07">
+        <h3>학우지향</h3>
+        <p>“<strong>학우여러분들의 소리</strong>에 귀를 기울이겠습니다.”</p>
+
+        <div class="bottom_center_wrap">
+          <div class="center-left">
+            <div class="link-btn_wrap">
+              <a href="pc_notice.html" title="FAQ">FAQ <i class="fas fa-angle-right"></i></a>
+              <a href="#" title="원격지원서비스">원격지원서비스 <i class="fas fa-angle-right"></i></a>
+            </div>
+            <div class="center-num_wrap">
+              <div class="center_title">
+                <strong>고객상담</strong>
+                <strong>및 기술지원</strong>
+              </div>
+              <div class="center_num">
+                <strong>1670 - 6237</strong>
+              </div>
+            </div>
+            <div class="operating_wrap">
+              <div class="operating_time">
+                <strong>운영시간</strong>
+                <span>09:00~18:00</span>
+              </div>
+              <div class="operating_date">
+                <strong>주말/공휴일</strong>
+                <span>휴무</span>
+              </div>
+            </div>
+          </div>
+          <ul class="center-right">
+            <li>
+              <h5>학우님 의견</h5>
+              <div class="center-right_bottom">
+                <span>칭찬, 불편, 아이디어 제안을 남겨주세요</span>
+                <a href="#" title="의견 남기기">바로가기 <i class="fas fa-angle-right"></i></a>
+              </div>
+            </li>
+            <li>
+              <h5>단체수강문의</h5>
+              <div class="center-right_bottom">
+                <span>20명이상 단체수강시 할인프로모션</span>
+                <a href="#" title="단체수강하기">바로가기 <i class="fas fa-angle-right"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <? include "pc_footer.php" ?>
+
+  <script>
+    $(function(){
+      $('.banner_text_wrap').animate({
+        'opacity':'1',
+        'bottom':'179px'
+      },1200);
+      $('.fadBox').animate({
+        'opacity':'1',
+        'bottom':'140px'
+      },1200);
+      $('.main_bg').addClass('zoom');
+
+      $('ul.tab li').click(function() {
+        var activeTab = $(this).attr('data-tab');
+        $('ul.tab li').removeClass('on');
+        $('.tabcont').removeClass('on');
+        $(this).addClass('on');
+        $('#' + activeTab).addClass('on');
+        return false;
+      });
+
+      $(window).scroll(function(){ // 스크롤을 동작하면 아래 내용을 실행
+
+        let sPos = $(this).scrollTop(); //현재 세로 스크롤 값을 변수에 담는다
+        console.log(sPos); // 813
+
+        // 합격률 프로그래스바
+        if(sPos>=700){
+          $('.graph > li').eq(0).find('.bar').delay(800).animate({'width':'100%'},1500,'easeOutQuint');
+          $('.graph > li').eq(1).find('.bar').delay(800).animate({'width':'7%'},1500);
+          $('.graph > li').eq(2).find('.bar').delay(800).animate({'width':'2%'},1500);
+          $('.graph li').find('.text').delay(1800).animate({'opacity':'1'})
+          $('.graph_date').delay(1800).animate({'opacity':'1'})
+
+        }
+        if(sPos >= 1200){
+          $('.update-bar_wrap').find('.update-bar').delay(800).animate({'width':'100%'},1500,'easeOutQuint');
+          $('.update-text').delay(1800).animate({'opacity':'1'});
+          $('.live_info').find('strong').delay(1800).fadeIn();
+        }
+      });
+    });
+
+    var swiper = new Swiper(".real_review", {
+      slidesPerView: 3,
+      spaceBetween: 22,
+      slidesPerGroup: 1,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      on: {
+        init: function () {
+          $('.real_review .swiper-slide-next').addClass('opacity_1');
+        },
+        slideChangeTransitionStart : function() {
+          $('.real_review .swiper-slide').removeClass('opacity_1');
+          $('.real_review .swiper-slide-next').addClass('opacity_1');
+        },
+        slideChangeTransitionEnd : function() {
+          $('.real_review .swiper-slide').removeClass('opacity_1');
+          $('.real_review .swiper-slide-next').addClass('opacity_1');
+        }
+      },
+    });
+
+    var swiper2 = new Swiper(".professor_slide", {
+      speed: 500,
+      loop: true,
+      spaceBetween: 30,
+      centeredSlides: true,
+    });
+
+    //DOM 생성 후
+    window.addEventListener('DOMContentLoaded', function(){
+
+      let roller = document.querySelector('.roller');
+      roller.id = 'roller1';
+
+      let clone = roller.cloneNode(true);
+      clone.id = 'roller2';
+      document.querySelector('.wrap').appendChild(clone);
+
+      document.querySelector('#roller1').style.left = '0px';
+      document.querySelector('#roller2').style.left = document.querySelector('.roller ul').offsetWidth+'px';
+
+      roller.classList.add('original');
+      clone.classList.add('clone');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>발급내역 확인</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 스와이퍼 제이쿼리  -->
+  <script src="../../js/swiper.js"></script>
+
+  <!-- 스와이퍼 슬라이드 서식 -->
+  <link href="../../css/swiper.css" rel="stylesheet" type="text/css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    /* 메인 콘텐츠 */
+    .certificate_wrap{
+      width:100%;
+      box-sizing: border-box;
+      max-width: 640px;
+      margin:0px auto;
+    }
+    .certificate_wrap h3{
+      padding:34px 20px 0px;
+      font-size:1.188rem;
+      font-weight: bold;
+    }
+    .top_banner{
+      width:100%;
+      padding:0px 21px;
+      background-color: #EDF4FF;
+      box-sizing: border-box;
+    }
+    .top_banner > p{
+      text-align: left;
+      position: relative;
+      width:100%;
+      height:46px;
+      line-height: 42px;
+      font-weight: 400;
+      color: #222222;
+    }
+    .top_banner > p img{
+      width: 19px;
+      height: 19px;
+      vertical-align: middle;
+    }
+    .top_banner > p > span{
+      font-size:0.938rem;
+      letter-spacing: -0.04em;
+      color: #222222;
+      font-weight: 400;
+    }
+    .top_banner > p > span:first-of-type{
+      color:#2E68FF;
+      font-weight: 400;
+    }
+    .top_banner > p a{
+      position:absolute;
+      right:0px;
+      top:50%;
+      transform:translateY(-50%);
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.938rem;
+      display: block;
+      width: 100%;
+      text-align: right;
+      height: 46px;
+      line-height: 42px;
+    }
+    .top_banner > p > a > span{
+      font-size:0.938rem;
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      color: #222222;
+      text-indent: -2px;
+      display: inline-block;
+      text-indent: -2px;
+      padding-right: 5px;
+    }
+    .top_banner > p i.fas{
+      color:#666666;
+      font-size: 11px;
+      transform: translateY(-2px);
+    }
+
+    .tab {
+      display:flex;
+      justify-content: space-between;
+      padding: 21px 20px 27px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+
+    .tab li {
+      text-align: left;
+      width:31%;
+      background-color: #fff;
+      border: 1px solid #DDDDDD;
+      border-radius: 4px;
+      height: 87px;
+      padding: 18px 0px 18px 20px;
+      box-sizing: border-box;
+      color: #505873;
+    }
+
+    .tab li a {
+      letter-spacing: -0.07em;
+      display:block;
+      font-weight: 500;
+      font-size:0.875rem;
+      color: inherit;
+    }
+    .tab li a > span > strong{
+      padding-top: 18px;
+      display: block;
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: #9FAEDF;
+    }
+    ul.tab li.on{
+      background: #F2F6FF;
+      border: 1px solid #6688F3;
+      border-radius: 4px;
+    }
+    ul.tab li.on > a > span > strong{
+      color: #2E68FF;
+    }
+
+    .nav_act {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      z-index: 500;
+      border-bottom: 1px solid #ECECEC;
+      padding: 15px 20px !important;
+      width: 100%;
+      box-sizing: border-box;
+      justify-content: space-between;
+    }
+    .nav_act > li{
+      width: 32% !important;
+      background: #FFFFFF !important;
+      border: 1px solid #D2D6DB !important;
+      border-radius: 3px !important;
+      line-height: 40px !important;
+      height: 40px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      text-align: center !important;
+      color: #5A5A6F !important;
+      font-weight: 400 !important;
+    }
+    .nav_act > li.on{
+      background-color:#4F8EF7 !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      border:none !important;
+    }
+    .nav_act > li > a{
+      display: block;
+      line-height: 40px !important;
+      height: 40px !important;
+      font-weight: inherit;
+    }
+    .nav_act > li > a > span{
+      display: block !important;
+      height: 40px !important;
+      line-height: 40px !important;
+    }
+    .nav_act > li > a > span > strong{
+      display: inline-block !important;
+      padding: 0 !important;
+      line-height: 40px !important;
+      height: 40px !important;
+      font-size: 0.875rem !important;
+      padding-left: 4px !important;
+      font-weight: inherit;
+    }
+
+    .tabcont.on {
+      display: block;
+    }
+    .tabcont{
+      display:none;
+      box-sizing: border-box;
+    }
+    
+    main{
+      box-sizing: border-box;
+      overflow-X:hidden;
+    }
+    .main_slide, .main_slide2{
+      height:250px;
+      position:relative;
+      display: none;
+    }
+
+    .certificate_slide > h3{
+      display:none;
+    }
+    .main_slide .swiper-slide, .main_slide2 .swiper-slide{
+      width:90% !important;
+      height:210px !important;
+      position:relative;
+      border-radius: 8px;
+      padding:17px 0px 10px 68px;
+      box-sizing: border-box;
+      background: url('./img/certificate01.png') no-repeat right 10px center #FFFCE4;
+      background-size: 85px;
+      margin-right:10%;
+      opacity: 0.5;
+      /* filter: drop-shadow(0px 8px 16px rgba(169, 180, 221, 0.4)); */
+      box-shadow: 4px 5px 16px 4px rgb(169 180 221 / 40%);
+    }
+    .left_box{
+      position:absolute;
+      left:0px;
+      top:0px;
+      height:210px;
+      background-color: #3E81F0;
+      width:42px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+    .main_text{
+      border-bottom:1px solid #002A86;
+    }
+    .main_text > h4{
+      font-size:0.813rem;
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-weight: bold;
+      padding-bottom:14px;
+    }
+    .main_text > dl{
+      /* display:flex; */
+      color:#475259;
+      font-size:0.813rem;
+      display:flex;
+      flex-wrap: wrap;
+      line-height:18px;
+    }
+    .main_text dt{
+      font-weight: 500;
+      width:70px;
+    }
+    .main_text dl:first-of-type dt{
+      word-spacing: 19px;
+    }
+    .main_text dl:first-of-type dt span{
+      margin-left:4px;
+    }
+    .main_text dd{
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .main_text p{
+      font-size:0.625rem;
+      color:#000000;
+      margin:13px 0px 7px 2px;
+    }
+    .organization{
+      text-align: center;
+      position: relative;
+    }
+    .organization img{
+      width:136px;
+      height:27px;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, 30%);
+    }
+    .dot span{
+      width:5.3px;
+      height:5.3px;
+      background: #ADCCFF;
+      opacity: 1 !important;
+      border-radius: 11px;
+    }
+    .opacity_1{
+      opacity:1 !important;
+    }
+
+    .opacity_2{
+      opacity:1 !important;
+    }
+
+    .certificate_none{
+      width: calc(100% - 40px);
+      margin: 0px auto;
+      background: #EDF4FF;
+      border-radius: 6px;
+      text-align: center;
+      letter-spacing: -0.04em;
+      padding: 36px 0px 28px;
+      box-sizing: border-box;
+    }
+    .certificate_none > h6{
+      font-weight: bold;
+      font-size: 1.125rem;
+      line-height: 21px;
+      letter-spacing: -0.04em;
+      color: #444444;
+      padding-bottom: 13px;
+    }
+    .certificate_none > p{
+      color: #666666;
+      font-size: 0.875rem;
+      font-weight: 400;
+      padding-bottom: 21px;
+      line-height: 18px;
+    }
+    .certificate_none > a{
+      background: #4F8EF7;
+      border-radius: 4px;
+      display: inline-block;
+      padding: 0px 22px 0px 33px;
+      height: 45px;
+      line-height: 45px;
+      color: #FFFFFF;
+      font-size: 1rem;
+      font-weight: bolder;
+      margin: 0px auto;
+    }
+    .certificate_none > a > i.fas{
+      font-size: 11px;
+      padding-left: 13px;
+      transform: translateY(-2px);
+    }
+    .pay_info{
+      width:100%;
+      box-sizing: border-box;
+    }
+    .pay_info > ul{
+      background: #EDF4FF;
+      border-radius: 4px;
+      padding:28px 26px;
+      margin-top:30px;
+      display: none;
+    }
+    .pay_info > ul > li{
+      border-bottom:1px solid #D0E1F9;
+    }
+    .pay_info > ul > li:first-child{
+      padding-bottom:18px;
+    }
+    .pay_info > ul > li:last-child{
+      border:none;
+      padding:22px 0px 0px 0px;
+    }
+    .pay_info > ul > li:first-child > span:first-of-type{
+      font-size:0.938rem;
+      color: #505873;
+    }
+    .pay_info > ul > li:first-child > span:last-of-type{
+      color: #4F8EF7;
+      font-size:0.938rem;
+      float:right;
+    }
+    .pay_info > ul > li:last-child > span:first-of-type{
+      color: #505873;
+      font-size:15px;
+    }
+    .pay_info > ul > li:last-child > span:last-of-type{
+      color: #4F8EF7;
+      float:right;
+      font-size:1.125rem;
+      font-weight: 500;
+    }
+    .pay_info > ul > li > span{
+      letter-spacing: -0.04em;
+      font-weight: 500;
+    }
+    .pay_info > ul > li > p{
+      font-size:0.813rem;
+      font-weight: 500;
+      text-align: right;
+      margin-top:11px;
+      font-weight: 500;
+    }
+    .pay_info > a{
+      background: #4F8EF7;
+      border-radius: 4px;
+      width:100%;
+      height:64px;
+      display:block;
+      line-height:64px;
+      font-size:1.063rem;
+      font-weight: bold;
+      color:#fff;
+      letter-spacing: -0.04em;
+      text-align:center;
+      font-weight: bold;
+      margin:15px 0px 0px;
+      display: none;
+    }
+    .pay_info > p{
+      text-align: center;
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size:0.875rem;
+      margin-top: 15px;
+    }
+
+    /* 자주 묻는 질문 */
+    .qna{
+      width:100%;
+      font-size:16px;
+      box-sizing: border-box;
+      margin:58px 0px 50px;
+      padding: 0px 20px;
+    }
+    .qna > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1rem;
+      font-weight: 500;
+      font-size:1.125rem;
+      padding-top:0px;
+    }
+    .qna dl{
+      padding-top:14px;
+    }
+    .qna dt{ 
+      line-height:60px;
+      border-bottom:1px solid #EAF0F8;
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.875rem;
+      position:relative;
+      font-weight: 500;
+    }
+    /* .qna dt::before{
+      content:'Q ';
+      font-size:1rem;
+      color:#276CF1;
+      padding-right:15px;
+    } */
+    .qna dt b{
+      padding-left:2px;
+    }
+    .qna dt span{
+      color:#276CF1;
+      font-weight: bold;
+      padding:0px 1px;
+    }
+    .qna dt span:first-of-type{
+      font-size:1rem;
+    }
+    .qna dt span:last-of-type{
+      margin-right:10px;
+    }
+    .qna dt:last-of-type{
+      border-bottom:none;
+    }
+    .qna dd{
+      line-height:20px;
+      border-bottom:1px solid #EAF0F8;
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.875rem;
+      position:relative;
+      display:none;
+      padding:1.250rem 1.250rem 1.250rem 2.375rem;
+      font-weight: 500;
+      background-color: #F8F9FC;
+    }
+    .qna dd:last-of-type{
+      border-bottom:none;
+      border-top:1px solid #EAF0F8;
+    }
+    .qna dd::before{
+      content:'A ';
+      font-size:1rem;
+      color:#276CF1;
+      display:block;
+      position:absolute;
+      left:13px;
+      font-weight: bold;
+    }
+    .qna i.fas{
+      color:#A4ABC0;
+      font-size:12px;
+      line-height: 62px;
+      padding:0px 20px;
+      position: absolute;
+      right: 0px;
+    }
+
+    .icon_act{
+      transform: rotate(180deg) !important;
+      transform-origin:50%;
+    }
+
+    /* 모달 */
+    .modal{
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100%;
+      background-color:rgba(159, 159, 159, 0.26);
+      display: none;
+    }
+    .modal_slide{
+      background: #FFFFFF;
+      box-shadow: 0px 4px 8px rgba(176, 176, 196, 0.4);
+      border-radius: 8px;
+      width: calc(100% - 40px);
+      margin: 0px auto;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 30px 0px 54px;
+      position: relative;
+      top: 90px;
+      z-index: 10000;
+    }
+    .modal_slide > h3{
+      display: flex;
+      justify-content: center;
+      padding-top: 0px;
+    }
+    .modal_slide > h3 > img{
+      vertical-align:middle;
+      padding-right: 2px;
+    }
+    .modal_slide > h3 > strong{
+      letter-spacing: -0.06em;
+      color: #2B383F;
+      font-size:1rem;
+    }
+    .modal .swiper-slide{
+      width: 100%;
+      padding: 30px 31px 23px;
+      box-sizing: border-box;
+    }
+    .modal .swiper-slide > h6{
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      font-size: 0.938rem;
+      padding-bottom: 5px;
+      margin-top: 20px;
+    }
+    .modal .swiper-slide > h6:first-child{
+      margin-top: 0px;
+    }
+    .modal .swiper-slide > p{
+      letter-spacing: -0.04em;
+      color: #333333;
+      font-size: 0.875rem;
+      line-height: 20px;
+    }
+    .modal .swiper-slide > span{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size: 0.875rem;
+      line-height: 20px;
+    }
+    .modal .swiper-container-horizontal > .swiper-pagination-bullets{
+      bottom: 113px !important;
+    }
+    .btn_box2{
+      width:100%;
+      display:flex;
+      justify-content: space-around;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      z-index: 10001;
+    }
+    .btn_box2 > a{
+      display:block;
+      width:calc(100% - 62px);
+      letter-spacing: -0.01em;
+      color: #fff;
+      font-size:0.875rem;
+      border-radius: 4px;
+      font-weight: bold;
+      line-height: 47px;
+      padding: 0;
+      background: #4F8EF7;
+    }
+    body.modal-open {
+      overflow-y: hidden;
+    }
+  </style>
+
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <main>
+  <script>
+    $(document).ready(function(){
+
+      $('ul.tab li').click(function() {
+        var activeTab = $(this).attr('data-tab');
+        $('ul.tab li').removeClass('on');
+        $('.tabcont').removeClass('on');
+        $(this).addClass('on');
+        $('#' + activeTab).addClass('on');
+      })
+    });
+
+  </script>
+
+  <section class="certificate_wrap">
+      <div class="top_banner">
+        <p>
+          <img src="./img/warning_black.svg" alt="경고">
+          <span>14일 이내</span> <span>자격증 발급시 <strong>배송비 무료</strong></span>
+          <a href="#" title="전체보기" class="modal_btn">필독사항 <i class="fas fa-angle-right"></i></a>
+        </p>
+      </div>
+
+      <form name="" method="" action="">
+      <h3>자격증 발급 내역</h3>
+      <ul class="tab">
+        <li class="on" data-tab="menu1"><a href="#"><span>결제대기 <strong>0</strong></span></a></li>
+        <li data-tab="menu2"><a href="#"><span>심사중 <strong>0</strong></span></a></li>
+        <li data-tab="menu3"><a href="#"><span>발급완료 <strong>0</strong></span></a></li>
+      </ul>
+      <script>
+        const nav_Offset = $('ul.tab').offset().top;
+          // console.log(nav_Offset); // 50
+
+          $(window).scroll(function(){
+            
+            let sPos = $(this).scrollTop();
+            // console.log(sPos);
+
+            if(nav_Offset<=sPos){
+              $('ul.tab').addClass('nav_act');
+            }else{
+              $('ul.tab').removeClass('nav_act');
+            }
+          });
+      </script>
+
+      <article class="certificate_slide tabcont on" id="menu1">
+        <h3>자격증 목록</h3>
+        <div class="swiper main_slide">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination dot"></div>
+        </div>
+
+        <div class="certificate_none">
+          <h6>발급한 자격증이 없습니다.</h6>
+          <p>
+            수업을 듣고 자격증을 신청하면 <br>
+            발급한 자격증을 보실 수 있습니다.
+          </p>
+          <a href="cer_issued.html" title="발급신청">발급신청 바로가기<i class="fas fa-angle-right"></i></a>
+        </div>
+          <!-- 결제 정보 -->
+        <div class="pay_info">
+          <ul>
+            <li>
+              <span>결제정보</span>
+              <span class="txt_ch">입금대기</span>
+              <p>농협 1002 740 765 850</p>
+            </li>
+            <li>
+              <span>발급 수수료</span>
+              <span class="txt_ch">90,000 원</span>
+            </li>
+          </ul>
+          <a href="#" title="신청하기">신청하기</a>
+          <p>자격증 발급 과정 : 입금대기 > 결제완료(심사중) > 발급완료</p>
+        </div>
+      </article>
+
+      <article class="certificate_slide tabcont" id="menu2">
+        <h3>자격증 목록</h3>
+        <div class="swiper main_slide">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination dot"></div>
+        </div>
+
+        <div class="certificate_none">
+          <h6>발급한 자격증이 없습니다.</h6>
+          <p>
+            수업을 듣고 자격증을 신청하면 <br>
+            발급한 자격증을 보실 수 있습니다.
+          </p>
+          <a href="cer_issued.html" title="발급신청">발급신청 바로가기<i class="fas fa-angle-right"></i></a>
+        </div>
+          <!-- 결제 정보 -->
+        <div class="pay_info">
+          <ul>
+            <li>
+              <span>결제정보</span>
+              <span class="txt_ch">입금대기</span>
+              <p>농협 1002 740 765 850</p>
+            </li>
+            <li>
+              <span>발급 수수료</span>
+              <span class="txt_ch">90,000 원</span>
+            </li>
+          </ul>
+          <a href="#" title="신청하기">신청하기</a>
+          <p>자격증 발급 과정 : 입금대기 > 결제완료(심사중) > 발급완료</p>
+        </div>
+      </article>
+      
+      <article class="certificate_slide tabcont" id="menu3">
+        <h3>자격증 목록</h3>
+        <div class="swiper main_slide2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="left_box">&nbsp;</div>
+                <div class="main_text">
+                  <h4>커피바리스타전문가 1급</h4>
+                  <dl>
+                    <dt>성 명<span>:</span></dt>
+                    <dd>이 민 아</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>생년월일 : </dt>
+                    <dd>1990년 08월 17일</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>자격등급 : </dt>
+                    <dd>1급</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>등록번호 : </dt>
+                    <dd>krivet-2015-004838</dd>
+                  </dl>
+
+                  <dl>
+                    <dt>취득일자 : </dt>
+                    <dd>2018년 06월 12일</dd>
+                  </dl>
+                  <p>위와같이 자격을 취득하였음을 증명함</p>
+                </div>
+              <div class="organization">
+                <img src="./img/certificate.png" alt="한국자격검정평가진흥원">
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination dot"></div>
+        </div>
+        <div class="certificate_none">
+          <h6>발급완료된 자격증이 없습니다.</h6>
+          <p>
+            자격증 발급 신청 후 결제가 완료되면 <br>
+            발급완료 내역을 보실 수 있습니다.
+          </p>
+          <a href="cer_issued.html" title="발급신청">발급신청 바로가기<i class="fas fa-angle-right"></i></a>
+        </div>
+        <div class="pay_info">
+          <ul>
+            <li>
+              <span>결제정보</span>
+              <span class="txt_ch">입금대기</span>
+              <p>농협 1002 740 765 850</p>
+            </li>
+            <li>
+              <span>발급 수수료</span>
+              <span class="txt_ch">90,000 원</span>
+            </li>
+          </ul>
+          <a href="#" title="신청하기">신청하기</a>
+          <p>자격증 발급 과정 : 입금대기 > 결제완료(심사중) > 발급완료</p>
+        </div>
+      </article>
+
+        <article class="qna">
+          <h3>자주 묻는 질문</h3>
+          <dl>
+            <dt><b><span>Q</span><span>1</span></b> 자격증 갱신이 필요한가요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 자격증 취득후 갱신이 필요없는 평생 자격증입니다.</dd>
+            <dt><b><span>Q</span><span>2</span></b> 자격증이 심사중인데, 탈락되는 경우도 있나요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 입금 후~배송 전까지 심사중이라고 표시됩니다.
+              출석률 60%, 시험합격 조건이 달성되었으므로 탈락되는 경우는 없습니다.</dd>
+            <dt><b><span>Q</span><span>3</span></b> 언제까지 입금해야하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 7일 이내에 입금이 확인되지 않으면 학우님의 주문은 자동 취소됩니다.</dd>
+            <dt><b><span>Q</span><span>4</span></b> 자격증에 증명사진이 들어가나요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 협회 자격 일련번호가 기재되기 때문에 사진이 필요하지 않습니다.</dd>
+            <dt><b><span>Q</span><span>5</span></b> 입금자명이 달라도 입금확인이 되나요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 주문자와 입금자가 달라도 정상적으로 입금 확인이 이루어집니다.</dd>
+            <dt><b><span>Q</span><span>6</span></b> 자격증 신청 및 발급은 어떻게 이루어지나요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 신청-입금대기중-심사중-준비중-발급완료 단계로 이루어집니다.
+              배송물량 증가 시기에는 발송 완료/배송 완료되더라도 준비중으로 확인될 수 있습니다.</dd>
+            <dt><b><span>Q</span><span>7</span></b> 배송지 변경은 어떻게해야 하나요? <i class="fas fa-angle-down"></i></dt>
+            <dd> 좌측 상단 햄버거버튼 메뉴 ( 三자 메뉴 ) 클릭 후, 정보수정에서 변경 가능합니다. </dd>
+          </dl>
+        </article>
+      </div>
+
+      <aside class="modal">
+        <div class="swiper modal_slide">
+          <h3>
+            <img src="./img/warning_blue.svg" alt="경고">
+            <strong>발급 전 필독사항</strong>
+          </h3>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h6>01</h6>
+              <p>자격증 신청 명단은 결제 후 익일 오전 11시에 협회로 전달 됩니다.</p>
+              <span>예) 2016.1.4(월) 입금확인 명단은 2016.1.5(화) 11시에 명단이 전달 됩니다.</span>
+
+              <h6>02</h6>
+              <p>협회 명단 전달 후 자격증 제작이 들어가기 때문에 환불이 불가합니다.</p>
+
+              <h6>03</h6>
+              <p>주소 또는 받는 사람 정보를 정확히 입력하지 않음으로서 발생하는 자격증 분실 시 책임은 본인에게 있으며, 환불 또한 불가합니다. <br>
+                (회원님의 우편물 수령지가 잘못되어 반송될 시 재발송에 따른 비용은 착불로 배송됨을 미리 말씀 드립니다.)</p>
+            </div>
+
+            <div class="swiper-slide">
+              <h6>04</h6>
+              <p>분실 또는 기본정보 오기재 로 인한 재발급 시 발급 비용을 다시 부담하셔야 하오니, 기본정보를 정확하게 입력해 주시기 바랍니다. (성함,생년월일,연락처,주소)</p>
+
+              <h6>05</h6>
+              <p>한국직업능력개발원에 등록되어 있는 민간자격증은 제공인력(교강사) 자격요건으로도 사용이 가능합니다.</p>
+
+              <h6>06</h6>
+              <p>자격증에 협회 자격 일련번호가 기재되기 때문에 사진이 들어가지 않습니다.</p>
+
+              <h6>07</h6>
+              <p>시험 합격일 기준 14일 이내 자격증 발급신청 시 배송비가 포함되지 않습니다.<br>
+                ( 14일 경과 시 배송비 3000원이 추가됩니다. )
+              </p>
+            </div>
+          </div>
+          <div class="swiper-pagination dot"></div>
+          <div class="btn_box2">
+            <a href="#" title="확인" class="c_btn01">확인</a>
+          </div>
+        </div>
+      </aside>
+    </form>
+  </section>
+  </main>
+
+  <!-- 하단 푸터 영역 -->
+  <? include "footer.php" ?>
+
+  <script>
+    $(function(){
+
+      $('.qna dl dt').first().next().show();
+
+      $('.qna dl dt').first().stop().addClass('t_act');
+
+      $('.qna dl dt').first().find('i.fas').stop().addClass('icon_act');
+
+      $('.qna dt').click(function(){
+
+        $(this).addClass('t_act').stop().siblings('.qna dt').removeClass('t_act');
+
+        $(this).find('i.fas').stop().toggleClass('icon_act').parent().siblings().find('i.fas').removeClass('icon_act');
+
+        $(this).next().stop().slideToggle().siblings('.qna dd').slideUp();
+      });
+
+      $('.modal_btn').click(function(){
+        $(this).parents('.certificate_wrap').find('.modal').fadeIn();
+      });
+
+      $('.c_btn01').click(function(){
+        $(this).parents('.modal').fadeOut();
+      });
+
+      $(document).mouseup(function (e){
+        var LayerPopup = $(".modal");
+        if(LayerPopup.has(e.target).length === 0){
+          LayerPopup.fadeOut();
+        }
+      }); 
+      
+      $(".modal").on("fadeIn", function () {
+        $("body").addClass("modal-open");
+      }).on("fadeOut", function () {
+        $("body").removeClass("modal-open")
+      });
+            
+    });
+
+  </script>
+
+  <script>
+
+    $('.main_slide').next('.pay_info').find('a').hide();
+
+    new Swiper('.main_slide', {
+      pagination : {
+          el:".swiper-pagination",
+          clickable: true,
+      },
+      on: {
+        slideChange: function () {
+          $('.main_slide .swiper-slide').removeClass('opacity_1');
+          $('.main_slide .swiper-slide').eq(this.realIndex).addClass('opacity_1');
+
+        },
+        slideChangeTransitionEnd: function(){
+          if(this.activeIndex == 0){
+            $('.main_slide').next('.pay_info').find('ul > li:first-child > span:last-of-type').text('입금대기');
+            $('.main_slide').next('.pay_info').find('ul > li:first-child > p').text('농협 1002 740 765 850');
+            $('.main_slide').next('.pay_info').find('ul').css({
+              'background':'#EDF4FF'
+            });
+            $('.main_slide').next('.pay_info').find('ul > li:first-child').css({
+              'border-bottom':'1px solid #D0E1F9'
+            });
+            $('.main_slide').next('.pay_info').find('.txt_ch').css({
+              'color':'#4F8EF7'
+            });
+            $('.main_slide').next('.pay_info').find('a').hide();
+          }else if(this.activeIndex == 1){
+            $('.main_slide').next('.pay_info').find('ul > li:first-child > span:last-of-type').text('입금 기간만료')
+            $('.main_slide').next('.pay_info').find('ul > li:first-child > p').text('')
+            $('.main_slide').next('.pay_info').find('ul').css({
+              'background':'#FFF0ED'
+            })
+            $('.main_slide').next('.pay_info').find('.txt_ch').css({
+              'color':'#F07373'
+            })
+            $('.main_slide').next('.pay_info').find('a').show();
+            $('.main_slide').next('.pay_info').find('a').text('다시 결제');
+            $('.main_slide').next('.pay_info').find('ul > li:first-child').css({
+              'border-bottom':'1px solid #F9D0D0'
+            });
+          }else{
+            $('.main_slide').next('.pay_info').find('ul > li:first-child > span:last-of-type').text('입금대기')
+            $('.main_slide').next('.pay_info').find('ul > li:first-child > p').text('농협 1002 740 765 850')
+            $('.main_slide').next('.pay_info').find('ul').css({
+              'background':'#EDF4FF'
+            })
+            $('.main_slide').next('.pay_info').find('.txt_ch').css({
+              'color':'#4F8EF7'
+            })
+            $('.main_slide').next('.pay_info').find('a').hide();
+            $('.main_slide').next('.pay_info').find('ul > li:first-child').css({
+              'border-bottom':'1px solid #D0E1F9'
+            });
+          }
+        },
+
+      },
+      observer: true,
+      observeParents: true,
+    });
+    $(document).ready(function(){
+      $('.main_slide .swiper-slide:first-child').addClass('opacity_1');
+    });
+
+    new Swiper('.main_slide2', {
+      pagination : {
+          el:".swiper-pagination",
+          clickable: true,
+      },
+      on: {
+        slideChange: function () {
+          $('.main_slide2 .swiper-slide').removeClass('opacity_1');
+          $('.main_slide2 .swiper-slide').eq(this.realIndex).addClass('opacity_1');
+        }
+      },
+      observer: true,
+      observeParents: true,
+    });
+    $(document).ready(function(){
+      $('.main_slide2 .swiper-slide:first-child').addClass('opacity_1');
+    });
+
+    new Swiper('.modal_slide', {
+      pagination : {
+          el:".swiper-pagination",
+          clickable: true,
+      },
+      observer: true,
+      observeParents: true,
+    });
+
+    
+  </script>
+</body>
+</html>

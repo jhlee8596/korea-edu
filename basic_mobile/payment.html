@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제정보 페이지</title>
+  
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 다음지도 api -->
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+  <!-- DATEPICKER -->
+  <link rel="stylesheet" href="../../css/mobiscroll.jquery.min.css">
+  
+  <!-- DATEPICKER -->
+  <script src="../../js/mobiscroll.jquery.min.js"></script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    select {
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      appearance:none;
+      background-image:url('./img/angle_down_gray.svg');
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: 25px 25px;
+    }
+    select::-ms-expand{
+      display:none;
+    }
+    .show_details{
+      display:block !important;
+    }
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    header{
+      width: 100%;
+      border-bottom: 4px solid #EFEFF7;
+    }
+    header > h1{
+      width: 100%;
+      padding: 27px 20px 26px;
+      display: flex;
+      justify-content: space-between;
+      position: unset;
+      transform: unset;
+      box-sizing: border-box;
+      height: 75px;
+    }
+    header > h1 > a:first-of-type{
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+    }
+    header > h1 > a:first-of-type > img{
+      width: 100%;
+    }
+    header > h1 > strong{
+      font-weight: 600;
+      font-size: 1.250rem;
+      letter-spacing: -0.04em;
+      color: #000000;
+      display: inline-block;
+      line-height: 22px;
+    }
+    .pay_wrap{
+      width: 100%;
+      max-width: 640px;
+      margin: 0px auto;
+    }
+    .pay_wrap article{
+      padding: 30px 20px;
+      border-bottom: 6px solid #F6F7FA;
+    }
+    .pay_wrap h2{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+    }
+    .pay_wrap h2 > span > img{
+      width: 92px;
+      transform: translateY(2px);
+    }
+
+    .pay_wrap h2 input[type=checkbox]{
+      display: none;
+    }
+    .pay_wrap h2 label{
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size: 0.875rem;
+      font-weight: 400;
+      background-color: #fff;
+      border: 1px solid #E6ECF1;
+      border-radius: 32px;
+      padding: 0px 12px;
+      display: inline-block;
+      height: 28px;
+      line-height: 26px;
+      box-sizing: border-box;
+    }
+    .pay_info{
+      width: 100%;
+      margin: 0px auto;
+      background: #FFFFFF;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .pay_info > ul{
+      border-bottom: 1px solid #DDE6F2;
+    }
+    .pay_info > ul > li{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .pay_info > ul > li > span{
+      font-weight: 600;
+      font-size: 0.938rem;
+      line-height: 14px;
+      letter-spacing: -0.04em;
+      color: #444444;
+    }
+    .pay_info > ul > li > span > span{
+      color: #4F8EF7;
+      padding-right: 7px;
+    }
+    .icon_act{
+      transform: rotate(180deg) !important;
+    }
+    .total_pay{
+      
+    }
+    .total_pay > .pay_detail{
+      padding: 20px 10px;
+      border-bottom: 1px solid #EDF4FF;
+      display: none;
+    }
+    .total_pay > .pay_detail > li{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+    }
+    .total_pay > .pay_detail > li:last-child{
+      padding-bottom: 0;
+    }
+    .total_pay > .pay_detail > li > span:first-child{
+      letter-spacing: -0.04em;
+      color: #444;
+      font-size: 1rem;
+      font-weight:lighter;
+    }
+    .total_pay > .pay_detail > li > span:last-child{
+      color: #333333;
+      font-size: 1rem;
+    }
+    .total_pay > .pay_detail > li > .sale{
+      text-decoration-line: line-through;
+      color: #9DA3B9 !important;
+    }
+    .total_pay > .pay_detail > li > .freepass{
+      letter-spacing: -0.04em;
+      color: #4F8EF7 !important;
+      font-weight: 400;
+    }
+    .freepass > strong{
+      font-weight: bold;
+    }
+    .total_pay > .pay_detail > li > span > strong{
+      font-weight: 600 !important;
+    }
+    .amount{
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 10px 0px;
+      font-size: 1.313rem;
+      font-weight: bolder;
+      color: #4F8EF7;
+    }
+    .amount > span{
+      letter-spacing: -0.04em;
+    }
+    .amount > strong > span:first-of-type{
+      font-size: 1.313rem;
+      margin-right: 2px;
+    }
+    .amount > strong > span:nth-of-type(2){
+      font-size: 1rem;
+    }
+    .amount > strong > small{
+      font-size: 0.813rem;
+      color: #4F8EF7;
+      font-weight: 400;
+      display: block;
+      text-align: right;
+      padding-top: 3px;
+      line-height: 16px;
+      letter-spacing: -0.04em;
+    }
+    .pay_explanation{
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size: 0.875rem;
+      line-height: 23px;
+      padding: 30px 0px 0px;
+      text-align: center;
+    }
+    .shipping_info{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .shipping_info > h3{
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 21px;
+    }
+    .shipping_info > h3 > strong{
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1.063rem;
+    }
+    .shipping_info > h3 > a{
+      display: flex;
+      width: 77px;
+    }
+    .shipping_info > h3 > a > img{
+      vertical-align: middle;
+    }
+    .shipping_info > h3 > a > span{
+      line-height: 20px;
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-weight: 400;
+      font-size: 0.938rem;
+    }
+    .shipping01{
+      width: 100%;
+    }
+    .shipping01 > li{}
+    .shipping01 > li:first-child{
+      margin-bottom: 10px;
+    }
+    .shipping01 > li:nth-child(2){
+      margin-bottom: 20px;
+    }
+    .shipping01 > li > span{
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size: 0.938rem;
+      position: relative;
+    }
+    .shipping01 > li > span:first-of-type{
+      display: inline-block;
+      width: 65px;
+    }
+    .user_info{
+      font-weight: 400 !important;
+      font-size: 0.938rem !important;
+      letter-spacing: -0.04em !important;
+      color: #232A40 !important;
+      padding-left: 5px;
+    }
+    .shipping01 > li:first-child > span:first-child::after{
+      content: "";
+      width: 1.2px;
+      height: 9px;
+      background-color: #BBC8D2;
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .date_field{
+      padding: 0;
+      width: 152px;
+      height: 31px;
+      line-height: 31px;
+      font-weight: 400;
+      font-size: 0.938rem;
+      letter-spacing: -0.04em;
+      color: #232A40;
+      padding-left: 6px;
+      background: #FFFFFF;
+      border: 1px solid #B7C2CB;
+      border-radius: 4px;
+    }
+    .date_field::placeholder{
+      color: #232A40;
+    }
+    .shipping01 > li:last-child{
+      margin-bottom: 17px;
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size: 0.938rem;
+    }
+    input.address_txt{
+      background: #FFFFFF;
+      border: 1px solid #B7C2CB;
+      border-radius: 4px;
+      width: 100%;
+      display: block;
+      height:44px;
+      line-height: 44px;
+      padding-left: 10px;
+      box-sizing: border-box;
+      letter-spacing: -0.04em;
+      color: #333333;
+      font-size: 0.938rem;
+    }
+    input.address_txt::placeholder{
+      color:#6F7792;
+    }
+    .shipping_memo{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .shipping_memo > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1.063rem;
+      padding-bottom: 19px;
+    }
+    .shipping_memo > .select_box{
+      background-color: #FFFFFF;
+      border: 1px solid #B7C2CB;
+      border-radius: 4px;
+      width: 100%;
+      display:block;
+      height: 44px;
+      line-height: 44px;
+      padding-left:10px;
+      box-sizing: border-box;
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size: 0.938rem;
+      font-weight: 400;
+    }
+    .shipping_memo > input[type=text]{
+      background: #FFFFFF;
+      border: 1px solid #B7C2CB;
+      border-radius: 4px;
+      width: 100%;
+      display:block;
+      height: 44px;
+      line-height: 44px;
+      padding-left:10px;
+      box-sizing: border-box;
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+    .shipping_memo > input[type=text]::placeholder{
+      color: #A4ABC0;
+      font-weight: 400;
+    }
+
+    .shipping_point{
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .shipping_point > h3{
+      display: flex;
+      justify-content: space-between;
+    }
+    .shipping_point > h3 > span:first-child{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1.063rem;
+      padding-bottom: 17px;
+    }
+    .shipping_point > h3 > span:last-child{
+      text-align: right;
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size: 0.938rem;
+      font-weight: 400;
+      padding-bottom: 8px;
+    }
+    .shipping_point > span{
+      display: block;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      height: 44px;
+      line-height: 45px;
+    }
+    .shipping_point > span > input[type=text]{
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      border-radius: 4px;
+      height: 44px;
+      line-height: 44px;
+      box-sizing: border-box;
+      text-align: right;
+      padding-right: 28%;
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .shipping_point > span > span{
+      position: absolute;
+      right: 24%;
+      top: 2px;
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      font-size: 0.938rem;
+    }
+    .shipping_point > span > input[type=button]{
+      width: 75px;
+      position: absolute;
+      top: 3px;
+      right: 0px;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      height: 42px;
+      line-height: 42px;
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size: 0.875rem;
+      text-align: center;
+      box-sizing: border-box;
+      border-left: 1px solid #F2F6F9;
+      text-indent: -1px;
+    }
+    .payment_select > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-weight: bold;
+      font-size: 1.063rem;
+      padding-bottom: 6.73px;
+    }
+    .payment_select > p{
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-weight: 400;
+      font-size: 0.938rem;
+    }
+    .payment_select > p > span{
+      color: #ff380d;
+    }
+    .payment_select > .select_box{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      box-sizing: border-box;
+      line-height: 40px;
+      margin-top: 16px;
+    }
+    .select_box > span{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size: 0.938rem;
+    }
+    .select_box > .pay_select{
+      display: block;
+      background-color: #FFFFFF;
+      border: 1.06667px solid #E6ECF1;
+      border-radius: 4.26667px;
+      width: 70%;
+      height: 40px;
+      padding-left: 8px;
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size: 0.938rem;
+    }
+    .pay_btn{
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+      display: block;
+      width: 100%;
+      background: #4F8EF7;
+      height: 64px;
+      line-height: 64px;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    .payment_select{
+      padding-bottom: 26px !important;
+      margin-bottom: 97px;
+    }
+  </style>
+</head>
+
+  <!-- 상단헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/backspace.svg" alt="">
+      </a>
+      <strong>결제정보</strong>
+      <a>&nbsp;</a>
+    </h1>
+  </header>
+
+  <!-- 메인콘텐츠 -->
+  <main>
+    <section class="pay_wrap">
+      <form name="" method="" action="">
+        <article class="pay_info">
+          <h2>
+            <span>자격증 신청정보
+              <img src="./img/freepass.png" alt="프리패스">
+            </span>
+            <div class="details_btn-box">
+              <input type="checkbox" id="details_btn">
+              <label for="details_btn" class="details_txt">상세닫기</label>
+            </div>
+          </h2>
+          <ul>
+            <li>
+              <span>- 커피바리스타전문가1급</span>
+            </li>
+            <li>
+              <span>- 스토리텔링그림책지도사1급</span>
+            </li>
+          </ul>
+          <div class="total_pay">
+            <ul class="pay_detail show_details">
+              <li>
+                <span>강의료 + 기출,교안</span>
+                <span class="sale">600,000 원</span>
+              </li>
+              <li>
+                <span>응시료</span>
+                <span class="sale">60,000 원</span>
+              </li>
+              <li>
+                <span>배송비</span>
+                <span class="sale">3,000원</span>
+              </li>
+              <li>
+                <span>자격증 발급 수수료</span>
+                <span>180,000 원</span>
+              </li>
+            </ul>
+            <div class="amount">
+              <span>결제금액</span>
+              <strong>
+                <span>180,000</span><span>원</span>
+                <small>할인된 금액 적용</small>
+              </strong>
+            </div>
+          </div>
+          <p class="pay_explanation">
+            결제 후 자격증 제작 시 환불이 어려우니 참고 부탁드립니다.
+          </p>
+        </article>
+        
+        <article class="shipping_info">
+          <h3>
+            <strong>신청 정보</strong>
+            <a target="_blank" href="address_edit.html" title="주소수정">
+              <img src="./img/adjustment.svg" alt="주소수정">
+              <span>주소변경</span>
+            </a>
+          </h3>
+
+          <ul class="shipping01">
+            <li>
+              <span>발급자</span><span class="user_info">임길순 (010-0000-0000)</span>
+            </li>
+            <li>
+              <span>생년월일</span>
+              <input type="text" class="date_field" placeholder="1963-04-06">
+            </li>
+            <li>제주특별자치도 제주시 첨단로 4(영화아파트)</li>
+          </ul>
+
+          <input type="text" placeholder="101동 102호" class="address_txt">
+        </article>
+
+        <article class="shipping_memo">
+          <h3>메모</h3>
+
+          <select id="selbox" name="selbox" class="select_box">
+            <option value="">배송메모를 선택해 주세요.</option>
+            <option value="direct">직접입력</option>
+            <option value="1">배송 전에 미리 연락 바랍니다.</option>
+            <option value="2">부재 시 경비실에 맡겨 주세요.</option>
+            <option value="3">부재시 전화 주시거나 문자 남겨 주세요.</option>
+            <option value="4">택배보관함에 보관해주세요.</option>
+            <option value="5">문 앞에 놓아주세요.</option>
+            <option value="6">택배함에 넣어주세요.</option>
+
+          </select>
+          <input type="text" id="selboxDirect" name="selboxDirect" placeholder="배송메모 직접입력"/>
+        </article>
+
+        <article class="shipping_point">
+          <h3>
+            <span>포인트</span>
+            <span>보유 <strong name="left_pnt">1200</strong>원</span>
+          </h3>
+          <span>
+            <input type="text" name="use_pnt" id="use_pnt" min="1000" max="65000" onchange="changePoint(180000,1200,100,100)" value="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+            <span>원</span>
+            <input type="button" id="chk_use" onclick="chkPoint(180000,1200,100,100)" value="전액사용">
+          </span>
+        </article>
+
+        <article class="payment_select">
+          <h3>결제방법</h3>
+          <p>무통장입금의 경우 "<span>가상계좌</span>"를 선택해주세요.</p>
+          <div class="select_box">
+            <span>결제수단</span>
+            <select class="pay_select">
+              <option>신용카드</option>
+              <option>계좌이체</option>
+              <option>가상계좌</option>
+              <option>휴대폰</option>
+            </select>
+          </div>
+
+        </article>
+
+        <a href="payment_complete.html" title="결제" class="pay_btn">
+          <span id="result_pnt">180,000</span><span>원</span>
+          결제
+        </a>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    $(function(){
+
+      $(".details_btn-box").change(function(){
+        $('.pay_detail').toggleClass('show_details');
+
+        if( $(this).children('label.details_txt').text() == '상세닫기'){
+          $('label.details_txt').text('상세내역');
+        }else{
+          $('label.details_txt').text('상세닫기');
+        }
+      });
+
+      $("#selboxDirect").hide();
+
+      $("#selbox").change(function() {
+
+        if($("#selbox").val() == "direct") {
+          $("#selboxDirect").show();
+          // $('#selbox').hide();
+        }  else {
+          $("#selboxDirect").hide();
+          // $('#selbox').show();
+        }
+      }) 
+    });
+
+  // 특수문자 입력 방지
+  function characterCheck(obj){
+    let regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; 
+    // 허용할 특수문자는 여기서 삭제하면 됨
+    // 지금은 띄어쓰기도 특수문자 처리됨
+    if( regExp.test(obj.value) ){
+      obj.value = obj.value.substring( 0 , obj.value.length - 1 ); // 입력한 특수문자 한자리 지움
+      }
+  }
+
+  function chkPoint(amt,pnt,min,unit) {
+		//input값을 전체 마일리지로 설정 > minusPoint 
+		//amt : 최초 결제 금액 / pnt : 사용가능,남은 포인트 / min : 사용 가능 최소 포인트 / unit : 사용단위
+		let v_point = 0; //사용할 포인트 (input 입력값)
+	
+		if (document.getElementById("chk_use").click){
+
+			if(pnt < min){  //최소 사용 단위보다 작을 때
+
+        alert("포인트는 100p 부터 사용 가능합니다.")
+				v_point = 0; 
+        document.getElementById("use_pnt").value = v_point;
+
+			}else{
+
+				v_point = pnt - pnt%unit; //사용할 포인트 = 전체 마일리지 중 최소단위 이하 마일리지를 뺀 포인트
+        document.getElementById("use_pnt").value = v_point;
+
+			}
+
+			if(pnt > amt ){ //결제금액보다 포인트가 더 클 때
+
+				v_point = amt; //사용할 포인트는 결제금액과 동일하게 설정
+			}
+			
+		}
+		document.getElementById("use_pnt").value = v_point; //input 값 설정
+
+		changePoint(amt,pnt,min,unit);
+	}
+	
+	function changePoint(amt,pnt,min,unit){
+		//input값을 불러옴 > left_pnt 변경 > 최종결제 변경
+		//amt : 최초 결제 금액 / pnt : 사용가능,남은 포인트 / min : 사용 가능 최소 포인트 / unit : 사용단위
+		let v_point = parseInt(document.getElementById("use_pnt").value); //사용할 포인트 (input 입력값)
+		if (v_point > pnt){ //입력값이 사용가능 포인트보다 클때
+		
+			alert("최대 사용 할 수 있는 포인트는 " + pnt + "원 입니다.");
+			v_point = pnt;
+			document.getElementById("use_pnt").value = v_point; //input 값 재설정
+
+		}
+
+		if(v_point > amt ){ //결제금액보다 포인트가 더 클 때
+
+			v_point = amt; //사용할 포인트는 결제금액과 동일하게 설정
+			document.getElementById("use_pnt").value = v_point; //input 값 재설정
+
+		}
+
+		if (v_point < min){  //최소 사용 단위보다 작을 때
+
+			alert("포인트는 100p 부터 사용 가능합니다.");
+			v_point = 0; 
+			document.getElementById("use_pnt").value = v_point; //input 값 재설정
+
+		}else if(v_point > v_point - v_point%unit){
+
+      alert("포인트는 100p 단위로 사용 가능합니다.")
+      v_point = v_point - v_point%unit;
+      document.getElementById("use_pnt").value = v_point;
+
+    }else {
+
+			v_point = v_point - v_point%unit; //사용할 포인트 = 사용할 마일리지 중 최소단위 이하 마일리지를 뺀 포인트
+      document.getElementById("use_pnt").value = v_point;
+
+		}
+
+		let v_left = document.getElementsByName("left_pnt"); //사용가능 마일리지, 남은 포인트 값 설정
+		for (let i = 0; i < v_left.length; i++) {
+
+			v_left[i].innerHTML = pnt - v_point; //= 전체 포인트 중에 사용할 포인트빼고 남은 포인트
+
+		}
+		document.getElementById("result_pnt").innerHTML = amt - v_point; //최종 결제금액 = 결제금액 - 사용할 포인트
+	}
+
+  </script>
+</body>
+</html>

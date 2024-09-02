@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원탈퇴2</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    section{
+      border-top: none;
+    }
+
+    header{
+      width: 100%;
+      padding: 26px 0px 43px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+    }
+    header > h1 > a{
+      display: block;
+      width: 29px;
+      height: 25px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+
+    .drawal_wrap2{
+      width: 100%;
+      padding: 0px 20px;
+      box-sizing: border-box;
+      padding-bottom: 172px;
+    }
+    .drawal_wrap2 > h2{
+      font-weight: bolder;
+      font-size: 1.25rem;
+      line-height: 28px;
+      letter-spacing: -0.01em;
+      color: #333333;
+    }
+    .drawal_wrap2 > .pw_field{
+      width: 100%;
+      height: 52px;
+      line-height: 52px;
+      display: block;
+      background: #F8F9FC;
+      border: 1px solid #E6ECF1;
+      border-radius: 3px;
+      margin: 10px 0px 33px;
+      padding-left: 13px;
+      box-sizing: border-box;
+      font-weight: 400;
+      font-size: 0.875rem;
+      letter-spacing: -0.04em;
+    }
+    .pw_field::placeholder{
+      color: #A4ABC0;
+    }
+    .drawal_box2{
+      width: 100%;
+      margin: 10px auto 44px;
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      box-shadow: 0px 4px 14px rgba(176, 176, 196, 0.4);
+      border-radius: 6px;
+      padding: 28px 0px 37px;
+      box-sizing: border-box;
+    }
+    .drawal_box2 > h3{
+      text-align: center;
+      text-indent: -10px;
+    }
+    .drawal_box2 > h3 > img{
+      width: 20px;
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+    .drawal_box2 > h3 > strong{
+      font-weight: 600;
+      font-size: 0.938rem;
+      line-height: 18px;
+      letter-spacing: -0.06em;
+      color: #2B383F;
+      padding-left: 2px;
+    }
+    
+    .drawal_reason{
+      padding: 30px 33px 27px;
+    }
+    .drawal_reason > li{
+      line-height: 33px;
+      height: 33px;
+      padding-bottom: 3px;
+    }
+    .drawal_reason > li:last-child{
+      padding-bottom: 0;
+    }
+    .drawal_reason > li > input[type=checkbox]{
+      display: none;
+    }
+    .drawal_ch + label{
+      font-weight: 200;
+      font-size: 14px;
+      letter-spacing: -0.04em;
+      color: #505873;
+      display: inline-block;
+      line-height: 33px;
+    }
+    .drawal_ch + label:before {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 1.06667px solid #BCC3D9;
+      margin-right: 4px;
+      border-radius: 50%;
+      -webkit-transition: 0.2s;
+      transition: 0.2s;
+      background-image: url("./img/Check.png");
+      background-repeat: no-repeat;
+      background-position: left 1px top 1px;
+      background-size:80%;
+      cursor: pointer;
+      outline: none;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              transform: translateY(6px);
+    }
+    .drawal_ch:checked + label:before {
+      background-color: #2E68FF;
+      border-color: #2E68FF;
+      background-image: url("./img/Check2.png");
+      background-position: left 1px top 1px;
+      outline: none;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    .detailed_reason{
+      width: calc(100% - 50px);
+      height: 74px;
+      margin: 0px auto;
+      display: block;
+      background: #F8F9FC;
+      border: 1px solid #E6ECF1;
+      border-radius: 4px;
+      padding: 14px 10px 0px;
+      box-sizing: border-box;
+      font-weight: 400;
+      font-size: 0.875rem;
+      letter-spacing: -0.04em;
+      color: #333;
+    }
+    .detailed_reason::placeholder{
+      color: #A4ABC0;
+    }
+    .bg_btn{
+      font-weight: 600;
+      font-size: 1rem;
+      height: 56px;
+      line-height: 54px;
+    }
+    </style>
+    
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+    </h1>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <form name="" method="" action="">
+      <section class="drawal_wrap2">
+        <h2>비밀번호 인증</h2>
+
+        <input type="password" class="pw_field" placeholder="비밀번호를 입력해주세요.">
+
+        <h2>탈퇴 사유 선택</h2>
+        <article class="drawal_box2">
+          <h3>
+            <img src="./img/warning_blue.svg" alt="안내"><strong>탈퇴 사유(필수)</strong>
+          </h3>
+          <ul class="drawal_reason">
+            <li>
+              <input type="checkbox" id="drawal_chk1" class="drawal_ch" onclick="CountChecked(this)">
+              <label for="drawal_chk1">원하는 자격과정이 없어서</label>
+            </li>
+            <li>
+              <input type="checkbox" id="drawal_chk2" class="drawal_ch" onclick="CountChecked(this)">
+              <label for="drawal_chk2">발급 수수료가 부담돼서</label>
+            </li>
+            <li>
+              <input type="checkbox" id="drawal_chk3" class="drawal_ch" onclick="CountChecked(this)">
+              <label for="drawal_chk3">자격증 발급을 완료해서</label>
+            </li>
+            <li>
+              <input type="checkbox" id="drawal_chk4" class="drawal_ch" onclick="CountChecked(this)">
+              <label for="drawal_chk4">이용이 불편해서</label>
+            </li>
+            <li>
+              <input type="checkbox" id="drawal_chk5" class="drawal_ch" onclick="CountChecked(this)">
+              <label for="drawal_chk5">기타</label>
+            </li>
+          </ul>
+
+          <textarea class="detailed_reason" placeholder="상세내용을 적어주시면 서비스 개선에 적극적으로 반영하도록 하겠습니다."></textarea>
+        </article>
+
+        <a href="index.html" title="탈퇴" class="bg_btn drawal_btn" onclick="alert('탈퇴가 완료되었습니다\n그동안 한국자격검정평가진흥원을 이용해주셔서 감사합니다.')">탈퇴완료</a>
+      </section>
+    </form>
+  </main>
+
+  <script type="text/javascript">
+
+    // $(function(){
+    //   $('.drawal_btn').click(function(){
+    //     let pw_chk = $('.pw_field').val();
+
+    //     if(pw_chk == ""){
+    //       alert('비밀번호를 입력해주세요.');
+    //     }
+    //   });
+    // });
+
+    let maxCount = 2;								// 카운트 최대값은 2
+    let count = 0;   								// 카운트, 0으로 초기화 설정
+    
+    function CountChecked(field){ 					// field객체를 인자로 하는 CountChecked 함수 정의
+      if (field.checked) {						// 만약 field의 속성이 checked 라면(사용자가 클릭해서 체크상태가 된다면)
+        count += 1;								// count 1 증가
+      }
+      else {										// 아니라면 (field의 속성이 checked가 아니라면)
+        count -= 1;								// count 1 감소
+      }
+      
+      if (count > maxCount) {						// 만약 count 값이 maxCount 값보다 큰 경우라면
+        alert("탈퇴 사유는 최대 2개까지 선택가능합니다.");	// alert 창을 띄움
+      field.checked = false;						// (마지막 onclick한)field 객체의 checked를 false(checked가 아닌 상태)로 만든다.
+      count -= 1;									// 이때 올라갔던 카운트를 취소처리해야 하므로 count를 1 감소시킨다.
+      }
+    }
+    </script>
+</body>
+</html>

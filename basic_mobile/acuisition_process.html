@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;&display=swap" rel="stylesheet">
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+<link href="https://webfontworld.github.io/Noto/NotoSansKR.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+	WebFontConfig = {
+		custom: {
+			families: ['Jalnan'],
+			urls: ['https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff'],
+		}
+	};
+
+	(function(d) {
+		var wf = d.createElement('script'), s = d.scripts[0];
+		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+		wf.async = true;
+		s.parentNode.insertBefore(wf, s);
+	})(document);
+
+	WebFont.load({
+    custom: {
+      families: ['NotoSansKR'],
+      urls: ['https://cdn.jsdelivr.net/gh/webfontworld/goodchoice/Jalnan.woff']
+    }
+  });
+
+	WebFontConfig = {
+		custom: {
+			families: ['NotoSansKR'],
+			urls: ['https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.woff'],
+		}
+	};
+
+	(function(d) {
+		var wf = d.createElement('script'), s = d.scripts[0];
+		wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+		wf.async = true;
+		s.parentNode.insertBefore(wf, s);
+	})(document);
+
+	WebFont.load({
+    custom: {
+      families: ['Jalnan'],
+      urls: ['https://cdn.jsdelivr.net/gh/webfontworld/Noto/NotoSansKR-Medium.woff']
+    }
+  });
+</script>
+<title>한국자격검정평가진흥원</title>
+
+<!-- css 초기화 -->
+<link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+<!-- 접두사 스크립트 -->
+<script src="../../js/prefixfree.min.js"></script>
+
+<!-- 아이콘 폰트 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+<!-- 제이쿼리 라이브러리 -->
+<script src="../../js/jquery-2.2.0.min.js"></script>
+
+<!-- 제이쿼리 UI -->
+<script src="../../js/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<script>
+		var userAgent = navigator.userAgent.toLowerCase(); // 접속 핸드폰 정보 
+
+		// 모바일 홈페이지 바로가기 링크 생성 
+		if (userAgent.match('iphone')) {
+			document.write('<link rel="apple-touch-icon" href="/GlobalCM/ps/images/kte_img/koreaedu.png" />')
+		} else if (userAgent.match('ipad')) {
+			document.write('<link rel="apple-touch-icon" sizes="72*72" href="/GlobalCM/ps/images/kte_img/koreaedu.png" />')
+		} else if (userAgent.match('ipod')) {
+			document.write('<link rel="apple-touch-icon" href="/GlobalCM/ps/images/kte_img/koreaedu.png" />')
+		} else if (userAgent.match('android')) {
+			document.write('<link rel="shortcut icon" href="/GlobalCM/ps/images/kte_img/koreaedu.png" />')
+		}
+
+	</script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+	<script type="text/javascript" src="/2tInclude/js/jquery.form.js"></script>
+	<script type="text/javascript" src="/2tInclude/js/jquery.livequery.js"></script>
+	<script type="text/javascript" src="/2tInclude/js/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="/2tInclude/js/contents.js?<%= now %>"></script>
+	<script type="text/javaScript" src="/2tInclude/js/common02.js?<%=now%>"></script>
+	<script type="text/javaScript" src="/2tInclude/js/select.js"></script>
+	<script type="text/javascript" src="/2tInclude/js/2tsub.js"></script>
+	<script type="text/javascript" src="/2tInclude/js/embed.js"></script>
+	<script src="/2tInclude/n_js/common.js"></script>
+	<script src="/2tInclude/js/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="/m/css/component.css">
+
+		<link href="/2tInclude/css/jquery-ui.css" rel="stylesheet" type="text/css">
+
+	<script>
+	  var __root_url       = "https://www.korea-edu.net";	
+	  var __url       = "https://www.korea-edu.net/StreamLine";
+	  var __editor    = "cheditor5";
+	</script>
+
+</head>
+
+
+<body id="top">
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+    <nav class="top_nav">
+	    <ul class="m_lnb">
+        <li>
+          <a href="/" title="홈">홈</a>
+        </li>
+        <li>
+          <a href="/m/login.html" title="회원가입">회원가입</a>
+        </li>
+        <li>
+          <a href="/m/content.php?go_url=00000" title="수강신청">수강신청</a>
+        </li>
+        <li>
+          <a href="/m/review/review.html" title="합격후기">합격후기</a>
+        </li>
+        <li>
+          <a href="/m/html/procedure.html" title="고객센터">고객센터</a>
+        </li>
+      </ul>
+    </nav>
+
+<script>
+$(function() {
+	var Accordion = function(el, multiple) {
+		this.el = el || {};
+		this.multiple = multiple || false;
+
+		// Variables privadas
+		var links = this.el.find('.link');
+		// Evento
+		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+	}
+
+	Accordion.prototype.dropdown = function(e) {
+		var $el = e.data.el;
+			$this = $(this),
+			$next = $this.next();
+
+		$next.slideToggle();
+		$this.parent().toggleClass('open');
+
+		if (!e.data.multiple) {
+			$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+		};
+	}	
+
+	var accordion = new Accordion($('#accordion'), false);
+});
+</script>
+
+
+
+<style type="text/css">
+#stickyfooter {
+background:rgba(0, 0, 0, 0.8);
+color: #ffffff;
+padding-top:1px;
+padding-bottom:1px;
+}
+#stickyfooter .scroll{
+display:none;
+font-size: 0.4em;
+vertical-align: middle;
+color: #fff;
+
+}
+#stickyfooter.sticky .scroll {
+display:inline;
+text-align:center;
+}
+
+#stickyfooter.sticky .scroll .start_btn{
+display:inline-block;
+background:#FF9800;
+color: #fff;
+padding:10px;
+text-decoration:none;
+font:15px/1.5em 'NanumSquare', sans-serif;
+border-radius:3px;
+vertical-align: middle;
+}
+
+#stickyfooter.sticky .scroll .topbot{
+display:inline-block;
+width:40px;
+height:40px;
+background-size:100% 100%;
+margin-left:5px;
+vertical-align: middle;
+border-radius:3px;
+float:right;
+border:1px solid #ddd;
+}
+#stickyfooter.sticky .scroll .bgt{background:url(/Mingan/images/kte_img/menu_top.jpg) no-repeat center center;}
+#stickyfooter.sticky .scroll .bgb{background:url(/Mingan/images/kte_img/menu_bot.jpg) no-repeat center center;}
+
+#stickyfooter.sticky {
+right: 0;
+left: 0;
+}
+#ft{background:#1d2c4d;}
+#copyright {
+text-align: center;
+padding:1.5em;
+font:1.2em/1em dotum;
+background: #122448;
+}
+.intended {
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+.gist a {
+background: transparent;
+}
+
+
+@import url(//cdn.jsdelivr.net/nanumsquare/1.0/nanumsquare.css);
+img{width:100%;}
+ul, li{margin:0; padding:0;}
+.sulic_num{overflow:hidden;}
+.sulic_num li{text-align:center; display:block; padding:50px 20px; line-height:1.5em; font:15px/1.5em 'NanumSquare', sans-serif;}
+.sulic_num li a{display:block; padding:4% 5%; background:#9a876f; color:white; font:15px/1.5em 'malgun gothic', sans-serif; text-decoration:none; letter-spacing:-1px; border-radius:2px; margin-top:10px; -webkit-box-shadow: 2px 2px 5px 0px rgba(46,51,62,0.75); -moz-box-shadow: 2px 2px 5px 0px rgba(46,51,62,0.75);box-shadow: 2px 2px 5px 0px rgba(46,51,62,0.75);}
+.Snum01{background:#424a5a; color:white;}
+.Snum02{background:#f5f5f5;}
+.Snum02 li, .Snum04 li{padding:0;}
+.Snum03{background:#6b655e; color:white;}
+.Snum03 p{padding:0;}
+.Snum04{background:#f1ede9;}
+.tit_01, .tit_02{padding-bottom:10px}
+.lic_number{
+display:block;
+background:#313844;
+border-top:1px solid #272c35;
+border-left:1px solid #272c35;
+border-bottom:1px solid #4b5569;
+border-right:1px solid #4b5569;
+padding:10px;
+color:white;
+text-align:center;
+letter-spacing:5px;
+}
+.color01{margin-top:20px; display:block; letter-spacing:-1px; color:#c2cbe0;}
+.color_box{display:inline-block; margin:0 auto 10px; text-align:left; color:#fff; letter-spacing:-1px;}
+.proftype{border-collapse:collapse; border-spacing:0; border-top:1px solid #70788a; border-bottom:1px solid #70788a;}
+.proftype th{width:22%; background:#70788a; color:white; font-weight:normal; padding:10px; border-bottom:1px dashed #919aaf;}
+.proftype td{width:65%; text-align:left; padding:10px; border-bottom:1px dashed #919aaf; background:white;}
+
+.video {
+    width: 100%;
+	max-width:100%;
+	height:196px;
+	background:black;
+
+}
+.wrapper{
+    display:block;
+    position:relative;
+	box-sizing:border-box;
+	
+}
+@media screen and (max-width:614px) {
+	.wrapper{
+    position:relative;
+	box-sizing:border-box;
+
+}
+}
+.movieWrap{display:block; padding:50px 20px; font:25px/1.2em 'NanumSquare', sans-serif; background:#fff; color:#333; text-align:center; letter-spacing:-1px;}
+.movieWrap b{}
+.movieWrap strong{color:#06F;}
+.movieWrap p{font-size:14px; text-align:left; line-height:1.5em; margin-top:30px;}
+.viewTit{display:block; text-align:center; color:#333; letter-spacing:-1.5px; text-shadow:0px 0px 30px #ffffff; font: bold 13vw/1.5em 'NanumSquare', sans-serif!important;}
+
+
+.qnaWrap{display:block; padding:30px 10px 50px; background:#f5f5f5;}
+.qnaWrap h3{text-align:center; font:25px/1.5em 'NanumSquare', sans-serif; letter-spacing:-1px; color:#000; padding:10px 0;}
+.qnaWrap strong{color:#009fad;}
+.headLine{background:#213764; color:white; padding:15px 10px; display:block; letter-spacing:-0.5px; font:bold 17px/1.5em 'malgun gothic';}
+.bodyLine{background:#fff; color:#333; padding:15px 10px; display:block; letter-spacing:-0.5px; font:15px/1.2em 'malgun gothic';}
+
+@font-face{
+ font-family:'Daum';
+ font-style:normal;
+ font-weight:400;
+ src:url('//cdn.jsdelivr.net/korean-webfonts/1/corps/daum/Daum/Daum-Regular.woff2') format('woff2'),
+     url('//cdn.jsdelivr.net/korean-webfonts/1/corps/daum/Daum/Daum-Regular.woff') format('woff');
+}
+@font-face{
+ font-family:'Daum';
+ font-style:normal;
+ font-weight:700;
+ src:url('//cdn.jsdelivr.net/korean-webfonts/1/corps/daum/Daum/Daum-SemiBold.woff2') format('woff2'),
+     url('//cdn.jsdelivr.net/korean-webfonts/1/corps/daum/Daum/Daum-SemiBold.woff') format('woff');
+}
+
+.licWrap{display:block; padding:30px 10px 50px; background:#fff; overflow:hidden;}
+.licWrap h3{text-align:center; font:bold 26px/1.5em 'NanumSquare', sans-serif; letter-spacing:-1px; color:#000; padding:10px 0 20px;}
+.licWrap img{width:100%;}
+.licWrap .lic_left{position:relative; width:47%; float:left;}
+.licWrap .lic_right{position:relative; width:47%; float:right;}
+.case_name{position:absolute; bottom:25px; width:100%; font:bold 11px/1.2em 'nanum gothic'; color:#e7d761; text-align:center; letter-spacing:-1px; z-index:999;}
+.case_step{position:absolute; bottom:30px; left:60px; font:bold 8px/1.2em 'Helvetica, Arial, sans-serif'; color:#000; text-align:left; letter-spacing:-1px; z-index:999;}
+.case_cate{position:absolute; top:102px; left:45px; font:bold 5px/1.2em 'Helvetica, Arial, sans-serif'; color:#000; text-align:left; z-index:999;}
+.lic_tag{width:100%; text-align:center; padding:20px 0; clear:both;}
+.lic_tag b{background:#2e4780; color:white; padding:5px 10px;}
+.lic_card{width:200px; margin:0 auto; position:relative; }
+.card_cate{position:absolute; top:13px; left:36px; font:bold 13px/1.2em 'Helvetica, Arial, sans-serif'; color:#000; text-align:left; z-index:999;}
+.card_level{position:absolute; top:54px; left:72px; font:bold 7px/1.2em 'Helvetica, Arial, sans-serif'; color:#000; text-align:left; z-index:999;}
+.card_name{position:absolute; bottom:13px; left:110px; font:bold 9px/1.2em 'Helvetica, Arial, sans-serif'; color:#000; text-align:left; z-index:999;}
+.licWrap ul{overflow:hidden; padding:0; margin:0;}
+.licWrap li{padding:0; margin-left:30px; list-style:outside; font:14px/1.2em 'Helvetica, Arial, sans-serif'; margin-bottom:10px;}
+
+.graph{position:relative; width:100%;}
+.graph .gr_tit01{position:absolute; width:100%; top:70px; text-align:center; z-index:20px; font:25px/1.5em 'NanumSquare', sans-serif; letter-spacing:-1px;}
+.graph .gr_tit02{position:absolute; width:100%; top:102px; text-align:center; z-index:20px; font:bold 25px/1.5em 'NanumSquare', sans-serif; letter-spacing:-1px;}
+.graph .gr_tit03{position:absolute; width:100%; top:140px; text-align:center; z-index:20px; letter-spacing:-1px; color:#8b8b8b;}
+.graph .gr_tit04{position:absolute; width:100%; bottom:50px; right:20px; text-align:right; z-index:20px; letter-spacing:-1px; color:#8b8b8b;}
+.reviewWrap{position:relative; width:100%;}
+.review_btn{position:absolute; width:100%; height:60px; bottom:57px; text-align:center; z-index:20px; font:bold 17px/1.2em 'NanumSquare', sans-serif; color:#ffee60;}
+
+.bot_link{position:relative; width:100%; padding:10px; background:#1d2c4d;}
+.bot_link .bot_lnk01{display:block; padding:20px 0 0; text-align:center; font:bold 20px/1.2em 'NanumSquare', sans-serif; letter-spacing:-1px; color:white;}
+.bot_link .bot_lnk02{display:block;
+padding:20px 0;
+border-radius:3px;
+text-align:center;
+font:bold 18px/1.2em 'NanumSquare', sans-serif;
+color:#ffee60;
+margin-top:10px;
+border-top:1px solid #41abff;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0063ae+0,0062ad+31,024b93+50,093d7c+93 */
+background: #0063ae; /* Old browsers */
+background: -moz-linear-gradient(top, #0063ae 0%, #0062ad 31%, #024b93 50%, #093d7c 93%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #0063ae 0%,#0062ad 31%,#024b93 50%,#093d7c 93%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #0063ae 0%,#0062ad 31%,#024b93 50%,#093d7c 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0063ae', endColorstr='#093d7c',GradientType=0 ); /* IE6-9 */
+}
+
+
+.playpause{width:100%; height:auto; position:absolute; left:0%; right:0%; top:0%; bottom:0%; margin:auto; background-size:contain; background-position:top; cursor:pointer;}
+
+.Resume{width:100%; padding:20px 0; text-align:center; background:#eee; position:relative;}
+.Resume table{width:100%;}
+.Resume th{text-align:center; padding:5px; font-weight:normal; vertical-align:middle; word-spacing:2px; letter-spacing:2px; background:white; color:#333; font:10px/1.5em 'KoPub Batang', serif; word-break:keep-all;}
+.Resume th:first-child{width:70px;}
+.Resume td{text-align:left; padding:5px; letter-spacing:-1px; vertical-align:middle; background:white; color:#333; font:10px/1.5em 'KoPub Batang', serif;}
+.ResTit{font-size:20px !important; text-align:center; word-spacing:50px;}
+.currTit{display:block; text-align:center; padding:20px 0; color:#111; font:bold 25px/1.2em 'NanumSquare', sans-serif; letter-spacing:-1px;}
+.redLine{position:absolute; left:0; bottom:65px; width:99.7%; height:25px; border:2px solid #f00;}
+
+.resLst ul{overflow:hidden; margin-top:20px; margin-left:50px; padding:0;}
+.resLst li{list-style:outside; text-align:left; font:16px/1.5em 'NanumSquare', sans-serif; color:#111; letter-spacing:-1px; margin-left:30px;}
+
+
+#topScroll{
+    position: fixed;
+    bottom:0;
+    right:0;
+    background:#ffcc00;
+    width:100%;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+	border-collapse:separate;
+	/*border-spacing:6px;*/
+	/*
+	-webkit-border-horizontal-spacing: 23px;
+    -webkit-border-vertical-spacing: 7px;
+	*/
+	/*box-shadow: 0px 0px 10px #00278c;*/
+	box-shadow:0 -3px 6px rgb(0 0 0 / 16%);
+	margin:0;
+}
+
+#topScroll td{text-align:center;}
+
+
+#topScroll td a{display:block; color:#000; text-decoration: none; font-size:14px; padding:17px 0;}
+#topScroll td:nth-child(2){width:160px;}
+#topScroll td:nth-child(2) a{background:#fff;}
+#topScroll td a img{display: inline-block; width:18px; margin-top: 0; vertical-align:middle;}
+#topScroll td a span{display:inline-block; font:600 16px "malgun gothic"; letter-spacing:0; margin-left:5px; vertical-align:middle;}
+
+
+
+#topScroll i{font-size:18px}
+</style>
+
+
+
+<!--  LOG corp Web Analitics & Live Chat  START -->
+<script  type="text/javascript">
+//<![CDATA[
+function logCorpAScript_full(){
+	HTTP_MSN_MEMBER_NAME="";/*member name*/
+	LOGSID = "<%=session.sessionid%>";/*logsid*/
+	LOGREF = "<%=session("logref")%>";/*logref*/
+	var prtc=(document.location.protocol=="https:")?"https://":"http://";
+	var hst=prtc+"asp10.http.or.kr";
+	var rnd="r"+(new Date().getTime()*Math.random()*9);
+	this.ch=function(){
+		if(document.getElementsByTagName("head")[0]){logCorpAnalysis_full.dls();}else{window.setTimeout(logCorpAnalysis_full.ch,30)}
+	}
+	this.dls=function(){
+		var  h=document.getElementsByTagName("head")[0];
+		var  s=document.createElement("script");s.type="text/jav"+"ascript";try{s.defer=true;}catch(e){};try{s.async=true;}catch(e){};
+		if(h){s.src=hst+"/HTTP_MSN/UsrConfig/sowktls13/js/ASP_Conf.js?s="+rnd;h.appendChild(s);}
+	}
+	this.init= function(){
+		document.write('<img src="'+hst+'/sr.gif?d='+rnd+'"  style="width:1px;height:1px;position:absolute;" alt="" onload="logCorpAnalysis_full.ch()" />');
+	}
+}
+if(typeof logCorpAnalysis_full=="undefined"){	var logCorpAnalysis_full=new logCorpAScript_full();logCorpAnalysis_full.init();}
+//]]>
+</script>
+<noscript><img src="http://asp10.http.or.kr/HTTP_MSN/Messenger/Noscript.php?key=sowktls13" border="0" style="display:none;width:0;height:0;" /></noscript>
+<!-- LOG corp Web Analitics & Live Chat END  -->
+<!-- SELBOT LOG SCRIPT. -->
+<script type="text/javascript">
+var BORALID;
+var protect_id = 'a131';
+</script>
+<script type="text/javascript" src="//script.selbot.kr/protect_script.js"></script>
+<!-- END OF SELBOT LOG SCRIPT -->
+
+											
+<!-- 170310 AceCounter Log Gathering Script V.7.5.2013010701 -->
+<script language='javascript'>
+	var _AceGID=(function(){var Inf=['gtp11.acecounter.com','8080','AH4A41359569970','AW','0','NaPm,Ncisy','ALL','0']; var _CI=(!_AceGID)?[]:_AceGID.val;var _N=0;var _T=new Image(0,0);if(_CI.join('.').indexOf(Inf[3])<0){ _T.src =( location.protocol=="https:"?"https://"+Inf[0]:"http://"+Inf[0]+":"+Inf[1]) +'/?cookie'; _CI.push(Inf);  _N=_CI.length; } return {o: _N,val:_CI}; })();
+	var _AceCounter=(function(){var G=_AceGID;if(G.o!=0){var _A=G.val[G.o-1];var _G=( _A[0]).substr(0,_A[0].indexOf('.'));var _C=(_A[7]!='0')?(_A[2]):_A[3];	var _U=( _A[5]).replace(/\,/g,'_');var _S=((['<scr','ipt','type="text/javascr','ipt"></scr','ipt>']).join('')).replace('tt','t src="'+location.protocol+ '//cr.acecounter.com/Web/AceCounter_'+_C+'.js?gc='+_A[2]+'&py='+_A[4]+'&gd='+_G+'&gp='+_A[1]+'&up='+_U+'&rd='+(new Date().getTime())+'" t');document.writeln(_S); return _S;} })();
+</script>
+<noscript><img src='http://gtp11.acecounter.com:8080/?uid=AH4A41359569970&je=n&' border='0' width='0' height='0' alt=''></noscript>	
+<!-- AceCounter Log Gathering Script End --> 
+	 
+	
+		<article>
+
+<style>
+.viewTit{font:bold 11vw/1.5em 'NanumSquare', sans-serif!important;}
+</style>
+
+<section id="about">
+<div class="main-top textc" style="background:url(img/tit_top_bg.jpg) #0d111f no-repeat 50% 50%; background-size:contain">
+	<div class="container">
+		<div class="row">
+		<!--
+            <div class="col-md-12">
+				<div class="wow fadeInDown pdT20">
+					<img src="img/tit_top_01.png">
+				</div>
+				<div class="wow fadeInUp pdT20" data-wow-delay="250ms">
+					<img src="img/tit_top_02.png">
+				</div>
+                <div class="wow fadeInDown pdT10">
+					<img src="img/tit_top_03.png">
+				</div>
+				<div class="wow bounceIn pdT10 pdB40" data-wow-delay="400ms">
+					<img src="img/tit_top_04.png">
+				</div>
+			</div>
+        //-->
+		</div>
+	</div>
+</div>
+<!--<img src="license.jpg" width="100%"/>
+-->
+
+<div class="main-top textc" style="background:url(img/sublin_bg_01.jpg) no-repeat 50% 50%;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="wow fadeInDown pdT100">
+					<img src="img/sublic_01_01_01.png">
+				</div>
+                <div class="wow fadeInUp pdT40" data-wow-delay="250ms">
+                    <div class="viewTit">커피바리스타전문가</div>
+                </div>
+				<div class="wow bounceIn pdT40 pdB100" data-wow-delay="400ms">
+					<img src="img/ba_top_03.png">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="bot_link">
+<span class="bot_lnk01" style="display:none;">2022년 <!--?php echo str_replace("1급","",$lec_subject) ?//--></span>
+<div class="remove" style="display:none;"><i class="material-icons">remove</i></div>
+<a href="/m/content.php?num=390&go_url=content06.php"><img src="img/bottom_link.jpg" width="100%"/></a>
+<!--<span class="bot_lnk02"><a href="/m/content.php?num=390&go_url=content06.php">2022년 커피바리스타전문가  신청하기 &gt;</a></span>-->
+</div>
+<style>
+  #topScroll{
+				display:none !important;
+			}
+</style>
+  <style>
+	.bottom_bar{
+        width:100%;
+        position: fixed;
+        bottom:0px;
+        left:0px;
+        background-color: #fff;
+        z-index:9999;
+        box-shadow: 0 -3px 6px rgb(0 0 0 / 16%);
+				
+      }
+      .bottom_bar > ul{
+        display:flex;
+        justify-content: space-between;
+        overflow:hidden;
+      }
+      .bottom_bar > ul > li:first-child{
+        background-color: #fff;
+        animation:blink-effect 1s step-end infinite;
+				-webkit-animation:blink-effect 1s step-end infinite;
+				-moz-animation:blink-effect 1s step-end infinite;
+      }
+      .bottom_bar > ul > li:nth-child(2){
+        border-right:1px solid #ffcc00;
+      }
+      .bottom_bar > ul > li:last-child{
+        border-left:1px solid #E4BD3A;
+      }
+			@keyframes blink-effect {
+				50% {
+					background-color: #ffcc00;
+				}
+			}
+			@-webkit-keyframes blink-effect{
+				50% {
+					background-color: #ffcc00;
+				}
+			}
+			@-moz-keyframes blink-effect{
+				50% {
+					background-color: #ffcc00;
+				}
+			}
+      .bottom_bar > ul > li{
+        width:33.4%;
+        background: #ffcc00;
+      }
+      .bottom_bar > ul > li > a{
+        display: block;
+        color: #000;
+        font-size: 1rem;
+        line-height: 50px;
+        box-sizing: border-box;
+        text-align: center;
+        font-weight: 600;
+      }
+      .bottom_bar > ul > li > a > img{
+        display: inline-block;
+        width: 20px;
+        margin-top: 0;
+        vertical-align: middle;
+      }
+      .bottom_bar > ul > li > input[type=text]{
+        border-radius: 100px;
+        border: 1px solid #ddd;
+        padding: 9px 0;
+        width: 100%;
+        text-indent: 15px;
+      }
+      .bottom_bar > ul > li > input[type=text]::placeholder{
+        color:#cacdd6;
+      }
+      .bottom_bar > ul > li > label[for=subsearch2]{
+        position: absolute;
+        right:20px;
+        top:50%;
+        transform: translateY(-50%);
+        color:#CACDD6;
+      }
+</style>
+  <aside class="bottom_bar">
+    <ul>
+      <li>
+        <a href="/m/content.php?num=390&go_url=content10.php">
+          <img src="/SubLIC/img/icon_check.png" alt="수강신청">
+          수강신청
+        </a>
+      </li>
+      <li>
+        <a href="https://pf.kakao.com/_Excxbvb/chat">
+          <img src="/SubLIC/img/icon_kakao.png" alt="합격후기">
+          카톡상담
+        </a>
+      </li>
+      <li>
+        <a href="tel:1670-6237" title="전화걸기">
+          <img src="/SubLIC/img/icon_call.png" alt="합격후기">
+          전화상담
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+
+<div class="registNum">
+	<ul class="sulic_num">
+		<li class="Snum01">
+			<h3 class="tit_01">자격증 정식 등록번호</h3>
+			<span class="lic_number">2017 - 001363</span>
+			<!-- <p>주무부처 : 교육부</p> //-->
+			<span class="color01">본 자격증은 자격기본법에 의거하여 한국직업능력연구원에 정식등록 되었으며, 자격관리 및 자격증 발급이 이루어지고 있음을 알려드립니다.</span><br />
+			<div class="color_box">
+			<span class="color02">자격등록기관 : 한국직업능력연구원</span><br />
+			<span class="color03">자격발급기관 : 한국커피바리스타협의회</span><br />
+			<span class="color03">교육운영기관 : 한국자격검정평가교육원<!--한국자격검정평가진흥원--></span>
+			</div>
+			<a href="https://www.pqi.or.kr/inf/qul/infQulList.do?searchMemNm=" target="_blank">자격증 등록번호 조회하기</a><br />
+		</li>
+		
+		<li class="Snum02">
+			<h3 class="tit_02">강의정보</h3>
+			<table class="proftype">
+				<tr>
+					<th>담당교수</th>
+					<td>전성완 교수</td>
+				</tr>
+				<tr>
+					<th>강의형태</th>
+					<td>이론중심, 사례안내</td>
+				</tr>
+				<tr>
+					<th>수업방식</th>
+					<td>온라인 강의(출석률 60%)</td>
+				</tr>
+				<tr>
+					<th>시험방식</th>
+					<td>온라인 시험<br />(시험성적 100점 만점에 60점 이상)
+    				
+                    
+
+					
+					</td>
+				</tr>
+				<tr>
+					<th>강의기간</th>
+					<td>4주 이내</td>
+				</tr>
+			</table>
+		</li>
+		<!--
+		<li class="Snum03">
+			자격등록기관있었던 자리
+		</li>
+		//-->
+        <style>
+        .Snum04 li{text-align:left; font-size:14px; letter-spacing:-1px;}
+        </style>
+		<li class="Snum04" style="display:none;">
+			<h3 class="tit_02">결제정보 및 환불정보</h3>
+			<ul>
+				<li>수강 시작일로 1일전 취소시 (유료강좌인경우)</li>
+				<li>행정수수료 5,000원 공제 후 환불 (유료강좌인경우)</li>
+				<li>수강 당일 취소시 20% 공제 후 환불 (유료강좌인경우)</li>
+                <li>수강시작 2일 이후 환불 불가(유료강좌인경우)</li>
+				                <li>자격증 발급시 컨텐츠 이용료 9만원 (자격증 발급시 발생하는 비용)</li>
+                			</ul>
+		</li>
+		
+	</ul>
+    
+</div>
+
+<div class="movieWrap">
+<!--
+<strong>온라인</strong> <b>이러닝</b><br />
+<strong>교육시스템</strong> <b>도입</b><br />
+쉽고 편하게 온라인으로<br />
+자격증 취득하자!<br /><br />
+//-->
+전문교수진과 함께하는<br />
+<b>온라인 교육과정</b>
+<br /><br />
+    
+<div class="wrapper">
+<!--	<iframe width="300" height="170" src="https://www.youtube.com/embed/qtp--XsOCRI?&autoplay=1" frameborder="0" modestbranding="1" rel="0" showinfo="0" allowfullscreen></iframe>-->
+    <iframe src='https://tv.naver.com/embed/16287839?autoPlay=true' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='100%' HEIGHT='210' allow='autoplay' allowfullscreen></iframe>
+</div>
+
+<br />
+<p>
+<b>과정안내</b><br />
+
+<strong>ㆍ지원자격</strong> 고졸 이상 누구나 응시가능<br />
+<strong>ㆍ수강방법</strong> 100% 온라인 강의<br />
+<strong>ㆍ응시방법</strong> 100% 온라인 시험<br />
+</p>
+</div>
+    
+<ul id="accordion" class="accordion">
+  <li class="">
+    <div class="link">강의 커리큘럼 자세히 보기 +</div>
+    <ul class="submenu" style="display: none;">
+      <li>01 커피의 기원과 역사</li>
+      <li>02 커피의 특성, 커피의 종류</li>
+      <li>03 재배환경, 수확방법, 가공방식</li>
+      <li>04 분류, 보관, 선적</li>
+      <li>05 생두의 특징</li>
+      <li>06 생산지별 원두특징</li>
+      <li>07 생산지별 원두특징</li>
+      <li>08 생산지별 원두특징</li>
+      <li>09 Roasting I</li>
+      <li>10 Roasting II</li>
+      <li>11 Roasting III</li>
+      <li>12 냉각과 포장</li>
+      <li>13 분쇄와 추출</li>
+      <li>14 커피의 블랜딩, 커피의 성분분석</li>
+      <li>15 에스프레소 역사, 에스프레소 성분</li>
+      <li>16 에스프레소 시스템</li>
+      <li>17 에스프레소 평가 및 관련용어</li>
+      <li>18 커피와 물, 커피와 우유</li>
+    </ul>
+  </li>
+</ul>
+
+
+
+<!-- qna수정 -->
+<div class="qnaWrap">
+	<h3><strong>Q&amp;A</strong> 로 알아보는<br /><b>커피바리스타전문가 </b></h3>
+    <div class="headLine">Q. 커피바리스타전문가란?</div>
+    <div class="bodyLine">커피 로스팅, 원두선별, 에스프레소, 라떼아트까지 커피제조에 관련된 과정을 진행하는 커피 전문가를 말합니다.</div>
+    <div class="headLine">Q. 자격 요건은 어떻게 되나요?</div>
+    <div class="bodyLine"><strong>고등학교 졸업자</strong> 이상이면 누구나 가능합니다.</div>
+	
+    <div class="headLine">Q. 커피바리스타전문가가 되는 방법은 무엇인가요?</div>
+    <div class="bodyLine">한국직업능력개발원에 정식으로 등록된 협회에 의하여 <strong>자격증 취득이 가능합니다.</strong></div>
+    
+    <div class="headLine">Q. 자격증을 취득하는 데 얼마나 걸리나요?</div>
+    <div class="bodyLine">수강기간을 <strong>4주이내로</strong> 규정하고 있습니다.<br />온라인출석률 60% 이상<br />온라인 시험성적 100점 만점 중 60점 이상</div>
+    
+    <div class="headLine">Q. 자격증을 온라인만으로 취득하여도<br />&nbsp;&nbsp;&nbsp;&nbsp;효력은 동일한가요?</div>
+    <div class="bodyLine">본 협회는 시간이 안되시거나 바쁘신 분들을 위하여<br /><strong>온라인으로 편리하게 자격증을 취득할 수 있도록<br />이러닝 교육시스템을 제공</strong>하고 있습니다.</div>
+</div>
+<!-- //qna수정 -->
+
+
+<!-- include virtual="/Mingan/include/sublic_num.inc" -->
+
+
+
+
+<img src="img/step.gif" width="100%"/>
+
+<div class="licWrap">
+	<h3>자격증 발급 안내</h3>
+    
+	<div class="lic_left"><span class="case_name">한국커피바리스타협의회</span><img src="/m/view/img/license_bg.jpg"/></div>    
+    <div class="lic_right"><span class="case_step">한국커피바리스타협의회</span><span class="case_cate">커피바리스타전문가 </span><img src="/m/view/img/page_bg.jpg"/></div>
+    <div class="lic_tag"><b>상장형</b></div>
+    <div class="lic_card">
+        <span class="card_cate">커피바리스타전문가 </span>
+        <span class="card_level">1급</span>
+        <span class="card_name">한국커피바리스타협의회</span>
+        <img src="img/lic_card.jpg" />
+    </div>
+    <div class="lic_tag"><b>카드형</b></div>
+    <ul>
+    	<li>한국직업능력개발원 정식등록 민간자격증
+        <li>공식협회 발급번호 부여</li>
+        <li>상장형, 카드형 동시 발급</li>
+    </ul>
+</div>
+
+<div class="Resume">
+    <div class="currTit"><div class="minuse">━</div>자격증 이력서 기재 안내</div>
+        <div class="redLine"></div>
+            <table border="1" bordercolor="#000000" cellpadding="0" cellspacing="0">
+              <tr>
+                <th rowspan="4" width="10%"><img src="img/resumePhoto.jpg" /></th>
+                <th colspan="4" class="ResTit" width="8%">이&nbsp;&nbsp;력&nbsp;&nbsp;서</th>
+              </tr>
+              <tr>
+                <th rowspan="2" width="8%">성 명</th>
+                <td rowspan="2" width="20%">강은정</td>
+                <th colspan="2">주민등록번호</th>
+              </tr>
+              <tr>
+                <th colspan="2">900508-2*******</th>
+              </tr>
+              <tr>
+                <th colspan="4">생년월일 1990년 5월 8일생 (만 31세)</th>
+              </tr>
+              <tr>
+                <th>주소</th>
+                <td colspan="4">경기 부천시 역곡동</td>
+                </tr>
+              <tr>
+                <th>전화번호</th>
+                <td colspan="2">010-0000-0000</td>
+                <td>전자우편</td>
+                <td>cyber@naver.com</td>
+              </tr>
+              <tr>
+                <th colspan="5">자격증</th>
+              </tr>
+              <tr>
+                <th>취득일</th>
+                <th colspan="2">상세 내용</th>
+                <th>등 급</th>
+                <th>발 행 처</th>
+              </tr>
+              <tr>
+                <td>2020.07.01</td>
+                <td colspan="2">커피바리스타전문가 </td>
+                <td>1급</td>
+                <td>한국커피바리스타협의회</td>
+              </tr>
+            </table>
+            <div class="resLst">
+            	<ul>
+                    <li>취업시 이력서에 정식으로 기재가능</li>
+                </ul>	
+            </div>
+  
+    </div>
+
+<img src="img/movie_b1.gif" width="100%"/>
+<img src="img/sublic_01_05.jpg" width="100%"/>
+
+<div class="graph">
+	<span class="gr_tit01">2022년 커피바리스타전문가 </span>
+	<span class="gr_tit02">본 교육원과 함께 해야 하는 이유!</span>
+    <span class="gr_tit03">합격률, 합격생수, 적중률, 체계적인 커리큘럼까지<br />
+12만3031명의 합격자들이 말하는 본 교육원 선택의 이유입니다.</span>
+
+<span class="gr_tit04">*2022년 본 교육원 커피바리스타전문가  합격률 기준</span>
+	<img src="img/sublic_sucess.jpg" width="100%"/>
+</div>
+
+
+<img src="img/sublic_01_07.jpg" width="100%"/>
+<img src="img/circle.gif" width="100%"/>
+<img src="img/mobile.jpg" width="100%"/>
+
+<div class="reviewWrap">
+	<a href="/m/review/review.html" class="review_btn"></a>
+	<img src="img/sublic_17.jpg" width="100%"/>
+</div>
+
+
+<!--
+<div class="sec-11 textc">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div>
+					<img src="img/ba_sec_09_01.png">
+				</div>
+				<div class="wrapper pdB100">
+				   <iframe width="300" height="175" src="https://www.youtube.com/embed/aB4KY35vxi0?&autoplay=1" frameborder="0" modestbranding="1" rel="0" showinfo="0" allowfullscreen></iframe>
+					<video class="video" style="display:none;">
+						<source src="http://down-ktitqdn.x-cdn.com/check/review/2.mp4" type="video/mp4" />
+					</video>
+					<div class="playpause"><img src="img/review_img.jpg"/></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+$(window).load(function(){
+$('.video').parent().click(function () {
+    if($(this).children(".video").get(0).paused){
+        $(this).children(".video").get(0).play();
+        $(this).children(".playpause").fadeOut();
+    }else{
+       $(this).children(".video").get(0).pause();
+        $(this).children(".playpause").fadeIn();
+    }
+});
+});
+
+</script>
+//-->
+
+
+
+			</section>
+			
+		</article>
+
+<!--
+		<footer id="ft">
+			<div id="stickyfooter">
+				<div class="intended">
+					<div id="stickyline" style="padding:1.2em;">
+                        <span class="scroll"><a href="/m/content.php?num=390&go_url=content06.php" class="start_btn">장학지원 무료수강 신청하기 ></a><a href="#" class="topbot bgt"></a><a href="#ft" class="topbot bgb"></a></span>
+					</div>
+
+
+				</div>
+			</div>
+		</footer>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#stickyfooter').stickyfooterbar('#stickyline');
+			});
+		</script>
+//-->
+<style>
+#footwrap{display:none; background:#efeff7; padding:100px 30px;}
+</style>
+<div id="footwrap">
+sfasdfasdf
+</div>
+<div class="w3-xlarge w3-text-orange">
+            <table id="topScroll" style="z-index: 999999; display: table;">
+                <tbody>
+                    <tr>
+						<td><a href="/m/content.php?num=390&go_url=content06.php"><span>무료수강 신청하기</span></a></td>
+                        <td><a href="tel:16706237"><img src="/m/body/icon_tel.png" alt="전화상담"><span>전화상담</span></a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
+
+		
+		<!--
+        <div class="footer_tell">
+			<table>
+				<tr>
+					<td width="80%"><p>학습지원 및 기술지원</p><b>1670-6237</b></td>
+					<td width="20%"><a href="tel:1670-6237"><img src="/m/img/icon_phone.gif" width="100%"></a></td>
+				</tr>
+			</table>
+		</div>
+        //-->
+        <!--img src="/m/include/view_foot.png" width="100%" ///-->
+
+
+
+<style>
+
+@import url(//cdn.jsdelivr.net/nanumsquare/1.0/nanumsquare.css);
+.bo_notice{min-height:300px;}
+.bo_notice table{width:100%; border:0; border-collapse:collapse; border-spacing:0; border-top:2px solid #333; border-bottom:1px solid #333;}
+.bo_notice th{padding:10px; text-align:center; color:#333; background:#f5f5f5; border-bottom:1px solid #ddd; font:bold 14px/1.2em 'malgun gothic';}
+.bo_notice td{background:white; padding:10px; font:14px/1.2em 'malgun gothic'; border-bottom:1px dashed #ddd;}
+.bo_notice td:last-child{text-align:center;}
+.bo_notice a{color:#777; text-decoration:none;}
+.footer_tell{background:#213764; color:white;}
+.footer_tell table{width:100%; border-collapse:collapse; border-collapse:0; border:0; line-height:25px;}
+.footer_tell td:first-child{padding-left:10%;}
+.footer_tell p{padding:0; margin:0; display:inline; color:white;}
+.footer_tell b{display:inline-block; padding:5px; margin-left:10px; border:1px solid #fff; border-radius:3px; color:white;}
+
+</style>
+<!--// smip Start //-->
+<script>
+	var smipHomeCode = "smip20220324S1184T3937";
+</script>
+<script src="//xn--hz2b15nw6b91c77vqrd.com/smip_log.js"></script>
+<noscript><img src="//xn--hz2b15nw6b91c77vqrd.com/ip_collect/insert.html?smipHomeCode=smip20220324S1184T3937" style="display:none;width:0;height:0;" referrerpolicy="unsafe-url"></noscript>
+<!--// smip End //--> 
+	</body>
+</html>

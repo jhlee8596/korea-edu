@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 강의실</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .pro_lecture-wrap{
+      width:100%;
+      height: 90vh;
+      max-width: 640px;
+      margin: 0px auto;
+      box-sizing: border-box;
+      padding: 27px 20px;
+      background: #F8F9FC;
+    }
+    .pro_lecture-wrap > h2{
+      display:flex;
+      justify-content: space-between;
+      letter-spacing: -0.04em;
+    }
+    .pro_lecture-wrap > h2 > strong{
+      color: #000000;
+      font-size:1.188rem;
+      font-weight: bold;
+    }
+    .pro_lecture-wrap > h2 > a{
+      color: #A4ABC0;
+      font-size:0.938rem;
+      font-weight: normal;
+    }
+    .pro_lecture-wrap > h2 > a > i.fas{
+      font-size:0.750rem;
+      color:#8C9FC5;
+      padding-left:8px;
+      transform: translateY(-1px);
+    }
+    .tab {
+      display:flex;
+      justify-content: flex-start;
+      padding:21px 0px 27px;
+    }
+
+    .tab li {
+      text-align: center;
+    }
+
+    .tab li a {
+      letter-spacing: -0.07em;
+      color: #A4ABC0;
+      display:block;
+      padding:7px 14.5px;
+      font-size:0.875rem;
+    }
+
+
+    ul.tab li.on{
+      background: #2E68FF;
+      border-radius: 18.1333px;
+    }
+    ul.tab li.on a{
+      color:#fff !important;
+    }
+    .tabcont.on {
+      display: block;
+    }
+
+    .pro_lecture-wrap > p{
+      width:100%;
+      background: #DEE9FF;
+      border-radius: 8px;
+      line-height: 49px;
+      padding:0px 15px;
+      box-sizing: border-box;
+      letter-spacing: -0.07em;
+      color: #333333;
+      font-size:0.875rem;
+    }
+    .pro_lecture-wrap > p > span{
+      color:#2e68ff;
+      padding:0px 2px;
+    }
+
+    .tabcont{
+      display:none;
+      box-sizing: border-box;
+    }
+    .tabcont > .subject_list{}
+    .tabcont > .subject_list > li{
+      background: #FFFFFF;
+      border: 1px solid #E7EFFF;
+      box-shadow: 0px 4px 4px rgba(223, 223, 239, 0.4);
+      border-radius: 8px;
+      margin:13px 0px;
+      padding:18px 15px;
+    }
+    .tabcont > .subject_list > li > h3{
+      letter-spacing: -0.06em;
+      display:flex;
+      justify-content: space-between;
+    }
+    .tabcont > .subject_list > li > h3 > strong{
+      font-size:0.938rem;
+      color:#2b383f;
+      line-height: 23px;
+    }
+    .tabcont > .subject_list > li > h3 > span{
+      font-size:0.875rem;
+      color: #FCFDFE;
+      display:block;
+      background-color: #4F8EF7;
+      border-radius: 5px;
+      padding:5px 10px;
+      font-weight: normal;
+    }
+    .tabcont > .subject_list > li > span{
+      letter-spacing: -0.06em;
+      color: #858D9C;
+      font-size:0.875rem;
+      line-height: 20px;
+    }
+    .tabcont > .subject_list > li > p{
+      letter-spacing: -0.06em;
+      color: #569AFF;
+      font-size:0.875rem;
+      margin:20px 0px 17px;
+    }
+    .tabcont > .subject_list > li > .subject_btn{
+      display:flex;
+      justify-content: space-between;
+    }
+    .tabcont > .subject_list > li > .subject_btn > a{
+      display:block;
+      border-radius: 4px;
+      text-align: center;
+      width:calc(50% - 7px);
+      line-height: 35px;
+      padding: 0;
+      font-weight: 600;
+      font-size:0.875rem;
+    }
+    .tabcont > .subject_list > li > .subject_btn > a:first-child{
+      background: #F8F9FC;
+      border: 1px solid #DDE8F9;
+      color: #5F7092;
+    }
+    .tabcont > .subject_list > li > .subject_btn > a:last-child{
+      background: #FFFFFF;
+      border: 1px solid #DDE8F9;
+      color: #3E4A61;
+    }
+
+    .top_scroll{
+      position: fixed;
+      right:26px;
+      bottom:43px;
+      display: none;
+    }
+    .top_scroll > a{
+      background: #FFFFFF;
+      border: 1.06667px solid #C1CDDE;
+      box-shadow: 0px 2.13333px 4.26667px rgba(188, 197, 229, 0.25);
+      border-radius: 21.3333px;
+      line-height: 42px;
+      text-align: center;
+      width:42px;
+      display:block;
+    }
+    .top_scroll > a > i.fas{
+      font-size:1.063rem;
+      color: #8088A3;
+    }
+    .lecture_none{
+      background: #FFFFFF;
+      border: 1px solid #E7EFFF;
+      box-shadow: 0px 4px 4px rgba(223, 223, 239, 0.4);
+      border-radius: 8px;
+      padding: 30px 0px 35px;
+      margin-top:13px;
+      text-align: center;
+    }
+    .lecture_none > span{
+      letter-spacing: -0.06em;
+      color: #2B383F;
+      font-size: 1rem;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 20px;
+    }
+    .lecture_none > a{
+      background: #4F8EF7;
+      border-radius: 4px;
+      display: inline-block;
+      padding: 0px 22px 0px 33px;
+      height: 45px;
+      line-height: 45px;
+      color: #FFFFFF;
+      font-size: 1.063rem;
+      font-weight: bolder;
+      margin: 0px auto;
+    }
+    .lecture_none > a > i.fas{
+      font-size: 11px;
+      padding-left: 13px;
+      transform: translateY(-2px);
+    }
+    .top_nav{
+      display:none;
+    }
+  </style>
+  
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <main>
+    <section class="pro_lecture-wrap">
+      <h2><strong>나의 강의실</strong><a href="order_info.html" title="발급내역">발급내역 <i class="fas fa-angle-right"></i></a></h2>
+      
+      <ul class="tab">
+        <li class="on" data-tab="menu1"><a href="#" onclick="return false;">수강중</a></li>
+        <li data-tab="menu2"><a href="#" onclick="return false;">수강완료</a></li>
+      </ul>
+  
+      <p>[안내] <span> 진도율 60% 부터 </span> 시험 응시 가능</p>
+
+      <article id="menu1" class="tabcont on">
+        <p class="lecture_none">
+          <span>수강중인 강의가 없습니다.</span> 
+          <a href="enrolment.html" title="수강신청 바로가기">수강신청 바로가기<i class="fas fa-angle-right"></i></a>
+        </p>
+      </article>
+  
+      <article id="menu2" class="tabcont">
+        <p class="lecture_none">
+          <span>수강중인 강의가 없습니다.</span> 
+          <a href="enrolment.html" title="수강신청 바로가기">수강신청 바로가기<i class="fas fa-angle-right"></i></a>
+        </p>
+      </article>
+
+      <aside class="top_scroll">
+        <a href="#" title="TOP"><i class="fas fa-angle-up"></i></a>
+      </aside>
+    </section>
+  
+    <script>
+      $(function() {
+        $('ul.tab li').click(function() {
+          var activeTab = $(this).attr('data-tab');
+          $('ul.tab li').removeClass('on');
+          $('.tabcont').removeClass('on');
+          $(this).addClass('on');
+          $('#' + activeTab).addClass('on');
+        })
+      });
+    </script>
+  </main>
+  
+</body>
+</html>

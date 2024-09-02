@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시험 합격</title>
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    
+    .exam_pass_wrap{
+      width: 100%;
+      text-align: center;
+      overflow-x: hidden;
+      padding-bottom: 112px;
+    }
+    .pass_top-con{
+      position: relative;
+      padding-bottom: 66%;
+    }
+    .pass_top-con > img{
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      width: 63%;
+      transform: translate(-50%, -50%);
+    }
+    .pass_top-con > img::after{
+
+    }
+    .exam_pass_wrap > h2{
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 35px;
+      letter-spacing: -0.03em;
+      color: #333333;
+      padding:52px 0px 25px;
+    }
+    .exam_pass_wrap > p{
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+      letter-spacing: -0.04em;
+      color: #666666;
+      padding-bottom: 36px;
+    }
+    .exam_pass_wrap > a{
+      width: calc(100% - 100px);
+      height: 60px;
+      line-height: 60px;
+      display: block;
+      margin: 0px auto;
+      background: #4F8EF7;
+      border-radius: 39px;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+      color: #FFFFFF;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <section class="exam_pass_wrap">
+    <article class="pass_top-con">
+      <img src="./img/exam_fail.png" alt="시험합격">
+    </article>
+    
+    <h2>
+      앗, 아쉽게도 <br>
+      합격점수 미달
+    </h2>
+    <p>
+      나의강의실 재응시버튼을 클릭하여 <br>
+      다시 시험을 보실 수 있습니다.
+    </p>
+
+    <a href="./progress_lecture.html">나의 강의실 바로가기</a>
+  </section>
+  
+</body>
+</html>

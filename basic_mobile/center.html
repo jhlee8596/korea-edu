@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고객센터</title>
+
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"
+    integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    .consultation01,
+    .consultation02,
+    .consultation03 {
+      border-top: none !important;
+    }
+
+    body * {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    header,
+    main,
+    footer {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      /* font-size:12px; */
+      color: #333;
+      cursor: none;
+    }
+
+    .bg_btn {
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 5px;
+      display: block;
+      border-radius: 4px;
+      margin: 12px auto;
+      line-height: 54px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #27C4DA 0%, #4965F4 100%);
+      color: #fff;
+      border: none;
+      text-align: center;
+      font-size: 1.063rem;
+      letter-spacing: -0.04rem;
+    }
+
+    .bd_btn {
+      height: 54px;
+      display: block;
+      border-radius: 4px;
+      margin: 12px auto;
+      line-height: 54px;
+      font-size: 1.063rem;
+      font-weight: bold;
+      color: #757E9E;
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      box-sizing: border-box;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    header {
+      position: relative;
+      z-index: 9999;
+      background-color: #fff;
+      width: 100%;
+      max-width: 640px;
+      margin: 0px auto;
+      height: 55px;
+    }
+
+    header input[type=checkbox] {
+      display: none;
+    }
+
+    .toggle {
+      position: absolute;
+      left: 0px;
+      top: 57%;
+      transform: translateY(-50%);
+      width: 3.125em;
+      cursor: pointer;
+      padding: 15px 0px 30px 0px;
+      z-index: 110;
+    }
+
+    .bar {
+      background-color: #333333;
+      display: inline-block;
+      width: 1.171rem;
+      height: 2px;
+      transition: 0.3s;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .toggle>span:first-child {
+      top: 15px;
+    }
+
+    .toggle>span:nth-child(2) {
+      top: 20px;
+    }
+
+    .toggle>span:last-child {
+      top: 25px;
+    }
+
+    header>a {
+      position: absolute;
+      right: 0px;
+      top: 45%;
+      transform: translateY(-50%);
+      width: 35px;
+      padding: 10px 15px;
+    }
+
+    header>a>img {
+      width: 100%;
+    }
+
+    header>h1 {
+      position: absolute;
+      left: 49%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+    }
+
+    header>h1>a {
+      width: 300px;
+      height: 40px;
+      letter-spacing: -1px;
+      color: #333;
+      /* font: 500 18px/1.3em "Noto Sans KR"; */
+      display: flex;
+      justify-content: center;
+      font-size: 1.063rem;
+      font-weight: 600;
+      line-height: 43px;
+    }
+
+    header>h1 img {
+      width: 36px;
+      height: 36px;
+      padding-right: 2px;
+      padding-top: 4px;
+    }
+
+    .total_mnu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      max-width: 640px;
+      overflow-Y: scroll;
+      margin: 0px auto;
+      background-color: #fff;
+      transition: 0.3s;
+      z-index: 9999;
+      box-sizing: border-box;
+      /* opacity: 0.2; */
+    }
+
+    .total_mnu>.top_box {
+      border-bottom: 1px solid #E6ECF1;
+    }
+
+    .total_mnu>.top_box>.top_btn {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .top_btn>li {
+      padding: 5px;
+      width: 50%;
+      display: flex;
+    }
+
+    .top_btn>li:first-child {
+      justify-content: flex-start;
+    }
+
+    .top_btn>li:last-child {
+      justify-content: flex-end;
+      padding-right: 20px;
+    }
+
+    .top_btn>li>a {
+      display: flex;
+      height: 24px;
+      padding: 8px 0px 8px 8px;
+    }
+
+    .top_btn>li>a>img {
+      width: 24px;
+      height: 24px;
+
+    }
+
+    .top_btn>li>a>span {
+      line-height: 28px;
+      letter-spacing: -0.04em;
+      color: #888888;
+      font-size: 0.875rem;
+      padding-right: 5px;
+    }
+
+    .total_mnu>.info_box {
+      padding: 26px 20px 29px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .info_box>.lnb02 {
+      display: flex;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .lnb02>li {
+      line-height: 20px;
+    }
+
+    /* .lnb02 > li:first-child{
+      width:51px;
+      height: 51px;
+    }
+    .lnb02 > li:last-child{
+      width:90%;
+      padding:7px 5px;
+    }
+    .lnb02 > li > img{
+      width:100%;
+    } */
+    .lnb02>li>strong {
+      display: block;
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size: 1rem;
+      font-weight: bolder;
+    }
+
+    .lnb02>li>span {
+      display: block;
+      letter-spacing: -0.04em;
+      color: #555555;
+      font-size: 0.813rem;
+      font-weight: normal;
+    }
+
+    .info_box>.lnb03 {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 17px;
+    }
+
+    .lnb03>li {
+      width: 50%;
+      height: 43px;
+      background: #FFFFFF;
+      border: 1px solid #EEEEEE;
+    }
+
+    .lnb03>li:first-child {
+      border-radius: 4px 0px 0px 4px;
+      border-right: none;
+      background-color: #4F8EF7;
+    }
+
+    .lnb03>li:last-child {
+      border-radius: 0px 4px 4px 0px;
+    }
+
+    .lnb03>li>a {
+      display: block;
+      letter-spacing: -0.07em;
+      color: #888888;
+      font-size: 0.875rem;
+      text-align: center;
+      line-height: 43px;
+    }
+
+    .lnb03>li:first-child>a {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .total_mnu>.main_mnu {
+      background-color: #F8F9FC;
+      padding: 30px 20px 18px;
+      width: 100%;
+      box-sizing: border-box;
+      border-top: 1px solid #EAF0F8;
+    }
+
+    .main_mnu>h3 {
+      letter-spacing: -0.07em;
+      color: #888888;
+      font-size: 0.938rem;
+      font-weight: normal;
+    }
+
+    .main_mnu>.gnb {
+      width: 100%;
+      padding: 11px 0px 19px;
+      display: grid;
+      grid-gap: 12px;
+      grid-template-columns: repeat(3, 31%);
+      grid-template-areas:
+        "item01 item02 item03"
+        "item04 item05 item06";
+      justify-content: center;
+    }
+
+    .gnb>li {
+      border-radius: 20px;
+      background: #FFFFFF;
+      border: 1px solid #EAF0F8;
+      box-shadow: 0px 4px 14px rgba(190, 197, 215, 0.25);
+      padding-bottom: 98.16%;
+      height: 0;
+    }
+
+    .gnb>.item01 {
+      grid-area: item01;
+      background: linear-gradient(135.14deg, #B3D1FF 2.9%, #448FFF 96.43%);
+      border: 1px solid #EAF0F8;
+      box-shadow: inset 0px -3px 3px rgba(0, 0, 0, 0.07);
+    }
+
+    .gnb>.item02 {
+      grid-area: item02;
+      background: linear-gradient(136.52deg, #BBE3FF 4.91%, #6BC0FD 97.61%);
+      border: 1px solid #DCE3ED;
+      box-shadow: 0px 4px 14px rgba(190, 197, 215, 0.25), inset 0px -3px 3px rgba(140, 148, 171, 0.15);
+    }
+
+    .gnb>.item03 {
+      grid-area: item03;
+      background: linear-gradient(135.28deg, #B0F1CA 4.02%, #52CB82 95.54%);
+      border: 1px solid #DCE3ED;
+      box-shadow: 0px 4px 14px rgba(190, 197, 215, 0.25), inset 0px -3px 3px rgba(0, 0, 0, 0.07);
+    }
+
+    .gnb>.item04 {
+      grid-area: item04;
+    }
+
+    .gnb>.item05 {
+      grid-area: item05;
+    }
+
+    .gnb>.item06 {
+      grid-area: item06;
+    }
+
+    .gnb>li>a {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      letter-spacing: -0.04em;
+      font-size: 0.90625rem;
+      font-weight: normal;
+      color: #666;
+      height: 0;
+      padding-bottom: 100%;
+    }
+
+    .gnb>.item01>a {
+      color: #fff;
+      font-weight: bolder;
+    }
+
+    .gnb>.item02>a {
+      color: #fff;
+      font-weight: bolder;
+    }
+
+    .gnb>.item03>a {
+      color: #fff;
+      font-weight: bolder;
+    }
+
+    .gnb>li>a>img {
+      display: block;
+      margin: 0px auto;
+      padding: 24px 0px 15px;
+      width: 36.5%;
+    }
+
+    .gnb>.item04>a>img,
+    .gnb>.item05>a>img,
+    .gnb>.item06>a>img {
+      padding: 33px 0px 18px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .shop_nav {
+      background: #FFFFFF;
+      border: 1px solid #EAF0F8;
+      box-shadow: 0px 4px 14px rgba(190, 197, 215, 0.25), inset 0px -3px 3px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .shop_nav>li {
+      width: 33.33%;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 16px 0px;
+    }
+
+    .shop_nav>li>a {
+      display: block;
+      border-right: 1px solid #EAF0F8;
+      width: 100%;
+      height: 72px;
+      padding: 4px 0px 10px;
+      box-sizing: border-box;
+    }
+
+    .shop_nav>li>a>.bg_round {
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      margin: 0px auto;
+      line-height: 39px;
+      vertical-align: middle;
+      /* margin-bottom:6px; */
+    }
+
+    /* .shop_nav > li:nth-child(2) > a > .bg_round{
+      background-color: #D9E4FB;
+      margin-bottom:6px;
+    }
+    .shop_nav > li:nth-child(2) > a > .bg_round > img{
+      vertical-align: middle;
+    } */
+    .shop_nav>li>a>img {
+      display: block;
+      margin: 0px auto;
+      width: 39px;
+      height: 39px;
+      margin-bottom: 6px;
+    }
+
+    .shop_nav>li>a>span {
+      letter-spacing: -0.04em;
+      color: #444444;
+      font-size: 0.750rem;
+      font-weight: normal;
+    }
+
+    .shop_nav>li>a>span>strong {
+      font-weight: bolder;
+      font-size: 0.875rem;
+    }
+
+    .shop_nav>li:last-child>a>span>strong {
+      color: #59C36C;
+    }
+
+    .bottom_box {
+      background-color: #F8F9FC;
+      padding-bottom: 140px;
+    }
+
+    .bottom_box>.pay_mnu {
+      width: calc(100% - 40px);
+      margin: 0px auto;
+      box-sizing: border-box;
+      background: linear-gradient(89.89deg, #08AA57 0.92%, #08AA9B 99.9%);
+      border-radius: 16px;
+    }
+
+    .pay_mnu>.pay_top {
+      padding: 25px 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .pay_top>li {
+      display: flex;
+      line-height: 30px;
+    }
+
+    .pay_top>li>img {
+      width: 20px;
+      height: 20px;
+      padding-right: 6px;
+      transform: translateY(4px);
+    }
+
+    .pay_top>li>span {
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size: 1.063rem;
+      font-weight: bold;
+    }
+
+    .pay_top>li>strong {
+      display: flex;
+      justify-content: center;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size: 1.313rem;
+      font-weight: bolder;
+    }
+
+    .pay_top>li>strong>img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .pay_bottom {
+      background: rgba(23, 88, 55, 0.28);
+      border-radius: 0px 0px 16px 16px;
+      padding: 10px 0px 10px 0px;
+      text-align: center;
+    }
+
+    .pay_bottom>p {
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+
+    /* .pay_mnu > .pay_bottom{
+      background: rgba(23, 88, 55, 0.28);
+      border-radius: 0px 0px 16px 16px;
+      display:grid;
+      grid-template-columns: 28.056% 28.89% 42.5%;
+    }
+    .pay_bottom > li{
+      height: 35px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    .pay_bottom > li::before{
+      content: "";
+      background-color:#008453;
+      width:1px;
+      height: 14px;
+      position: absolute;
+      top:50%;
+      transform: translateY(-50%);
+    }
+    .pay_bottom > li:first-child::before{
+      content: none;
+    }
+    .pay_bottom > li > a{
+      line-height: 36px;
+      height: 35px;
+      box-sizing: border-box;
+      display:flex;
+      text-align: center;
+      justify-content: center;
+    }
+    .pay_bottom > li > a > img{
+      width:19px;
+      height: 19px;
+      padding:8px 2px;
+    }
+    .pay_bottom > li > a > span{
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size:0.938rem;
+    } */
+    .act01 {
+      left: 0% !important;
+    }
+
+    .top_nav {
+      /* padding:10px 0px; */
+      width: 100%;
+      background-color: #fff;
+    }
+
+    /* .nav_on{
+      font-weight: bold !important;
+      border-bottom:2px solid #333 !important;
+    } */
+    .top_nav>.m_lnb {
+      /* display: flex; */
+      /* justify-content: space-evenly; */
+      /* border-bottom:1px solid #ECECEC; */
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      width: 100%;
+      max-width: 640px;
+      margin: 0px auto;
+      box-sizing: border-box;
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .top_nav>.m_lnb::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari, Opera*/
+    }
+
+    .top_nav>.m_lnb>li {
+      padding: 10px 5px;
+      display: inline-block;
+      position: relative;
+      height: 100%;
+      width: 20%;
+      /* padding: 0px 10px; */
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .top_nav>.m_lnb>li:first-child {
+      width: 12%;
+    }
+
+    .top_nav>.m_lnb>li>a {
+      letter-spacing: -0.01em;
+      color: #888888;
+      font-size: 1.125rem;
+      /* display: block; */
+      line-height: 18px;
+      padding-bottom: 4px;
+    }
+
+    .color_on {
+      color: #333333 !important;
+      font-weight: bold !important;
+      border-bottom: 2px solid #333 !important;
+    }
+
+    .nav_act {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      z-index: 500;
+      border-bottom: 1px solid #ECECEC;
+    }
+
+    /* 메인 콘텐츠 영역 */
+    #center_wrap {
+      width: 100%;
+      box-sizing: border-box;
+      padding-bottom: 31px;
+    }
+
+    .center_notice {
+      width: 100%;
+      background: linear-gradient(180deg, rgba(247, 247, 247, 0) 0%, #F7F7F7 100%);
+      text-align: center;
+      padding-bottom: 24px;
+    }
+
+    .center_notice>h4 {
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size: 1.125rem;
+      padding: 31px 0px 18px;
+    }
+
+    .center_notice>p {
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size: 0.875rem;
+      line-height: 20px;
+    }
+
+    #center_wrap legend {
+      display: none;
+    }
+
+    .consultation01 {
+      padding: 16px 21px 0px;
+    }
+
+    .consultation01>select {
+      width: 100%;
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      border-radius: 2px;
+      height: 37px;
+      line-height: 37px;
+      padding: 0;
+      padding-left: 14px;
+      letter-spacing: -0.06em;
+      color: #2B323F;
+      font-size: 0.813rem;
+    }
+
+    .consultation01>input[type=text] {
+      width: 100%;
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      border-radius: 2px;
+      box-sizing: border-box;
+      padding: 0;
+      padding-left: 14px;
+      height: 37px;
+      line-height: 37px;
+      margin: 7px 0px;
+      font-size: 0.813rem;
+    }
+
+    .consultation01>input[type=text]::placeholder {
+      color: #A4ABC0;
+    }
+
+    .consultation02 {
+      padding: 27px 22px 0px;
+    }
+
+    .consultation02>h5 {
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size: 1rem;
+      padding-bottom: 14px;
+    }
+
+    .date_box {
+      display: inline-block;
+      width: calc(50% - 3px);
+      position: relative;
+    }
+
+    .date_box>img {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-62%);
+      width: 20px;
+      display: block;
+    }
+
+    .consultation02>input[type=text],
+    .consultation02>select {
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      border-radius: 2px;
+      height: 35px;
+      line-height: 35px;
+      box-sizing: border-box;
+      padding: 0px 9px;
+      margin-bottom: 7px;
+      letter-spacing: -0.06em;
+      color: #2B323F;
+      font-size: 0.813rem;
+      width: calc(50% - 3px);
+    }
+
+    .consultation02>input[type=text] {
+      float: left;
+      background-image: url('../images/calendar_days.png');
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position: right 7px center;
+    }
+
+    .consultation02>select {
+      float: right;
+    }
+
+    .consultation02>select>option {
+      height: 300px;
+      overflow-y: auto;
+    }
+
+    .consultation02>textarea {
+      width: 100%;
+      display: block;
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      border-radius: 2px;
+      padding: 12px 14px;
+      box-sizing: border-box;
+      font-size: 0.813rem;
+    }
+
+    .consultation02>textarea::placeholder {
+      color: #A4ABC0;
+    }
+
+    .consultation03 {
+      padding: 35px 22px 0px;
+    }
+
+    .consultation03>h5 {
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size: 1rem;
+      padding-bottom: 7px;
+    }
+
+    .consultation03>p:first-of-type {
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size: 0.813rem;
+      line-height: 20px;
+      padding-bottom: 20px;
+    }
+
+    .consultation03>p:last-of-type {
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size: 0.813rem;
+      padding: 12px 0px;
+    }
+
+
+    .info_table {
+      width: 100%;
+      border-top: 1px solid #D4DFEE;
+      border-collapse: collapse;
+    }
+
+    .info_table>caption {
+      display: none;
+    }
+
+    .info_table .td_height {
+      line-height: 15px;
+    }
+
+    .info_table th,
+    .info_table td {
+      border-bottom: 1px solid #D4DFEE;
+      border-left: 1px solid #D4DFEE;
+      text-align: center;
+    }
+
+    .info_table th {
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      background-color: #F8F9FC;
+      padding: 10px 0px;
+      width: 33%;
+      font-size: 0.813rem;
+      font-weight: 500;
+    }
+
+    .info_table td {
+      letter-spacing: -0.06em;
+      color: #2B323F;
+      width: 33%;
+      height: 54px;
+      box-sizing: border-box;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: 400;
+      font-size: 0.813rem;
+    }
+
+    .info_table th:first-child,
+    .info_table td:first-child {
+      border-left: none;
+    }
+
+    .ch_box {
+      position: relative;
+      width: 100%;
+      left: -10px;
+    }
+
+    .ch_box input[type="checkbox"] {
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      border: 0 none;
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    .ch_box label {
+      text-indent: 10px;
+      height: 35px;
+      line-height: 35px;
+      padding-left: 26px;
+      display: inline-block;
+      background-size: 22px;
+      vertical-align: middle;
+      cursor: pointer;
+      font-size: 0.813rem;
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      /* transition:0.5s; */
+    }
+
+    .round {
+      position: relative;
+      right: 10px;
+      top: -26px;
+      width: 6px;
+      height: 10px;
+      border-right: 2px solid #a0d5ee;
+      border-bottom: 2px solid #a0d5ee;
+      -webkit-transform: rotate(45deg) scale(0);
+      -ms-transform: rotate(45deg) scale(0);
+      transform: rotate(45deg) scale(0);
+      opacity: 0;
+    }
+
+    .round:before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      bottom: -2px;
+      border: 1px solid #a0d5ee;
+      ;
+      border-radius: 50%;
+    }
+
+    .round:after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: -1px;
+      border: 1px solid #a0d5ee;
+      ;
+      border-radius: 50%;
+    }
+
+    input[type="checkbox"]:checked+label .round {
+      opacity: 1;
+      -webkit-transform: rotate(45deg) scale(1);
+      -ms-transform: rotate(45deg) scale(1);
+      transform: rotate(45deg) scale(1);
+    }
+
+    .checks input[type="checkbox"]:checked+.label::after {
+      position: absolute;
+      content: "";
+      width: 21px;
+      height: 21px;
+      left: 0.625rem;
+      top: 9px;
+      border: 1px solid #a0d5ee;
+      border-radius: 3px;
+      opacity: 1;
+    }
+
+    .checks input[type="checkbox"]~label:before {
+      content: ' ';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      margin: -2px 8px 0 0;
+      text-align: center;
+      vertical-align: middle;
+      border: 1px solid #cacece;
+      border-radius: 3px;
+    }
+
+    .checks input[type="checkbox"]~label:before {
+      position: absolute;
+      left: 0.625rem;
+      top: 0.438rem;
+      margin-top: 0;
+      opacity: .6;
+      box-shadow: none;
+      border-color: #6cc0e5;
+    }
+
+    .checks input[type="checkbox"]:checked~.round::after {
+      position: absolute;
+      content: "";
+      width: 21px;
+      height: 21px;
+      left: 0.625rem;
+      top: 9px;
+      border: 1px solid #a0d5ee;
+      border-radius: 3px;
+      opacity: 1;
+    }
+
+    .center_btn-wrap {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 25px;
+    }
+
+    .center_btn-wrap>li {
+      width: calc(50% - 5px);
+      text-align: center;
+
+    }
+
+    .center_btn-wrap>li>a {
+      display: block;
+      line-height: 37px;
+      padding: 0;
+      letter-spacing: -0.04em;
+      font-size: 0.813rem;
+    }
+
+    .cancell_btn {
+      background: #E3E6F0;
+      color: #6F7792;
+    }
+
+    .application_btn {
+      background: #9AA1AF;
+      color: #FFFFFF;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 상단 헤더 -->
+  <header>
+    <div class="toggle">
+      <span class="bar">&nbsp;</span>
+      <span class="bar">&nbsp;</span>
+      <span class="bar">&nbsp;</span>
+    </div>
+
+    <h1>
+      <span>고객센터</span>
+    </h1>
+
+    <nav class="total_mnu">
+      <div class="top_box">
+        <ul class="top_btn">
+          <li>
+            <a href="#" title="닫기" class="c_btn">
+              <img src="./img/h_nav_close_btn.svg" alt="닫기">
+            </a>
+          </li>
+          <li>
+            <a href="./index.html">
+              <span>홈으로</span>
+              <img src="./img/h_nav_home_btn.svg" alt="메인페이지로 바로가기">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="info_box">
+        <ul class="lnb02">
+          <!-- <li>
+            <img src="./img/header_logo.png" alt="프로필사진">
+          </li> -->
+          <li>
+            <strong>
+              <span>한국자격검정평가진흥원</span>
+              <span></span>
+            </strong>
+            <span>로그인하고 무료수강 장학지원에 참여하세요!</span>
+          </li>
+        </ul>
+        <ul class="lnb03">
+          <li>
+            <a href="login.html" title="로그인">로그인</a>
+          </li>
+          <li>
+            <a href="join.html" title="회원가입">회원가입</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="main_mnu">
+        <h3>빠른메뉴</h3>
+        <ul class="gnb">
+          <li class="item01">
+            <a href="./progress_lecture.html" title="나의강의실">
+              <img src="./img/h_nav_icon01.png" alt="나의강의실">
+              <span>나의강의실</span>
+            </a>
+          </li>
+          <li class="item02">
+            <a href="./cer_issued.html" title="발급신청">
+              <img src="./img/h_nav_icon02.png" alt="발급신청">
+              <span>발급신청</span>
+            </a>
+          </li>
+          <li class="item03">
+            <a href="./review_m.html" title="합격후기">
+              <img src="./img/h_nav_icon03.png" alt="합격후기">
+              <span>합격후기</span>
+            </a>
+          </li>
+          <li class="item04">
+            <a href="./procedure.html" title="고객센터">
+              <img src="./img/h_nav_icon04.svg" alt="고객센터">
+              <span>고객센터</span>
+            </a>
+          </li>
+          <li class="item05">
+            <a href="./curriculum.html" title="교육과정">
+              <img src="./img/h_nav_icon05.svg" alt="교육과정">
+              <span>교육과정</span>
+            </a>
+          </li>
+          <li class="item06">
+            <a href="./enrolment.html" title="수강신청">
+              <img src="./img/h_nav_icon06.svg" alt="수강신청">
+              <span>수강신청</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="shop_nav">
+          <li>
+            <a href="#" title="최근결제">
+              <img src="./img/h_nav_icon07.gif" alt="최근결제">
+              <span>최근결제 <strong>6</strong></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="배송조회">
+              <img src="./img/h_nav_icon08.gif" alt="배송조회">
+              <span>배송조회 <strong>0</strong></span>
+            </a>
+          </li>
+          <li>
+            <a href="certificate3.html" title="배송완료">
+              <img src="./img/h_nav_icon09.gif" alt="배송완료">
+              <span>배송완료 <strong>0</strong></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bottom_box">
+        <div class="pay_mnu">
+          <ul class="pay_top">
+            <li>
+              <img src="./img/h_nav_icon10.svg" alt="포인트적립금">
+              <span>포인트 적립금</span>
+            </li>
+            <li>
+              <strong>
+                0원
+                <img src="./img/h_nav_right_btn.svg" alt="바로가기">
+              </strong>
+            </li>
+          </ul>
+          <div class="pay_bottom">
+            <p>자격증 발급하고 포인트를 적립해보세요!</p>
+          </div>
+          <!-- <ul class="pay_bottom">
+            <li>
+              <a href="#" title="충전">
+                <img src="./img/h_nav_icon11.svg" alt="충전">
+                <span>충전</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="인출">
+                <img src="./img/h_nav_icon12.svg" alt="인출">
+                <span>인출</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" title="포인트선물">
+                <img src="./img/h_nav_icon13.svg" alt="포인트선물">
+                <span>포인트선물</span>
+              </a>
+            </li>
+          </ul> -->
+        </div>
+      </div>
+
+    </nav>
+
+    <a href="./progress_lecture.html" title="나의 강의실">
+      <img src="./img/my_page.svg" alt="나의 강의실">
+    </a>
+
+    <script>
+      var posY;
+      $(document).ready(function () {
+
+        // .toggle 클릭시 .total_mnu에 act01 서식을 적용해서 전체메뉴 나타나게 함
+        $('.toggle').click(function () {
+
+          posY = $(window).scrollTop();
+
+          $("html, body").addClass("not_scroll");
+          $('.total_mnu').addClass('act01');
+          $('main').css({
+            'opacity': '0',
+            'top': -posY
+          });
+        });
+
+        // i.fa-times(X버튼) 클릭시 .total_mnu에 적용된 act01 서식을 해제해서 전체메뉴 사라지게 함
+        $('.total_mnu .c_btn').click(function () {
+          $("html, body").removeClass("not_scroll");
+          $('.total_mnu').removeClass('act01');
+          $('main').css({ 'opacity': '1' });
+          posY = $(window).scrollTop(posY);
+        });
+
+      });
+
+    </script>
+  </header>
+
+
+  <main>
+    <!-- <nav class="top_nav">
+    <ul class="m_lnb">
+      <li class="border_on">
+        <a href="#" title="홈" class="nav_on">홈</a>
+      </li>
+      <li>
+        <a href="#" title="회원가입">회원가입</a>
+      </li>
+      <li>
+        <a href="#" title="수강신청">수강신청</a>
+      </li>
+      <li>
+        <a href="#" title="발급신청">발급신청</a>
+      </li>
+      <li>
+        <a href="#" title="합격후기">합격후기</a>
+      </li>
+    </ul>
+  </nav> -->
+
+    <article id="center_wrap">
+      <section class="center_notice">
+        <h4>수강상담신청</h4>
+        <p>자격증 시험과 관련하여 궁금한 점을 남겨주시면</p>
+        <p>전문 상담 선생님이 정확하고 친절하게 상담해드립니다.</p>
+      </section>
+
+      <form name="" method="" action="">
+        <fieldset>
+          <legend>상담신청</legend>
+
+          <section class="consultation01">
+            <select>
+              <option>관심분야를 선택해주세요.</option>
+              <option>강사과정</option>
+              <option>병원과정</option>
+              <option>커피과정</option>
+              <option>심리과정</option>
+              <option>전문가과정</option>
+              <option>실버과정</option>
+              <option>방과후과정</option>
+              <option>안전과정</option>
+              <option>반려과정</option>
+              <option>아동과정</option>
+              <option>공부과정</option>
+              <option>인문과정</option>
+              <option>부동산과정</option>
+              <option>산업과정</option>
+              <option>IT과정</option>
+              <option>취업과정</option>
+              <option>항공과정</option>
+              <option>공예과정</option>
+              <option>국가자격증</option>
+            </select>
+            <input type="text" id="consul_name" placeholder="이름입력">
+            <input type="text" id="consul_num" placeholder="연락처 (-) 없이 작성">
+          </section>
+
+          <section class="consultation02">
+            <h5>희망 상담 시간</h5>
+            <input type="text" id="consul_date" class="datepicker" placeholder="2022-05-26">
+            <select>
+              <option>시간 상관없음</option>
+              <option>오전09시 ~ 10시사이</option>
+              <option>오전10시 ~ 11시사이</option>
+              <option>오전11시 ~ 12시사이</option>
+              <option>오전12시 ~ 13시사이</option>
+              <option>오전13시 ~ 14시사이</option>
+              <option>오전14시 ~ 15시사이</option>
+              <option>오전15시 ~ 16시사이</option>
+              <option>오전16시 ~ 17시사이</option>
+              <option>오전17시 ~ 18시사이</option>
+            </select>
+            <textarea name="" id="" cols="30" rows="10" placeholder="내용을 입력해주세요."></textarea>
+          </section>
+
+          <script>
+            $.datepicker.setDefaults({
+              dateFormat: 'yy-mm-dd',
+              prevText: '이전 달',
+              nextText: '다음 달',
+              monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+              dayNames: ['일', '월', '화', '수', '목', '금', '토'],
+              dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+              dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+              showMonthAfterYear: true,
+              yearSuffix: '년'
+            });
+
+            $(document).ready(function () {
+              $('.datepicker').datepicker();
+            });
+          </script>
+
+          <section class="consultation03">
+            <h5>개인정보 수집 및 이용동의</h5>
+            <p>한국자격검정평가진흥원은 고객 전화 상담을 위해 다음과 같이 회원님의 개인정보를 수집 및 이용합니다.</p>
+            <table class="info_table">
+              <caption>개인정보 수집 및 이용</caption>
+              <tr>
+                <th>수집항목</th>
+                <th>수집 및 이용목적</th>
+                <th>보유 및 이용기간</th>
+              </tr>
+              <tr>
+                <td class="td_height">이름, 연락처,<br>희망 상담시간,<br>관심분야</td>
+                <td>고객 전화 상담</td>
+                <td>상담 완료 시 까지</td>
+              </tr>
+            </table>
+            <p>개인정보 수집 및 이용에 동의하지 않으시면 상담 예약이 불가합니다.</p>
+
+            <div class="ch_box etrans checks">
+              <input type="checkbox" name="chk" id="checkbox_agree2" value="1">
+
+              <label for="checkbox_agree2">개인정보취급방침에 동의
+                <div class="round"></div>
+              </label>
+            </div>
+
+            <ul class="center_btn-wrap">
+              <li>
+                <a href="./index.html" title="취소" class="cancell_btn">취소</a>
+              </li>
+              <li>
+                <a href="./index.html" title="상담 신청하기" class="application_btn">상담 신청하기</a>
+              </li>
+            </ul>
+          </section>
+        </fieldset>
+      </form>
+
+    </article>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>HANGUM - 자주믇는 질문</title>
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    a{
+      text-decoration: none;
+    }
+    header{
+      width: 100%;
+      padding: 24px 21px 47px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+    }
+    header > h1 > a:first-child{
+      display: block;
+      width: 29px;
+      height: 25px;
+      padding-top:8px;
+    }
+    header > h1 > a:last-child{
+      display: block;
+      width: 38px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+    .qna_wrap{
+      width: 100%;
+      padding: 0px 20px 30px;
+      box-sizing: border-box;
+      min-height: 400px;
+    }
+    .qna_wrap > h3{
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size: 1.5rem;
+      margin-bottom: 27px;
+    }
+    .tab {
+      display:flex;
+      justify-content: flex-start;
+      margin-bottom: 37px;
+    }
+
+    .tab li {
+      text-align: center;
+      margin-right: 7px;
+    }
+
+    .tab li a {
+      letter-spacing: -0.07em;
+      color: #333333;
+      display:block;
+      padding:7px 14.5px;
+      font-size:0.938rem;
+      text-decoration: none;
+      background: #F7F8FA;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    ul.tab li.on a{
+      color:#fff !important;
+      background: #2E68FF !important;
+    }
+    .tabcont.on {
+      display: block;
+    }
+
+    /* 자주 묻는 질문 */
+    .tabcont{
+      width:100%;
+      font-size:16px;
+      box-sizing: border-box;
+      display: none;
+    }
+    .tabcont > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1rem;
+      font-weight: 500;
+      font-size:1.125rem;
+      padding-top:0px;
+    }
+    .tabcont dl{
+    }
+    .tabcont dt{ 
+      border-bottom:1px solid #EAF0F8;
+      letter-spacing: -0.01em;
+      font-size: 1rem;
+      color: #FFFFFF;
+      position:relative;
+      font-weight: 500;
+      padding: 0px 23px;
+      background: #3660E4;
+      border-radius: 12px 12px 12px 12px;
+      line-height: 54px;
+      margin-top: 24px;
+    }
+    .tabcont dt:first-of-type{
+      margin-top: 0px;
+    }
+    /* .tabcont dt::before{
+      content:'Q ';
+      font-size:1rem;
+      color:#276CF1;
+      padding-right:15px;
+    } */
+    .tabcont dt b{
+      padding-left:2px;
+    }
+    .tabcont dt span{
+      letter-spacing: -0.01em;
+      color: #F9EF05;
+      font-weight: bold;
+      padding:0px 1px;
+    }
+    .tabcont dt span:first-of-type{
+      font-size:1rem;
+    }
+    .tabcont dt span:last-of-type{
+      margin-right:2px;
+    }
+    .tabcont dt:last-of-type{
+      border-bottom:none;
+    }
+    .tabcont dd{
+      line-height: 26px;
+      letter-spacing: -0.03em;
+      color: #444444;
+      border-bottom:1px solid #EAF0F8;;
+      font-size:0.875rem;
+      position:relative;
+      display:none;
+      padding:14px 17px 14px 50px;
+      background: #FFFFFF;
+      border-radius: 0px 0px 12px 12px;
+      box-shadow: 0px 2px 9px 0px rgb(0 0 0 / 10%);
+    }
+    .tabcont dd:last-of-type{
+      border-bottom:none;
+      border-top:1px solid #EAF0F8;
+    }
+    .tabcont dd::before{
+      content:'A. ';
+      letter-spacing: -0.01em;
+      color: #2E68FF;
+      font-size: 1rem;
+      display:block;
+      position:absolute;
+      left:29px;
+      font-weight: bold;
+    }
+    .tabcont i.fas{
+      color:#8C9FC5;
+      font-size:12px;
+      line-height: 54px;
+      padding:0px 20px;
+      position: absolute;
+      right: 0px;
+    }
+    .t_act{
+      border-radius: 12px 12px 0px 0px !important;
+    }
+    .icon_act{
+      transform: rotate(180deg) !important;
+      transform-origin:50%;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+      <a href="./progress_lecture.html" title="나의 강의실">
+        <img src="./img/my_page.svg" alt="나의 강의실">
+      </a>
+    </h1>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main>
+    <section class="qna_wrap">
+      <h3>자주묻는질문</h3>
+
+      <ul class="tab">
+        <li class="on" data-tab="menu1"><a href="#" onclick="return false;">수강관련</a></li>
+        <li data-tab="menu2"><a href="#" onclick="return false;">오류관련</a></li>
+        <li data-tab="menu3"><a href="#" onclick="return false;">자격증</a></li>
+        <li data-tab="menu4"><a href="#" onclick="return false;">배송관련</a></li>
+      </ul>
+
+      <article id="menu1" class="tabcont on qna1">
+        <dl>
+          <dt><b><span>Q.</span></b> 무료수강은 왜 하나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            본 교육원에서는 교육장학지원 프로젝트 일환으로 일시적으로 무료 수강을 통하여 많은 분들께 배움의 기회를 드리고자 현재 무료 수강 이벤트를 진행하고 있습니다. 
+            따라서 과목별 장학생을 선착순으로 선정하여 강의수강료 지원 혜택과, 시험응시료를 무료로 지원해드리고있습니다.
+          </dd>
+          <dt><b><span>Q.</span></b> 수강신청은 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            상단바에서 수강신청 탭을 선택하여 원하시는 과정을 선택하세요. 
+            해당 과정 중 듣고싶은 과목을 선택, 검색 하신 후 수강신청 버튼을 누르면 완료됩니다. 
+            신청된 과목은 나의강의실에서 들으실 수 있습니다.
+          </dd>
+          <dt><b><span>Q.</span></b> 기간연장은 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            [나의강의실]에서 연장하실 과목의 기간연장신청 버튼을 클릭하면 수강기간이 연장됩니다. 
+            클릭 후 [나의강의실] 수강기간을 확인해주시기 바랍니다.
+            ( 4주간 수강 가능하십니다. )
+          </dd>
+          <dt><b><span>Q.</span></b> 교안,기출문제는 어디서 다운 받나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            교안파일 및 예상기출문제는 홈페이지 접속 후 
+            [로그인▷나의강의실▷강의실입장▷강의실 영상화면 하단]에서 확인 하실 수 있습니다.
+          </dd>
+          <dt><b><span>Q.</span></b> 마감된 과목은 어떻게 해야 하나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            교육원 학우분들 중 과목별 장학생을 선착순 선정하여 "장학지원 무료 수강 기회 "를 드리고 있습니다. 
+            -과목별 선착순으로 진행되기 때문에 정원 마감된 강좌는 사전 공지 없이 강의 마감될 수 있습니다. (4주과정) 
+            -수강신청 마감된 강좌는 수강신청 및 발급 불가합니다. 
+            개강안내는 전체 문자로 발송해 드리고 있습니다.
+            해당 내용을 확인하시어 원활한 학습 진행에 도움 되시길 바랍니다.
+          </dd>
+        </dl>
+      </article>
+
+      <article id="menu2" class="tabcont qna2">
+        <dl>
+          <dt><b><span>Q.</span></b> 교안파일 다운로드가 안돼요 <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            홈페이지 접속 후 
+            [로그인▶학습지원센터▶자주묻는질문▶오류관련▶하단의 알집설치하기 클릭] 후 설치하시면 가능합니다. 
+          </dd>
+          <dt><b><span>Q.</span></b> 모니터 화면이 안보여요 <i class="fas fa-angle-down"></i></dt>
+          <dd>
+            모니터 화면이 안보일 시 키보드의 [Ctrl]키를 누른상태에서 마우스 휠을 아래위로 움직이면 화면 축소 및 확대가 됩니다. 
+            참고하시어 진행해주시기 바랍니다. 
+          </dd>
+        </dl>
+      </article>
+
+      <article id="menu3" class="tabcont qna3">
+        <dl>
+          <dt><b><span>Q.</span></b> 자격증은 어떻게 신청하나요? <i class="fas fa-angle-down"></i></dt>
+          <dd>
+            수강료, 시험응시료 까지 무료이며 자격증 발급시에는 발급 비용이 발생됩니다. 
+            자격증 발급은 선택사항으로 시험 합격일로 부터 14일 안으로 발급 신청이 가능합니다. 
+            자격증 발급관련 비용은 제작비(상장형자격증+카드형자격증) 총 90,000원이 발생하고, 택배비는 무료입니다.
+          </dd>
+          <dt><b><span>Q.</span></b> 자격증이 심사중 탈락될 수 있나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            자격증 신청은 자격시험을 합격한 날로부터 14일 안으로 해주시는 것을 권고하고 있습니다. 
+            14일 이 지나시면 협회 측에서 합격 내역을 자동 삭제하여 재수강 및 재시험을 치르셔야 합니다. 
+            부득이한 사정으로 인해 14일 이내에 발급 신청이 어려우실 경우, 교육원(1670-6237)으로
+            연락 주시거나 수강관련문의 게시글에 기재 남겨주시면 가능합니다. 
+          </dd>
+          <dt><b><span>Q.</span></b> 1급 과정으로 바로 발급 가능한가요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            본 교육원은 1급 심화과정 전문 교육기관이므로 본 교육원에서는 2급 자격증을 별도로 취득하지 않으셔도 바로 1급으로 수강 및 취득 가능합니다. 
+            본 교육원 자격증은 '한국직업능력연구원'에 등록되어 있는 합법적인 민간자격증으로, 민간자격증 취득 과정은 발행 협회마다
+            상이한 부분이 있지만 민간자격증의 효력은 동일합니다. 
+            또한 이력서에도 기재가 가능한 별도의 유효기간 없는 공신력 있는 평생자격증입니다.
+          </dd>
+          <dt><b><span>Q.</span></b> 자격증 효력이 발생 되나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            본 교육원 자격증은 한국직업능력연구원에 등록되어 있는 합법적인 민간자격증으로 민간자격증이 가지고 있는
+            그 효력은 동일하며 민간자격증을 인정해주는 모든 기관에서 활용 가능합니다. 유효기간이 없는 평생자격증이며,
+            이력서에도 기재 가능합니다.
+          </dd>
+          <dt><b><span>Q.</span></b> 환불규정 <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            환불은 [평생교육법 시행령]의 학습비 반환 기준에 따라 환불 받으실 수 있습니다. 
+            자격증 신청 후 익일 11시에 명단이 협회로 전달되어 자격증이 제작됩니다. 
+            제작 중인 자격증은 환불이 불가하기 때문에, 결제일 익일 11시 전까지만 환불요청이 가능합니다. 
+          </dd>
+        </dl>
+      </article>
+
+      <article id="menu4" class="tabcont qna4">
+        <dl>
+          <dt><b><span>Q.</span></b> 자격증 배송은 언제 되나요? <i class="fas fa-angle-down"></i></dt>
+          <dd> 
+            자격증 신청 > 결제완료 > 심사중 > 준비중 > 발송완료 
+            단계로 진행되며, 심사는 자격증 진행사항 포함입니다. 
+            자격증은 입금일로부터 7일 내로 배송됩니다. 
+            ※ 급하게 필요하실 경우 빠른 배송으로 신청해주시면 됩니다.(무료입니다.)
+          </dd>
+        </dl>
+      </article>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 영역 -->
+  <? include "footer.php" ?>
+
+  <script>
+    $(function() {
+      $('ul.tab li').click(function() {
+        var activeTab = $(this).attr('data-tab');
+        $('ul.tab li').removeClass('on');
+        $('.tabcont').removeClass('on');
+        $(this).addClass('on');
+        $('#' + activeTab).addClass('on');
+      })
+    
+      $('.qna1 dl dt').first().next().show();
+      $('.qna2 dl dt').first().next().show();
+      $('.qna3 dl dt').first().next().show();
+      $('.qna4 dl dt').first().next().show();
+
+      $('.qna1 dl dt').first().find('i.fas').stop().addClass('icon_act');
+      $('.qna2 dl dt').first().find('i.fas').stop().addClass('icon_act');
+      $('.qna3 dl dt').first().find('i.fas').stop().addClass('icon_act');
+      $('.qna4 dl dt').first().find('i.fas').stop().addClass('icon_act');
+
+      $('.qna1 dl dt').first().stop().addClass('t_act');
+      $('.qna2 dl dt').first().stop().addClass('t_act');
+      $('.qna3 dl dt').first().stop().addClass('t_act');
+      $('.qna4 dl dt').first().stop().addClass('t_act');
+
+      $('.qna1 dt').click(function(){
+
+        $(this).toggleClass('t_act').stop().siblings('.qna1 dt').removeClass('t_act');
+
+        $(this).find('i.fas').stop().toggleClass('icon_act').parent().siblings().find('i.fas').removeClass('icon_act');
+
+        $(this).next().stop().slideToggle().siblings('.qna1 dd').slideUp();
+
+      });
+
+      $('.qna2 dt').click(function(){
+
+        $(this).toggleClass('t_act').stop().siblings('.qna2 dt').removeClass('t_act');
+
+        $(this).find('i.fas').stop().toggleClass('icon_act').parent().siblings().find('i.fas').removeClass('icon_act');
+
+        $(this).next().stop().slideToggle().siblings('.qna2 dd').slideUp();
+
+      });
+
+      $('.qna3 dt').click(function(){
+
+        $(this).toggleClass('t_act').stop().siblings('.qna3 dt').removeClass('t_act');
+
+        $(this).find('i.fas').stop().toggleClass('icon_act').parent().siblings().find('i.fas').removeClass('icon_act');
+
+        $(this).next().stop().slideToggle().siblings('.qna3 dd').slideUp();
+
+      });
+
+      $('.qna4 dt').click(function(){
+
+        $(this).toggleClass('t_act').stop().siblings('.qna4 dt').removeClass('t_act');
+
+        $(this).find('i.fas').stop().toggleClass('icon_act').parent().siblings().find('i.fas').removeClass('icon_act');
+
+        $(this).next().stop().slideToggle().siblings('.qna4 dd').slideUp();
+
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <style>
+    .top_nav{
+      display:none;
+    }
+    .notice_wrap{
+      width:100%;
+      max-width: 640px;
+      margin:0px auto;
+      box-sizing: border-box;
+      padding: 37px 20px 20px;
+      background-color: #F8F9FC;;
+    }
+    .notice_wrap > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-weight: bold;
+      font-size:1.188rem;
+      padding-bottom:18px;
+    }
+    .notice_con{
+
+    }
+    .notice_con > ul{}
+    .notice_con > ul > li{
+      margin-bottom:10px;
+      background: #FFFFFF;
+      box-shadow: 0px 2px 4px rgba(223, 223, 239, 0.4);
+      border-radius: 14px;
+    }
+    .notice_con > ul > li > a{
+      display:flex;
+      justify-content: flex-start;
+      padding:18px;
+    }
+    .notice_con > ul > li > a > .notice{
+      padding:3.5px 0px;
+    }
+    .notice_con > ul > li > a > .notice > span{
+      display:block;
+      border: 1px solid #F0F0F2;
+      border-radius: 11.5px;
+      font-size:0.688rem;
+      color: #000000;
+      width: 61px;
+      height: 25px;
+      text-align: center;
+      line-height: 25px;
+      font-weight: 600;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .notice_con > ul > li > a > .n_title{
+      margin-left:20px;
+    }
+    .notice_con > ul > li > a > .n_title > strong{
+      display:block;
+      letter-spacing: -0.04em;
+      color: #333333;
+      padding-bottom:5px;
+      font-size:0.938rem;
+      font-weight: bold;
+    }
+    .notice_con > ul > li > a > .n_title > span{
+      display:block;
+      letter-spacing: -0.06em;
+      color: #9D9D9D;
+      font-size:0.750rem;
+    }
+
+    .call_box{
+      background: linear-gradient(91.64deg, #E9F2FF 0.6%, #CBE0FF 99.32%);
+      border-radius: 2px;
+    }
+    .call_box > a{
+      display:flex;
+      justify-content: center;
+      padding:30px 39px;
+      margin-top:10px;
+    }
+    .call_box > a > .left_txt{
+      letter-spacing: -0.04em;
+    }
+    .call_box > a > .left_txt > strong{
+      color: #213061;
+      font-size:1rem;
+      display:block;
+      margin-bottom:4px;
+      font-weight: bold;
+    }
+    .call_box > a > .left_txt > span{
+      color: #6C779C;
+      font-size:0.875rem;
+      display: block;
+    }
+    .call_box > a > .right_txt{
+      background: #FFFFFF;
+      border: 1.06667px solid #ABCFFF;
+      box-shadow: 0px 4.26667px 4.26667px rgba(169, 180, 221, 0.15);
+      border-radius: 23.4667px;
+      margin-left:10px;
+      width:114px;
+    }
+    .call_box > a > .right_txt > span{
+      letter-spacing: -0.04em;
+      color: #4F8EF7;
+      display:flex;
+      justify-content: center;
+      padding:9px 15px 8px 10px;
+      line-height: 16px;
+      font-size:0.875rem;
+      font-weight: 600;
+    }
+    .call_box > a > .right_txt > span > img{
+      width:17px;
+      height:17px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <section class="notice_wrap">
+    <h3>교육원 공지사항</h3>
+    <article class="notice_con">
+      <ul>
+        <li>
+          <a href="#" title="공지">
+            <div class="notice">
+              <span>공지</span>
+            </div>
+            <div class="n_title">
+              <strong>수강방법 및 유의사항</strong>
+              <span>합격을 위한 최적의 학습환경</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지">
+            <div class="notice">
+              <span>공지</span>
+            </div>
+            <div class="n_title">
+              <strong>최우수 교육브랜드 대상 수상!</strong>
+              <span>믿음가는 한검평에서 시작하세요!</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지">
+            <div class="notice">
+              <span>공지</span>
+            </div>
+            <div class="n_title">
+              <strong>교육재능기부 무료수강 이벤트</strong>
+              <span>한국직업능력연구원 정식등록 민간자격증</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지">
+            <div class="notice">
+              <span>공지</span>
+            </div>
+            <div class="n_title">
+              <strong>자격증별 활용 유형 및 기관</strong>
+              <span>주요활용처 확인하기</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지">
+            <div class="notice">
+              <span>공지</span>
+            </div>
+            <div class="n_title">
+              <strong>자주묻는 질문들 FAQ</strong>
+              <span>한국자격검정평가진흥원을 선택하는 이유!</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="공지">
+            <div class="notice">
+              <span>공지</span>
+            </div>
+            <div class="n_title">
+              <strong>본 교육원 전문 협회 등록번호</strong>
+              <span>정식 등록된 민간자격증</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </article>
+
+    <article class="call_box">
+      <a href="tel:1670-6237" title="전화걸기">
+        <div class="left_txt">
+          <strong>학습 &#x00B7; 기술 지원 문의</strong>
+          <span>친절하게 답변드리겠습니다.</span>
+        </div>
+        <div class="right_txt">
+          <span><img src="./img/phone.png" alt="전화기">1670-6237</span>
+        </div>
+      </a>
+    </article>
+  </section>
+
+  <!-- 하단 푸터 -->
+  <? include "f_common.php" ?>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>HANGUM -휴대번호 변경-</title>
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    /* 정보수정 공통서식 */
+    body{
+      background-color:#fff;
+    }
+    header{
+      width: 100%;
+      padding: 26px 0px 47px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+    }
+    header > h1 > a{
+      display: block;
+      width: 29px;
+      height: 25px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+    .edit_wrap fieldset{
+      position:relative;
+    }
+    .edit_wrap{
+      padding:0px 20px 34px;
+      box-sizing: border-box;
+      width:100%;
+      max-width: 640px;
+      margin:0px auto;
+    }
+    .edit_wrap > h2{
+      letter-spacing: -0.01em;
+      color: #333333;
+      font-size:1.5rem;
+      margin-bottom:23px;
+    }
+    .edit_wrap fieldset > legend{
+      display:none;
+    }
+    .edit_wrap fieldset input[type=submit]{
+      background: #4F8EF7;
+      border-radius: 4px;
+      display:block;
+      width:100%;
+      border:none;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size: 1rem;
+      line-height:56px;
+      position: absolute;
+      top:405px;
+      font-weight: 600;
+    }
+
+    /* 주소변경 서식 */
+    .add_box{
+      border:none !important;
+      padding:9px 0px;
+    }
+    #postcode_btn, #sample6_extraAddress{
+      display:none;
+    }
+    .add_box label{
+      display:none;
+    }
+
+    /* text, date 공통 서식 */
+    input[type=number]{
+      display:block;
+      width:100%;
+      background: #F8F9FC;
+      border: 1px solid #E6ECF1;
+      border-radius: 3px;
+      line-height:52px;
+      padding:0px 13px;
+      box-sizing: border-box;
+      font-size:0.875rem;
+    }
+    input[type=number]::placeholder{
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+    }
+    input[type=number]:focus{
+      outline:none;
+    }
+    input[type=number]:focus::placeholder{
+      opacity: 0;
+    }
+    .edit_wrap fieldset label{
+      display:none;
+    }
+    /* .edit_wrap fieldset input[type=number]{
+      display:block;
+      width:100%;
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      border-radius: 4px;
+      line-height:40px;
+      padding:0px 15px;
+      box-sizing: border-box;
+      font-size:0.813rem;
+    }
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+      -webkit-appearance:none;
+    }
+    .edit_wrap fieldset input[type=number]::placeholder{
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+    }
+    .edit_wrap fieldset label{
+      display:none;
+    }
+    .edit_wrap fieldset input[type=number]:focus{
+      outline: none;
+    } */
+
+    .top_nav{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+    </h1>
+  </header>
+  
+  <main>
+    <section class="edit_wrap">
+      <h2>휴대번호 변경</h2>
+      <form name="" method="" action="">
+        <fieldset>
+          <legend>휴대번호 변경</legend>
+          <input type="number" max="12" maxlength="11" id="num_text" placeholder="01012345678" pattern="\d*" onkeyup="characterCheck(this)" onkeydown="characterCheck(this)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');maxLengthCheck(this);">
+          <label for="num_text">휴대번호</label>
+
+          <input type="submit" value="변경 완료">
+        </fieldset>
+      </form>
+    </section>
+  </main>
+  <script>
+    // 특수문자 입력 방지
+    function characterCheck(obj){
+    var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; 
+    // 허용할 특수문자는 여기서 삭제하면 됨
+    // 지금은 띄어쓰기도 특수문자 처리됨
+    if( regExp.test(obj.value) ){
+      obj.value = obj.value.substring( 0 , obj.value.length - 1 ); // 입력한 특수문자 한자리 지움
+      }
+    }
+  
+    function maxLengthCheck(object){
+      if (object.value.length > object.maxLength){
+          object.value = object.value.slice(0, object.maxLength);
+      }
+    }
+  </script>
+</body>
+</html>

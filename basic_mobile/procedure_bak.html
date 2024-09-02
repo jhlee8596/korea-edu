@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=0">
+  <title>Document</title>
+  <!-- css 초기화 -->
+  <link href="/css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="/js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="/js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="/js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    .proce_con{}
+    .proce_con > h2{
+      display:none;
+    }
+    .pro-top_box{
+      width:100%;
+      max-width: 640px;
+      margin:0px auto;
+      padding: 31px 20px 27px 20px;
+      box-sizing:border-box;
+    }
+    .pro-top_box > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1rem;
+      font-family: 'S-CoreDream-6Bold';
+    }
+
+    .pro-top_box > span{
+      float:left;
+      letter-spacing: -0.04em;
+      color: #6F7792;
+      font-size:0.750rem;
+      margin-top:10px;
+    }
+    .pro-top_box > select{
+      width: 9.250em;
+      height: 32px;
+      background: #FFFFFF;
+      border: 1px solid #276CF1;
+      box-shadow: 0px 4px 8px rgba(188, 197, 229, 0.15);
+      border-radius: 4px;
+      letter-spacing: -0.01em;
+      color: #276CF1;
+      font-size:0.750rem;
+      float:right;
+    }
+    .pro-top_box > select > option{
+      background: #FFFFFF;
+      border: 1px solid #D4DFEE;
+      box-shadow: 0px 4px 4px rgba(169, 180, 221, 0.15);
+      border-radius: 4px;
+      letter-spacing: -0.04em;
+      color: #6F7792;
+    }
+
+    .proce_box{
+      width:100%;
+      max-width: 640px;
+      margin:27px auto;
+    }
+    .proce_box > h3{
+      background-color:#E9F2FF;
+      border-top:1px solid #276CF1;
+      font-size:0.750rem;
+      line-height:34px;
+      box-sizing: border-box;
+      position:relative;
+      width:100%;
+      height: 34px;
+      font-weight:lighter
+    }
+    .procedure{
+      padding:0px 20px;
+    }
+    .proce_box > h3 > span:first-child{
+      position:absolute;
+      left:74px;
+    }
+    .proce_box > h3 > span:last-child{
+      position:absolute;
+      right:32px;
+    }
+    .procedure > li{
+      height: 67px;
+      border-bottom:1px solid #EAF0F8;
+      box-sizing: border-box;
+    }
+    .procedure > li > a{
+      display:block;
+      position: relative;
+      border-bottom:#0f0f0f;
+      padding:20px 0px;
+      box-sizing: border-box;
+    }
+    .procedure > li > a:active{
+      background-color: #F8F9FC;
+    }
+    .procedure > li > .answer{
+      padding:26px 0px;
+      background-color:#F8F9FC;
+    }
+    .procedure > li > a > span{
+
+    }
+    .procedure > li > a > span:first-child{
+      display:block;
+      margin-bottom:3px;
+      align-items: center;
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.750rem;
+      font-family: 'S-CoreDream-5Medium';
+    }
+    .procedure > li > a img{
+      width:10px;
+      height:10px;
+    }
+    .procedure > li > a > span:nth-child(2){
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size:0.688rem;
+    }
+    .procedure > li > a > span:last-child{
+      font-size: 11px;
+      line-height: 13px;
+      align-items: center;
+      color: #505873;
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      right: 14px;
+    }
+
+    .pagenation_btn{
+      display:flex;
+      justify-content: center;
+      margin-top:27px;
+    }
+    .pagenation_btn > span > a{
+      letter-spacing: -0.06em;
+      color: #929BBB;
+      font-size:0.688rem;
+    }
+
+    .pagenation_btn > .page{
+      width: 25px;
+      height: 25px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      text-align:center;
+      color: #929BBB;
+      margin:0px 5px;
+    }
+    .pagenation_btn > li > a{
+      display:block;
+      font-size: 0.875rem;
+      letter-spacing: -0.06em;
+      color: #929BBB;
+      width: 25px;
+      height:25px;
+      line-height:25px;
+      box-sizing: border-box;
+      font-family: 'S-CoreDream-6Bold';
+    }
+    .page_on{
+      background: #4F8EF7;
+      box-sizing: border-box;
+      border-radius: 4px;
+      color:#fff !important;
+      font-family: 'S-CoreDream-6Bold';
+    }
+    .pagenation_btn > span > a > i.fas{
+      margin:0px 4px;
+      color:#8C9FC5;
+      font-size:0.938rem;
+      line-height:25px;
+    }
+    .write_box{
+      width: 20.938rem;
+      margin:0px auto;
+    }
+
+    footer{
+      margin-top:60px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+
+  <main>
+    <nav class="top_nav">
+      <ul class="m_lnb">
+        <li>
+          <a href="./index.html" title="홈">홈</a>
+        </li>
+        <li>
+          <a href="https://www.korea-edu.net/m/login.html" title="회원가입">회원가입</a>
+        </li>
+        <li>
+          <a href="./enrolment.html" title="수강신청">수강신청</a>
+        </li>
+        <li>
+          <a href="./certificate3.html" title="발급신청">발급신청</a>
+        </li>
+        <li>
+          <a href="./review/review_m.html" title="합격후기">합격후기</a>
+        </li>
+        <li>
+          <a href="./procedure.html" title="고객센터" class="color_on">고객센터</a>
+        </li>
+      </ul>
+    </nav>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section class="proce_con">
+      <h2>고객센터 페이지</h2>
+      <article class="pro-top_box">
+        <h3>고객센터</h3>
+        <span>수강관련문의</span>
+        <select>
+          <option>수강관련문의</option>
+          <option>자격증배송문의</option>
+          <option>입금/결제문의</option>
+          <option>단체수강문의</option>
+        </select> 
+      </article>
+
+      <article class="proce_box">
+        <h3>
+          <span>제목</span>
+          <span>작성자</span>
+        </h3>
+        <ul class="procedure">
+          <li>
+            <a href="#" title="문의드립니다.">
+              <span>문의드립니다. <img src="./img/lock.png" alt="lock"></span>
+              <span>2018.12.05</span>
+              <span>신*찬</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="문의드립니다.">
+              <span>문의드립니다. <img src="./img/lock.png" alt="lock"></span>
+              <span>2018.12.05</span>
+              <span>전*빈</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="문의드립니다.">
+              <span>문의드립니다. <img src="./img/lock.png" alt="lock"></span>
+              <span>2018.12.05</span>
+              <span>최*미</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="답변입니다." class="answer">
+              <span>
+                <img src="./img/Arrow_Sub_Down_Right.png" alt="답변">
+                답변입니다. 
+                <img src="./img/lock.png" alt="lock">
+              </span>
+              <span>교육원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="문의드립니다.">
+              <span>문의드립니다. <img src="./img/lock.png" alt="lock"></span>
+              <span>2018.12.05</span>
+              <span>김*지</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="답변입니다." class="answer">
+              <span>
+                <img src="./img/Arrow_Sub_Down_Right.png" alt="답변">
+                답변입니다. 
+                <img src="./img/lock.png" alt="lock">
+              </span>
+              <span>교육원</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="문의드립니다.">
+              <span>문의드립니다. <img src="./img/lock.png" alt="lock"></span>
+              <span>2018.12.05</span>
+              <span>배*환</span>
+            </a>
+          </li>
+        </ul>
+
+        <ul class="pagenation_btn">
+          <span><a href="#" title="처음으로"><i class="fas fa-angle-double-left"></i></a></span>
+          <span><a href="#" title="이전"><i class="fas fa-angle-left"></i> </a></span>
+          <li class="page"><a href="#" title="1">1</a></li>
+          <li class="page"><a href="#" title="1">2</a></li>
+          <li class="page"><a href="#" title="1">3</a></li>
+          <li class="page"><a href="#" title="1">4</a></li>
+          <li class="page"><a href="#" title="1">5</a></li>
+          <span><a href="#" title="이전"><i class="fas fa-angle-right"></i></a></span>
+          <span><a href="#" title="처음으로"><i class="fas fa-angle-double-right"></i></a></span>
+        </ul>
+      </article>
+
+      <a href="./inquiry.html" title="글쓰기" class="bg_btn write_box">글쓰기</a>
+
+    </section>
+  </main>
+
+  <!-- 하단 푸터 -->
+  <? include "f_common.php" ?>
+
+  <script>
+    $(document).ready(function(){
+      $('.pagenation_btn > li:first-of-type > a').addClass('page_on');
+
+      const page_btn = $('.pagenation_btn > li > a');
+      page_btn.click(function(){
+        $('.pagenation_btn > li > a').removeClass('page_on');
+        $(this).addClass('page_on');
+      });
+      return false;
+    });
+  </script>
+</body>
+</html>

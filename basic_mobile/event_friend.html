@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>친구 추천 이벤트</title>
+  <!-- css 초기화 -->
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    a{
+      text-decoration: none;
+    }
+    header{
+      width: 100%;
+      padding: 24px 21px 24px 21px;
+      box-sizing: border-box;
+    }
+    header > h1{
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+    }
+    header > h1 > a:first-child{
+      display: block;
+      width: 29px;
+      height: 25px;
+      padding-top:8px;
+    }
+    header > h1 > a:last-child{
+      display: block;
+      width: 38px;
+    }
+    header > h1 > a > img{
+      width: 100%;
+    }
+
+    .event_wrap{
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+    .friend_push{
+      background: #FFFFFF;
+      box-sizing: border-box;
+    }
+    .event_top-con{
+      width: 100%;
+      padding-bottom: 61px;
+    }
+    .event_top-con > span{
+      font-weight: 700;
+      font-size: 0.938rem;
+      line-height: 20px;
+      letter-spacing: 0.04em;
+      color: #3F75FF;
+      border-bottom: 1px solid #3F75FF;
+      display: block;
+      width: 61px;
+      margin: 0px auto;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .event_top-con > h3{
+      font-weight: 900;
+      font-size: 2.688rem;
+      line-height: 50px;
+      letter-spacing: -0.05em;
+      text-align: center;
+      padding-top: 15px;
+    }
+    .event_top-con > h3 > strong:first-child{
+      display: block;
+      color: #3F75FF;
+    }
+    .event_top-con > h3 > strong:last-child{
+      display: block;
+      color: #f17676;
+    }
+    .event_top-con > h3 > strong > span{
+      color: #222222;
+      font-weight: 400;
+    }
+    .event_top-con > img{
+      padding-top: 16px;
+      display: block;
+      width: calc(100% - 256px);
+      margin: 0px auto;
+    }
+    
+    .event_bottom-con{
+      width: 100%;
+      background: #5379FF;
+      padding: 0px 20px 56px;
+      box-sizing: border-box;
+    }
+    .event_info{
+      position: relative;
+    }
+    .event_info > p{
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      top: -20px;
+      transform: translateX(-50%);
+      height: 48px;
+      line-height: 48px;
+      background: #FFFFFF;
+      border: 0.776786px solid #E6ECF1;
+      border-radius: 60px;
+      text-align: center;
+      padding: 0px 20px;
+      filter: drop-shadow(0px 4px 16px rgba(42, 61, 238, 0.25));
+    }
+    .event_info > p > img{
+      position: absolute;
+      top: -63%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42px;
+      text-align: center;
+    }
+    .event_info > p > span{
+      font-weight: 700;
+      font-size: 1.188rem;
+      line-height: 22px;
+      letter-spacing: -0.06em;
+      text-decoration-line: line-through;
+      color: #CECECE;
+    }
+    .event_info > p > span > i.fas{
+      font-size: 13px;
+      color: #7B7B7B;
+      transform: translateY(-2px);
+      padding: 0px 13px;
+    }
+    .event_info > p > strong{
+      font-weight: 700;
+      font-size: 1.563rem;
+      line-height: 29px;
+      letter-spacing: -0.06em;
+      color: #3F75FF;
+    }
+    .event_info > p > strong > span{
+      font-size: 1rem;
+    }
+    .event_info > strong{
+      display: block;
+      transform: translateY(-10px);
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.250rem;
+      line-height: 23px;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+    }
+    .event_info > strong > span{
+      font-weight: 400;
+    }
+
+    .benefits{
+      display: flex;
+      justify-content: space-between;
+    }
+    .benefits > li{
+      background: #2755F8;
+      border-radius: 12px;
+      width: 48%;
+      text-align: center;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 19px;
+      letter-spacing: -0.04em;
+      color: #C9D5FF;
+      line-height: 53px;
+      height: 53px;
+    }
+    .benefits > li > span{
+      font-weight: bold;
+    }
+    .link_field{
+      background: #FFFFFF;
+      box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 14px;
+      width: 100%;
+      margin-top: 17px;
+      padding: 33px 38px 48px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .link_field > h3{
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 22px;
+      letter-spacing: -0.04em;
+      color: #444444;
+      padding-bottom: 15px;
+    }
+    .link_make-btn{
+      background: #3864FF;
+      box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25), inset 0px -4px 4px rgba(35, 0, 136, 0.25);
+      border-radius: 32.5px;
+      height: 51px;
+      line-height: 51px;
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin: 0px auto;
+      font-weight: 600;
+      font-size: 1.063rem;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      position: relative;
+    }
+    .link_make-btn > i.fas{
+      font-size: 1.125rem;
+      padding-left: 9px;
+    }
+    .link_make-btn > img{
+      position: absolute;
+      right: 12%;
+      bottom: -20px;
+      width: 30px;
+      animation: mousepointer 1s infinite;
+      transform: rotate(350deg);
+    }
+    @keyframes mousepointer{
+      0%, 100% {
+        -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+        transform: translate(0, 0);
+      }
+      50% {
+        -webkit-transform: translate(10px, 10px);
+        -ms-transform: translate(10px, 10px);
+        transform: translate(10px, 10px);
+      }
+    }
+
+    .link_make-field{
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 15px;
+      display: none;
+      justify-content: space-between;
+    }
+    .link_input{
+      width: 77%;
+      box-sizing:border-box;
+      position: relative;
+    }
+    .link_make-field input[type=text]{
+      width: 100%;
+      background: #F8F9FC;
+      border: 1px solid #E6ECF1;
+      border-radius: 100px;
+      box-sizing: border-box;
+      height: 52px;
+      padding-left: 13px;
+      padding-right: 72px;
+      letter-spacing: -0.04em;
+      color: #A4ABC0;
+      font-size: 0.813rem;
+      font-weight: 400;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+    .link_make-field input[type=button]{
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      transform: translateY(-50%);
+      outline: none;
+      border: none;
+      background-color: transparent;
+      letter-spacing: -0.04em;
+      color: #333;
+      font-size: 0.813rem;
+      font-weight: 400;
+    }
+    .link_make-field input[type=text]:focus{
+      outline: none;
+      border: none;
+    }
+    .link_make-field input[type=text]::selection,
+    .link_make-field input[type=text]::-webkit-selection,
+    .link_make-field input[type=text]::-moz-selection{
+      background-color: #FFEB00;
+      color: #666;
+    }
+    .kakao_btn{
+      box-sizing: border-box;
+      width: 51px;
+      height: 51px;
+      margin-left: 5%;
+    }
+    .kakao_btn > a{
+      display: block;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+    }
+    .kakao_btn > a > img{
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- 상단 헤더 -->
+  <header>
+    <h1>
+      <a href="javascript:history.back();">
+        <img src="./img/info_edit_backspace.png" alt="뒤로가기">
+      </a>
+      <a href="./progress_lecture.html" title="나의 강의실">
+        <img src="./img/my_page.svg" alt="나의 강의실">
+      </a>
+    </h1>
+  </header>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section class="event_wrap">
+      <article class="friend_push">
+
+        <div class="event_top-con">
+          <span>event</span>
+          <h3>
+            <strong>친구추천<span>하고</span></strong>
+            <strong>혜택<span>받자!</span></strong>
+          </h3>
+          <img src="./img/friend_event.png" alt="친구추천">
+        </div>
+
+        <div class="event_bottom-con">
+          <div class="event_info">
+            <p>
+              <img src="./img/icon_plus.png" alt="plus">
+              <span>420,000원 <i class="fas fa-angle-right"></i></span>
+              <strong>0 <span>원</span></strong>
+            </p>
+  
+            <strong>프리패스 혜택 <span>적용된다면?</span></strong>
+
+            <ul class="benefits">
+              <li>1년간 <span>무제한</span> 수강</li>
+              <li><span>교안+기출</span> 파일 제공</li>
+            </ul>
+          </div>
+
+          <div class="link_field">
+            <h3>아래 링크를 눌러서 공유해주세요!</h3>
+
+            <div class="link_make-field">
+              <div class="link_input">
+                <input type="text" id="link_txt" value="https://korea-edu.net/m/join.html?id=아무개" readonly>
+                <input type="button" onclick="fn_copy(); test();" value="링크복사">
+              </div>
+              <div class="kakao_btn">
+                <a href="#" title="카톡링크">
+                  <img src="./img/kakao_link.png" alt="카톡공유">
+                </a>
+              </div>
+            </div>
+
+            <a href="#" title="혜택받기" class="link_make-btn">친구추천 링크 생성하기
+              <i class="fas fa-angle-right"></i>
+              <img src="./img/pointer.png" alt="포인터">
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 영역 -->
+  <? include "footer.php" ?>
+
+  <script>
+    $(function(){
+      $('.link_make-btn').click(function(){
+        $('.link_make-field').css({'display':'flex'});
+        return false;
+      });
+    });
+
+    // 링크 복사 script
+    function fn_copy() {
+      var url = document.getElementById('link_txt');
+      url.select();	// 복사할 text 블럭
+      document.execCommand('copy');	// 드레그된 text 클립보드에 복사
+      alert('링크가 복사되었습니다.');
+      $('.link_input > button').click(function(){
+        $('.link_txt').select();
+      });
+    }
+
+    // 특수문자 입력 방지
+    function characterCheck(obj){
+    var regExp = /[ \{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=]/gi; 
+    // 허용할 특수문자는 여기서 삭제하면 됨
+    // 지금은 띄어쓰기도 특수문자 처리됨
+    if( regExp.test(obj.value) ){
+      obj.value = obj.value.substring( 0 , obj.value.length - 1 ); // 입력한 특수문자 한자리 지움
+      }
+    }
+  </script>
+</body>
+</html>

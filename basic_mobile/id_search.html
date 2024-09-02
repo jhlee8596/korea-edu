@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>HANGUM_ID_SEARCH</title>
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+
+    body *{
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    /* 정보수정 공통서식 */
+    .search_wrap{
+      width:100%;
+      max-width:640px;
+      margin:0px auto;
+      height: 496px;
+      /* position:relative; */
+      overflow: hidden;
+      box-sizing: border-box;
+      background-color: #F8F9FC;
+      padding:46px 39px 0px 39px;
+    }
+
+    .home_btn{
+      width:298px;
+      height:24px;
+      margin:0px auto 23px auto;
+    }
+    .home_btn i.fa-angle-left{
+      font-size:0.618rem;
+      transform: translateY(-1px);
+      color:#A4ABC0;
+    }
+    .home_btn a{
+      font-size:0.813rem;
+      letter-spacing: -0.04em;
+      color:#A4ABC0;
+    }
+    .id_view{
+      width:298px;
+      height:225px;
+      margin:0px auto;
+      /* position:absolute;
+      top:34px;
+      left:50%; */
+      /* transform: translateX(-50%); */
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #D4DFEE;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(169, 180, 221, 0.15);
+      border-radius: 4px;
+    }
+    .id_view > span{
+      display:block;
+      font-size:0.875rem;
+      font-weight:bold;
+      line-height:28px;
+      letter-spacing: -0.07em;
+    }
+
+    .txt_box{
+      padding:18px 0px;
+      position: relative;
+    }
+    .txt_box::after{
+      content: "";
+      display: block;
+      width:207px;
+      height:1px;
+      background-color:#EAF0F8;
+      position: absolute;
+      top:0px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+    .txt_box > p{
+      color:#6F7792;
+      font-size:0.750rem;
+      line-height: 20px;
+      letter-spacing: -0.04em;
+    }
+    .btn_box{
+      width:100%;
+      text-align: center;
+      margin-top: 19px;
+    }
+    .btn_box a{
+      width: 100%;
+      display:block;
+      font-size:0.938rem;
+      border-radius: 4px;
+      margin:12px 0px;
+      font-weight: bold;
+      line-height:50px;
+    }
+    .log_btn{
+      background: #276CF1;
+      color:#fff;
+    }
+    .pw_btn{
+      border:1px solid #D4DFEE;
+      background-color: #fff;
+      color:#757E9E;
+    }
+
+
+    footer{
+      margin-top:0px !important;
+    }
+
+    .id_view{
+      padding:37px 0px;
+    }
+    .id_view > span:first-child{
+      margin-bottom:17px;
+    }
+    .id_view > span:nth-child(2){
+      width:9.375em;
+      height:27px;
+      margin:0px auto 39px auto;
+      text-align: center;
+      background: #EFF4FB;
+      border-radius: 27px;
+      color: #276CF1;
+      font-size:1.125rem;
+    }
+  </style>
+</head>
+<body>
+   <!-- 상단 헤더 -->
+   <? include "header.php" ?>
+
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <section class="search_wrap">
+      <article>
+        <div class="home_btn">
+           <a href="./index.html" title="홈으로"><i class="fas fa-angle-left"></i> 홈으로</a>
+        </div>
+      </article>
+      <article class="id_view">
+        <span>회원님의 아이디는 다음과 같습니다</span>
+        <span>testing**</span>
+
+        <div class="txt_box">
+          <p>개인정보 도용 피해방지를 위해</p>
+          <p>아이디 끝 두자리는 **처리 합니다.</p>
+        </div>
+      </article>
+
+      <article class="btn_box">
+        <a href="./account_find.html" title="비밀번호 찾기" class="pw_btn">비밀번호 찾기</a>
+        <a href="#" title="로그인" class="log_btn">로그인</a>
+      </article>
+    </section>
+  </main>
+
+  <!-- 하단 푸터 영역 -->
+  <? include "footer.php" ?>
+</body>
+</html>

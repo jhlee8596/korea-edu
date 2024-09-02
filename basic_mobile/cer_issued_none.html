@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자격증 발급 페이지 -1-</title>
+  
+  <!-- css 초기화 -->
+  <link href="../../css/common.css" rel="stylesheet" type="text/css">
+
+  <!-- 접두사 스크립트 -->
+  <script src="../../js/prefixfree.min.js"></script>
+
+  <!-- 아이콘 폰트 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리 -->
+  <script src="../../js/jquery-2.2.0.min.js"></script>
+
+  <!-- 제이쿼리 UI -->
+  <script src="../../js/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- 스와이퍼 제이쿼리  -->
+  <script src="../../js/swiper.js"></script>
+
+  <!-- 스와이퍼 슬라이드 서식 -->
+  <link href="../../css/swiper.css" rel="stylesheet" type="text/css">
+  <style>
+    .color01{
+      color: #2E68FF !important;
+    }
+
+    .none-modal-wrap{
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(159, 159, 159, 0.26);
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 10000;
+    }
+    .none-modal{
+      position: relative;
+      top: 195px;
+      text-align: center;
+      background: #FFFFFF;
+      border: 1px solid #E6ECF1;
+      box-shadow: 0px 4px 16px rgba(223, 223, 239, 0.4);
+      border-radius: 4px;
+      width: calc(100% - 40px);
+      margin: 0px auto;
+      padding: 30px 0px;
+    }
+    .none-modal > h6{
+      padding-bottom: 17px;
+      line-height: 18px;
+      text-indent:-5px;
+    }
+    .none-modal > h6 > img{
+      vertical-align: middle;
+      transform: translateY(-1px);
+    }
+    .none-modal > h6 > span{
+      letter-spacing: -0.06em;
+      color: #2B383F;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .none-modal > p{
+      font-weight: 400;
+      font-size: 0.938rem;
+      line-height: 26px;
+      letter-spacing: -0.06em;
+      color: #2B383F;
+    }
+    .none-modal > #choonDiv{
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 15px;
+      letter-spacing: -0.06em;
+      color: #4F8EF7;
+      display: block;
+      padding:16px 0px 24px;
+    }
+    .none-modal > a{
+      background: #FFFFFF;
+      border: 1.06667px solid #DDE8F9;
+      border-radius: 4px;
+      display: block;
+      width: calc(100% - 210px);
+      height: 44px;
+      margin: 0px auto;
+      font-weight: 600;
+      font-size: 0.938rem;
+      line-height: 44px;
+      letter-spacing: -0.01em;
+      color: #3E4A61;
+      text-align: center;
+    }
+    .issued_wrap{
+      width:100%;
+      padding-bottom: 155px;
+      background-color: #fff;
+      box-sizing: border-box;
+    }
+    .top_banner{
+      width:100%;
+      padding:0px 21px;
+      background: #EDF4FF;
+      box-sizing: border-box;
+    }
+    .top_banner > p{
+      text-align: left;
+      position: relative;
+      width:100%;
+      height:46px;
+      line-height: 42px;
+      font-weight: 400;
+      color: #222222;
+    }
+    .top_banner > p img{
+      width: 19px;
+      height: 19px;
+      vertical-align: middle;
+    }
+    .top_banner > p > span{
+      font-size:0.938rem;
+      letter-spacing: -0.04em;
+      color: #222222;
+      font-weight: 400;
+    }
+    .top_banner > p > span:first-of-type{
+      color:#2E68FF;
+      font-weight: 400;
+    }
+    .top_banner > p a{
+      position:absolute;
+      right:0px;
+      top:50%;
+      transform:translateY(-50%);
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.938rem;
+      display: block;
+      width: 100%;
+      text-align: right;
+      height: 46px;
+      line-height: 42px;
+    }
+    .top_banner > p > a > span{
+      font-size:0.938rem;
+      letter-spacing: -0.04em;
+      font-weight: 400;
+      color: #222222;
+      text-indent: -2px;
+      display: inline-block;
+      text-indent: -2px;
+      padding-right: 5px;
+    }
+    .top_banner > p i.fas{
+      color:#666666;
+      font-size: 11px;
+      transform: translateY(-2px);
+    }
+    .issued_con{
+      width: 100%;
+      padding: 27px 21px 0px;
+      box-sizing: border-box;
+    }
+    .issued_con > h3{
+      letter-spacing: -0.04em;
+      color: #000000;
+      font-size:1.188rem;
+      padding-bottom: 16px;
+    }
+
+    .issued_subject{
+      background: #FFFFFF;
+      border-radius: 12.8px;
+      height: 0;
+      padding-bottom: 70%;
+    }
+    .subject-txt_wrap{
+      display:flex;
+      justify-content: space-between;
+    }
+    .issued_subject > .subject-txt_wrap > h4{
+      letter-spacing: -0.04em;
+      color: #2E68FF;
+      font-size:0.875rem;
+    }
+    .issued_subject > .subject-txt_wrap > span{
+      letter-spacing: -0.04em;
+      color: #505873;
+      font-size:0.750rem;
+    }
+
+    .issued_notice{
+      width: calc(100% - 40px);
+      box-sizing: border-box;
+      margin: 12px auto 32px auto;
+      background: #E8EFFF;
+      border-radius: 4px;
+      padding:22px 22px 32px;
+    }
+    .issued_notice > h3{
+      padding-bottom:10px;
+    }
+    .issued_notice > h3 > img{
+      vertical-align: middle;
+    }
+    .issued_notice > h3 > span{
+      letter-spacing: -0.04em;
+      color: #333;
+      font-size:0.938rem;
+      display: inline-block;
+      text-indent: -2px;
+    }
+    .issued_notice > p{
+      letter-spacing: -0.02em;
+      color: #475B7D;
+      font-size: 0.875rem;
+      line-height: 22px;
+    }
+    .issued_notice > p:first-of-type{
+      padding-bottom: 13px;
+    }
+
+    .issued_pay{
+      padding: 19px 24px 0px;
+    }
+    .issued_pay > ul{
+      border-top: 2px solid #E6ECF1;
+      display:flex;
+      justify-content: space-between;
+      width: 100%;
+      padding-top:19px ;
+    }
+    .issued_pay > ul > li{}
+    .issued_pay h3{
+      letter-spacing: -0.04em;
+      color: #333333;
+      font-weight: 400;
+      font-size: 1.063rem;
+    }
+    .issued_pay strong{
+      color: #333;
+      font-size: 1.125rem;
+    }
+    .issued_pay strong > span{
+      color: #2E68FF;
+      font-weight: bold;
+      font-size: 1.438rem;
+    }
+    .issued_bottom-btn{
+      position: fixed;
+      left:0px;
+      bottom:0px;
+      background: #4F8EF7;
+      width:100%;
+    }
+    .issued_bottom-btn > a{
+      display: block;
+      letter-spacing: -0.04em;
+      color: #FFFFFF;
+      font-size:1.125rem;
+      text-align: center;
+      line-height:58px;
+    }
+    .btn_box2{
+      width:100%;
+      display:flex;
+      justify-content: space-around;
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      z-index: 10001;
+    }
+    .btn_box2 > a{
+      display:block;
+      width:calc(100% - 62px);
+      letter-spacing: -0.01em;
+      color: #fff;
+      font-size:0.875rem;
+      border-radius: 4px;
+      font-weight: bold;
+      line-height: 47px;
+      padding: 0;
+      background: #4F8EF7;
+    }
+    body.modal-open {
+      overflow-y: hidden;
+    }
+    .dot span {
+      width: 5.3px;
+      height: 5.3px;
+      background: #ADCCFF;
+      opacity: 1 !important;
+      border-radius: 11px;
+    }
+    .border_on{
+      border: 1px solid #4288FD !important;
+    }
+  </style>
+  <script>
+    function Timer() { 
+      setTimeout("locateKap()",5000); 
+    } 
+    function locateKap(){
+      location.replace("progress_lecture.html");
+    }
+    cnt = 5; // 카운트다운 시간 초단위로 표시
+    function countdown() {
+      if(cnt == 0){
+        // 시간이 0일경우
+        locateKap();
+      }else {
+        // 시간이 남았을 경우 카운트다운을 지속한다.
+        document.all.choonDiv.innerHTML = cnt + "초";
+        setTimeout("countdown()",1000);
+        cnt--;
+      }
+    }
+  </script>
+</head>
+<body onLoad="Timer();">
+
+  <!-- 상단 헤더 -->
+  <? include "header.php" ?>
+  <nav class="top_nav">
+		<ul class="m_lnb">
+			<li>
+				<a href="./index_login.html" title="홈">홈</a>
+			</li>
+			<li>
+				<a href="./cer_issued.html" title="발급신청" class="color_on">발급신청</a>
+			</li>
+			<li>
+				<a href="./enrolment.html" title="수강신청">수강신청</a>
+			</li>
+			<li>
+				<a href="./review_m.html" title="합격후기">합격후기</a>
+			</li>
+			<li>
+				<a href="./procedure.html" title="고객센터">고객센터</a>
+			</li>
+		</ul>
+	</nav>
+
+	<script>
+		const nav_Offset = $('.top_nav').offset().top;
+		// console.log(nav_Offset); // 50
+
+		$(window).scroll(function(){
+			
+			let sPos = $(this).scrollTop();
+			// console.log(sPos);
+
+			if(nav_Offset<=sPos){
+				$('.top_nav').addClass('nav_act');
+			}else{
+				$('.top_nav').removeClass('nav_act');
+			}
+		});
+	</script>
+
+  <!-- 메인 콘텐츠 -->
+    <div class="none-modal-wrap">
+      <div class="none-modal">
+        <h6>
+          <img src="./img/warning_blue.svg" alt="경고">
+          <span>신청 불가 안내</span>
+        </h6>
+        <p>
+          발급신청 가능한 과목이 없습니다. <br>
+          나의강의실로 이동합니다.
+        </p>
+        <span id="choonDiv"></span>
+        <a href="progress_lecture.html" title="나의 강의실 바로가기">확인</a>
+      </div>
+    </div>
+    <section class="issued_wrap">
+      <form name="" method="" action="">
+        <div class="top_banner">
+          <p>
+            <img src="./img/warning_black.svg" alt="경고">
+            <span>14일 이내</span> <span>자격증 발급시 <strong>배송비 무료</strong></span>
+            <a href="#" title="전체보기" class="modal_btn">필독사항 <i class="fas fa-angle-right"></i></a>
+          </p>
+        </div>
+        <article class="issued_con">
+  
+          <h3>자격증 발급</h3>
+          <div class="issued_subject">
+
+          </div>
+        </article>
+  
+        <article class="issued_notice">
+          <h3>
+            <img src="./img/warning_black.svg" alt="경고">
+            <span>유의사항</span>
+          </h3>
+          <p>결제 후, 익일 오전 11시에 자격증 신청 명단이 전달되어
+            자격증 제작이 진행되기 때문에 환불이 불가합니다.</p>
+          <p>한국직업능력개발원에 등록된 민간자격증은 제공인력
+            (교강사) 자격요건으로도 사용이 가능합니다.</p>
+        </article>
+  
+        <article class="issued_pay">
+          <ul>
+            <li>
+              <h3>발급 수수료</h3>
+            </li>
+            <li>
+              <strong>
+                <span class="total-cart" id="total-cart">0</span>
+                원
+              </strong>
+            </li>
+          </ul>
+          
+          
+        </article>
+      </form>
+    </section>
+
+    <aside class="issued_bottom-btn">
+      <a href="payment.html" title="개인정보 확인">결제하기</a>
+    </aside>
+  </main>
+
+  <script>countdown();</script>
+</body>
+</html>
